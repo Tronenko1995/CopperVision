@@ -1,0 +1,250 @@
+
+    .modal-1 {
+        padding: 65px 48px 46px 48px;
+        &__form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        &__title {
+            line-height: 1.5;
+            font-size: 24px;
+            color: #761284;
+            font-family: 'FoundrySterlingOT3-Medium';
+            margin-bottom: 20px;
+        }
+        &__input {
+            width: 100%;
+            height: 47px;
+            border: 1px solid #c8cacd;
+            background: #fafafa;
+            border-radius: 20px;
+            outline: none;
+            color: #636466;
+            font-family: 'FoundrySterlingOT3-Medium';
+            font-size: 18px;
+            padding: 0 20px;
+            margin-top: 20px;
+
+            &::placeholder {
+                color: #636466;
+                font-family: 'FoundrySterlingOT3-Book';
+            }
+        }
+        &__checkbox {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            top: 387px;
+            left: 68px;
+
+            &--modal-2 {
+                top: 458px;
+            }
+            &--modal-2_2 {
+                top: 528px;
+            }
+
+            &:checked+label::before {
+                background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIyLjAuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIGZpbGw9IiM3NjEyODQiIHZlcnNpb249IjEuMSIgaWQ9ItCh0LvQvtC5XzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzAwIDI4Mi43IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMDAgMjgyLjc7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KCTxwYXRoIGQ9Ik0xMTYuOSwyODIuNkMxMDYuNCwyNDIuNCwxNCwxMzcuOCwwLDExOC42YzEyOS4xLDEwMi45LDExNi45LDkwLjcsMTE2LjksOTAuN0MzMDAsMCwzMDAsMCwzMDAsMCBDMTUxLjcsMjE5LjgsMTE4LjYsMjg2LDExNi45LDI4Mi42eiIvPgo8L3N2Zz4K');
+                background-repeat: no-repeat;
+            }
+            &-label {
+                margin-top: 20px;
+                margin-left: 20px;
+                display: inline-flex;
+                align-items: flex-start;
+                user-select: none;
+                color: #636466;
+                font-family: 'FoundrySterlingOT3-Book';
+                font-size: 18px;
+                line-height: 16px;
+                cursor: pointer;
+                line-height: 1.467;  
+
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    min-width: 18px;
+                    min-height: 18px;
+                    border: 1px solid #c8cacd;
+                    margin-right: 12px;
+                    background: #fafafa;
+                    margin-top: 8px;
+                }
+            }
+        }
+        .more {
+            width: 100%;
+            margin-top: 35px;
+            display: flex;
+            justify-content: flex-start;
+
+            &__text {
+                font-family: 'FoundrySterlingOT3-Book';
+                font-size: 32px;
+                color: #761284;
+                text-decoration: none;
+                display: flex;
+                border: none;
+                outline: none;
+                background: none;
+                cursor: pointer;
+
+                &-svg {
+                    width: 51px;
+                    height: 51px;
+                    fill: #761284;
+                    margin-left: 20px;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .new-close {
+            font-size: 0;
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4wLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBmaWxsPSIjNzYxMjg0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUyIDUyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MiA1MjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KCTxwYXRoIGQ9Ik0yNiwwQzExLjY2NCwwLDAsMTEuNjYzLDAsMjZzMTEuNjY0LDI2LDI2LDI2czI2LTExLjY2MywyNi0yNlM0MC4zMzYsMCwyNiwweiBNMjYsNTBDMTIuNzY3LDUwLDIsMzkuMjMzLDIsMjYNCgkJUzEyLjc2NywyLDI2LDJzMjQsMTAuNzY3LDI0LDI0UzM5LjIzMyw1MCwyNiw1MHoiLz4NCgk8cGF0aCBkPSJNMzUuNzA3LDE2LjI5M2MtMC4zOTEtMC4zOTEtMS4wMjMtMC4zOTEtMS40MTQsMEwyNiwyNC41ODZsLTguMjkzLTguMjkzYy0wLjM5MS0wLjM5MS0xLjAyMy0wLjM5MS0xLjQxNCwwDQoJCXMtMC4zOTEsMS4wMjMsMCwxLjQxNEwyNC41ODYsMjZsLTguMjkzLDguMjkzYy0wLjM5MSwwLjM5MS0wLjM5MSwxLjAyMywwLDEuNDE0QzE2LjQ4OCwzNS45MDIsMTYuNzQ0LDM2LDE3LDM2DQoJCXMwLjUxMi0wLjA5OCwwLjcwNy0wLjI5M0wyNiwyNy40MTRsOC4yOTMsOC4yOTNDMzQuNDg4LDM1LjkwMiwzNC43NDQsMzYsMzUsMzZzMC41MTItMC4wOTgsMC43MDctMC4yOTMNCgkJYzAuMzkxLTAuMzkxLDAuMzkxLTEuMDIzLDAtMS40MTRMMjcuNDE0LDI2bDguMjkzLTguMjkzQzM2LjA5OCwxNy4zMTYsMzYuMDk4LDE2LjY4NCwzNS43MDcsMTYuMjkzeiIvPg0KPC9zdmc+DQo=');
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 45px;
+            height: 45px;
+            opacity: 1;
+            top: 20px;
+            right: 20px;
+        }
+    }
+
+
+
+
+
+@media(max-width: 770px) {
+
+
+        .modal-1 {
+            padding: 40px 20px 20px 20px;
+
+            &__form {
+                // display: flex;
+                // flex-direction: column;
+                // align-items: flex-start;
+            }
+            &__title {
+                // line-height: 1.5;
+                font-size: 16px;
+                // color: #761284;
+                // font-family: 'FoundrySterlingOT3-Medium';
+                margin-bottom: 10px;
+            }
+            &__input {
+                // width: 100%;
+                height: 40px;
+                // border: 1px solid #c8cacd;
+                // background: #fafafa;
+                // border-radius: 20px;
+                // outline: none;
+                // color: #636466;
+                // font-family: 'FoundrySterlingOT3-Medium';
+                font-size: 14px;
+                // padding: 0 20px;
+                margin-top: 15px;
+    
+                &::placeholder {
+                    // color: #636466;
+                    // font-family: 'FoundrySterlingOT3-Book';
+                }
+            }
+            &__checkbox {
+                // position: absolute;
+                // z-index: -1;
+                // opacity: 0;
+                top: 313px;
+                left: 24px;
+    
+                &--modal-2 {
+                    top: 368px;
+                    left: 23px;
+                }
+                &--modal-2_2 {
+                    top: 447px;
+                    left: 23px;
+                }
+    
+                &:checked+label::before {
+                    // background-repeat: no-repeat;
+                }
+                &-label {
+                    // margin-top: 20px;
+                    margin-left: 4px;
+                    // display: inline-flex;
+                    // align-items: flex-start;
+                    // user-select: none;
+                    // color: #636466;
+                    // font-family: 'FoundrySterlingOT3-Book';
+                    font-size: 14px;
+                    // line-height: 16px;
+                    // cursor: pointer;
+                    // line-height: 1.467;  
+    
+                    &::before {
+                        // content: '';
+                        // display: inline-block;
+                        min-width: 16px;
+                        min-height: 16px;
+                        // border: 1px solid #c8cacd;
+                        // margin-right: 12px;
+                        // background: #fafafa;
+                        margin-top: 6px;
+                    }
+                }
+            }
+            .more {
+                // width: 100%;
+                margin-top: 40px;
+                // display: flex;
+                justify-content: center;
+    
+                &__text {
+                    // font-family: 'FoundrySterlingOT3-Book';
+                    font-size: 14px;
+                    // color: #761284;
+                    // text-decoration: none;
+                    // display: flex;
+                    // border: none;
+                    // outline: none;
+                    // background: none;
+                    // cursor: pointer;
+    
+                    &-svg {
+                        width: 25px;
+                        height: 25px;
+                        // fill: #761284;
+                        // margin-left: 20px;
+                    }
+    
+                    &:hover {
+                        // text-decoration: underline;
+                    }
+                }
+            }
+            .new-close {
+                // font-size: 0;
+                // background-repeat: no-repeat;
+                // background-position: center center;
+                width: 30px;
+                height: 30px;
+                // opacity: 1;
+                top: 15px;
+                right: 15px;
+            }
+        }
+    
+    
+    
+    }
+    
+
+
+

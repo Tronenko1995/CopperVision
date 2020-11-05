@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+.scienceArticles {}
+.scienceArticles__head {
+    display: flex;
+    position: relative;
+}
+.scienceArticles__head-title {
+    color: #6c207f;
+    font-size: 60px;
+    line-height: 1.2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 50px;
+}
+.scienceArticles__body {}
+.scienceArticles__body-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.scienceArticles__body-list-item {
+    padding: 20px 40px 20px 20px;
+    background: #f2f2f2;
+    width: 31%;
+    margin: 0 1%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+.scienceArticles__body-list-item .scienceArticles__body-list-item-title {
+    color: #005cab;
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 400;
+    display: inline-flex;
+    width: fit-content;
+}
+.scienceArticles__body-list-item .scienceArticles__body-list-item-text {
+    color: #005cab;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    /* margin-top: 50px; */
+    display: inline-flex;
+    width: fit-content;
+}
+.scienceArticles__body-list-item .scienceArticles__body-list-item-link {
+    display: inline-flex;
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-decoration: none;
+}
+@media (max-width: 1024px) {
+    .scienceArticles__body-list-item {
+        width: 48%;
+        margin-bottom: 20px;
+    }
+    .scienceArticles__head-title {
+        font-size: 50px;
+    }
+}
+@media (max-width: 700px) {
+    .scienceArticles__head-title {
+        font-size: 30px;
+        margin-left: 15px;
+    }
+    .scienceArticles__body-list-item {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        min-height: auto;
+    }
+    .scienceArticles__body-list-item .scienceArticles__body-list-item-text {
+        margin-top: 50px;
+}
+@media (min-width: 601px) {
+    .breadcrumb {
+        float: none;
+        display: none;
+    }
+}
+</style>
+    <div id="nearsightednessBread" class="breadcrumb breadcrumb2">
+        <span class="breadcrumb__link">
+            <a href="https://coopervision.ru/">Home</a>
+        </span>
+        <span class="breadcrumb__separator"> &gt; </span>
+        <span class="breadcrumb__link">
+            <a href="https://coopervision.ru/practitioner/clinical-resources">Клинические ресурсы</a>
+        </span>
+        <span class="breadcrumb__separator"> &gt; </span>
+        <span class="breadcrumb__link">
+            <a href="https://coopervision.ru/practitioner/clinical-resources/myopia">Миопия</a>
+        </span>
+        <span class="breadcrumb__separator"> &gt; </span>
+        <span class="breadcrumb__link">Научные статьи</span>
+    </div>
+    <div class="scienceArticles">
+        <div class="scienceArticles__head">
+            <img src="https://coopervision.ru/sites/coopervision.ru/files/hero_image_2.jpg?timestamp=1603720990" alt="" class="scienceArticles__head-img">
+            <p class="scienceArticles__head-title">Научные статьи</p>
+        </div>
+        <div class="scienceArticles__body">
+            <div class="scienceArticles__body-list">
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/miopiya_i_okruzhayushchaya_zritelnaya_sreda.pdf">Миопия и окружающая зрительная среда</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/miopiya_i_okruzhayushchaya_zritelnaya_sreda.pdf">Профессор Скот Рид</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/miopiya_i_okruzhayushchaya_zritelnaya_sreda.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/miopiya_problema_obshchestvennogo_zdravoohraneniya_21_veka.pdf">Миопия. Проблема общественного здравоохранения 21 века</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/miopiya_problema_obshchestvennogo_zdravoohraneniya_21_veka.pdf">Профессор Паджма Санкаридург и доктор Моника Джонг</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/miopiya_problema_obshchestvennogo_zdravoohraneniya_21_veka.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/setchatka_miopicheskogo_glaza_ukroshchenie_zverya.pdf">Сетчатка миопического глаза: укрощение зверя</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/setchatka_miopicheskogo_glaza_ukroshchenie_zverya.pdf">Доктор Абишек Шарма и доктор  Криштолин Рэй</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/setchatka_miopicheskogo_glaza_ukroshchenie_zverya.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/novoe_o_miopii_16ya_mezhdunarodnaya_konferenciya_po_miopii.pdf">Новое о Миопии. 16-я Международная конференция по миопии</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/novoe_o_miopii_16ya_mezhdunarodnaya_konferenciya_po_miopii.pdf">Кейт Гиффорд</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/novoe_o_miopii_16ya_mezhdunarodnaya_konferenciya_po_miopii.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/nachinaem_zanimatsya_kontrolem_miopii.pdf">Начинаем заниматься контролем миопии</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/nachinaem_zanimatsya_kontrolem_miopii.pdf">Кейт Гиффорд</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/nachinaem_zanimatsya_kontrolem_miopii.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/biznes-voprosy_zamedleniya_progressirovaniya_miopii.pdf">Бизнес-вопросы Замедления Прогрессирования Миопии</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/biznes-voprosy_zamedleniya_progressirovaniya_miopii.pdf">Доктор Моника Джонг, профессор Паджма Санкаридург, доктор Ка Ои Тан</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/biznes-voprosy_zamedleniya_progressirovaniya_miopii.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/atropin_effektivnost_i_vozmozhnye_mehanizmy_zamedleniya_progressirovaniya_miopii.pdf">Атропин. Эффективность и возможные механизмы замедления прогрессирования миопии</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/atropin_effektivnost_i_vozmozhnye_mehanizmy_zamedleniya_progressirovaniya_miopii.pdf">Доктор Сафал Ханал и доктор Филип Тернбулл</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/atropin_effektivnost_i_vozmozhnye_mehanizmy_zamedleniya_progressirovaniya_miopii.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/zamedlenie_progressirovaniya_miopii.pdf">Замедление прогрессирования миопии</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/zamedlenie_progressirovaniya_miopii.pdf">Полина Канг и Кэтлин Вотт</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/zamedlenie_progressirovaniya_miopii.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/korrigirovat_ne_korrigirovat_ili_nedokorrigirovat_miopiyu.pdf">Корригировать, Не корригировать или Недокорригировать Миопию?</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/korrigirovat_ne_korrigirovat_ili_nedokorrigirovat_miopiyu.pdf">Доктор Пол Гиффорд</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/korrigirovat_ne_korrigirovat_ili_nedokorrigirovat_miopiyu.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/zamedlenie_progressirovaniya_miopii_s_pomoshchyu_myagkih_kontaktnyh_linz.pdf">Замедление прогрессирования миопии с помощью мягких контактных линз</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/zamedlenie_progressirovaniya_miopii_s_pomoshchyu_myagkih_kontaktnyh_linz.pdf">Доктор Никола Анстиц, доктор Филип Тернбулл, доктор Эндрю Коллинз, доктор Джон Филлипс</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/zamedlenie_progressirovaniya_miopii_s_pomoshchyu_myagkih_kontaktnyh_linz.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/miopiya_podbor_myagkih_kontaktnyh_linz_detyam_naskolko_eto_bezopasno.pdf">Миопия. Подбор мягких контактных линз детям – насколько это безопасно?</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/miopiya_podbor_myagkih_kontaktnyh_linz_detyam_naskolko_eto_bezopasno.pdf">Профессор Марк Буллимор</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/miopiya_podbor_myagkih_kontaktnyh_linz_detyam_naskolko_eto_bezopasno.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/issledovaniya_po_zamedleniyu_progressirovaniya_miopii_chto_vazhno_i_pochemu_chast_1.pdf">Исследования по замедлению прогрессирования миопии. Что важно и почему? Часть 1</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/issledovaniya_po_zamedleniyu_progressirovaniya_miopii_chto_vazhno_i_pochemu_chast_1.pdf">Доктор Кэти Дамблтон</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/issledovaniya_po_zamedleniyu_progressirovaniya_miopii_chto_vazhno_i_pochemu_chast_1.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+
+                <div class="scienceArticles__body-list-item">
+                    <a target="_blank" class="scienceArticles__body-list-item-title" href="https://coopervision.ru/sites/coopervision.ru/files/issledovaniya_po_zamedleniyu_progressirovaniya_miopii_chto_vazhno_i_pochemu_chast_2.pdf">Исследования по замедлению прогрессирования миопии. Что важно и почему? Часть 2</a>
+                    <a target="_blank" class="scienceArticles__body-list-item-text" href="https://coopervision.ru/sites/coopervision.ru/files/issledovaniya_po_zamedleniyu_progressirovaniya_miopii_chto_vazhno_i_pochemu_chast_2.pdf">Доктор Кэти Дамблтон</a>
+                    <a class="scienceArticles__body-list-item-link" href="https://coopervision.ru/sites/coopervision.ru/files/issledovaniya_po_zamedleniyu_progressirovaniya_miopii_chto_vazhno_i_pochemu_chast_2.pdf">
+                        <img width="40" height="40" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAyAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MDVCNkRGNTE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MDVCNkRGNjE5NjIxMUU5OUVCREE3MEIxQjFENEE4MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkwNUI2REYzMTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkwNUI2REY0MTk2MjExRTk5RUJEQTcwQjFCMUQ0QTgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQACAYGBgYGCAYGCAwIBwgMDgoICAoOEA0NDg0NEBEMDg0NDgwRDxITFBMSDxgYGhoYGCMiIiIjJycnJycnJycnJwEJCAgJCgkLCQkLDgsNCw4RDg4ODhETDQ0ODQ0TGBEPDw8PERgWFxQUFBcWGhoYGBoaISEgISEnJycnJycnJycn/8AAEQgAKAAoAwEiAAIRAQMRAf/EAG8AAQADAQEAAAAAAAAAAAAAAAABBAYDBwEAAwEBAAAAAAAAAAAAAAAAAAEEAgYQAAICAgAFAwUAAAAAAAAAAAECAAMEBREhMRIGQSIT8FHBcgcRAAMBAAICAwAAAAAAAAAAAAERAgAhAzFBYaEE/9oADAMBAAIRAxEAPwDERETsdyGRLmu1Wx21tlGtxnyraq2usSscSETq311lQgg8DyIiYZDDHkZooFcHwdEREeWTQaLC8RyMR33+yyMPKFhVKqKfkU19qkMTwPPuLTPxM3JoIUZ+ZT+3tRQksyK+K8fS3omjxvC8HaY1+l3+wGeHC0LXili5PLsK9vuDeokf1fB8fxdpXbr3CbW/37DFrA+McRxFjcD7Hb1X16/tj9Hvc/x7LbO1pRchq3pD2IH7Q44dyd3Rh9/xKF11uRa997tZbYxeyxyWZmPMkk9TJp/NY7x2nsoiZXKdP0UBwNRX6IPQesdcg1T4alewyeTucREr0uREQxkREMZERDG//9k=" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>

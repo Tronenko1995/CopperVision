@@ -1,0 +1,567 @@
+.nearsightedness {
+&__page {
+&--4 {
+    // display: none;
+
+    .slider {
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+        position: relative;
+
+        &__wrap {
+            width: 1170px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        &__title {
+            padding: 21px 42px;
+            text-align: center;
+            background: #761284;
+            font-family: 'FoundrySterlingOT3-Book';
+            border-radius: 0px 50px 50px 0px;
+            color: #fff;
+            font-size: 32px;
+            line-height: 1;
+        }
+        &__slider {
+            width: 1000px;
+            position: relative;
+            margin: 70px auto 0 auto;
+
+            &-for-block {
+            }
+            &-block {
+
+                &-img {
+                    width: 145px;
+                    height: 145px;
+                }
+                &-text {
+                    margin-top: 35px;
+                    font-size: 18px;
+                    color: #636466;
+                    font-family: 'FoundrySterlingOT3-Book';
+                    width: 315px;
+                }
+                &-link {
+                    color: #761284;
+                    font-size: 18px;
+                    font-family: 'FoundrySterlingOT3-Medium';
+                    outline: none;
+                }
+            }
+        }
+    }
+    .more {
+        width: 100%;
+        margin-top: 70px;
+        margin-bottom: 120px;
+        display: flex;
+        justify-content: center;
+
+        &__text {
+            font-family: 'FoundrySterlingOT3-Book';
+            font-size: 32px;
+            color: #761284;
+            text-decoration: none;
+            display: flex;
+
+            &-svg {
+                width: 51px;
+                height: 51px;
+                fill:  #761284;
+                margin-left: 25px;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .semicircle {
+
+        &-img {
+            position: absolute;
+            bottom: -361px;
+            right: 0px;
+            z-index: -1;
+        }
+    }
+
+    .slider__slider .slick-arrow {
+        font-size: 0;
+        position: absolute;
+        width: 31px;
+        height: 58px;
+        top: 50%;
+        transform: scaleY(-50%);
+        z-index: 10;
+        cursor: pointer;
+    
+    }
+    .slider__slider .slick-prev {
+        transform: rotate(180deg);
+        position: absolute;
+        background: url('../img/arrow.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: -85px;
+    
+        &:hover {
+            left: -90px;
+        }
+    }
+    .slider__slider .slick-next {
+        background: url('../img/arrow.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        right: -85px;
+        &:hover {
+            right: -90px;
+        }
+    }
+    
+    .slider__slider .slick-slide {
+        // padding: 15px;
+    }
+    
+    .slider__slider {
+        // margin: -15px;
+    }
+
+}}}
+
+
+@media (max-width: 1180px) {
+
+    .nearsightedness {
+        &__page {
+        &--4 {
+            // display: none;
+        
+            .slider {
+                // display: flex;
+                // justify-content: center;
+                // margin-top: 80px;
+                // position: relative;
+        
+                &__wrap {
+                    // width: 1170px;
+                    // display: flex;
+                    // flex-direction: column;
+                    // align-items: flex-start;
+                    margin: 0 20px;
+                }
+                &__title {
+                    font-size: 28px;
+                    padding: 15px 30px;
+                    margin-left: -20px;
+                    // text-align: center;
+                    // background: #761284;
+                    // font-family: 'FoundrySterlingOT3-Book';
+                    // border-radius: 0px 50px 50px 0px;
+                    // color: #fff;
+                    // line-height: 1;
+                }
+                &__slider {
+                    width: 650px;
+                    // position: relative;
+                    // margin: 70px auto 0 auto;
+        
+                    &-for-block {
+                    }
+                    &-block {
+        
+                        &-img {
+                            width: 116px;
+                            height: 116px;
+                        }
+                        &-text {
+                            margin-top: 15px;
+                            font-size: 16px;
+                            // color: #636466;
+                            // font-family: 'FoundrySterlingOT3-Book';
+                            width: 280px;
+                        }
+                        &-link {
+                            // color: #761284;
+                            font-size: 16px;
+                            // font-family: 'FoundrySterlingOT3-Medium';
+                            // outline: none;
+                        }
+                    }
+                }
+            }
+            .more {
+                // width: 100%;
+                // margin-top: 70px;
+                // margin-bottom: 30px;
+                // display: flex;
+                // justify-content: center;
+        
+                &__text {
+                    // font-family: 'FoundrySterlingOT3-Book';
+                    font-size: 30px;
+                    // color: #761284;
+                    // text-decoration: none;
+                    // display: flex;
+        
+                    &-svg {
+                        // width: 51px;
+                        // height: 51px;
+                        // fill:  #761284;
+                        // margin-left: 25px;
+                    }
+        
+                    &:hover {
+                        // text-decoration: underline;
+                    }
+                }
+            }
+            .semicircle {
+        
+                &-img {
+                    // position: absolute;
+                    bottom: -230px;
+                    // right: 0px;
+                    // z-index: -1;
+                    width: 193px;
+                    height: 519px;
+                }
+            }
+        
+            .slider__slider .slick-arrow {
+                // font-size: 0;
+                // position: absolute;
+                width: 25px;
+                height: 46px;
+                // top: 50%;
+                // transform: scaleY(-50%);
+                // z-index: 10;
+                // cursor: pointer;
+            
+            }
+            .slider__slider .slick-prev {
+                // transform: rotate(180deg);
+                // position: absolute;
+                // background: url('../img/arrow.svg');
+                // background-size: cover;
+                // background-repeat: no-repeat;
+                // left: -85px;
+            
+                &:hover {
+                    // left: -90px;
+                }
+            }
+            .slider__slider .slick-next {
+                // background: url('../img/arrow.svg');
+                // background-size: cover;
+                // background-repeat: no-repeat;
+                right: -25px;
+                &:hover {
+                    right: -30px;
+                }
+            }
+            
+            .slider__slider .slick-slide {
+                // padding: 15px;
+            }
+            
+            .slider__slider {
+                // margin: -15px;
+            }
+        
+        }}}
+
+}
+
+@media (max-width: 860px) {
+
+    .nearsightedness {
+        &__page {
+        &--4 {
+            // display: none;
+        
+            .slider {
+                // display: flex;
+                // justify-content: center;
+                // margin-top: 80px;
+                // position: relative;
+        
+                &__wrap {
+                    // width: 1170px;
+                    // display: flex;
+                    // flex-direction: column;
+                    // align-items: flex-start;
+                    margin: 0 20px;
+                }
+                &__title {
+                    font-size: 26px;
+                    padding: 15px 30px;
+                    margin-left: -20px;
+                    // text-align: center;
+                    // background: #761284;
+                    // font-family: 'FoundrySterlingOT3-Book';
+                    // border-radius: 0px 50px 50px 0px;
+                    // color: #fff;
+                    // line-height: 1;
+                }
+                &__slider {
+                    width: 280px;
+                    // position: relative;
+                    // margin: 70px auto 0 auto;
+        
+                    &-for-block {
+                    }
+                    &-block {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        &-img {
+                            width: 116px;
+                            height: 116px;
+                        }
+                        &-text {
+                            margin-top: 15px;
+                            font-size: 16px;
+                            // color: #636466;
+                            // font-family: 'FoundrySterlingOT3-Book';
+                            width: 280px;
+                        }
+                        &-link {
+                            // color: #761284;
+                            font-size: 16px;
+                            // font-family: 'FoundrySterlingOT3-Medium';
+                            // outline: none;
+                        }
+                    }
+                }
+            }
+            .more {
+                // width: 100%;
+                // margin-top: 70px;
+                // margin-bottom: 30px;
+                // display: flex;
+                // justify-content: center;
+        
+                &__text {
+                    // font-family: 'FoundrySterlingOT3-Book';
+                    font-size: 26px;
+                    // color: #761284;
+                    // text-decoration: none;
+                    // display: flex;
+        
+                    &-svg {
+                        width: 40px;
+                        height: 40px;
+                        // fill:  #761284;
+                        // margin-left: 25px;
+                    }
+        
+                    &:hover {
+                        // text-decoration: underline;
+                    }
+                }
+            }
+            .semicircle {
+        
+                &-img {
+                    // position: absolute;
+                    bottom: -148px;
+                    // right: 0px;
+                    // z-index: -1;
+                    width: 154px;
+                    height: 415px;
+                }
+            }
+        
+            .slider__slider .slick-arrow {
+                // font-size: 0;
+                // position: absolute;
+                width: 25px;
+                height: 46px;
+                // top: 50%;
+                // transform: scaleY(-50%);
+                // z-index: 10;
+                // cursor: pointer;
+            
+            }
+            .slider__slider .slick-prev {
+                // transform: rotate(180deg);
+                // position: absolute;
+                // background: url('../img/arrow.svg');
+                // background-size: cover;
+                // background-repeat: no-repeat;
+                left: -60px;
+            
+                &:hover {
+                    left: -65px;
+                }
+            }
+            .slider__slider .slick-next {
+                // background: url('../img/arrow.svg');
+                // background-size: cover;
+                // background-repeat: no-repeat;
+                right: -60px;
+                &:hover {
+                    right: -65px;
+                }
+            }
+            
+            .slider__slider .slick-slide {
+                // padding: 15px;
+            }
+            
+            .slider__slider {
+                // margin: -15px;
+            }
+        
+        }}}
+
+}
+
+
+@media (max-width: 500px) {
+
+    .nearsightedness {
+        &__page {
+        &--4 {
+            // display: none;
+        
+            .slider {
+                // display: flex;
+                // justify-content: center;
+                // margin-top: 80px;
+                // position: relative;
+        
+                &__wrap {
+                    // width: 1170px;
+                    // display: flex;
+                    // flex-direction: column;
+                    // align-items: flex-start;
+                    margin: 0 20px;
+                }
+                &__title {
+                    font-size: 22px;
+                    padding: 15px 30px;
+                    margin-left: -20px;
+                    // text-align: center;
+                    // background: #761284;
+                    // font-family: 'FoundrySterlingOT3-Book';
+                    // border-radius: 0px 50px 50px 0px;
+                    // color: #fff;
+                    // line-height: 1;
+                }
+                &__slider {
+                    width: 240px;
+                    // position: relative;
+                    // margin: 70px auto 0 auto;
+        
+                    &-for-block {
+                    }
+                    &-block {
+
+                        &-img {
+                            width: 116px;
+                            height: 116px;
+                        }
+                        &-text {
+                            margin-top: 15px;
+                            font-size: 14px;
+                            // color: #636466;
+                            // font-family: 'FoundrySterlingOT3-Book';
+                            width: auto;
+                        }
+                        &-link {
+                            // color: #761284;
+                            font-size: 16px;
+                            // font-family: 'FoundrySterlingOT3-Medium';
+                            // outline: none;
+                        }
+                    }
+                }
+            }
+            .more {
+                // width: 100%;
+                // margin-top: 70px;
+                margin-bottom: 30px;
+                // display: flex;
+                // justify-content: center;
+        
+                &__text {
+                    // font-family: 'FoundrySterlingOT3-Book';
+                    font-size: 24px;
+                    // color: #761284;
+                    // text-decoration: none;
+                    // display: flex;
+        
+                    &-svg {
+                        width: 38px;
+                        height: 38px;
+                        // fill:  #761284;
+                        // margin-left: 25px;
+                    }
+        
+                    &:hover {
+                        // text-decoration: underline;
+                    }
+                }
+            }
+            .semicircle {
+        
+                &-img {
+                    // position: absolute;
+                    bottom: 28px;
+                    // right: 0px;
+                    // z-index: -1;
+                    width: 74px;
+                    height: 199px;
+                }
+            }
+        
+            .slider__slider .slick-arrow {
+                // font-size: 0;
+                // position: absolute;
+                width: 20px;
+                height: 37px;
+                // top: 50%;
+                // transform: scaleY(-50%);
+                // z-index: 10;
+                // cursor: pointer;
+            
+            }
+            .slider__slider .slick-prev {
+                // transform: rotate(180deg);
+                // position: absolute;
+                // background: url('../img/arrow.svg');
+                // background-size: cover;
+                // background-repeat: no-repeat;
+                left: -30px;
+            
+                &:hover {
+                    left: -35px;
+                }
+            }
+            .slider__slider .slick-next {
+                // background: url('../img/arrow.svg');
+                // background-size: cover;
+                // background-repeat: no-repeat;
+                right: -30px;
+                &:hover {
+                    right: -35px;
+                }
+            }
+            
+            .slider__slider .slick-slide {
+                // padding: 15px;
+            }
+            
+            .slider__slider {
+                // margin: -15px;
+            }
+        
+        }}}
+
+}

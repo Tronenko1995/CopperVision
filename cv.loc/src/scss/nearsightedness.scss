@@ -1,0 +1,149 @@
+.nearsightedness {
+    &__menu {
+        width: 100%;
+
+        &-nav {
+            list-style: none;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            width: 1170px;
+            justify-content: space-between;
+    
+            &-item {
+                border-radius: 25px 25px 0px 0px;
+                font-family: 'FoundrySterlingOT3-Medium';
+                line-height: 1.5;
+                font-size: 16px;
+                color: #636466;
+                background: #f2f4f8;
+                // padding: 10px 20px;
+                border: 1px solid #c8cacd;
+                width: 194px;
+                height: 86px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                cursor: pointer;
+
+                &--active {
+                    color: #fff;
+                    background: #761284;
+                    border: 1px solid #761284;
+                }
+            }
+        }
+    }
+    .mobile__button {
+        display: none;
+    }
+}
+
+@media (max-width: 1180px) {
+    .nearsightedness {
+        &__menu {
+            width: 100%;
+    
+            &-nav {
+                display: none;
+            }
+        }
+        .mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            margin-right: 15px;
+    
+            &__button {
+                width: 30px;
+                padding: 8px 0;
+                cursor: pointer;
+    
+                &-item {
+                    width: 30px;
+                    height: 2px;
+                    background: #761284;
+                    position: relative;
+    
+                    &::before {
+                        content: '';
+                        width: 100%;
+                        height: 2px;
+                        background: #761284;
+                        position: absolute;
+                        top: -8px;
+                    }
+                    &::after {
+                        content: '';
+                        width: 100%;
+                        height: 2px;
+                        background: #761284;
+                        position: absolute;
+                        top: 8px;
+                    }
+                }
+            }
+        }
+        .mobile__button {
+            display: block;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+    }  
+}
+
+// @media (max-width: 500px) {
+//     .nearsightedness {
+//         &__menu {
+//             width: 100%;
+    
+//             &-nav {
+//                 display: none;
+//             }
+//         }
+//         .mobile {
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             width: 30px;
+//             margin-right: 15px;
+    
+//             &__button {
+//                 width: 30px;
+//                 padding: 8px 0;
+//                 cursor: pointer;
+    
+//                 &-item {
+//                     width: 30px;
+//                     height: 2px;
+//                     background: #761284;
+//                     position: relative;
+    
+//                     &::before {
+//                         content: '';
+//                         width: 100%;
+//                         height: 2px;
+//                         background: #761284;
+//                         position: absolute;
+//                         top: -8px;
+//                     }
+//                     &::after {
+//                         content: '';
+//                         width: 100%;
+//                         height: 2px;
+//                         background: #761284;
+//                         position: absolute;
+//                         top: 8px;
+//                     }
+//                 }
+//             }
+//         }
+//         .mobile__button {
+//             display: block;
+//             margin-left: 15px;
+//             margin-top: 10px;
+//         }
+//     }  
+// }

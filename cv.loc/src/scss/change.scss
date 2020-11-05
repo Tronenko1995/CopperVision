@@ -1,0 +1,17 @@
+@media(max-width: 500px){
+    #map, #map_2, .map__control-for-select{
+        display: none!important;
+    }
+    .mobile__map{
+        display: block!important;
+    }
+    .change-location-mobile-click{
+        display: block!important;
+    }
+}
+.mobile__map{
+    display: none;
+}
+.change-location-mobile-click{
+    display: none;
+}

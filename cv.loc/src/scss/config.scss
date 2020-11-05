@@ -1,0 +1,113 @@
+.nearsightedness {
+    margin: 0;
+    padding: 0;
+    font-family: 'FoundrySterlingOT3-Book';
+    &__page {
+
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+    .hide {
+        display: none !important;
+    }
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    sub, sup {
+        line-height: 0;
+    }
+    .success-text {
+        color: #2bbd2b !important;
+    }
+    .error-text {
+        color: #ff0000 !important;
+    }
+    .success-check,
+    .success-check-before::before {
+        border: 1px solid #2bbd2b !important;
+    }
+    .error-check,
+    .error-check-before::before {
+        border: 1px solid #ff0000 !important;
+    }
+    .block-warning {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 40px;
+        
+        &__wrap {
+            width: 1140px;
+        }
+        &__text {
+            line-height: 1.467;
+            color: #636466;
+            font-family: 'FoundrySterlingOT3-Book';
+            font-size: 18px;
+            width: 980px;
+        }
+    }
+    .mobile-darkness {
+        position: fixed;
+        width: 100%;
+        right: -100%;
+        background: #000;
+        z-index: 99;
+        top: 0;
+        transition: right .7s;
+        height: 100%;
+        opacity: .2;
+    }
+}
+
+@media (max-width: 1180px) {
+.nearsightedness {
+
+    .block-warning {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 40px;
+        
+        &__wrap {
+            width: 1140px;
+            margin: 0 20px;
+        }
+        &__text {
+            line-height: 1.467;
+            color: #636466;
+            font-family: 'FoundrySterlingOT3-Book';
+            font-size: 16px;
+            max-width: 980px;
+            width: auto;
+        }
+    }
+}
+}
+
+@media (max-width: 500px) {
+.nearsightedness {
+    .block-warning {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 40px;
+        
+        &__wrap {
+            width: 1140px;
+            margin: 0 15px;
+        }
+        &__text {
+            line-height: 1.467;
+            color: #636466;
+            font-family: 'FoundrySterlingOT3-Book';
+            font-size: 14px;
+            max-width: 980px;
+            width: auto;;
+        }
+    }
+}
+}

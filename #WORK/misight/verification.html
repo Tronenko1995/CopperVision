@@ -1,0 +1,38 @@
+<div class="verif">
+    <div class="verif__wrap">
+        <div id="mailingOn" class="modal">
+            <p class="modal__title">Спасибо!</p>
+            <p class="modal__text">Вы успешно подписались на нашу информационную рассылку</p>
+        </div>
+    </div>
+</div>
+
+<script>
+var flag = true;
+(function ($) {
+    $(document).ready(function () {
+        if (flag) {
+            flag = false;
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            $.ajax({
+                url: 'https://camera.webnauts.pro/emailConfirm.php',
+                type: "POST",
+                dataType: 'json',
+                crossDomain: true,
+                data: {
+                    useremail: url.searchParams.get("useremail"),
+                    ticketvalue: url.searchParams.get("ticketvalue"),
+                },
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            })
+        }
+    });
+})
+(jQuery);
+</script>

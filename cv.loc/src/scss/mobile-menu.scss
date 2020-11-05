@@ -1,0 +1,59 @@
+.nearsightedness {
+
+.mobile-menu {
+	position: absolute;
+	width: 86%;
+	left: -86%;
+	background: #fff;
+	z-index: 100;
+	top: 0;
+	transition: left .7s, opacity .7s;
+    padding-bottom: 0px;
+	&__head {
+		padding: 5px 16px 8px 15px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: #761284;
+
+		&-logo {
+			display: flex;
+        }
+        &-text {
+            font-family: 'FoundrySterlingOT3-Medium';
+			font-size: 18px;
+        }
+    }
+	&__nav {
+		display: flex;
+		flex-direction: column;
+		padding: 10px 15px 10px 15px;
+        position: relative;
+        list-style: none;
+
+		&-item {
+			padding-bottom: 19px;
+
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+		&-link {
+            font-family: 'FoundrySterlingOT3-Book';
+			font-size: 16px;
+            color: #000;
+            text-decoration: none;
+		}
+		// &:after {
+		// 	content: '';
+		// 	background: #761284;
+		// 	height: 1px;
+		// 	width: 100%;
+		// 	position: absolute;
+		// 	top: 100%;
+		// 	left: 0;
+		// }
+	}
+}
+
+}

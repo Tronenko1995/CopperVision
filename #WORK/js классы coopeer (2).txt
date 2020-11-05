@@ -1,0 +1,10 @@
+jsWatchRlink - показать текущий отзыв
+jsOpenPage1 - открыть 1ю страницу
+jsOpenPage2 - открыть 2ю страницу
+jsOpenPage3 - открыть 3ю страницу
+jsOpenPage4 - открыть 4ю страницу
+jsOpenPage5 - открыть 5ю страницу
+jsOpenPage6 - открыть 6ю страницу
+jsSignUp - записатся на прием
+jsRecommendation - записатся на прием
+jsFindAdressMap - найти адресс на карте
