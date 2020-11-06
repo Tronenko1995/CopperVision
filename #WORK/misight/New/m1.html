@@ -1,3 +1,10 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.map__control-for-select .select:nth-child(3) {
+    display: none !important;
+}
+</style>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=898809da-483b-468a-9808-443e881678b5"></script>
 <style>
     .nearsightedness__page--5 .test__arrow {
         width: 600px;
@@ -29,7 +36,7 @@
     .modal-1.success .modal-1__input--success,
     .modal-1.success .more--success{display:block !important;}
     .modal-1.success .modal-1__container--success {display: flex;flex-direction: column;align-items: center;}
-    .nearsightedness__menu-nav{width:1000px;}
+    .nearsightedness__menu-nav{width:1180px;}
     .block-3__item-left-list{list-style: disc;}
     .block-2__top-right{margin-top: 25px;}
     .nearsightedness__page--3_2 .block-2__top-text{margin-top: 30px;}
@@ -122,7 +129,7 @@
             margin: 0% !important;
         }
     }
-    @media (max-width: 1000px) {
+    @media (max-width: 1180px) {
         .header__menu {
             display: flex;
         }
@@ -211,7 +218,7 @@
                 <div class="mobile__button-item"></div>
             </div> -->
         <ul class="nearsightedness__menu-nav nav2 nav-tabs2">
-            <li id="tabs0" class="nearsightedness__menu-nav-item nearsightedness__menu-nav-item--active"">
+            <li id="tabs0" class="nearsightedness__menu-nav-item nearsightedness__menu-nav-item--active">
                 <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight">Близорукость у детей</a>
             </li>
             <li id="tabs1" class="nearsightedness__menu-nav-item">
@@ -229,8 +236,8 @@
             <li id="tabs5" class="nearsightedness__menu-nav-item">
                 <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
             </li>
-            <li id="tabs6" class="nearsightedness__menu-nav-item hide">
-                <a class="nearsightedness__menu-nav-item-link" href="">Найти специалиста<br>рядом</a>
+            <li id="tabs6" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста<br>рядом</a>
             </li>
         </ul>
     </div>
@@ -254,8 +261,8 @@
             <li class="header__item">
                 <a class="header__link" id="tabs5m" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
             </li>
-            <li class="header__item hide">
-                <a class="header__link" id="tabs6m" href="">Найти специалиста<br>рядом</a>
+            <li class="header__item">
+                <a class="header__link" id="tabs6m" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста рядом</a>
             </li>
         </ul>
     </div>
@@ -1663,12 +1670,12 @@
         align-items: center;
     }
     .plug-map .plug-map__title {
-        padding: 150px 15px;
+        padding: 130px 15px;
         font-size: 50px;
         font-weight: 400;
         text-align: center;
         color: #fff;
-        width: 1010px;
+        width: 1035px;
     }
     .plug-map .plug-map__img {
         position: absolute;
@@ -1685,7 +1692,7 @@
         width: 410px;
         height: 357px;
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
         .plug-map .plug-map__img-1 {
             width: 195px;
             height: auto;
@@ -1700,7 +1707,7 @@
             margin-bottom: 50px;
         }
     }
-    @media (max-width: 1000px) {
+    @media (max-width: 1200px) {
         .plug-map .plug-map__title {
             font-size: 25px;
         }
@@ -1713,13 +1720,195 @@
             height: auto;
         }
     }
+    @media (max-width: 1100px) {
+        .plug-map .plug-map__img-1 {
+            width: 125px;
+            height: auto;
+        }
+        .plug-map .plug-map__img-2 {
+            width: 208px;
+            height: auto;
+        }
+    }
 </style>
 
     <div class="plug-map">
-        <p class="plug-map__title"> Скоро здесь появятся адреса оптик, где будет доступна программа «Яркое Будущее™»</p>
+        <p class="plug-map__title"> Скоро на карте появится больше оптик, где будет доступна программа «Яркое Будущее™»</p>
         <img class="plug-map__img plug-map__img-1" src="https://coopervision.ru/sites/coopervision.ru/files/asset-1_1.png?timestamp=1604393728" alt="">
         <img class="plug-map__img plug-map__img-2" src="https://coopervision.ru/sites/coopervision.ru/files/asset-1_2.png?timestamp=1604393742" alt="">
     </div>
+
+    <div id="page6" class="nearsightedness__page nearsightedness__page--6">
+        <div class="map">
+            <div class="map__wrap">
+                <p class="map__title">Сведите к&nbsp;минимуму риски<br>для здоровья глаз вашего ребенка</p>
+                <p class="map__text">Запишитесь в&nbsp;оптику к&nbsp;квалифицированному специалисту </p>
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
+                <div class="map__control">
+                    <div class="map__control-for-select">
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Регион</div>
+                            <ul class="select__list select-oblast">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Город</div>
+                            <ul class="select__list select-city">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Метро</div>
+                            <ul class="select__list select-metro">
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="map" class="map__control-iframe"></div>
+                    <div id="optik-list" class="map__control-adress optik-wrapper hide-class">
+                        <div class="map__control-adress-block" rv-each-optiks="data.optiks">
+                            <p class="map__control-adress-block-title" rv-text="optiks.title"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.adress"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.time"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>
+
+                            <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>
+                            <!-- <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page6_2" class="nearsightedness__page nearsightedness__page--6_2 hide">
+        <div class="map">
+            <div class="map__wrap">
+                <p class="map__title">Найти специалиста рядом</p>
+                <p class="map__text">Выберите квалифицированного специалиста для&nbsp;снижения рисков для&nbsp;здоровья глаз вашего ребенка в&nbsp;будущем в&nbsp;вашем городе</p>
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
+                <div class="map__control">
+                    <div class="map__control-for-select">
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Регион</div>
+                            <ul class="select__list select-oblast">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Город</div>
+                            <ul class="select__list select-city">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Метро</div>
+                            <ul class="select__list select-metro">
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="map_2" class="map__control-iframe"></div>
+                    <!--
+                    <div class="map__control-adress"> -->
+
+                    <div id="optik-list_2" class="map__control-adress optik-wrapper hide-class">
+                        <div class="map__control-adress-block" rv-each-optiks="data.optiks">
+                            <p class="map__control-adress-block-title" rv-text="optiks.title"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.adress"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.time"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>
+
+                            <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>
+                            <!-- <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a> -->
+                        </div>
+                        <!-- </div> -->
+
+                        <!-- <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsRecommendation">2й попап</a>
+</div>
+
+<div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div> -->
+                    </div>
+
+                </div>
+                <div class="links">
+                    <a class="links__link jsOpenPage5" href="">Оцените риск близорукости</a>
+                </div>
+            </div>
+            <img src="https://prf.coopervision.ru/sites/coopervision.ru/files/semicircle-4.png?timestamp=1602499507" alt="" class="semicircle">
+        </div>
 
 
     <div id="warningBlock" class="block-warning">

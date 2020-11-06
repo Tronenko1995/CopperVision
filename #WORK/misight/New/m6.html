@@ -1,0 +1,553 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.map__control-for-select .select:nth-child(3) {
+    display: none !important;
+}
+</style>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=898809da-483b-468a-9808-443e881678b5"></script>
+<style>
+    .nearsightedness__page--5 .test__arrow {
+        width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
+    .nearsightedness__page--5 .test__content {
+        display: none;
+    }
+    .nearsightedness__page--5 .test__step {
+        display: none;
+    }
+
+    .note {
+        cursor: pointer;
+    }
+    .hide{display:none !important;}
+    .success-text {color: #2bbd2b !important;}
+    .error-text {color: #ff0000 !important;}
+    .success-check,
+    .success-check-before::before {border: 1px solid #2bbd2b !important;}
+    .error-check,
+    .error-check-before::before {border: 1px solid #ff0000 !important;}
+    .modal-1__container--success {display: none;}
+    .modal-1.success .modal-1__form {display:none !important;}
+    .modal-1.success .modal-1__title--success,
+    .modal-1.success .modal-1__input--success,
+    .modal-1.success .more--success{display:block !important;}
+    .modal-1.success .modal-1__container--success {display: flex;flex-direction: column;align-items: center;}
+    .nearsightedness__menu-nav{width:1180px;}
+    .block-3__item-left-list{list-style: disc;}
+    .block-2__top-right{margin-top: 25px;}
+    .nearsightedness__page--3_2 .block-2__top-text{margin-top: 30px;}
+    .modal-1__checkbox-link{text-decoration: underline;}
+    .modal-1__checkbox-text{margin: 0;line-height: 1.467;}
+    .MuiBox-root.jss145{display: none !important;}
+    .page{line-height: 1.43;}
+    .jss61.MuiButton-outlined{display: none !important;background: #005bab;color: #fff!important;}
+    .jss61.MuiButton-contained{background:#fff;color: #005bab;border: 1px solid #005bab;}
+    .block-5__button{text-align: center;}
+    .nearsightedness__page--1_2 .factors__item-text {width: 530px;}
+    .nearsightedness__page--1_2 .factors__item-block-bottom-text {width: 160px;}
+    .nearsightedness__page--1_2 .factors {margin-top:99px;}
+    .nearsightedness__page--1_2 .factors__item-top {margin-top: 9px;}
+    .nearsightedness__page--3_2 .info {margin-top: 35px;}
+    .nearsightedness__page--3_2 .info__left-text--2 {margin-top: 34px;}
+    .nearsightedness__page--3_2 .block-3__item-left-list--type-2{list-style: none !important;}
+    .breadcrumb{display: none;}
+    .breadcrumb2{display: block;background-color:transparent;font-size: 13px;padding: 15px 0 25px;font-family: "Foundry Sterling Book",Arial,Helvetica,"宋体","SimSun","Nimbus Sans L",sans-serif;font-weight: 400;font-style: normal;}
+    .title--page{display: none;}
+    .nearsightedness__menu-nav-item:focus, .nearsightedness__menu-nav-item:hover {
+        border-color: #e9ecef #e9ecef #dee2e6 !important;
+    }
+    .header__menu {
+        display: none;
+    }
+    .header__menu .header__items {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+    }
+    .header__menu .header__items .header__item {
+        width: 100%;
+        border-bottom: 1px solid #761284;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 0;
+        padding-top: 0;
+    }
+    .header__menu .header__items .header__item .header__link {
+        justify-content: flex-start;
+        font-size: 16px;
+        line-height: 3.14286;
+        font-weight: 400;
+        color: #636466;
+        font-size: 12px;
+        display: flex;
+        text-decoration: none;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        background: transparent !important;
+        border: none !important;
+    }
+    .header__menu .header__items .header__item .header__link sup {
+        line-height: inherit;
+        font-size: inherit;
+    }
+    .header__menu .header__items .header__item .header__link.active {
+        color: #761284;
+        font-weight: 700;
+        background: transparent !important;
+        border: none !important;
+    }
+    .block-warning__text--bold {
+        font-weight: 700;
+    }
+
+    @media(max-width:1200px) {
+        .nearsightedness__page--2_2 .button-list__wrap {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    @media(max-width:1180px) {
+        .nearsightedness__page--3 .info__bottom-for-link {
+            justify-content: center;
+            align-items: center;
+        }
+        .nearsightedness__page--3 .info__bottom-link {
+            text-align: center;
+        }
+        .block-warning {
+            width: 96% !important;
+            margin: 0 2% !important;
+        }
+        .block-warning .block-warning__wrap {
+            width: 100% !important;
+            margin: 0% !important;
+        }
+    }
+    @media (max-width: 1180px) {
+        .header__menu {
+            display: flex;
+        }
+        .nav2 {
+            display: none !important;
+        }
+        .breadcrumb2 {
+            display: none;
+        }
+    }
+    @media(max-width:900px) {
+        .test-x__for-text {width: 100% !important;padding: 85px 0 20px 0 !important;}
+        .test-x__text{margin-top: 214px !important; padding: 10px !important;}
+        .test-x__title{text-align: center !important;}
+        .test-x__for-button{display: flex !important;justify-content: center !important;}
+        .test-x__for-button button{border-radius: 0 !important;padding: 15px 104px !important;font-size: 0.9375rem !important;}
+        .test-x__container{background-size: contain !important;}
+    }
+    @media(max-width:600px) {
+        .nearsightedness__page--1_2 .factors__item-text {width: auto;}
+        .nearsightedness__page--5 .test__arrow {
+            width: 100% !important;
+        }
+    }
+    @media(max-width:500px) {
+        .block-warning__text {
+            font-size: 10px !important;
+        }
+        .test-x__text{margin-top: 75px !important;}
+        .test-x__for-button button{padding: 15px 0px !important;width: 100%}
+        .block-warning {
+            width: 96% !important;
+            margin: 0 2% !important;
+        }
+        .block-warning .block-warning__wrap {
+            width: 100% !important;
+            margin: 0% !important;
+        }
+        .nearsightedness__page--5 .test__arrow {
+            margin: 50px 0 !important;
+        }
+    }
+    .modal-2 {
+            padding: 40px !important;
+        }
+    @media (max-width: 770px) {
+        .modal-2 {
+            padding: 20px !important;
+        }
+    }
+.nearsightedness__menu-nav-item-link {
+    color: #636466 !important;
+    text-decoration: none !important;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nearsightedness__menu-nav-item--active {
+    pointer-events: none;
+}
+.nearsightedness__menu-nav-item--active .nearsightedness__menu-nav-item-link {
+    color: #fff !important;
+}
+</style>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<!-- <script>
+    $=jQuery;
+</script> -->
+<!-- <script>
+    if (window.location.hash == '#test') {
+        window.location.href = 'https://coopervision.ru/misight/assess-risk-of-myopia';
+    };
+</script> -->
+<div id="nearsightednessBread" class="breadcrumb breadcrumb2">
+    <span class='breadcrumb__link'>
+        <a href='https://coopervision.ru/'>Home</a>
+    </span>
+    <span class='breadcrumb__separator'> &gt; </span>
+    <span class='breadcrumb__link'>
+        <a href='https://coopervision.ru/misight'>Близорукость у детей</a>
+    </span>
+    <span class='breadcrumb__separator'> &gt; </span>
+    <span class='breadcrumb__link'>Найти специалиста рядом</span>
+</div>
+<div class="nearsightedness">
+    <div class="nearsightedness__menu">
+        <!-- <div class="mobile__button js-mobile-button">
+                <div class="mobile__button-item"></div>
+            </div> -->
+        <ul class="nearsightedness__menu-nav nav2 nav-tabs2">
+            <li id="tabs0" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight">Близорукость у детей</a>
+            </li>
+            <li id="tabs1" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/what-is-myopia">Что такое<br> близорукость</a>
+            </li>
+            <li id="tabs2"  class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/methods-of-slowing-progression-of-myopia">Методы замедления прогрессирования близорукости</a>
+            </li>
+            <li id="tabs3" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/brilliant">Программа<br>Яркое&nbsp;Будущее с&nbsp;линзами<br>MiSight&reg;&nbsp;1&nbsp;day</a>
+            </li>
+            <li id="tabs4" class="nearsightedness__menu-nav-item hide">
+                <a class="nearsightedness__menu-nav-item-link" href="">Отзывы</a>
+            </li>
+            <li id="tabs5" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
+            </li>
+            <li id="tabs6" class="nearsightedness__menu-nav-item nearsightedness__menu-nav-item--active">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста<br>рядом</a>
+            </li>
+        </ul>
+    </div>
+    <div class="header__menu">
+        <ul class="header__items">
+            <li class="header__item">
+                <a class="header__link" id="tabs0m" href="https://coopervision.ru/misight">Близорукость у детей</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link" id="tabs1m" href="https://coopervision.ru/misight/what-is-myopia">Что такое близорукость</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link" id="tabs2m" href="https://coopervision.ru/misight/methods-of-slowing-progression-of-myopia">Методы замедления прогрессирования близорукости</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link" id="tabs3m" href="https://coopervision.ru/misight/brilliant">Программа Яркое&nbsp;Будущее с&nbsp;линзами MiSight&reg;&nbsp;1&nbsp;day</a>
+            </li>
+            <li class="header__item hide">
+                <a class="header__link" id="tabs4m" href="">Отзывы</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link" id="tabs5m" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link active" id="tabs6m" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста рядом</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="page6" class="nearsightedness__page nearsightedness__page--6 hide">
+        <div class="map">
+            <div class="map__wrap">
+                <p class="map__title">Сведите к&nbsp;минимуму риски<br>для здоровья глаз вашего ребенка</p>
+                <p class="map__text">Запишитесь в&nbsp;оптику к&nbsp;квалифицированному специалисту </p>
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
+                <div class="map__control">
+                    <div class="map__control-for-select">
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Регион</div>
+                            <ul class="select__list select-oblast">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Город</div>
+                            <ul class="select__list select-city">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Метро</div>
+                            <ul class="select__list select-metro">
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="map" class="map__control-iframe"></div>
+                    <div id="optik-list" class="map__control-adress optik-wrapper hide-class">
+                        <div class="map__control-adress-block" rv-each-optiks="data.optiks">
+                            <p class="map__control-adress-block-title" rv-text="optiks.title"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.adress"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.time"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>
+
+                            <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>
+                            <!-- <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page6_2" class="nearsightedness__page nearsightedness__page--6_2">
+        <div class="map">
+            <div class="map__wrap">
+                <p class="map__title">Найти специалиста рядом</p>
+                <p class="map__text">Выберите квалифицированного специалиста для&nbsp;снижения рисков для&nbsp;здоровья глаз вашего ребенка в&nbsp;будущем в&nbsp;вашем городе</p>
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
+                <div class="map__control">
+                    <div class="map__control-for-select">
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Регион</div>
+                            <ul class="select__list select-oblast">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Город</div>
+                            <ul class="select__list select-city">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Метро</div>
+                            <ul class="select__list select-metro">
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="map_2" class="map__control-iframe"></div>
+                    <!--
+                    <div class="map__control-adress"> -->
+
+                    <div id="optik-list_2" class="map__control-adress optik-wrapper hide-class">
+                        <div class="map__control-adress-block" rv-each-optiks="data.optiks">
+                            <p class="map__control-adress-block-title" rv-text="optiks.title"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.adress"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.time"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>
+
+                            <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>
+                            <!-- <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a> -->
+                        </div>
+                        <!-- </div> -->
+
+                        <!-- <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsRecommendation">2й попап</a>
+</div>
+
+<div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div> -->
+                    </div>
+
+                </div>
+                <div class="links">
+                    <a class="links__link" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
+                </div>
+            </div>
+            <img src="https://prf.coopervision.ru/sites/coopervision.ru/files/semicircle-4.png?timestamp=1602499507" alt="" class="semicircle">
+        </div>
+
+
+    <div id="warningBlock" class="block-warning">
+        <div class="block-warning-for block-warning-for--0">
+            <ol class="block-warning__wrap">
+                <li class="block-warning__text">Офтальмология: национальное руководство / под ред. С.Э.Аветисова, Е.А.Егорова, Л.К.Мошетовой и др. М., 2008. С. 276-279. По всем возникающим вопросам обращайтесь за консультацией к&nbsp;специалисту в&nbsp;салон оптики.</li>
+                <li class="block-warning__text">Буллимор М.А., Бреннан Н.А. Контроль близорукости: почему важна каждая диоптрия. Оптометрия и Наука о Зрении: Июнь 2019, Выпуск 96(6), 463-465 с.</li>
+                <li class="block-warning__text">Данные компании CooperVision, 2018 г. на&nbsp;основании результата трехлетнего рандомизированного исследования 144 носителей в&nbsp;возрасте от 8 до 12 лет (на начало исследования), MIST-401. 30.04.2018 г. Чемберлен П. и соавторы Трехлетнее рандомизированное клиническое исследование влияния линз MiSight на&nbsp;замедление прогрессирования близорукости. Оптометрия и Наука о Зрении: 2019;96:556-567.</li>
+            </ol>
+            <p class="block-warning__text block-warning__text--bold">Данная информация на сайте предназначена для родителей/ опекунов/законных представителей несовершеннолетних. Информация не предназначена для несовершеннолетних, не достигших возраста 18 лет.</p>
+            <p class="block-warning__text">Регистрационное удостоверение: № РЗН 2020/12048 от 28.09.2020 г.</p>
+        </div>
+    </div>
+</div>
+
+<!-- <script>
+    /* Табы */
+    var tabs0 = $('#tabs0');
+    var tabs1 = $('#tabs1');
+    var tabs2 = $('#tabs2');
+    var tabs3 = $('#tabs3');
+    var tabs4 = $('#tabs4');
+    var tabs5 = $('#tabs5');
+    var tabs6 = $('#tabs6');
+
+    /* Мобильные Табы */
+    var tabs0m = $('#tabs0m');
+    var tabs1m = $('#tabs1m');
+    var tabs2m = $('#tabs2m');
+    var tabs3m = $('#tabs3m');
+    var tabs4m = $('#tabs4m');
+    var tabs5m = $('#tabs5m');
+    var tabs6m = $('#tabs6m');
+
+    /* события на клике по табам */
+    $(tabs0).on('click', function () {
+        console.log('1 вкладка');
+        ga('send', 'event', 'vkladki_misight', 'click_main');
+        ym(66929020, 'reachGoal', 'click_main');
+    });
+    $(tabs1).on('click', function () {
+        console.log('2 вкладка');
+        ga('send', 'event', 'vkladki_misight', 'click_myopia');
+        ym(66929020, 'reachGoal', 'click_myopia');
+    });
+    $(tabs2).on('click', function () {
+        console.log('3 вкладка');
+        ga('send', 'event', 'vkladki_misight', 'click_methods');
+            ym(66929020, 'reachGoal', 'click_methods');
+    });
+    $(tabs3).on('click', function () {
+        console.log('4 вкладка');
+        ga('send', 'event', 'vkladki_misight', 'click_program');
+        ym(66929020, 'reachGoal', 'click_program');
+    });
+    $(tabs4).on('click', function () {
+
+    });
+    $(tabs5).on('click', function (e, x) {
+            console.log('6 вкладка');
+            ga('send', 'event', 'vkladki_misight', 'click_test');
+            ym(66929020, 'reachGoal', 'click_test');
+    });
+    $(tabs6).on('click', function () {
+
+    });
+
+    /* Клик на мобильные табы */
+    $(tabs0m).on('click', function (e) {
+        $(tabs0).trigger('click');
+    });
+    $(tabs1m).on('click', function (e) {
+        $(tabs1).trigger('click');
+    });
+    $(tabs2m).on('click', function (e) {
+        $(tabs2).trigger('click');
+    });
+    $(tabs3m).on('click', function (e) {
+        $(tabs3).trigger('click');
+    });
+    $(tabs4m).on('click', function (e) {
+        $(tabs4).trigger('click');
+    });
+    $(tabs5m).on('click', function (e) {
+        $(tabs5).trigger('click');
+    });
+    $(tabs6m).on('click', function (e) {
+        $(tabs6).trigger('click');
+    });
+    $('.jsPdfPutLinzy').on('click', function () {
+        console.log('нажал на PDF Put Linzy');
+        ym(66929020, 'reachGoal', 'pdf_rekomendacii_kak_nadevat_i_snimat_linzy_misight_1_day');
+    });
+    $('.jsPdfBrochureProgram').on('click', function () {
+        console.log('нажал на PDF Brochure Program');
+        ym(66929020, 'reachGoal', 'pdf_znakomstvo_s_programmoy_yab_s_linzami_misight_1_day');
+    });
+</script>
+
+<script>
+$(document).ready(function(){
+
+    $(".note").on("click", function (event) {
+        event.preventDefault(); //опустошим стандартную обработку
+        let block = $('#warningBlock').offset().top; //определим высоту от начала страницы до якоря
+    $('body,html').animate({scrollTop: block}, 2000); //сделаем прокрутку за 2 с
+    });
+});
+</script> -->

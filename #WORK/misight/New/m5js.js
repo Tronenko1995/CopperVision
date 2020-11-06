@@ -138,7 +138,9 @@ $(document).ready(function () {
         ym(66929020, 'reachGoal', 'click_test');
     });
     $(tabs6).on('click', function () {
-
+        console.log('вкладка с локатором');
+        ga('send', 'event', 'vkladki_misight', 'click_find');
+        ym(66929020, 'reachGoal', 'click_find');
     });
 
     /* Клик на мобильные табы */

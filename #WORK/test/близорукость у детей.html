@@ -1,4 +1,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.map__control-for-select .select:nth-child(3) {
+    display: none !important;
+}
+</style>
 <script>
     var data = {};
 
@@ -17941,10 +17946,9 @@ href="https://coopervision.ru/myopia-simulator">
                             <p class="map__control-adress-block-text" rv-text="optiks.adress"></p>
                             <p class="map__control-adress-block-text" rv-text="optiks.time"></p>
                             <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>
-                            <p class="map__control-adress-block-text" rv-text="optiks.doctor"></p>
 
                             <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>
-                            <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a>
+                            <!-- <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a> -->
                         </div>
                     </div>
                 </div>
@@ -17990,11 +17994,83 @@ href="https://coopervision.ru/myopia-simulator">
                             <p class="map__control-adress-block-text" rv-text="optiks.adress"></p>
                             <p class="map__control-adress-block-text" rv-text="optiks.time"></p>
                             <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>
-                            <p class="map__control-adress-block-text" rv-text="optiks.doctor"></p>
 
                             <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>
-                            <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a>
+                            <!-- <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a> -->
                         </div>
+                        <!-- </div> -->
+
+                        <!-- <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsRecommendation">2й попап</a>
+</div>
+
+<div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div> -->
                     </div>
 
                 </div>
@@ -18178,6 +18254,7 @@ function init() {
                         if (!flag) {
                             //если нет ставим центр карты в&nbsp;городе Москва
                             jQuery(".select-city").closest(".select").find(".select__head").text('Москва')
+                            jQuery(".select-oblast").closest(".select").find(".select__head").text('Москва')
                             create_map([55.76, 37.64])
                             add_markers()
                             show_opik_under_map("Москва", clinic_mass, 'city')
@@ -18193,6 +18270,8 @@ function init() {
 
                 function (err) {
                     console.log('Ошибка: ' + err)
+                    jQuery(".select-city").closest(".select").find(".select__head").text('Москва')
+                    jQuery(".select-oblast").closest(".select").find(".select__head").text('Москва')
                     create_map([55.76, 37.64])
                     add_markers()
                     show_opik_under_map("Москва", clinic_mass, 'city')
@@ -18210,232 +18289,237 @@ function init() {
     find_me()
 
 
-//массив с&nbsp;данными об оптиках
-var clinic_mass = {
-    '43.018447, 44.658307': {
-    Id_optika: '0008',
-    balloonContent: 'Детский лечебно-диагностический цетрн DEAR KIDS',
-    time: '10:00-19:00',
-    time_weekend: '10:00-19:00',
-    time_weekend_sun: 'выходной',
-    phone: '+7(901) 497 77 69',
-    oblast: 'Северная Осетия',
-    city: 'Владикавказ',
-    rayon: 'Затеречный',
-    street: 'пр-т Доватора 17',
-    doctor: 'Дарья Смольникова, Зарета Камболова'
-    },
+    //массив с&nbsp;данными об оптиках
+    var clinic_mass = {
 
-    '55.680828, 37.535862': {
-    Id_optika: '0034',
-    balloonContent: 'Оптический уют',
-    time: '10:00-20:00',
-    time_weekend: '10:00-18:00',
-    time_weekend_sun: '10:00-18:00',
-    phone: '+7 499 783-52-23; +7 915 308 7774',
-    oblast: 'Москва',
-    city: 'Москва',
-    rayon: 'м. Университет',
-    street: 'пр-т Ленинский, 85',
-    doctor: 'Елена Ривкина, Елена Космачева'
-    },
+        '43.018447, 44.658307': {
+            Id_optika: '0008',
+            balloonContent: 'Детский лечебно-диагностический цетрн DEAR KIDS',
+            time: '10:00-19:00',
+            time_weekend: '10:00-19:00',
+           time_weekend_sun: 'выходной',
+            phone: '+7(901) 497 77 69',
+            oblast: 'Северная Осетия',
+            city: 'Владикавказ',
+            rayon: 'Затеречный',
+            street: 'пр-т Доватора 17',
+             doctor: 'Дарья Смольникова, Зарета Камболова'
+        },
 
-    '55.696575, 37.561544': {
-    Id_optika: '0035',
-    balloonContent: 'Оптика "Академическая"',
-    time: '10:00-20:00',
-    time_weekend: '10:00-20:00',
-    time_weekend_sun: '10:00-20:00',
-    phone: '+7 (495) 743-27-05',
-    oblast: 'Москва',
-    city: 'Москва',
-    rayon: '',
-    street: 'пр-т Ленинский, 57',
-    doctor: 'Светлана Кондратова'
-    },
+'55.680828, 37.535862': {
+            Id_optika: '0034',
+            balloonContent: 'Оптический уют',
+            time: '10:00-20:00',
+            time_weekend: '10:00-18:00',
+           time_weekend_sun: '10:00-18:00',
+            phone: '+7 499 783-52-23; +7 915 308 7774',
+            oblast: 'Москва',
+            city: 'Москва',
+            rayon: 'м. Университет',
+            street: 'пр-т Ленинский, 85',
+             doctor: 'Елена  Ривкина, Елена Космачева'
+        },
 
-    '55.682245, 37.143451': {
-    Id_optika: '0036',
-    balloonContent: 'Семейная оптика "Лапино"',
-    time: '10:00-20:00',
-    time_weekend: '10:00-20:00',
-    time_weekend_sun: '10:00-20:00',
-    phone: '+7 (916) 058-88-98',
-    oblast: 'Московская область',
-    city: 'Одинцово (округ)',
-    rayon: '',
-    street: 'д. Лапино,1-е Успенское шоссе, стр.25',
-    doctor: 'Анастасия Стахеева'
-    },
+'55.696575, 37.561544': {
+            Id_optika: '0035',
+            balloonContent: 'Оптика "Академическая"',
+            time: '10:00-20:00',
+            time_weekend: '10:00-20:00',
+           time_weekend_sun: '10:00-20:00',
+            phone: '+7 (495) 743-27-05',
+            oblast: 'Москва',
+            city: 'Москва',
+            rayon: '',
+            street: 'пр-т Ленинский, 57',
+             doctor: 'Светлана  Кондратова'
+        },
 
-    '54.197468, 37.611024': {
-    Id_optika: '0037',
-    balloonContent: 'СПАР',
-    time: '09:00-21:00',
-    time_weekend: '09:00-21:00',
-    time_weekend_sun: '09:00-21:00',
-    phone: '+7 4872 55-40-12, +7 4872 34-34-74',
-    oblast: 'Тульская область',
-    city: 'Тула',
-    rayon: '-',
-    street: 'ул. Советская, 8',
-    doctor: 'Олеся Кукушкина, Ольга Бракоренко, Анастасия Егорова, Елена Старикова'
-    },
+'55.682245, 37.143451': {
+            Id_optika: '0036',
+            balloonContent: 'Семейная оптика "Лапино"',
+            time: '10:00-20:00',
+            time_weekend: '10:00-20:00',
+           time_weekend_sun: '10:00-20:00',
+            phone: '+7 (916) 058-88-98',
+            oblast: 'Московская область',
+            city: 'Одинцово (округ)',
+            rayon: '',
+            street: 'д. Лапино,1-е Успенское шоссе, стр.25',
+             doctor: 'Анастасия  Стахеева'
+        },
 
-    '55.426483, 37.501043': {
-    Id_optika: '0039',
-    balloonContent: 'Глаз Алмаз',
-    time: '10:00-20:00',
-    time_weekend: '10:00-20:00',
-    time_weekend_sun: '10:00-20:00',
-    phone: '+7 (915) 297-53-58',
-    oblast: 'Московская область',
-    city: 'Подольск',
-    rayon: '-',
-    street: 'ул. Ленинградская, 7',
-    doctor: 'Екатерина Сергеевна Малышева, Лариса Кислякова'
-    },
+'54.197468, 37.611024': {
+            Id_optika: '0037',
+            balloonContent: 'СПАР',
+            time: '09:00-21:00',
+            time_weekend: '09:00-21:00',
+           time_weekend_sun: '09:00-21:00',
+            phone: '+7 4872 55-40-12, +7 4872 34-34-74',
+            oblast: 'Тульская область',
+            city: 'Тула',
+            rayon: '-',
+            street: 'ул. Советская, 8',
+             doctor: 'Олеся Кукушкина, Ольга Бракоренко, Анастасия Егорова, Елена Старикова'
+        },
 
-    '64.558939, 40.540178': {
-    Id_optika: '0041',
-    balloonContent: 'Точка Зрения',
-    time: '09:00-21:00',
-    time_weekend: '09:00-21:00',
-    time_weekend_sun: 'выходной',
-    phone: '+7 (8182) 24-04-02',
-    oblast: 'Архангельская область',
-    city: 'Архангельск',
-    rayon: 'Октябрьский',
-    street: 'ул. Комсомольская, 47',
-    doctor: 'Оксана Макаровская'
-    },
+'55.426483, 37.501043': {
+            Id_optika: '0039',
+            balloonContent: 'Глаз Алмаз',
+            time: '10:00-20:00',
+            time_weekend: '10:00-20:00',
+           time_weekend_sun: '10:00-20:00',
+            phone: '+7 (915) 297-53-58',
+            oblast: 'Московская область',
+            city: 'Подольск',
+            rayon: '-',
+            street: 'ул. Ленинградская, 7',
+             doctor: 'Екатерина Сергеевна Малышева, Лариса Кислякова'
+        },
 
-    '59.702318, 30.381607': {
-    Id_optika: '0042',
-    balloonContent: 'Семейный центр охраны зрения "Глазастик"',
-    time: '10:00-20:00',
-    time_weekend: '10:00-19:00',
-    time_weekend_sun: '10:00-19:00',
-    phone: '+7 812 455 45 18',
-    oblast: 'Санкт-Петербург',
-    city: 'Пушкин',
-    rayon: 'Пушкинский',
-    street: 'ул.Полковая 1/25',
-    doctor: 'Виктория Рогутская'
-    },
+'64.558939, 40.540178': {
+            Id_optika: '0041',
+            balloonContent: 'Точка Зрения',
+            time: '09:00-21:00',
+            time_weekend: '09:00-21:00',
+           time_weekend_sun: 'выходной',
+            phone: '+7 (8182) 24-04-02',
+            oblast: 'Архангельская область',
+            city: 'Архангельск',
+            rayon: 'Октябрьский',
+            street: 'ул. Комсомольская, 47',
+             doctor: 'Оксана Макаровская'
+        },
 
-    '59.353893, 30.064685': {
-    Id_optika: '0043',
-    balloonContent: 'Наша Оптика',
-    time: '10:00-19:00',
-    time_weekend: '10:00-19:00',
-    time_weekend_sun: '10:00-19:00',
-    phone: '+7 812 455 45 18',
-    oblast: 'Ленинградская',
-    city: 'Сиверский',
-    rayon: 'Гатчинский',
-    street: 'пер. Строителей, 5',
-    doctor: 'Алексей Мордвов'
-    },
+'59.702318, 30.381607': {
+            Id_optika: '0042',
+            balloonContent: 'Семейный центр охраны зрения "Глазастик"',
+            time: '10:00-20:00',
+            time_weekend: '10:00-19:00',
+           time_weekend_sun: '10:00-19:00',
+            phone: '+7 812 455 45 18',
+            oblast: 'Санкт-Петербург',
+            city: 'Пушкин',
+            rayon: 'Пушкинский',
+            street: 'ул.Полковая 1/25',
+             doctor: 'Виктория  Рогутская'
+        },
 
-    '55.771980, 37.596507': {
-    Id_optika: '0059',
-    balloonContent: 'Оптикалнэт( Заказ Линз)',
-    time: '09:00-20:30',
-    time_weekend: '09:00-20:30',
-    time_weekend_sun: '10:00-19:00',
-    phone: '+7 495 730 52 60',
-    oblast: 'Москва',
-    city: 'Москва',
-    rayon: 'м. Маяковская',
-    street: 'ул. 3-я Тверская-Ямская, 12, стр 1',
-    doctor: 'Олег Жуков'
-    },
+'59.353893, 30.064685': {
+            Id_optika: '0043',
+            balloonContent: 'Наша Оптика',
+            time: '10:00-19:00',
+            time_weekend: '10:00-19:00',
+           time_weekend_sun: '10:00-19:00',
+            phone: '+7 812 455 45 18',
+            oblast: 'Ленинградская область',
+            city: 'Сиверский',
+            rayon: 'Гатчинский',
+            street: 'пер. Строителей, 5',
+             doctor: 'Алексей Мордвов'
+        },
 
-    '51.658775, 39.194601': {
-    Id_optika: '0087',
-    balloonContent: 'Визио',
-    time: '09:00-20:00',
-    time_weekend: '10:00-20:00',
-    time_weekend_sun: '10:00-18:00',
-    phone: '+7 (473) 277-55-44',
-    oblast: 'Воронежская область',
-    city: 'Воронеж',
-    rayon: '',
-    street: 'ул. Кирова, 3',
-    doctor: 'Ольга Маренкова'
-    },
+'55.771980, 37.596507': {
+            Id_optika: '0059',
+            balloonContent: 'Оптикалнэт( Заказ Линз)',
+            time: '09:00-20:30',
+            time_weekend: '09:00-20:30',
+           time_weekend_sun: '10:00-19:00',
+            phone: '+7 495 730 52 60',
+            oblast: 'Москва',
+            city: 'Москва',
+            rayon: 'м. Маяковская',
+            street: 'ул. 3-я Тверская-Ямская, 12, стр 1',
+             doctor: 'Олег  Жуков'
+        },
 
-    '50.599142, 36.580593': {
-    Id_optika: '0089',
-    balloonContent: 'Новая Оптика',
-    time: '09:00-19:00',
-    time_weekend: '09:00-19:00',
-    time_weekend_sun: '09:00-19:00',
-    phone: '(4722) 32-34-90',
-    oblast: 'Белгородская область',
-    city: 'Белгород',
-    rayon: '',
-    street: 'пр-т Богдана Хмельницкого, 38',
-    doctor: 'Яна Лысенко'
-    },
+'51.658775, 39.194601': {
+            Id_optika: '0087',
+            balloonContent: 'Визио',
+            time: '09:00-20:00',
+            time_weekend: '10:00-20:00',
+           time_weekend_sun: '10:00-18:00',
+            phone: '+7 (473) 277-55-44',
+            oblast: 'Воронежская область',
+            city: 'Воронеж',
+            rayon: '',
+            street: 'ул. Кирова, 3',
+             doctor: 'Ольга Маренкова'
+        },
 
-    '50.601549, 36.589819': {
-    Id_optika: '0090',
-    balloonContent: 'Новая Оптика',
-    time: '09:00-19:00',
-    time_weekend: '09:00-19:00',
-    time_weekend_sun: '09:00-19:00',
-    phone: '+7(951)154-29-95',
-    oblast: 'Белгородская область',
-    city: 'Белгород',
-    rayon: '',
-    street: 'ул. Попова, 25',
-    doctor: 'Лариса Сливченко'
-    },
+'50.599142, 36.580593': {
+            Id_optika: '0089',
+            balloonContent: 'Новая Оптика',
+            time: '09:00-19:00',
+            time_weekend: '09:00-19:00',
+           time_weekend_sun: '09:00-19:00',
+            phone: '(4722) 32-34-90',
+            oblast: 'Белгородская область',
+            city: 'Белгород',
+            rayon: '',
+            street: 'пр-т Богдана Хмельницкого, 38',
+             doctor: 'Яна Лысенко'
+        },
 
-    '51.682006, 39.216286': {
-    Id_optika: '0091',
-    balloonContent: 'Новые Горизонты',
-    time: '08:00-19:00',
-    time_weekend: '08:00-17:00',
-    time_weekend_sun: 'выходной',
-    phone: '+7 (473) 30-03-111',
-    oblast: 'Воронежская область',
-    city: 'Воронеж',
-    rayon: '',
-    street: 'пр-т Революции, 1в',
-    doctor: 'Татьяна Агеева'
-    },
+'50.601549, 36.589819': {
+            Id_optika: '0090',
+            balloonContent: 'Новая Оптика',
+            time: '09:00-19:00',
+            time_weekend: '09:00-19:00',
+           time_weekend_sun: '09:00-19:00',
+            phone: '+7(951)154-29-95',
+            oblast: 'Белгородская область',
+            city: 'Белгород',
+            rayon: '',
+            street: 'ул. Попова, 25',
+             doctor: 'Лариса Сливченко'
+        },
 
-    '55.772760, 37.651762': {
-    Id_optika: '0098',
-    balloonContent: 'Доктор Визус ( Гост-Оптика)',
-    time: '09:00-20:00',
-    time_weekend: '09:00-18:00',
-    time_weekend_sun: 'выходной',
-    phone: '+7(495)699 95 95',
-    oblast: 'Москва',
-    city: 'Москва',
-    rayon: 'м. Комсомольская',
-    street: 'ул. Каланчевская, 17 стр. 1',
-    doctor: 'Гульнара Анддриенко'
-    },
+'51.682006, 39.216286': {
+            Id_optika: '0091',
+            balloonContent: 'Новые Горизонты',
+            time: '08:00-19:00',
+            time_weekend: '08:00-17:00',
+           time_weekend_sun: 'выходной',
+            phone: '+7 (473) 30-03-111',
+            oblast: 'Воронежская область',
+            city: 'Воронеж',
+            rayon: '',
+            street: 'пр-т Революции, 1в',
+             doctor: 'Татьяна Агеева'
+        },
 
-    '51.663216, 39.193801': {
-    Id_optika: '0102',
-    balloonContent: 'МедИнвест',
-    time: '08:00-20:00',
-    time_weekend: '09:00-17:00',
-    time_weekend_sun: 'выходной',
-    phone: '+7 (473) 212-12-22',
-    oblast: 'Воронежская область',
-    city: 'Воронеж',
-    rayon: '',
-    street: 'ул. Куколкина, 11',
-    doctor: 'Евгения Черных'
-    },
-};
+'55.772760, 37.651762': {
+            Id_optika: '0098',
+            balloonContent: 'Доктор Визус ( Гост-Оптика)',
+            time: '09:00-20:00',
+            time_weekend: '09:00-18:00',
+           time_weekend_sun: 'выходной',
+            phone: '+7(495)699 95 95',
+            oblast: 'Москва',
+            city: 'Москва',
+            rayon: 'м. Комсомольская',
+            street: 'ул. Каланчевская, 17 стр. 1',
+             doctor: 'Гульнара Анддриенко'
+        },
+
+'51.663216, 39.193801': {
+            Id_optika: '0102',
+            balloonContent: 'МедИнвест',
+            time: '08:00-20:00',
+            time_weekend: '09:00-17:00',
+           time_weekend_sun: 'выходной',
+            phone: '+7 (473) 212-12-22',
+            oblast: 'Воронежская область',
+            city: 'Воронеж',
+            rayon: '',
+            street: 'ул. Куколкина, 11',
+             doctor: 'Евгения Черных'
+        }
+
+
+
+
+    };
 
 
 //заполняем маркеры данными из&nbsp;массива и наносим на&nbsp;карту
@@ -18467,16 +18551,16 @@ var clinic_mass = {
             'Алтай': [49.725608, 84.274505],
             'Алтайский': [51.820766, 85.27733],
             'Амурская': [53.413341, 127.728064],*/
-            'Архангельская': [63.637517, 43.336661],
+            'Архангельская область': [64.539911, 40.515753],
             /*'Астраханская': [46.851463, 47.466189],*/
             /*'Башкортостан': [54.2715, 56.525537],*/
-            'Белгородская': [50.872231, 37.303198],
-            'Брянская': [52.909192, 33.422197],
+            'Белгородская область': [50.595414, 36.587268],
+            // 'Брянская область': [52.909192, 33.422197],
             /*'Бурятия': [54.544222, 112.348699],
             'Владимирская': [55.904195, 40.898894],*/
-            'Волгоградская': [49.615821, 44.151406],
+            // 'Волгоградская': [49.615821, 44.151406],
             /*'Вологодская': [60.138988, 44.049618],*/
-            'Воронежская': [50.970898, 40.233395],
+            'Воронежская область': [51.660781, 39.200269],
             /*'Дагестан': [42.259793, 47.095742],
             'Еврейская': [48.522902, 132.257612],
             'Забайкальский': [52.847258, 116.200424],
@@ -18491,59 +18575,59 @@ var clinic_mass = {
             'Карачаево-Черкесская': [43.770947, 41.753928],
             'Карелия': [63.621324, 33.232608],
             'Кемеровская область - Кузбасс': [54.373525, 85.858864],*/
-            'Забайкальский край': [52.847258, 116.200424],
+            /*'Забайкальский край': [52.847258, 116.200424],
             'Кировская': [58.344108, 49.69543],
             /*'Коми': [64.125463, 54.789669],*/
-            'Костромская': [58.456003, 43.788495],
+            /*'Костромская': [58.456003, 43.788495],
             'Краснодарский край': [45.085538, 39.044609],
             'Красноярский': [53.602873, 50.392586],
             /*'Крым': [45.389194, 33.993751],
             'Курганская': [55.448347, 64.809405],
             'Курская': [44.042582, 44.462375],*/
-            'Ленинградская': [59.337013, 29.608975],
+            'Ленинградская область': [59.939095, 30.315868],
             /*'Липецкая': [52.864468, 39.147637],
             'Магаданская': [62.575815, 154.036835],*/
-            'Московская': [55.531127, 38.874756],/*
+            'Московская область': [55.755814, 37.617635],/*
             'Марий Эл': [56.485739, 48.197858],
             'Мордовия': [54.205758, 44.319669],*/
             /*'Мурманская': [68.004154, 35.010051],
             'Ненецкий': [67.714212, 54.365062],*/
-            'Нижегородская': [56.595648, 44.279559],
+            /*'Нижегородская': [56.595648, 44.279559],
             /*'Новгородская': [58.307715, 32.490222],
             'Новосибирская': [55.582396, 79.264861],
             'Омская': [56.103472, 73.344416],*/
-            'Оренбургская': [52.743528, 53.498682],
+            /*'Оренбургская': [52.743528, 53.498682],
             /*'Орловская': [52.781455, 36.481042],
             'Пензенская': [53.240932, 43.946823],*/
-            'Пермский край': [57.787124, 55.729001],/*
+            /*'Пермский край': [57.787124, 55.729001],/*
             'Приморский': [64.892408, 40.494077],
             'Псковская': [57.236486, 29.236911],
             'Ростовская': [47.728732, 41.268128],*/
-            'Рязанская': [54.559725, 40.950331],/*
+            /*'Рязанская': [54.559725, 40.950331],/*
             'Самарская': [53.452932, 50.34431],
             'Саратовская': [51.578529, 46.797223],
             'Саха /Якутия/': [65.061073, 119.845652],
-            'Сахалинская': [50.150926, 142.750797],*/
-            'Свердловская': [58.586755, 61.530761],
-            'Северная Осетия': [43.092669, 44.262033],
-            'Смоленская': [54.956192, 32.998543],
+            'Сахалинская': [50.150926, 142.750797],
+            'Свердловская': [58.586755, 61.530761],*/
+            'Северная Осетия': [43.024616, 44.681762],
+            /*'Смоленская': [54.956192, 32.998543],
             'Ставропольский край': [53.249564, 49.482359],/*
-            'Тамбовская': [52.474699, 41.592249],*/
-            'Татарстан': [55.350336, 50.911013],/*
-            'Тверская': [57.093033, 34.706195],*/
-            'Томская': [58.949193, 78.63728],
-            'Тульская': [53.888064, 37.575693],/*
+            'Тамбовская': [52.474699, 41.592249],
+            'Татарстан': [55.350336, 50.911013],
+            'Тверская': [57.093033, 34.706195],
+            'Томская': [58.949193, 78.63728],*/
+            'Тульская область': [54.193122, 37.617348],/*
             'Тыва': [51.584332, 94.793085],
             'Тюменская': [57.541821, 68.096045],
-            'Удмуртская': [57.166784, 52.796972],*/
-            'Ульяновская': [53.891057, 47.606533],/*
+            'Удмуртская': [57.166784, 52.796972],
+            'Ульяновская': [53.891057, 47.606533],
             'Хабаровский': [49.654217, 134.125955],
             'Хакасия': [53.386357, 89.897078],
-            'Ханты-Мансийский Автономный округ - Югра': [61.588912, 65.897508],*/
-            'Челябинская': [54.446199, 60.395641],/*
-            'Чеченская': [43.305784, 45.747667],*/
-            'Чувашская Республика': [55.492023, 47.086875],/*
-            'Чукотский': [65.982613, 174.432311],/*
+            'Ханты-Мансийский Автономный округ - Югра': [61.588912, 65.897508],
+            'Челябинская': [54.446199, 60.395641],
+            'Чеченская': [43.305784, 45.747667],
+            'Чувашская Республика': [55.492023, 47.086875],
+            'Чукотский': [65.982613, 174.432311],
             'Ямало-Ненецкий': [67.808603, 75.199562],
             'Ярославская': [57.817361, 39.105138]*/
         };
@@ -18581,26 +18665,26 @@ var clinic_mass = {
         //console.log(data_city[Object.keys(data_city)[0]][0])
         for (var i = 0; i < Object.keys(clinic_mass).length; i++) {
             
-            if(oblast == 'Москва'){
-                try {
-                    f5([['Московская область, Москва', [55.753215, 37.622504]]], clinic_mass)
-                }
-                catch (err) {
-                    console.log(err);
-                }
-                flag_dop_center = true
-                break
-            }
-            if(oblast == 'Санкт-Петербург'){
-                try {
-                    f5([['Ленинградская область, Санкт-Петербург', [59.938951, 30.315635]]], clinic_mass)
-                }
-                catch (err) {
-                    console.log(err);
-                }
-                flag_dop_center = true
-                break
-            }
+            // if(oblast == 'Москва'){
+            //     try {
+            //         f5([['Московская область, Москва', [55.753215, 37.622504]]], clinic_mass)
+            //     }
+            //     catch (err) {
+            //         console.log(err);
+            //     }
+            //     flag_dop_center = true
+            //     break
+            // }
+            // if(oblast == 'Санкт-Петербург'){
+            //     try {
+            //         f5([['Ленинградская область, Санкт-Петербург', [59.938951, 30.315635]]], clinic_mass)
+            //     }
+            //     catch (err) {
+            //         console.log(err);
+            //     }
+            //     flag_dop_center = true
+            //     break
+            // }
             if (clinic_mass[Object.keys(clinic_mass)[i]]['oblast'] == oblast) {
                 flag_dop_center = false
                 temp_oblast = oblast.split(' ')[1]
@@ -18766,8 +18850,10 @@ var clinic_mass = {
                     <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>\
                     <p class="map__control-adress-block-text" rv-text="optiks.doctor"></p>\
                     <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>\
-                    <a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>\
                     </div>');
+                    /*click-optik">На карте</p>\
+                    <a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>\
+                    </div>');*/
                 jQuery('.map__control-adress').removeClass('hide-class')
                 rivets.bind(
                     jQuery('.map__control-adress'),
@@ -18797,8 +18883,12 @@ var clinic_mass = {
                 <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>\
                 <p class="map__control-adress-block-text" rv-text="optiks.doctor"></p>\
                 <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>\
+                </div>');
+                /*
+                click-optik">На карте</p>\
                 <a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>\
                 </div>');
+                */
             jQuery('.map__control-adress').addClass('hide-class')
         }
     }
@@ -18956,7 +19046,8 @@ var clinic_mass = {
     }
 
 
-}</script>
+}
+</script>
 <!--bundled-->
 <script>
     // Rivets.js + Sightglass.js

@@ -62,7 +62,9 @@ $=jQuery;
         ym(66929020, 'reachGoal', 'click_test');
     });
     $(tabs6).on('click', function () {
-
+        console.log('вкладка с локатором');
+        ga('send', 'event', 'vkladki_misight', 'click_find');
+        ym(66929020, 'reachGoal', 'click_find');
     });
 
     /* Клик на мобильные табы */
@@ -110,10 +112,31 @@ $(document).ready(function(){
     //     });
 
         //локатор
-        $(document).on('submit','#modalReception',function(e){
+        $(document).on('submit','#modalReception .modal-1__form',function(e){
             console.log('нажал на кнопку1модал');
             e.preventDefault();
-            $(this).closest('.modal-1').addClass('success');
+            $(this).closest('.modal-1').addClass('sms');
+        });
+
+        $(document).on('submit','.smsVerif',function(e){
+            console.log('нажал на кнопку проверить СМС');
+            console.log ($('.modal-1__input--sms').val())
+            e.preventDefault();
+            if ( $('.modal-1__input--sms').val() === 'a45E72' ) {
+                $(this).closest('.modal-1').removeClass('sms');
+                $(this).closest('.modal-1').addClass('sms-success');
+
+            } else {
+                $(this).closest('.modal-1').removeClass('sms');
+                $(this).closest('.modal-1').addClass('sms-error');
+            }
+        });
+
+        $(document).on('click','.modal-1__container--sms-error',function(e){
+            console.log('нажал на кнопку ввести СМС еще раз');
+            e.preventDefault();
+            $(this).closest('.modal-1').removeClass('sms-error');
+            $(this).closest('.modal-1').addClass('sms');
         });
 
         //тест

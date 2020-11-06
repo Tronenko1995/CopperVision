@@ -45,13 +45,70 @@
     .success-check-before::before {border: 1px solid #2bbd2b !important;}
     .error-check,
     .error-check-before::before {border: 1px solid #ff0000 !important;}
+
     .modal-1__container--success {display: none;}
     .modal-1.success .modal-1__form {display:none !important;}
     .modal-1.success .modal-1__title--success,
     .modal-1.success .modal-1__input--success,
     .modal-1.success .more--success{display:block !important;}
     .modal-1.success .modal-1__container--success {display: flex;flex-direction: column;align-items: center;}
-    .nearsightedness__menu-nav{width:1000px;}
+
+    /* для локатора */
+    .modal-1 .modal-1__container--sms {
+        display: none !important;
+    }
+    .modal-1 .modal-1__container--sms-success {
+        display: none !important;
+    }
+    .modal-1 .modal-1__container--sms-error {
+        display: none !important;
+    }
+
+    .modal-1.sms .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms .modal-1__container--sms {
+        display: flex !important;
+    }
+    .smsVerif {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-1.sms-success .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms-success .modal-1__container--sms-success {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-1.sms-success .modal-1__title--sms-success {
+        text-align: center;
+    }
+
+    .modal-1.sms-error .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms-error .modal-1__container--sms-error {
+        display: flex !important;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sms-error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sms-error .modal-1__title--sms-error {
+        font-size: 30px;
+        margin-bottom: 0px;
+    }
+
+    .nearsightedness__menu-nav{width:1180px;}
     .block-3__item-left-list{list-style: disc;}
     .block-2__top-right{margin-top: 25px;}
     .nearsightedness__page--3_2 .block-2__top-text{margin-top: 30px;}
@@ -144,7 +201,7 @@
             margin: 0% !important;
         }
     }
-    @media (max-width: 1000px) {
+    @media (max-width: 1180px) {
         .header__menu {
             display: flex;
         }
@@ -251,8 +308,8 @@
             <li id="tabs5" class="nearsightedness__menu-nav-item">
                 <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
             </li>
-            <li id="tabs6" class="nearsightedness__menu-nav-item hide">
-                <a class="nearsightedness__menu-nav-item-link" href="">Найти специалиста<br>рядом</a>
+            <li id="tabs6" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста<br>рядом</a>
             </li>
         </ul>
     </div>
@@ -276,8 +333,8 @@
             <li class="header__item">
                 <a class="header__link" id="tabs5m" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
             </li>
-            <li class="header__item hide">
-                <a class="header__link" id="tabs6m" href="">Найти специалиста<br>рядом</a>
+            <li class="header__item">
+                <a class="header__link" id="tabs6m" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста рядом</a>
             </li>
         </ul>
     </div>
@@ -525,16 +582,31 @@
                 </button>
             </div>
         </form>
-        <div class="modal-1__container--success">
-            <p class="modal-1__title modal-1__title--success">Введите код из SMS, который был отправлен на указанный вами номер телефона.</p>
-            <input class="modal-1__input modal-1__input--success" id="modalsms1" name="modalsms1" type="text" placeholder="Код из SMS" required>
-            <div class="more more--success">
-                <button id="modalButtonSMS" type="button" class="more__text">Ок
-                    <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
-                        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
-                    </svg>
-                </button>
-            </div>
+        <div class="modal-1__container--sms">
+            <form class="smsVerif" action="">
+                <p class="modal-1__title modal-1__title--sms">Введите код из SMS, который был отправлен на указанный вами номер телефона.</p>
+                <input class="modal-1__input modal-1__input--sms" id="modalsms1" name="modalsms1" type="text" placeholder="Код из SMS" required>
+                <div class="more more--sms">
+                    <button id="modalButtonSMS" type="submit" class="more__text">Ок
+                        <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+                            <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-1__container--sms-success">
+                <p class="modal-1__title modal-1__title--sms-success">Ваш код из SMS, успешно принят!<br>Теперь проверьте почту!</p>
+        </div>
+        <div class="modal-1__container--sms-error">
+                <p class="modal-1__title modal-1__title--sms-error">Ошибка! Вы ввели неверный код!</p>
+                <div class="more more--sms-error">
+                    <button id="modalButtonSMS-retry" type="submit" class="more__text">Ввести еще раз
+                        <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+                            <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
+                        </svg>
+                    </button>
+                </div>
         </div>
     </div>
 

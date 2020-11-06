@@ -1,9 +1,5 @@
 $=jQuery;
 
-if (window.location.hash == '#test') {
-    window.location.href = 'https://coopervision.ru/misight/assess-risk-of-myopia';
-};
-
     /* Табы */
     var tabs0 = $('#tabs0');
     var tabs1 = $('#tabs1');
@@ -251,232 +247,216 @@ ymaps.ready(init);
     
     
         //массив с&nbsp;данными об оптиках
-        var clinic_mass = {
-    
-            '43.018447, 44.658307': {
-                Id_optika: '0008',
-                balloonContent: 'Детский лечебно-диагностический центр DEAR KIDS',
-                time: '10:00-19:00',
-                time_weekend: '10:00-19:00',
-               time_weekend_sun: 'выходной',
-                phone: '+7(901) 497 77 69',
-                oblast: 'Северная Осетия',
-                city: 'Владикавказ',
-                rayon: 'Затеречный',
-                street: 'пр-т Доватора 17',
-                 doctor: 'Дарья Смольникова, Зарета Камболова'
+        var clinic_mass = {  
+
+            "43.018447, 44.658307": {
+                Id_optika: "id0008",
+                balloonContent: "Детский лечебно-диагностический центр DEAR KIDS",
+                time: "10:00-19:00",
+                time_weekend: "10:00-19:00",
+               time_weekend_sun: "выходной",
+                phone: "+7(901) 497 77 69",
+                oblast: "Северная Осетия",
+                city: "Владикавказ",
+                rayon: "Затеречный",
+                street: "пр-т Доватора 17",
+                 doctor: "Дарья Смольникова, Зарета Камболова"
             },
-    
-    '55.680828, 37.535862': {
-                Id_optika: '0034',
-                balloonContent: 'Оптический уют',
-                time: '10:00-20:00',
-                time_weekend: '10:00-18:00',
-               time_weekend_sun: '10:00-18:00',
-                phone: '+7 499 783-52-23; +7 915 308 7774',
-                oblast: 'Москва',
-                city: 'Москва',
-                rayon: 'м. Университет',
-                street: 'пр-т Ленинский, 85',
-                 doctor: 'Елена  Ривкина, Елена Космачева'
+    "55.680828, 37.535862": {
+                Id_optika: "id0034",
+                balloonContent: "Оптический уют",
+                time: "10:00-20:00",
+                time_weekend: "10:00-18:00",
+               time_weekend_sun: "10:00-18:00",
+                phone: "+7 499 783-52-23; +7 915 308 7774",
+                oblast: "Москва",
+                city: "Москва",
+                rayon: "м. Университет",
+                street: "пр-т Ленинский, 85",
+                 doctor: "Елена  Ривкина, Елена Космачева"
             },
-    
-    '55.696575, 37.561544': {
-                Id_optika: '0035',
-                balloonContent: 'Оптика "Академическая"',
-                time: '10:00-20:00',
-                time_weekend: '10:00-20:00',
-               time_weekend_sun: '10:00-20:00',
-                phone: '+7 (495) 743-27-05',
-                oblast: 'Москва',
-                city: 'Москва',
-                rayon: '',
-                street: 'пр-т Ленинский, 57',
-                 doctor: 'Светлана  Кондратова'
+    "55.696575, 37.561544": {
+                Id_optika: "id0035",
+                balloonContent: "Оптика «Академическая»",
+                time: "10:00-20:00",
+                time_weekend: "10:00-20:00",
+               time_weekend_sun: "10:00-20:00",
+                phone: "+7 (495) 743-27-05",
+                oblast: "Москва",
+                city: "Москва",
+                rayon: "",
+                street: "пр-т Ленинский, 57",
+                 doctor: "Светлана  Кондратова"
             },
-    
-    '55.682245, 37.143451': {
-                Id_optika: '0036',
-                balloonContent: 'Семейная оптика "Лапино"',
-                time: '10:00-20:00',
-                time_weekend: '10:00-20:00',
-               time_weekend_sun: '10:00-20:00',
-                phone: '+7 (916) 058-88-98',
-                oblast: 'Московская область',
-                city: 'Одинцово (округ)',
-                rayon: '',
-                street: 'д. Лапино,1-е Успенское шоссе, стр.25',
-                 doctor: 'Анастасия  Стахеева'
+    "55.682245, 37.143451": {
+                Id_optika: "id0036",
+                balloonContent: "Семейная оптика «Лапино»",
+                time: "10:00-20:00",
+                time_weekend: "10:00-20:00",
+               time_weekend_sun: "10:00-20:00",
+                phone: "+7 (916) 058-88-98",
+                oblast: "Московская область",
+                city: "Одинцово (округ)",
+                rayon: "",
+                street: "д. Лапино,1-е Успенское шоссе, стр.25",
+                 doctor: "Анастасия  Стахеева"
             },
-    
-    '54.197468, 37.611024': {
-                Id_optika: '0037',
-                balloonContent: 'СПАР',
-                time: '09:00-21:00',
-                time_weekend: '09:00-21:00',
-               time_weekend_sun: '09:00-21:00',
-                phone: '+7 4872 55-40-12, +7 4872 34-34-74',
-                oblast: 'Тульская область',
-                city: 'Тула',
-                rayon: '-',
-                street: 'ул. Советская, 8',
-                 doctor: 'Олеся Кукушкина, Ольга Бракоренко, Анастасия Егорова, Елена Старикова'
+    "54.197468, 37.611024": {
+                Id_optika: "id0037",
+                balloonContent: "СПАР",
+                time: "09:00-21:00",
+                time_weekend: "09:00-21:00",
+               time_weekend_sun: "09:00-21:00",
+                phone: "+7 4872 55-40-12, +7 4872 34-34-74",
+                oblast: "Тульская область",
+                city: "Тула",
+                rayon: "-",
+                street: "ул. Советская, 8",
+                 doctor: "Олеся Кукушкина, Ольга Бракоренко, Анастасия Егорова, Елена Старикова"
             },
-    
-    '55.426483, 37.501043': {
-                Id_optika: '0039',
-                balloonContent: 'Глаз Алмаз',
-                time: '10:00-20:00',
-                time_weekend: '10:00-20:00',
-               time_weekend_sun: '10:00-20:00',
-                phone: '+7 (915) 297-53-58',
-                oblast: 'Московская область',
-                city: 'Подольск',
-                rayon: '-',
-                street: 'ул. Ленинградская, 7',
-                 doctor: 'Екатерина Сергеевна Малышева, Лариса Кислякова'
+    "55.426483, 37.501043": {
+                Id_optika: "id0039",
+                balloonContent: "Глаз Алмаз",
+                time: "10:00-20:00",
+                time_weekend: "10:00-20:00",
+               time_weekend_sun: "10:00-20:00",
+                phone: "+7 (915) 297-53-58",
+                oblast: "Московская область",
+                city: "Подольск",
+                rayon: "-",
+                street: "ул. Ленинградская, 7",
+                 doctor: "Екатерина Сергеевна Малышева, Лариса Кислякова"
             },
-    
-    '64.558939, 40.540178': {
-                Id_optika: '0041',
-                balloonContent: 'Точка Зрения',
-                time: '09:00-21:00',
-                time_weekend: '09:00-21:00',
-               time_weekend_sun: 'выходной',
-                phone: '+7 (8182) 24-04-02',
-                oblast: 'Архангельская область',
-                city: 'Архангельск',
-                rayon: 'Октябрьский',
-                street: 'ул. Комсомольская, 47',
-                 doctor: 'Оксана Макаровская'
+    "64.558939, 40.540178": {
+                Id_optika: "id0041",
+                balloonContent: "Точка Зрения",
+                time: "09:00-21:00",
+                time_weekend: "09:00-21:00",
+               time_weekend_sun: "выходной",
+                phone: "+7 (8182) 24-04-02",
+                oblast: "Архангельская область",
+                city: "Архангельск",
+                rayon: "Октябрьский",
+                street: "ул. Комсомольская, 47",
+                 doctor: "Оксана Макаровская"
             },
-    
-    '59.702318, 30.381607': {
-                Id_optika: '0042',
-                balloonContent: 'Семейный центр охраны зрения "Глазастик"',
-                time: '10:00-20:00',
-                time_weekend: '10:00-19:00',
-               time_weekend_sun: '10:00-19:00',
-                phone: '+7 812 455 45 18',
-                oblast: 'Санкт-Петербург',
-                city: 'Пушкин',
-                rayon: 'Пушкинский',
-                street: 'ул.Полковая 1/25',
-                 doctor: 'Виктория  Рогутская'
+    "59.702318, 30.381607": {
+                Id_optika: "id0042",
+                balloonContent: "Семейный центр охраны зрения «Глазастик»",
+                time: "10:00-20:00",
+                time_weekend: "10:00-19:00",
+               time_weekend_sun: "10:00-19:00",
+                phone: "+7 812 455 45 18",
+                oblast: "Санкт-Петербург",
+                city: "Пушкин",
+                rayon: "Пушкинский",
+                street: "ул.Полковая 1/25",
+                 doctor: "Виктория  Рогутская"
             },
-    
-    '59.353893, 30.064685': {
-                Id_optika: '0043',
-                balloonContent: 'Наша Оптика',
-                time: '10:00-19:00',
-                time_weekend: '10:00-19:00',
-               time_weekend_sun: '10:00-19:00',
-                phone: '+7 812 455 45 18',
-                oblast: 'Ленинградская область',
-                city: 'Сиверский',
-                rayon: 'Гатчинский',
-                street: 'пер. Строителей, 5',
-                 doctor: 'Алексей Мордвов'
+    "59.353893, 30.064685": {
+                Id_optika: "id0043",
+                balloonContent: "Наша Оптика",
+                time: "10:00-19:00",
+                time_weekend: "10:00-19:00",
+               time_weekend_sun: "10:00-19:00",
+                phone: "+7 812 455 45 18",
+                oblast: "Ленинградская область",
+                city: "Сиверский",
+                rayon: "Гатчинский",
+                street: "пер. Строителей, 5",
+                 doctor: "Алексей Мордвов"
             },
-    
-    '55.771980, 37.596507': {
-                Id_optika: '0059',
-                balloonContent: 'Оптикалнэт( Заказ Линз)',
-                time: '09:00-20:30',
-                time_weekend: '09:00-20:30',
-               time_weekend_sun: '10:00-19:00',
-                phone: '+7 495 730 52 60',
-                oblast: 'Москва',
-                city: 'Москва',
-                rayon: 'м. Маяковская',
-                street: 'ул. 3-я Тверская-Ямская, 12, стр 1',
-                 doctor: 'Олег  Жуков'
+    "55.771980, 37.596507": {
+                Id_optika: "id0059",
+                balloonContent: "Оптикалнэт( Заказ Линз)",
+                time: "09:00-20:30",
+                time_weekend: "09:00-20:30",
+               time_weekend_sun: "10:00-19:00",
+                phone: "+7 495 730 52 60",
+                oblast: "Москва",
+                city: "Москва",
+                rayon: "м. Маяковская",
+                street: "ул. 3-я Тверская-Ямская, 12, стр 1",
+                 doctor: "Олег  Жуков"
             },
-    
-    '51.658775, 39.194601': {
-                Id_optika: '0087',
-                balloonContent: 'Визио',
-                time: '09:00-20:00',
-                time_weekend: '10:00-20:00',
-               time_weekend_sun: '10:00-18:00',
-                phone: '+7 (473) 277-55-44',
-                oblast: 'Воронежская область',
-                city: 'Воронеж',
-                rayon: '',
-                street: 'ул. Кирова, 3',
-                 doctor: 'Ольга Маренкова'
+    "51.658775, 39.194601": {
+                Id_optika: "id0087",
+                balloonContent: "Визио",
+                time: "09:00-20:00",
+                time_weekend: "10:00-20:00",
+               time_weekend_sun: "10:00-18:00",
+                phone: "+7 (473) 277-55-44",
+                oblast: "Воронежская область",
+                city: "Воронеж",
+                rayon: "",
+                street: "ул. Кирова, 3",
+                 doctor: "Ольга Маренкова"
             },
-    
-    '50.599142, 36.580593': {
-                Id_optika: '0089',
-                balloonContent: 'Новая Оптика',
-                time: '09:00-19:00',
-                time_weekend: '09:00-19:00',
-               time_weekend_sun: '09:00-19:00',
-                phone: '(4722) 32-34-90',
-                oblast: 'Белгородская область',
-                city: 'Белгород',
-                rayon: '',
-                street: 'пр-т Богдана Хмельницкого, 38',
-                 doctor: 'Яна Лысенко'
+    "50.599142, 36.580593": {
+                Id_optika: "id0089",
+                balloonContent: "Новая Оптика",
+                time: "09:00-19:00",
+                time_weekend: "09:00-19:00",
+               time_weekend_sun: "09:00-19:00",
+                phone: "(4722) 32-34-90",
+                oblast: "Белгородская область",
+                city: "Белгород",
+                rayon: "",
+                street: "пр-т Богдана Хмельницкого, 38",
+                 doctor: "Яна Лысенко"
             },
-    
-    '50.601549, 36.589819': {
-                Id_optika: '0090',
-                balloonContent: 'Новая Оптика',
-                time: '09:00-19:00',
-                time_weekend: '09:00-19:00',
-               time_weekend_sun: '09:00-19:00',
-                phone: '+7(951)154-29-95',
-                oblast: 'Белгородская область',
-                city: 'Белгород',
-                rayon: '',
-                street: 'ул. Попова, 25',
-                 doctor: 'Лариса Сливченко'
+    "50.601549, 36.589819": {
+                Id_optika: "id0090",
+                balloonContent: "Новая Оптика",
+                time: "09:00-19:00",
+                time_weekend: "09:00-19:00",
+               time_weekend_sun: "09:00-19:00",
+                phone: "+7(951)154-29-95",
+                oblast: "Белгородская область",
+                city: "Белгород",
+                rayon: "",
+                street: "ул. Попова, 25",
+                 doctor: "Лариса Сливченко"
             },
-    
-    '51.682006, 39.216286': {
-                Id_optika: '0091',
-                balloonContent: 'Новые Горизонты',
-                time: '08:00-19:00',
-                time_weekend: '08:00-17:00',
-               time_weekend_sun: 'выходной',
-                phone: '+7 (473) 30-03-111',
-                oblast: 'Воронежская область',
-                city: 'Воронеж',
-                rayon: '',
-                street: 'пр-т Революции, 1в',
-                 doctor: 'Татьяна Агеева'
+    "51.682006, 39.216286": {
+                Id_optika: "id0091",
+                balloonContent: "Новые Горизонты",
+                time: "08:00-19:00",
+                time_weekend: "08:00-17:00",
+               time_weekend_sun: "выходной",
+                phone: "+7 (473) 30-03-111",
+                oblast: "Воронежская область",
+                city: "Воронеж",
+                rayon: "",
+                street: "пр-т Революции, 1в",
+                 doctor: "Татьяна Агеева"
             },
-    
-    '55.772760, 37.651762': {
-                Id_optika: '0098',
-                balloonContent: 'Доктор Визус ( Гост-Оптика)',
-                time: '09:00-20:00',
-                time_weekend: '09:00-18:00',
-               time_weekend_sun: 'выходной',
-                phone: '+7(495)699 95 95',
-                oblast: 'Москва',
-                city: 'Москва',
-                rayon: 'м. Комсомольская',
-                street: 'ул. Каланчевская, 17 стр. 1',
-                 doctor: 'Гульнара Андриенко'
+    "55.772760, 37.651762": {
+                Id_optika: "id0098",
+                balloonContent: "Доктор Визус ( Гост-Оптика)",
+                time: "09:00-20:00",
+                time_weekend: "09:00-18:00",
+               time_weekend_sun: "выходной",
+                phone: "+7(495)699 95 95",
+                oblast: "Москва",
+                city: "Москва",
+                rayon: "м. Комсомольская",
+                street: "ул. Каланчевская, 17 стр. 1",
+                 doctor: "Гульнара Андриенко"
             },
-    
-    '51.663216, 39.193801': {
-                Id_optika: '0102',
-                balloonContent: 'МедИнвест',
-                time: '08:00-20:00',
-                time_weekend: '09:00-17:00',
-               time_weekend_sun: 'выходной',
-                phone: '+7 (473) 212-12-22',
-                oblast: 'Воронежская область',
-                city: 'Воронеж',
-                rayon: '',
-                street: 'ул. Куколкина, 11',
-                 doctor: 'Евгения Черных'
-            }
-    
+    "51.663216, 39.193801": {
+                Id_optika: "id0102",
+                balloonContent: "МедИнвест",
+                time: "08:00-20:00",
+                time_weekend: "09:00-17:00",
+               time_weekend_sun: "выходной",
+                phone: "+7 (473) 212-12-22",
+                oblast: "Воронежская область",
+                city: "Воронеж",
+                rayon: "",
+                street: "ул. Куколкина, 11",
+                 doctor: "Евгения Черных"
+            },
     
     
     
@@ -763,6 +743,7 @@ ymaps.ready(init);
      time_weekend_sun: 'Воскресенье: ' + Object.values(clinic_mass)[i]['time_weekend'],
                             phone: Object.values(clinic_mass)[i]['phone'],
                             doctor: `Специалист: ${Object.values(clinic_mass)[i]['doctor']}`,
+                            Id_optika: `<input class="jsIdOptika" type="hidden" value="${Object.values(clinic_mass)[i]['Id_optika']}">`,
                             coord: Object.keys(clinic_mass)[i],
                         })
                     }
@@ -775,6 +756,7 @@ ymaps.ready(init);
      time_weekend_sun: 'Воскресенье: ' + Object.values(clinic_mass)[i]['time_weekend'],
                             phone: Object.values(clinic_mass)[i]['phone'],
                             doctor: `Специалист: ${Object.values(clinic_mass)[i]['doctor']}`,
+                            Id_optika: `<input class="jsIdOptika" type="hidden" value="${Object.values(clinic_mass)[i]['Id_optika']}">`,
                             coord: Object.keys(clinic_mass)[i],
                         })
                     }
@@ -810,6 +792,7 @@ ymaps.ready(init);
                         <p class="map__control-adress-block-text" rv-text="optiks.time_weekend_sun"></p>\
                         <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>\
                         <p class="map__control-adress-block-text" rv-text="optiks.doctor"></p>\
+                        <input class="jsIdOptika" type="hidden" value="optiks.Id_optika">\
                         <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>\
                         </div>');
                         /*click-optik">На карте</p>\
@@ -843,6 +826,7 @@ ymaps.ready(init);
                     <p class="map__control-adress-block-text" rv-text="optiks.time_weekend"></p>\
                     <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>\
                     <p class="map__control-adress-block-text" rv-text="optiks.doctor"></p>\
+                    <input class="jsIdOptika" type="hidden" value="optiks.Id_optika">\
                     <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>\
                     </div>');
                     /*
