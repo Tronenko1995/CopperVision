@@ -25,7 +25,7 @@
     .modal-1.success .modal-1__input--success,
     .modal-1.success .more--success{display:block !important;}
     .modal-1.success .modal-1__container--success {display: flex;flex-direction: column;align-items: center;}
-    .nearsightedness__menu-nav{width:1000px;}
+    .nearsightedness__menu-nav{width:1180px;}
     .block-3__item-left-list{list-style: disc;}
     .block-2__top-right{margin-top: 25px;}
     .nearsightedness__page--3_2 .block-2__top-text{margin-top: 30px;}
@@ -118,7 +118,7 @@
             margin: 0% !important;
         }
     }
-    @media (max-width: 1000px) {
+    @media (max-width: 1180px) {
         .header__menu {
             display: flex;
         }
@@ -184,12 +184,201 @@
 .nearsightedness__menu-nav-item--active .nearsightedness__menu-nav-item-link {
     color: #fff !important;
 }
+/* летающие кнопки */
+@keyframes animateGradi {
+    5% {
+        background: linear-gradient(270deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    10% {
+        background: linear-gradient(250deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    15% {
+        background: linear-gradient(230deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    20% {
+        background: linear-gradient(210deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    25% {
+        background: linear-gradient(190deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    30% {
+        background: linear-gradient(170deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    35% {
+        background: linear-gradient(150deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    40% {
+        background: linear-gradient(130deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    45% {
+        background: linear-gradient(110deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    50% {
+        background: linear-gradient(90deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    55% {
+        background: linear-gradient(70deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    60% {
+        background: linear-gradient(50deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    65% {
+        background: linear-gradient(30deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    70% {
+        background: linear-gradient(10deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    75% {
+        background: linear-gradient(-10deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    80% {
+        background: linear-gradient(-30deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    85% {
+        background: linear-gradient(-50deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    90% {
+        background: linear-gradient(-70deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    95% {
+        background: linear-gradient(-90deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    100% {
+        background: linear-gradient(-90deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+}
+.svg-test {
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExIDRIMjFWNkgxMVY0Wk0xMSA4SDE3VjEwSDExVjhaTTExIDE0SDIxVjE2SDExVjE0Wk0xMSAxOEgxN1YyMEgxMVYxOFpNMyA0SDlWMTBIM1Y0Wk01IDZWOEg3VjZINVpNMyAxNEg5VjIwSDNWMTRaTTUgMTZWMThIN1YxNkg1WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==');
+    background-repeat: no-repeat;
+}
+.svg-find {
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExIDJDMTUuOTY4IDIgMjAgNi4wMzIgMjAgMTFDMjAgMTUuOTY4IDE1Ljk2OCAyMCAxMSAyMEM2LjAzMiAyMCAyIDE1Ljk2OCAyIDExQzIgNi4wMzIgNi4wMzIgMiAxMSAyWk0xMSAxOEMxNC44NjcgMTggMTggMTQuODY3IDE4IDExQzE4IDcuMTMyIDE0Ljg2NyA0IDExIDRDNy4xMzIgNCA0IDcuMTMyIDQgMTFDNCAxNC44NjcgNy4xMzIgMTggMTEgMThaTTE5LjQ4NSAxOC4wNzFMMjIuMzE0IDIwLjg5OUwyMC44OTkgMjIuMzE0TDE4LjA3MSAxOS40ODVMMTkuNDg1IDE4LjA3MVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=');
+    background-repeat: no-repeat;
+}
+.right-buttons {
+    width: 280px;
+    position: fixed;
+    top: 373px;
+    right: 70px;
+    z-index: 100;
+}
+.right-buttons-top,
+.right-buttons-bottom {
+    background: linear-gradient(270deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+}
+.right-buttons-top {
+    border-radius: 15px 15px 0px 0px;
+    animation: animateGradi 1s infinite 1s ease-in-out;
+}
+.right-buttons-bottom {
+    margin-top: 2px;
+    border-radius: 0px 0px 15px 15px;
+    animation: animateGradi 1s infinite 1s ease-in-out reverse;
+}
+.right-buttons-top:hover,
+.right-buttons-bottom:hover {
+    background: #FF7400 !important;
+}
+.right-buttons-top-link,
+.right-buttons-bottom-link {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration: none !important;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+}
+.right-buttons-top-link-text,
+.right-buttons-bottom-link-text {
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none !important;
+    font-style: normal;
+    font-weight: 600;
+}
+.right-buttons-top-link-text {
+    margin-left: 15px;
+}
+.right-buttons-bottom-link-text {
+    margin-left: 12px;
+}
+@media (max-width: 1180px) {
+    .right-buttons {
+        right: 0px;
+        top: 470px;
+    }
+}
+@media (max-width: 1128px) {
+    .right-buttons {
+        top: 515px;
+    }
+}
+@media (max-width: 999px) {
+    .right-buttons {
+        top: 364px;
+    }
+}
+@media (max-width: 700px) {
+.svg-test {
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+}
+.svg-find {
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+}
+.right-buttons {
+    width: 110px;
+    top: 76px;
+    right: 0px;
+}
+.right-buttons-top-link,
+.right-buttons-bottom-link {
+    font-size: 10px;
+    line-height: 13px;
+    padding: 10px 2px;
+}
+.right-buttons-top-link-text {
+    margin-left: 0px;
+}
+.right-buttons-bottom-link-text {
+    margin-left: 2px;
+}
+.right-buttons-bottom {
+    margin-top: 1px;
+}
+}
+@media (max-width: 600px) {
+    .right-buttons {
+        top: 66px;
+    }
+}
 </style>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 <script>
-    $=jQuery;
+    // $=jQuery;
 </script>
-
+<div class="right-buttons">
+    <div class="right-buttons-top">
+        <a class="right-buttons-top-link" href="https://coopervision.ru/misight/assess-risk-of-myopia">
+            <span class="svg-test"></span><span class="right-buttons-top-link-text">Оцените риск близорукости</span>
+        </a>
+    </div>
+    <div class="right-buttons-bottom">
+        <a class="right-buttons-bottom-link" href="https://coopervision.ru/misight/find-specialist-nearby">
+            <span class="svg-find"></span><span class="right-buttons-bottom-link-text">Найти специалиста</span></a>
+    </div>
+</div>
 <div id="nearsightednessBread" class="breadcrumb breadcrumb2">
     <span class='breadcrumb__link'>
         <a href='https://coopervision.ru/'>Home</a>
@@ -225,8 +414,8 @@
             <li id="tabs5" class="nearsightedness__menu-nav-item">
                 <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
             </li>
-            <li id="tabs6" class="nearsightedness__menu-nav-item hide">
-                <a class="nearsightedness__menu-nav-item-link" href="">Найти специалиста<br>рядом</a>
+            <li id="tabs6" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста<br>рядом</a>
             </li>
         </ul>
     </div>
@@ -250,8 +439,8 @@
             <li class="header__item">
                 <a class="header__link" id="tabs5m" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
             </li>
-            <li class="header__item hide">
-                <a class="header__link" id="tabs6m" href="">Найти специалиста<br>рядом</a>
+            <li class="header__item">
+                <a class="header__link" id="tabs6m" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста рядом</a>
             </li>
         </ul>
     </div>
@@ -655,7 +844,7 @@
 </div>
 
 <!--range-->
-<script>
+<!-- <script>
     /*jshint multistr:true, curly: false */
     /*global jQuery:false, define: false */
     /**
@@ -1057,11 +1246,11 @@
         };
 
     })(jQuery, window, document);
-</script>
+</script> -->
 
 
 
-<script>
+<!-- <script>
 /* Как видит близоруйкий ребенок */
 jQuery(document).ready(function () {
     jQuery('.range-slider-cvi').jRange({
@@ -1243,9 +1432,9 @@ $('.sciencelabScenario').on('click', function () {
 $('.sportshallScenario').on('click', function () {
     sportshallClickScenario();
 });
-</script>
+</script> -->
 
-<script>
+<!-- <script>
     /* Табы */
     var tabs0 = $('#tabs0');
     var tabs1 = $('#tabs1');
@@ -1319,9 +1508,9 @@ $('.sportshallScenario').on('click', function () {
     $(tabs6m).on('click', function (e) {
         $(tabs6).trigger('click');
     });
-</script>
+</script> -->
 
-<script>
+<!-- <script>
 $(document).ready(function(){
 
     $(".note").on("click", function (event) {
@@ -1330,4 +1519,4 @@ $(document).ready(function(){
     $('body,html').animate({scrollTop: block}, 2000); //сделаем прокрутку за 2 с
     });
 });
-</script>
+</script> -->
