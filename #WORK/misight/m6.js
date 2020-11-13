@@ -1226,7 +1226,7 @@ function init() {
                     data['optiks'].push({
                         title: Object.values(clinic_mass)[i]['balloonContent'],
                         adress: (Object.values(clinic_mass)[i]['city'] + ", " + Object.values(clinic_mass)[i]['street']),
-                        time: 'Вемя работы(пн-пт): ' + Object.values(clinic_mass)[i]['time'],
+                        time: 'время работы(пн-пт): ' + Object.values(clinic_mass)[i]['time'],
                         time_weekend: 'Суббота: ' + Object.values(clinic_mass)[i]['time_weekend'],
                         time_weekend_sun: 'Воскресенье: ' + Object.values(clinic_mass)[i]['time_weekend'],
                         phone: Object.values(clinic_mass)[i]['phone'],
@@ -1241,7 +1241,7 @@ function init() {
                     data['optiks'].push({
                         title: Object.values(clinic_mass)[i]['balloonContent'],
                         adress: (Object.values(clinic_mass)[i]['oblast'] + ", " + Object.values(clinic_mass)[i]['city'] + ", " + Object.values(clinic_mass)[i]['street']),
-                        time: 'Вемя работы(пн-пт): ' + Object.values(clinic_mass)[i]['time'],
+                        time: 'время работы(пн-пт): ' + Object.values(clinic_mass)[i]['time'],
                         time_weekend: 'Суббота: ' + Object.values(clinic_mass)[i]['time_weekend'],
                         time_weekend_sun: 'Воскресенье: ' + Object.values(clinic_mass)[i]['time_weekend'],
                         phone: Object.values(clinic_mass)[i]['phone'],
@@ -1286,10 +1286,10 @@ function init() {
                         <p class="map__control-adress-block-text" rv-text="optiks.doctor"></p>\
                         <input class="jsIdOptika" type="hidden" rv-value="optiks.Id_optika">\
                         <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>\
-                        <a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>\
+                        <a href="#" class="map__control-adress-block-button jsSignUp">Получить информацию</a>\
                         </div>');
                 /*click-optik">На карте</p>\
-                <a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>\
+                <a href="#" class="map__control-adress-block-button jsSignUp">Получить информацию</a>\
                 </div>');*/
                 jQuery('.map__control-adress').removeClass('hide-class')
                 rivets.bind(
@@ -1321,11 +1321,11 @@ function init() {
                     <p class="map__control-adress-block-text" rv-text="optiks.doctor"></p>\
                     <input class="jsIdOptika" type="hidden" rv-value="optiks.Id_optika">\
                     <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>\
-                    <a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>\
+                    <a href="#" class="map__control-adress-block-button jsSignUp">Получить информацию</a>\
                     </div>');
             /*
             click-optik">На карте</p>\
-            <a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>\
+            <a href="#" class="map__control-adress-block-button jsSignUp">Получить информацию</a>\
             </div>');
             */
             jQuery('.map__control-adress').addClass('hide-class')
