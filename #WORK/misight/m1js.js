@@ -508,7 +508,7 @@ function init() {
     var clinic_mass = {
 
         '64.558939, 40.540178': {
-            Id_optika: 'id0041',
+            Id_optika: '9d8b9d70-445a-4e6b-b55b-97330a677bbf',
             balloonContent: 'Точка Зрения',
             time: '09:00-21:00',
             time_weekend: '09:00-21:00',
@@ -521,7 +521,7 @@ function init() {
              doctor: 'Оксана Макаровская'
         },
 '50.601549, 36.589819': {
-            Id_optika: 'id0090',
+            Id_optika: '550f77cf-f72a-456d-95e3-b3d162b51c80',
             balloonContent: 'Новая Оптика',
             time: '09:00-19:00',
             time_weekend: '09:00-19:00',
@@ -534,7 +534,7 @@ function init() {
              doctor: 'Лариса Сливченко'
         },
 '50.599142, 36.580593': {
-            Id_optika: 'id0089',
+            Id_optika: 'a42e90cf-8739-4ee9-8e7c-74cac619d9bb',
             balloonContent: 'Новая Оптика',
             time: '09:00-19:00',
             time_weekend: '09:00-19:00',
@@ -547,7 +547,7 @@ function init() {
              doctor: 'Яна Лысенко'
         },
 '51.658775, 39.194601': {
-            Id_optika: 'id0087',
+            Id_optika: '155cab5c-df40-4a70-bc18-95e4a28f4bf5',
             balloonContent: 'Визио',
             time: '09:00-20:00',
             time_weekend: '10:00-20:00',
@@ -560,7 +560,7 @@ function init() {
              doctor: 'Ольга Маренкова'
         },
 '51.682006, 39.216286': {
-            Id_optika: 'id0091',
+            Id_optika: '6572bf1e-04e7-49b1-ae64-5bf2f3e4435c',
             balloonContent: 'Новые Горизонты',
             time: '08:00-19:00',
             time_weekend: '08:00-17:00',
@@ -573,7 +573,7 @@ function init() {
              doctor: 'Татьяна Агеева'
         },
 '51.663216, 39.193801': {
-            Id_optika: 'id0102',
+            Id_optika: '6bc49683-0d44-4517-b1b8-51928a8fac67',
             balloonContent: 'МедИнвест',
             time: '08:00-20:00',
             time_weekend: '09:00-17:00',
@@ -585,13 +585,39 @@ function init() {
             street: 'ул. Куколкина, 11',
              doctor: 'Евгения Черных'
         },
+'45.036751, 39.091860': {
+            Id_optika: 'a1104baf-35ba-48cf-9d51-dc446a48c974',
+            balloonContent: 'Дианостический центр 3Z',
+            time: '08:00-16:00',
+            time_weekend: '09:00-17:00',
+           time_weekend_sun: 'выходной',
+            phone: '8 (800) 250 33 30',
+            oblast: 'Краснодарский край',
+            city: 'Краснодар',
+            rayon: 'Комсомольский',
+            street: 'ул. Уральская ,156',
+             doctor: 'Олеся Минеева'
+        },
+'45.016467, 39.040683': {
+            Id_optika: '942b38f7-eeb5-4c39-8865-0ff11fccd6e2',
+            balloonContent: 'Дианостический центр 3Z',
+            time: '08:00-20:00',
+            time_weekend: '08:00-20:00',
+           time_weekend_sun: '09:00-20:00',
+            phone: '8 (800) 250 33 30',
+            oblast: 'Краснодарский край',
+            city: 'Краснодар',
+            rayon: 'Черёмушки микрорайон',
+            street: 'ул. Ставропольская,252',
+             doctor: 'Ольга Щурина'
+        },
 '59.353893, 30.064685': {
-            Id_optika: 'id0043',
+            Id_optika: '8ddff281-de09-478b-9898-adf9aecb6112',
             balloonContent: 'Наша Оптика',
             time: '10:00-19:00',
             time_weekend: '10:00-19:00',
            time_weekend_sun: '10:00-19:00',
-            phone: '+7 812 455 45 18',
+            phone: '+7 (812) 455 45 18',
             oblast: 'Ленинградская область',
             city: 'Сиверский',
             rayon: 'Гатчинский',
@@ -599,7 +625,7 @@ function init() {
              doctor: 'Алексей Мордвов'
         },
 '55.696575, 37.561544': {
-            Id_optika: 'id0035',
+            Id_optika: 'ebe5e36b-fb7e-4275-ac3b-4d8383c87cb6',
             balloonContent: 'Оптика «Академическая»',
             time: '10:00-20:00',
             time_weekend: '10:00-20:00',
@@ -612,7 +638,7 @@ function init() {
              doctor: 'Светлана Кондратова'
         },
 '55.757298, 37.632862': {
-            Id_optika: 'id0001',
+            Id_optika: '418ee35f-ea2e-4405-a7fb-1216176435fe',
             balloonContent: 'Глазко мастерская очков',
             time: '10:00-20:00',
             time_weekend: '11:00-19:00',
@@ -625,7 +651,7 @@ function init() {
              doctor: 'Ольга Бракоренко'
         },
 '55.766121, 37.582529': {
-            Id_optika: 'id0111',
+            Id_optika: 'e1a0359d-a084-4317-ab43-1e12053bef7f',
             balloonContent: 'Клиника Глазных Болезней',
             time: '10:00-19:00',
             time_weekend: '10:00-19:00',
@@ -638,7 +664,7 @@ function init() {
              doctor: 'Анастасия Дмитриева'
         },
 '55.776978, 37.549202': {
-            Id_optika: 'id0112',
+            Id_optika: '6c72c12f-c996-416d-9e97-d153f7f111fb',
             balloonContent: 'Оптимист Оптика',
             time: '10:00-18:00',
             time_weekend: '10:00-18:00',
@@ -651,7 +677,7 @@ function init() {
              doctor: 'Олеся Фадеева'
         },
 '55.775692, 37.590731': {
-            Id_optika: 'id0106',
+            Id_optika: '7f451da3-e636-4a3d-a6c7-0861fb705868',
             balloonContent: 'Клиника Коновалова',
             time: '08:30-19:00',
             time_weekend: '09:00-18:00',
@@ -664,7 +690,7 @@ function init() {
              doctor: 'Наталья Захарова'
         },
 '55.754086, 37.635709': {
-            Id_optika: 'id0113',
+            Id_optika: '64dc8e16-4990-43ec-90c5-1455550b45db',
             balloonContent: 'Оптимист Оптика',
             time: '10:00-20:00',
             time_weekend: '10:00-20:00',
@@ -677,7 +703,7 @@ function init() {
              doctor: 'Махер Аль-Мобарак'
         },
 '55.679976, 37.662623': {
-            Id_optika: 'id0109',
+            Id_optika: 'b8d327c8-f580-4e7a-8457-c8d1cfa3003c',
             balloonContent: 'Салон Необычных Оправ',
             time: '10:00-21:00',
             time_weekend: '10:00-21:00',
@@ -690,7 +716,7 @@ function init() {
              doctor: 'Ирина  Ленская'
         },
 '55.772760, 37.651762': {
-            Id_optika: 'id0098',
+            Id_optika: 'c9c29b91-26c5-4b72-94d2-871a5ca9262d',
             balloonContent: 'Доктор Визус (Гост-Оптика)',
             time: '09:00-20:00',
             time_weekend: '09:00-18:00',
@@ -703,12 +729,12 @@ function init() {
              doctor: 'Гульнара Андриенко'
         },
 '55.771980, 37.596507': {
-            Id_optika: 'id0059',
+            Id_optika: 'c76e9723-6017-4b14-bc31-c0f9d7ccbcfa',
             balloonContent: 'Оптикалнэт (Заказ Линз)',
             time: '09:00-20:30',
             time_weekend: '09:00-20:30',
            time_weekend_sun: '10:00-19:00',
-            phone: '+7 495 730 52 60',
+            phone: '+7 (495) 730 52 60',
             oblast: 'Москва',
             city: 'Москва',
             rayon: 'м. Маяковская',
@@ -716,7 +742,7 @@ function init() {
              doctor: 'Олег Жуков'
         },
 '55.748392, 37.819999': {
-            Id_optika: 'id0097',
+            Id_optika: 'a6a99b3e-00ba-4e32-af01-ce33217b5e2e',
             balloonContent: 'Клиника Здорового Зрения',
             time: '09:00-20:00',
             time_weekend: '10:00-17:00',
@@ -729,7 +755,7 @@ function init() {
              doctor: 'Наталия Павловна Парфенова'
         },
 '55.798115, 37.495617': {
-            Id_optika: 'id0110',
+            Id_optika: '020abfda-3949-4e41-9932-5decf86fb117',
             balloonContent: 'Клиника семейной офтальмологии профессора Трубилина',
             time: '09:00-18:00',
             time_weekend: '10:00-15:00',
@@ -742,7 +768,7 @@ function init() {
              doctor: 'Полина  Козлова'
         },
 '55.781140, 37.637219': {
-            Id_optika: 'id0107',
+            Id_optika: '817e6e61-a27f-4741-a686-8ade9c9a698d',
             balloonContent: 'Клиника Элит Плюс',
             time: '10:00-20:00',
             time_weekend: '10:00-20:00',
@@ -755,7 +781,7 @@ function init() {
              doctor: 'Ирина  Демчук'
         },
 '55.743923, 37.582655': {
-            Id_optika: 'id0108',
+            Id_optika: 'e57b0404-0ac2-46ae-abd6-407f439a184c',
             balloonContent: 'Салон Необычных Оправ',
             time: '10:00-21:00',
             time_weekend: '10:00-21:00',
@@ -768,7 +794,7 @@ function init() {
              doctor: 'Лариса  Дик'
         },
 '55.680828, 37.535862': {
-            Id_optika: 'id0034',
+            Id_optika: '5ad1be2d-7aa1-440a-a311-fff0c8828bfa',
             balloonContent: 'Оптический уют',
             time: '10:00-20:00',
             time_weekend: '10:00-18:00',
@@ -781,7 +807,7 @@ function init() {
              doctor: 'Елена Ривкина, Елена Космачева'
         },
 '56.762834, 37.143100': {
-            Id_optika: 'id0081',
+            Id_optika: '7d738fed-bd40-42bd-9060-00d64985579f',
             balloonContent: 'Оптика Айболит (ИП Шнайдер)',
             time: '11:00-19:00',
             time_weekend: '11:00-19:00',
@@ -794,7 +820,7 @@ function init() {
              doctor: 'Юлия Михайловна Шаркова'
         },
 '55.682245, 37.143451': {
-            Id_optika: 'id0036',
+            Id_optika: '55ec75fe-7980-4cc4-9c2c-0381e4f079a0',
             balloonContent: 'Семейная оптика «Лапино»',
             time: '10:00-20:00',
             time_weekend: '10:00-20:00',
@@ -807,7 +833,7 @@ function init() {
              doctor: 'Анастасия Стахеева'
         },
 '55.426483, 37.501043': {
-            Id_optika: 'id0039',
+            Id_optika: 'd7f319a2-de57-45f6-b8c8-f84549013edc',
             balloonContent: 'Глаз Алмаз',
             time: '10:00-20:00',
             time_weekend: '10:00-20:00',
@@ -820,7 +846,7 @@ function init() {
              doctor: 'Екатерина Сергеевна Малышева, Лариса Кислякова'
         },
 '55.055733, 82.911905': {
-            Id_optika: 'id0104',
+            Id_optika: '104b2ef4-fe37-4431-be75-91dffab37f97',
             balloonContent: 'Всё для глаз',
             time: '10:00-20:00',
             time_weekend: '10:00-20:00',
@@ -833,7 +859,7 @@ function init() {
              doctor: 'Екатерина Отмахова'
         },
 '55.020905, 82.946804': {
-            Id_optika: 'id0103',
+            Id_optika: '9bba1497-b774-4ff5-8de2-08d47a8bc1ef',
             balloonContent: 'Доктор Линз',
             time: '09:00-19:00',
             time_weekend: '09:00-19:00',
@@ -845,21 +871,60 @@ function init() {
             street: 'ул. Сакко и Ванцетти, 77',
              doctor: 'Пётр Нагорский'
         },
+'51.790198, 55.124246': {
+            Id_optika: '4493f0f4-d7ff-41da-8182-8bdb6882f1a5',
+            balloonContent: 'Оптика Лунет',
+            time: '09:00-19:00',
+            time_weekend: '09:00-18:00',
+           time_weekend_sun: '10:00-16:00',
+            phone: '+7 (3532)75 68 98',
+            oblast: 'Оренбургская область',
+            city: 'Оренбург',
+            rayon: '',
+            street: 'пр-т Победы, 118',
+             doctor: 'Айгуль Есмухамбетова'
+        },
+'58.006736, 56.230045': {
+            Id_optika: '2de275a5-96cc-4bd5-a49a-75f74c8544ac',
+            balloonContent: 'Офтальмологическая клиника 3z',
+            time: '08:00-19:00',
+            time_weekend: '09:00-17:00',
+           time_weekend_sun: 'выходной',
+            phone: '8 (800) 250 33 30',
+            oblast: 'Пермский край',
+            city: 'Пермь',
+            rayon: 'Ленинский',
+            street: 'ул. Екатерининская, 105-107',
+             doctor: 'Елена Сарапулова'
+        },
 '59.702318, 30.381607': {
-            Id_optika: 'id0042',
+            Id_optika: 'e4d242f1-432a-43f8-97de-a3601ea35576',
             balloonContent: 'Семейный центр охраны зрения «Глазастик»',
             time: '10:00-20:00',
             time_weekend: '10:00-19:00',
            time_weekend_sun: '10:00-19:00',
-            phone: '+7 812 455 45 18',
+            phone: '+7 (812) 455 45 18',
             oblast: 'Санкт-Петербург',
             city: 'Пушкин',
             rayon: 'Пушкинский',
             street: 'ул.Полковая 1/25',
              doctor: 'Виктория Рогутская'
         },
-'56.846012, 60.632679': {
-            Id_optika: 'id0094',
+'59.943706, 30.359077': {
+            Id_optika: '',
+            balloonContent: 'Оптика100%',
+            time: '10:00-20:00',
+            time_weekend: '10:00-20:00',
+           time_weekend_sun: '10:00-20:00',
+            phone: '8-800-700-0214',
+            oblast: 'Санкт-Петербург',
+            city: 'Санкт-Петербург',
+            rayon: 'м. Чернышевская',
+            street: 'ул. Кирочная, 17',
+             doctor: 'Ольга Данич'
+        },
+'56.806870, 60.597564': {
+            Id_optika: '2cc7d0b7-1f7a-4036-b9df-574a7bfcfefb',
             balloonContent: 'Очки для Вас',
             time: '09:00-20:00',
             time_weekend: '10:00-20:00',
@@ -868,11 +933,11 @@ function init() {
             oblast: 'Свердловская область',
             city: 'Екатеринбург',
             rayon: '',
-            street: 'ул. Блюхера, 3',
+            street: 'ул. Щорса, 109',
              doctor: 'Виктория  Володина'
         },
 '43.018447, 44.658307': {
-            Id_optika: 'id0008',
+            Id_optika: 'd5633f8d-f017-4c57-abc3-acf98a1892c4',
             balloonContent: 'Детский лечебно-диагностический центр DEAR KIDS',
             time: '10:00-19:00',
             time_weekend: '10:00-19:00',
@@ -885,7 +950,7 @@ function init() {
              doctor: 'Дарья Смольникова, Зарета Камболова'
         },
 '56.489993, 84.947712': {
-            Id_optika: 'id0100',
+            Id_optika: 'b2572c66-7024-4ef2-93bb-655164db8110',
             balloonContent: 'Эль Ликон',
             time: '09:30-20:00',
             time_weekend: '10:00-19:00',
@@ -898,12 +963,12 @@ function init() {
              doctor: 'Владимир Гладышев'
         },
 '54.197468, 37.611024': {
-            Id_optika: 'id0037',
+            Id_optika: '2f1dab4d-7426-45f0-9f7a-40a7a7123b14',
             balloonContent: 'СПАР',
             time: '09:00-21:00',
             time_weekend: '09:00-21:00',
            time_weekend_sun: '09:00-21:00',
-            phone: '+7 4872 55 40 12, +7 4872 34 34 74',
+            phone: '+7 (4872) 55 40 12, +7 (4872) 34 34 74',
             oblast: 'Тульская область',
             city: 'Тула',
             rayon: '',
@@ -911,7 +976,7 @@ function init() {
              doctor: 'Олеся Кукушкина, Ольга Бракоренко, Анастасия Егорова, Елена Старикова'
         },
 '56.838194, 53.214940': {
-            Id_optika: 'id0105',
+            Id_optika: '65f5832b-a3bb-42b3-86be-b2c84c0fcc90',
             balloonContent: 'Линза',
             time: '08:00-20:00',
             time_weekend: '10:00-18:00',
@@ -922,9 +987,7 @@ function init() {
             rayon: '',
             street: 'ул. Либкнехта, 19',
              doctor: 'Марина Лепихина'
-        },
-
-
+        }
 
 };
 
