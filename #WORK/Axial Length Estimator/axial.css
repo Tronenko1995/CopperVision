@@ -1,0 +1,311 @@
+.content-top__wrapper, .page-title__wrapper {display:none;}
+.main-content__wrapper {padding-top:0;}
+.main-content {background: #ffffff;}
+.hero-Wrapper {
+	position:relative;
+	width: 106%;
+	margin-left: -4%;
+        background: #F9F9F9;
+}
+.hero-Wrapper .heroContainer {
+   position: absolute;
+   top: 5%;
+   left: 6%;
+   width: 80%;
+}
+
+.hero-Wrapper .mobile {
+    background: transparent url(https://coopervision.ru/sites/coopervision.ru/files/headermobimg.png?timestamp=1605798787) no-repeat bottom right;
+    min-height: 300px;
+    background-size: contain;
+    display:block;
+}
+.hero-Wrapper .desktop {display: none;}
+
+.hero-Wrapper h1 {
+	color: #6c207f;
+	font-size: 9vw;
+	line-height: 105%;
+margin-top: 15px;
+margin-bottom: 25px;
+}
+
+.hero-Wrapper .headintro, .visiblelg {display:none;}
+.containerWrapper .mbheadintro, .hiddenlg {display: block;}
+.containerWrapper .mbheadintro {font-size: 19px;}
+.hero-Wrapper h2 {
+	color: #6c207f;
+	font-size: 41px;
+	line-height: 1.2;
+}
+.hero-Wrapper p {
+	line-height: 1.4;
+    color: #636466;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.axiallengthlink {
+    background-color: #005CAB;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+padding: 4px 15px;
+}
+
+.axiallengthlink:hover, .axiallengthlink:focus, .axiallengthlink:active {
+    background-color: #004e92;
+color:#fff;
+   text-decoration: none;
+}
+
+.axiallengthlink:visited {
+  color:#fff;
+  text-decoration: none;
+}
+
+.containerWrapper {margin-top:35px}
+.containerWrapper h2 {
+	color:#6c207f;
+	font-size:38px;
+    margin-bottom: 15px;
+line-height: 1.2;
+    margin-top: 20px;
+}
+.containerWrapper h3 {
+	font-size: 24px;
+	width: 40%;
+	color:#1167b0;
+}
+.containerWrapper p {
+   font-size: 16px;
+   color: #636466;
+     line-height: 165%;
+    margin-bottom: 1.5em;
+}
+
+.prphighlight {
+  color: #6C207F; 
+  font-family: "Foundry Sterling Bold";
+}  
+.quote-Wrapper {
+       width: 106%;
+	margin-left: -4%;
+        background: #F9F9F9;
+       margin-bottom: 40px;
+        margin-top: 40px;
+}
+figcaption {text-align: center;}
+
+.quoteContainer {
+   padding: 4rem 35px;
+    width: 100%;
+    margin: auto;
+}
+
+.quoteContainer .quoteicon {
+   text-align:center;
+   font-size: 24px;
+}
+.quoteContainer .quoteicon .fa-quote-left {
+   color:#6c207f;
+}
+.containerWrapper .secsmall p, .containerWrapper .secsmall ol li {
+  font-size: 12px;
+line-height: 16px;
+margin-bottom: 10px;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col,.col-6,.col-lg-6,.col-md-6,.col-sm-6,.col-xl-6 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 22px;
+}
+
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.col-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.axiallaunchcontain .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.axiallaunchcontain  p {
+    color: #6C207F;
+    font-size: 22px;
+    line-height: 38px;
+}
+
+.axiallaunchcontain .leftflexblock {display: none;}
+.axiallaunchcontain .rightflexblock {width: 100%;}
+.axiallaunchcontain .axiallengthlink {display: block; padding: 5px 15px;}
+
+.axiallaunchcontain {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+background-color: #fff;
+}
+
+@media (min-width:375px) {
+    .quoteContainer {
+         width: 90%;
+      }
+
+}
+
+@media (min-width:576px) {
+.quoteContainer {
+    width: 55%;
+}
+
+    .col-sm {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+    .col-sm-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width:705px) {
+.axiallaunchcontain .leftflexblock {display: block;}
+.axiallaunchcontain .rightflexblock {width: auto;}
+.axiallaunchcontain {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    margin: auto;
+    background: #F9F9F9;
+    z-index: 1000;
+    padding: 6px 40px;
+    transform: translate(-50%, 0);
+}
+.axiallaunchcontain .axiallaunchinner {width: 100%; }
+}
+
+@media (min-width:768px) {
+
+.quoteContainer {
+   padding: 4rem;
+    width: 58%;
+}
+
+
+.hero-Wrapper .desktop {
+    background: transparent url(https://coopervision.ru/sites/coopervision.ru/files/desktop.png?timestamp=1605798899) no-repeat bottom right;
+    min-height: 300px;
+    background-size: contain;
+   display:block;
+}
+.hero-Wrapper .mobile {display:none;}
+
+.hero-Wrapper h1 {
+	font-size: 60px;
+}
+
+
+.axiallengthlink {
+  padding: 5px 35px;
+}
+    .col-md {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%
+    }
+    .col-md-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width:992px) {
+.hero-Wrapper .headintro, .visiblelg {display: block;}
+.containerWrapper .mbheadintro, .hiddenlg {display: none;}
+.quoteContainer {
+   padding: 4rem;
+    width: 48%;
+    margin: auto;
+}
+.containerWrapper {margin-top:60px;}
+    .col-lg {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%
+    }
+    .col-lg-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%
+    }
+}
+
+@media (min-width:1200px) {
+.hero-Wrapper {
+	position:relative;
+	width: 110%;
+	margin-left: -5%;
+        background: #F9F9F9;
+}
+.hero-Wrapper .heroContainer {
+   width: 62%;
+}
+.pdleft {padding-left: 3%;}
+
+.quote-Wrapper {
+       width: 110%;
+	margin-left: -5%;
+        background: #F9F9F9;
+       margin-bottom: 40px;
+        margin-top: 40px;
+}
+.axiallaunchcontain .axiallaunchinner {
+    width: 80%; margin: auto;
+}
+    .col-xl {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%
+    }
+    .col-xl-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%
+    }
+}

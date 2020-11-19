@@ -1,0 +1,199 @@
+<h1>Калькулятор аксиальной длины глаза</h1>
+
+<div class="axlngthcalccontain">
+<div class="axlngthclcinner">
+<p style="font-size: 24px; color: #636466;">Введите данные измерений: <span class="tooltip"><span class="tooltipmark">?</span> <span class="ftooltiptext"> <span class="ftlptext" style="color: #636466;display:inline-block;margin-bottom:12px;">Введите, пожалуйста, последние данные рефракции с указанием того с циклоплегией или без нее были выполнены измерения. Данные кератометрии можно вводить как в миллиметрах (мм), так в Диоптриях (Д). Все остальные параметры выражены в мм. Учитывается наилучшее вертексное расстояние (BVD), вертексная поправка будет применена автоматически.</span> </span></span></p>
+&nbsp;
+
+<form id="myForm" method="post">
+<div class="grid__item--12-12@s flex flex--column@s flex--row u-space--m">
+<div class="grid__item--6-12 axlgclcgreyblocks">
+<div class="right-eyectc">
+<div class="righteyerow">
+<div class="flex flxspace eyetextctc">
+<p class="eyetext">Правый глаз</p>
+
+<div class="rightonoffswitch"><input checked="checked" class="rightonoffswitch-checkbox" id="rightmyonoffswitch" name="rightonoffswitch" type="checkbox" /> <label class="rightonoffswitch-label" for="rightmyonoffswitch"> </label></div>
+</div>
+</div>
+
+<div class="righteyeinner" id="righteyeinner">
+<div class="flex flex--row eye resphrctc">
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select resphere" id="resphere" name="resphere" required=""><option value="">Sph</option><option value="0.00">0.00</option><option value="-0.25">-0.25</option><option value="-0.50">-0.50</option><option value="-0.75">-0.75</option><option value="-1.00">-1.00</option><option value="-1.25">-1.25</option><option value="-1.50">-1.50</option><option value="-1.75">-1.75</option><option value="-2.00">-2.00</option><option value="-2.25">-2.25</option><option value="-2.50">-2.50</option><option value="-2.75">-2.75</option><option value="-3.00">-3.00</option><option value="-3.25">-3.25</option><option value="-3.50">-3.50</option><option value="-3.75">-3.75</option><option value="-4.00">-4.00</option><option value="-4.25">-4.25</option><option value="-4.50">-4.50</option><option value="-4.75">-4.75</option><option value="-5.00">-5.00</option><option value="-5.25">-5.25</option><option value="-5.50">-5.50</option><option value="-5.75">-5.75</option><option value="-6.00">-6.00</option><option value="-6.25">-6.25</option><option value="-6.50">-6.50</option><option value="-6.75">-6.75</option><option value="-7.00">-7.00</option><option value="-7.25">-7.25</option><option value="-7.50">-7.50</option><option value="-7.75">-7.75</option><option value="-8.00">-8.00</option><option value="-8.25">-8.25</option><option value="-8.50">-8.50</option><option value="-8.75">-8.75</option><option value="-9.00">-9.00</option> </select></div>
+</div>
+
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select recyl" id="recyl" name="recyl" required=""><option value="">cyl</option><option value="0.00">0.00</option><option value="-0.25">-0.25</option><option value="-0.50">-0.50</option><option value="-0.75">-0.75</option><option value="-1.00">-1.00</option><option value="-1.25">-1.25</option><option value="-1.50">-1.50</option><option value="-1.75">-1.75</option><option value="-2.00">-2.00</option> </select></div>
+</div>
+</div>
+
+<div class="flex flex--row eye">
+<div class="grid__item--12-12">
+<div class="selectunit selectReunit" style="margin-top: 6px;"><span class="selunithead">Выберите единицы измерения для кератометрии</span> <input checked="checked" class="radioSelectUnit" id="selectReKUnitmm" name="selectReKUnit" required="" type="radio" value="rmm" /> <label for="selectReKUnitmm"> Мм</label> <input class="radioSelectUnit" id="selectReKUnitD" name="selectReKUnit" required="" type="radio" value="rD" /> <label for="selectReKUnitD"> Д</label></div>
+</div>
+</div>
+
+<div class="flex flex--row eye selectReMMUnit rmm selrunit">
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select rekone" id="rekone" name="rekone" required=""><option value="">Первое значение</option><option value="7.00">7.00</option><option value="7.05">7.05</option><option value="7.10">7.10</option><option value="7.15">7.15</option><option value="7.20">7.20</option><option value="7.25">7.25</option><option value="7.30">7.30</option><option value="7.35">7.35</option><option value="7.40">7.40</option><option value="7.45">7.45</option><option value="7.50">7.50</option><option value="7.55">7.55</option><option value="7.60">7.60</option><option value="7.65">7.65</option><option value="7.70">7.70</option><option value="7.75">7.75</option><option value="7.80">7.80</option><option value="7.85">7.85</option><option value="7.90">7.90</option><option value="7.95">7.95</option><option value="8.00">8.00</option><option value="8.05">8.05</option><option value="8.10">8.10</option><option value="8.15">8.15</option><option value="8.20">8.20</option><option value="8.25">8.25</option><option value="8.30">8.30</option><option value="8.35">8.35</option><option value="8.40">8.40</option><option value="8.45">8.45</option><option value="8.50">8.50</option><option value="8.55">8.55</option><option value="8.60">8.60</option><option value="8.65">8.65</option><option value="8.70">8.70</option><option value="8.75">8.75</option><option value="8.80">8.80</option><option value="8.85">8.85</option><option value="8.90">8.90</option><option value="8.95">8.95</option><option value="9.00">9.00</option> </select></div>
+</div>
+
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select rektwo" id="rektwo" name="rektwo" required=""><option value="">Второе значение</option><option value="7.00">7.00</option><option value="7.05">7.05</option><option value="7.10">7.10</option><option value="7.15">7.15</option><option value="7.20">7.20</option><option value="7.25">7.25</option><option value="7.30">7.30</option><option value="7.35">7.35</option><option value="7.40">7.40</option><option value="7.45">7.45</option><option value="7.50">7.50</option><option value="7.55">7.55</option><option value="7.60">7.60</option><option value="7.65">7.65</option><option value="7.70">7.70</option><option value="7.75">7.75</option><option value="7.80">7.80</option><option value="7.85">7.85</option><option value="7.90">7.90</option><option value="7.95">7.95</option><option value="8.00">8.00</option><option value="8.05">8.05</option><option value="8.10">8.10</option><option value="8.15">8.15</option><option value="8.20">8.20</option><option value="8.25">8.25</option><option value="8.30">8.30</option><option value="8.35">8.35</option><option value="8.40">8.40</option><option value="8.45">8.45</option><option value="8.50">8.50</option><option value="8.55">8.55</option><option value="8.60">8.60</option><option value="8.65">8.65</option><option value="8.70">8.70</option><option value="8.75">8.75</option><option value="8.80">8.80</option><option value="8.85">8.85</option><option value="8.90">8.90</option><option value="8.95">8.95</option><option value="9.00">9.00</option> </select></div>
+</div>
+</div>
+
+<div class="flex flex--row eye selectReDUnit rD selrunit">
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select rekoned" id="rekoned" name="rekoned"><option value="">Первое значение</option><option value="37.00">37.00</option><option value="37.25">37.25</option><option value="37.50">37.50</option><option value="37.75">37.75</option><option value="38.00">38.00</option><option value="38.25">38.25</option><option value="38.50">38.50</option><option value="38.75">38.75</option><option value="39.00">39.00</option><option value="39.25">39.25</option><option value="39.50">39.50</option><option value="39.75">39.75</option><option value="40.00">40.00</option><option value="40.25">40.25</option><option value="40.50">40.50</option><option value="40.75">40.75</option><option value="41.00">41.00</option><option value="41.25">41.25</option><option value="41.50">41.50</option><option value="41.75">41.75</option><option value="42.00">42.00</option><option value="42.25">42.25</option><option value="42.50">42.50</option><option value="42.75">42.75</option><option value="43.00">43.00</option><option value="43.25">43.25</option><option value="43.50">43.50</option><option value="43.75">43.75</option><option value="44.00">44.00</option><option value="44.25">44.25</option><option value="44.50">44.50</option><option value="44.75">44.75</option><option value="45.00">45.00</option><option value="45.25">45.25</option><option value="45.50">45.50</option><option value="45.75">45.75</option><option value="46.00">46.00</option><option value="46.25">46.25</option><option value="46.50">46.50</option><option value="46.75">46.75</option><option value="47.00">47.00</option><option value="47.25">47.25</option><option value="47.50">47.50</option><option value="47.75">47.75</option><option value="48.00">48.00</option> </select></div>
+</div>
+
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select rektwod" id="rektwod" name="rektwod"><option value="">Второе значение</option><option value="37.00">37.00</option><option value="37.25">37.25</option><option value="37.50">37.50</option><option value="37.75">37.75</option><option value="38.00">38.00</option><option value="38.25">38.25</option><option value="38.50">38.50</option><option value="38.75">38.75</option><option value="39.00">39.00</option><option value="39.25">39.25</option><option value="39.50">39.50</option><option value="39.75">39.75</option><option value="40.00">40.00</option><option value="40.25">40.25</option><option value="40.50">40.50</option><option value="40.75">40.75</option><option value="41.00">41.00</option><option value="41.25">41.25</option><option value="41.50">41.50</option><option value="41.75">41.75</option><option value="42.00">42.00</option><option value="42.25">42.25</option><option value="42.50">42.50</option><option value="42.75">42.75</option><option value="43.00">43.00</option><option value="43.25">43.25</option><option value="43.50">43.50</option><option value="43.75">43.75</option><option value="44.00">44.00</option><option value="44.25">44.25</option><option value="44.50">44.50</option><option value="44.75">44.75</option><option value="45.00">45.00</option><option value="45.25">45.25</option><option value="45.50">45.50</option><option value="45.75">45.75</option><option value="46.00">46.00</option><option value="46.25">46.25</option><option value="46.50">46.50</option><option value="46.75">46.75</option><option value="47.00">47.00</option><option value="47.25">47.25</option><option value="47.50">47.50</option><option value="47.75">47.75</option><option value="48.00">48.00</option> </select></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- end of grid__item--6-12 -->
+
+<div class="grid__item--6-12 axlgclcgreyblocks">
+<div class="left-eyectc">
+<div class="lefteyerow">
+<div class="flex flxspace eyetextctc">
+<p class="eyetext">Левый глаз</p>
+
+<div class="leftonoffswitch"><input checked="checked" class="leftonoffswitch-checkbox" id="leftmyonoffswitch" name="leftonoffswitch" type="checkbox" /> <label class="leftonoffswitch-label" for="leftmyonoffswitch"> </label></div>
+</div>
+</div>
+
+<div class="lefteyeinner" id="lefteyeinner">
+<div class="flex flex--row eye lesphrctc">
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select lesphere" id="lesphere" name="lesphere" required=""><option value="">Sph</option><option value="0.00">0.00</option><option value="-0.25">-0.25</option><option value="-0.50">-0.50</option><option value="-0.75">-0.75</option><option value="-1.00">-1.00</option><option value="-1.25">-1.25</option><option value="-1.50">-1.50</option><option value="-1.75">-1.75</option><option value="-2.00">-2.00</option><option value="-2.25">-2.25</option><option value="-2.50">-2.50</option><option value="-2.75">-2.75</option><option value="-3.00">-3.00</option><option value="-3.25">-3.25</option><option value="-3.50">-3.50</option><option value="-3.75">-3.75</option><option value="-4.00">-4.00</option><option value="-4.25">-4.25</option><option value="-4.50">-4.50</option><option value="-4.75">-4.75</option><option value="-5.00">-5.00</option><option value="-5.25">-5.25</option><option value="-5.50">-5.50</option><option value="-5.75">-5.75</option><option value="-6.00">-6.00</option><option value="-6.25">-6.25</option><option value="-6.50">-6.50</option><option value="-6.75">-6.75</option><option value="-7.00">-7.00</option><option value="-7.25">-7.25</option><option value="-7.50">-7.50</option><option value="-7.75">-7.75</option><option value="-8.00">-8.00</option><option value="-8.25">-8.25</option><option value="-8.50">-8.50</option><option value="-8.75">-8.75</option><option value="-9.00">-9.00</option> </select></div>
+</div>
+
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select lecyl" id="lecyl" name="lecyl" required=""><option value="">cyl</option><option value="0.00">0.00</option><option value="-0.25">-0.25</option><option value="-0.50">-0.50</option><option value="-0.75">-0.75</option><option value="-1.00">-1.00</option><option value="-1.25">-1.25</option><option value="-1.50">-1.50</option><option value="-1.75">-1.75</option><option value="-2.00">-2.00</option> </select></div>
+</div>
+</div>
+
+<div class="flex flex--row eye">
+<div class="grid__item--12-12">
+<div class="selectunit selectLeunit" style="margin-top: 6px;"><span class="selunithead">Выберите единицы измерения для кератометрии</span> <input checked="checked" class="radioSelectUnit" id="selectLeKUnitmm" name="selectLeKUnit" required="" type="radio" value="lmm" /> <label for="selectLeKUnitmm"> Мм</label> <input class="radioSelectUnit" id="selectLeKUnitD" name="selectLeKUnit" required="" type="radio" value="lD" /> <label for="selectLeKUnitD"> Д</label></div>
+</div>
+</div>
+
+<div class="flex flex--row eye selectLeMMUnit lmm sellunit">
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select lekone" id="lekone" name="lekone" required=""><option value="">Первое значение</option><option value="7.00">7.00</option><option value="7.05">7.05</option><option value="7.10">7.10</option><option value="7.15">7.15</option><option value="7.20">7.20</option><option value="7.25">7.25</option><option value="7.30">7.30</option><option value="7.35">7.35</option><option value="7.40">7.40</option><option value="7.45">7.45</option><option value="7.50">7.50</option><option value="7.55">7.55</option><option value="7.60">7.60</option><option value="7.65">7.65</option><option value="7.70">7.70</option><option value="7.75">7.75</option><option value="7.80">7.80</option><option value="7.85">7.85</option><option value="7.90">7.90</option><option value="7.95">7.95</option><option value="8.00">8.00</option><option value="8.05">8.05</option><option value="8.10">8.10</option><option value="8.15">8.15</option><option value="8.20">8.20</option><option value="8.25">8.25</option><option value="8.30">8.30</option><option value="8.35">8.35</option><option value="8.40">8.40</option><option value="8.45">8.45</option><option value="8.50">8.50</option><option value="8.55">8.55</option><option value="8.60">8.60</option><option value="8.65">8.65</option><option value="8.70">8.70</option><option value="8.75">8.75</option><option value="8.80">8.80</option><option value="8.85">8.85</option><option value="8.90">8.90</option><option value="8.95">8.95</option><option value="9.00">9.00</option> </select></div>
+</div>
+
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select lektwo" id="lektwo" name="lektwo" required=""><option value="">Второе значение</option><option value="7.00">7.00</option><option value="7.05">7.05</option><option value="7.10">7.10</option><option value="7.15">7.15</option><option value="7.20">7.20</option><option value="7.25">7.25</option><option value="7.30">7.30</option><option value="7.35">7.35</option><option value="7.40">7.40</option><option value="7.45">7.45</option><option value="7.50">7.50</option><option value="7.55">7.55</option><option value="7.60">7.60</option><option value="7.65">7.65</option><option value="7.70">7.70</option><option value="7.75">7.75</option><option value="7.80">7.80</option><option value="7.85">7.85</option><option value="7.90">7.90</option><option value="7.95">7.95</option><option value="8.00">8.00</option><option value="8.05">8.05</option><option value="8.10">8.10</option><option value="8.15">8.15</option><option value="8.20">8.20</option><option value="8.25">8.25</option><option value="8.30">8.30</option><option value="8.35">8.35</option><option value="8.40">8.40</option><option value="8.45">8.45</option><option value="8.50">8.50</option><option value="8.55">8.55</option><option value="8.60">8.60</option><option value="8.65">8.65</option><option value="8.70">8.70</option><option value="8.75">8.75</option><option value="8.80">8.80</option><option value="8.85">8.85</option><option value="8.90">8.90</option><option value="8.95">8.95</option><option value="9.00">9.00</option> </select></div>
+</div>
+</div>
+
+<div class="flex flex--row eye selectLeDUnit lD sellunit">
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select lekoned" id="lekoned" name="lekoned"><option value="">Первое значение</option><option value="37.00">37.00</option><option value="37.25">37.25</option><option value="37.50">37.50</option><option value="37.75">37.75</option><option value="38.00">38.00</option><option value="38.25">38.25</option><option value="38.50">38.50</option><option value="38.75">38.75</option><option value="39.00">39.00</option><option value="39.25">39.25</option><option value="39.50">39.50</option><option value="39.75">39.75</option><option value="40.00">40.00</option><option value="40.25">40.25</option><option value="40.50">40.50</option><option value="40.75">40.75</option><option value="41.00">41.00</option><option value="41.25">41.25</option><option value="41.50">41.50</option><option value="41.75">41.75</option><option value="42.00">42.00</option><option value="42.25">42.25</option><option value="42.50">42.50</option><option value="42.75">42.75</option><option value="43.00">43.00</option><option value="43.25">43.25</option><option value="43.50">43.50</option><option value="43.75">43.75</option><option value="44.00">44.00</option><option value="44.25">44.25</option><option value="44.50">44.50</option><option value="44.75">44.75</option><option value="45.00">45.00</option><option value="45.25">45.25</option><option value="45.50">45.50</option><option value="45.75">45.75</option><option value="46.00">46.00</option><option value="46.25">46.25</option><option value="46.50">46.50</option><option value="46.75">46.75</option><option value="47.00">47.00</option><option value="47.25">47.25</option><option value="47.50">47.50</option><option value="47.75">47.75</option><option value="48.00">48.00</option> </select></div>
+</div>
+
+<div class="grid__item--6-12">
+<div class="selectctc"><select class="select axlgthclc-select lektwod" id="lektwod" name="lektwod"><option value="">Второе значение</option><option value="37.00">37.00</option><option value="37.25">37.25</option><option value="37.50">37.50</option><option value="37.75">37.75</option><option value="38.00">38.00</option><option value="38.25">38.25</option><option value="38.50">38.50</option><option value="38.75">38.75</option><option value="39.00">39.00</option><option value="39.25">39.25</option><option value="39.50">39.50</option><option value="39.75">39.75</option><option value="40.00">40.00</option><option value="40.25">40.25</option><option value="40.50">40.50</option><option value="40.75">40.75</option><option value="41.00">41.00</option><option value="41.25">41.25</option><option value="41.50">41.50</option><option value="41.75">41.75</option><option value="42.00">42.00</option><option value="42.25">42.25</option><option value="42.50">42.50</option><option value="42.75">42.75</option><option value="43.00">43.00</option><option value="43.25">43.25</option><option value="43.50">43.50</option><option value="43.75">43.75</option><option value="44.00">44.00</option><option value="44.25">44.25</option><option value="44.50">44.50</option><option value="44.75">44.75</option><option value="45.00">45.00</option><option value="45.25">45.25</option><option value="45.50">45.50</option><option value="45.75">45.75</option><option value="46.00">46.00</option><option value="46.25">46.25</option><option value="46.50">46.50</option><option value="46.75">46.75</option><option value="47.00">47.00</option><option value="47.25">47.25</option><option value="47.50">47.50</option><option value="47.75">47.75</option><option value="48.00">48.00</option> </select></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- end of grid__item--6-12 --></div>
+<!-- flex -->
+
+<div class="flex flex--row u-space--l">
+<div class="selectctc bvdselect btmspctc"><select class="select axlgthclc-select axbvd" id="axbvd" name="axbvd" required=""><option value="">Наилучшее вертексное расстояние  (BVD)</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option> </select></div>
+</div>
+
+<div class="flex flex--row">
+<div class="radiogroup u-space--m"><input class="rdinput" id="cycloplegicrefctn" name="cycloplegicrefraction" required="" type="radio" value="Cycloplegic Refraction" /> <label for="cycloplegicrefctn">Рефракцией с циклоплегией</label><br />
+<input class="rdinput" id="noncycloplegicrefctn" name="cycloplegicrefraction" required="" type="radio" value="Non-cycloplegic Refraction" /> <label for="noncycloplegicrefctn">Рефракция без циклоплегии</label></div>
+</div>
+
+<p class="msg" style="color: red;">&nbsp;</p>
+&nbsp;
+
+<div class="btmspctc calcbtn"><button class="btmspinner" id="axllgtnclcbtn">Рассчитать</button></div>
+</form>
+&nbsp;
+
+<p style="font-size: 12px; line-height: 16px; margin-bottom: 10px;">Уведомление:<br />
+	Данные калькулятора аксиальной длины глаза не заменяют собой консультацию специалиста и не могут служить альтернативой профессиональному обследованию.</p>
+</div>
+<!-- .axlngthclcinner -->
+
+<div class="axlngthfinal">
+<p class="resultstitle" style="font-size: 24px; color: #636466;">Результат калькулятора: <span class="tooltip"><span class="tooltipmark">?</span> <span class="ctooltiptext"> <span class="cylotlptext" style="color: #6c207f;display:inline-block;margin-bottom:12px;">Рефракцией с циклоплегией:</span><br />
+	95% -ый доверительный интервал значений параметра составляет (индивильная цифра), что составляет (индивидуальное значение процентов) от аксиальной длины в мм.</span> <span class="nctooltiptext"> <span class="nonecylotlptext"><span style="color: #6c207f;display:inline-block;margin-bottom:12px;">Рефракция без циклоплегии:</span><br />
+	95% -ый доверительный интервал значений параметра составляет (индивильная цифра), что составляет (индивидуальное значение процентов) от аксиальной длины в мм.</span> </span> </span></p>
+&nbsp;
+
+<div class="grid__item--12-12@s flex flex--column@s flex--row u-space--l axialresults">
+<div class="grid__item--6-12 axlgclcgreyblocks righteyefinal">
+<div class="flex flxspace eyetextctc">
+<p class="eyetext">Правый глаз</p>
+
+<p class="righteyeresults" style="font-size: 26px;">x.xx Мм</p>
+</div>
+</div>
+
+<div class="grid__item--6-12 axlgclcgreyblocks lefteyefinal">
+<div class="flex flxspace eyetextctc">
+<p class="eyetext">Левый глаз</p>
+
+<p class="lighteyeresults" style="font-size: 26px;">x.xx Мм</p>
+</div>
+</div>
+</div>
+
+<div class="resultcontain">
+<p class="restext">К тому моменту как ребенок вырастет, параметры его рецепта на очки/контактные линзы с высокой вероятностью вырастут вместе с ним.<sup>1</sup></p>
+
+<div class="grid__item--12-12@s flex flex--column@s flex--row axialresultsimgctc">
+<div class="grid__item--6-12"><img alt="Risk of uncorrectable visual impairment" class="imgcenter" src="/sites/coopervision.co.uk/files/resultsimg1.jpg" /></div>
+
+<div class="grid__item--6-12"><img alt="Risk of uncorrectable visual impairment" class="imgcenter" src="/sites/coopervision.co.uk/files/resultsimg2.jpg" /></div>
+</div>
+
+<div class="grid__item--12-12@s flex flex--column@s flex--row u-space--l axialresultsimgctc">
+<div class="grid__item--12-12">
+<p>Риск не корригируемого ухудшения зрения к возрасту 75 лет.</p>
+</div>
+</div>
+
+<hr class="greyline" />
+<div class="grid__item--12-12@s flex flex--column@s flex--row axialresultsimgctc">
+<div class="grid__item--6-12">
+<h2>MiSight® 1 day</h2>
+
+<p class="u-space--l">Find out more about how introducing MiSight® 1 day at an early stage may help to slow down eye growth<sup>2</sup> and may reduce the risk of myopia related vision complications later in life.<sup>3</sup></p>
+<a class="buttonBlue" href="/practitioner/contact-lenses/misight-1-day" title="Learn More">Learn More</a></div>
+
+<div class="grid__item--6-12"><img alt="MiSight 1 Day" class="imgcenter" src="/sites/coopervision.co.uk/files/misightimg.jpg" /></div>
+</div>
+
+<div class="grid__item--12-12@s flex flex--column@s flex--row axialreslist">
+<div class="grid__item--6-12">
+<ol>
+	<li>Zadnik K et al. Prediction of Juvenile-Onset Myopia. JAMA Ophthalmol. 2015;133(6):683-689</li>
+	<li>Chamberlain P et al. A 3-year Randomized Clinical Trial of MiSight Lenses for Myopia Control. OVS 2019; 96(8): 556–567</li>
+	<li>Tideman et al. Association of Axial Length With Risk of Uncorrectable Visual Impairment for Europeans With Myopia. JAMA Ophthalmol. doi:10.1001/jamaophthalmol.2016.4009 Published online October 20, 2016.</li>
+</ol>
+
+<p style="font-size: 12px; line-height: 16px; margin-bottom: 10px;">Disclaimer:<br />
+The axial length estimator is not intended as and does not constitute medical or optometric advice nor is it intended to replace the patient evaluation performed by an eye care professional.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- .axlngthcalccontain -->

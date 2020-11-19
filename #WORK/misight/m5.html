@@ -1,4 +1,104 @@
 <style>
+    .modal-1 .modal-1__label {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    .modal-1 .modal-1__form .modal-1__input {
+        width: 77%;
+        margin-top: 0;
+    }
+    .modal-1 .modal-1__form .modal-1__text {
+        margin-top: -10px;
+        margin-bottom: 10px;
+        font-style: italic;
+    }
+    .modal-1__form .modal-1__checkbox {
+        top: 415px !important;
+        left: 71px !important;
+    }
+    .modal-1__form .modal-1__checkbox--modal-2 {
+        top: 483px !important;
+        left: 71px !important;
+    }
+
+    .modal-1__container--success {display: none;}
+    .modal-1.success .modal-1__form {display:none !important;}
+    .modal-1.success .modal-1__title--success,
+    .modal-1.success .modal-1__input--success,
+    .modal-1.success .more--success{display:block !important;}
+    .modal-1.success .modal-1__container--success {display: flex;flex-direction: column;align-items: center;}
+
+    /* для локатора */
+    .modal-1 .modal-1__container--sms {
+        display: none !important;
+    }
+    .modal-1 .modal-1__container--sms-success {
+        display: none !important;
+    }
+    .modal-1 .modal-1__container--sms-error {
+        display: none !important;
+    }
+
+    .modal-1.sms .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms .modal-1__container--sms {
+        display: flex !important;
+    }
+    .smsVerif {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-1.sms-success .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms-success .modal-1__container--sms-success {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-1.sms-success .modal-1__title--sms-success {
+        text-align: center;
+    }
+
+    .modal-1.sms-error .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms-error .modal-1__container--sms-error {
+        display: flex !important;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sms-error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sms-error .modal-1__title--sms-error {
+        font-size: 30px;
+        margin-bottom: 0px;
+    }
+    .modal-1__checkbox-link{text-decoration: underline;}
+    .modal-1__checkbox-text{margin: 0;line-height: 1.467;}
+
+    .modal-2 {
+            padding: 40px !important;
+        }
+    @media (max-width: 770px) {
+        .modal-2 {
+            padding: 20px !important;
+        }
+    }
+
+
     .nearsightedness__page--5 .test__arrow {
         width: 600px;
     }
@@ -12,6 +112,7 @@
     .note {
         cursor: pointer;
     }
+
     .hide{display:none !important;}
     .success-text {color: #2bbd2b !important;}
     .error-text {color: #ff0000 !important;}
@@ -19,21 +120,13 @@
     .success-check-before::before {border: 1px solid #2bbd2b !important;}
     .error-check,
     .error-check-before::before {border: 1px solid #ff0000 !important;}
-    .modal-1__container--success {display: none;}
-    .modal-1.success .modal-1__form {display:none !important;}
-    .modal-1.success .modal-1__title--success,
-    .modal-1.success .modal-1__input--success,
-    .modal-1.success .more--success{display:block !important;}
-    .modal-1.success .modal-1__container--success {display: flex;flex-direction: column;align-items: center;}
     .nearsightedness__menu-nav{width:1180px;}
     .block-3__item-left-list{list-style: disc;}
     .block-2__top-right{margin-top: 25px;}
     .nearsightedness__page--3_2 .block-2__top-text{margin-top: 30px;}
-    .modal-1__checkbox-link{text-decoration: underline;}
-    .modal-1__checkbox-text{margin: 0;line-height: 1.467;}
     .MuiBox-root.jss145{display: none !important;}
     .page{line-height: 1.43;}
-    .jss61.MuiButton-outlined{display: none !important;background: #005bab;color: #fff!important;}
+    .jss61.MuiButton-outlined{background: #005bab;color: #fff!important;}
     .jss61.MuiButton-contained{background:#fff;color: #005bab;border: 1px solid #005bab;}
     .block-5__button{text-align: center;}
     .nearsightedness__page--1_2 .factors__item-text {width: 530px;}
@@ -164,11 +257,6 @@
     .modal-2 {
             padding: 40px !important;
         }
-    @media (max-width: 770px) {
-        .modal-2 {
-            padding: 20px !important;
-        }
-    }
     .nearsightedness__menu-nav-item-link {
     color: #636466 !important;
     text-decoration: none !important;
@@ -7191,8 +7279,7 @@ $(document).ready(function () {
                                 onTouchEnd: re,
                                 onTouchMove: Ae,
                                 onTouchStart: ne,
-                                ref: pe,
-                                tabIndex: p ? -1 : K
+                                ref: pe
                             }, de, D), s, ve ? wt.createElement(cn, Object(yt.a)({ref: z, center: i}, k)) : null)
                         })), un = Object(Qt.a)({
                             root: {
@@ -7439,7 +7526,7 @@ $(document).ready(function () {
                             }), [u]), !v.current && u && "undefined" != typeof window && (p.current = c().activeElement), wt.useEffect((function () {
                                 if (u) {
                                     var e = y(g.current);
-                                    r || !g.current || g.current.contains(e.activeElement) || (g.current.hasAttribute("tabIndex") || g.current.setAttribute("tabIndex", -1), g.current.focus());
+                                    r || !g.current || g.current.contains(e.activeElement) || (g.current.hasAttribute("tabIndex"), g.current.focus());
                                     var t = function () {
                                         e.hasFocus() && !o && l() && !d.current ? g.current && !g.current.contains(e.activeElement) && g.current.focus() : d.current = !1
                                     }, n = function (t) {
@@ -7524,7 +7611,7 @@ $(document).ready(function () {
                                     hidden: {visibility: "hidden"}
                                 }
                             }(n || {zIndex: vn.a}), Ae = {};
-                            return void 0 === s.props.tabIndex && (Ae.tabIndex = s.props.tabIndex || "-1"), J && (Ae.onEnter = w((function () {
+                            return void 0 === s.props.tabIndex, J && (Ae.onEnter = w((function () {
                                 z(!1)
                             }), s.props.onEnter), Ae.onExited = w((function () {
                                 z(!0), l && ne()
@@ -7604,7 +7691,6 @@ $(document).ready(function () {
                             }, n))
                         })), Nn = Object(Qt.a)({
                             root: {
-                                zIndex: -1,
                                 position: "fixed",
                                 display: "flex",
                                 alignItems: "center",
@@ -10521,7 +10607,6 @@ $(document).ready(function () {
                                         K(n.props.value), b && b(e, n)
                                     }
                                 },
-                                tabIndex: -1,
                                 className: i.nativeInput,
                                 autoFocus: r
                             }, T)), wt.createElement(d, {className: Object(Xt.a)(i.icon, i["icon".concat(Object(dn.a)(N))], ne && i.iconOpen, l && i.disabled)}), wt.createElement(Zc, Object(yt.a)({
@@ -10593,7 +10678,6 @@ $(document).ready(function () {
                                 className: e.className,
                                 readOnly: !0,
                                 ref: g,
-                                tabIndex: -1,
                                 style: Object(yt.a)({}, Al, c)
                             }))
                         })), il = "undefined" == typeof window ? wt.useEffect : wt.useLayoutEffect,
@@ -16101,6 +16185,48 @@ $(document).ready(function () {
         <a id="quiz_form_trigger" href="" class="map__control-adress-block-button jsRecommendation">Рекомендации</a>
     </div>
 
+
+    <div id="modalRecommendation" class="modal-1 mfp-hide">
+        <form class="modal-1__form" action="" method="POST">
+            <p class="modal-1__title">Получите информацию по замедлению близорукости у детей</p>
+            <label class="modal-1__label">
+                <span>Имя<span style="color: #ff0000">*</span>:</span>
+                <input name="name" class="modal-1__input" type="text" placeholder="" required>
+            </label>
+            <p class="modal-1__text">Я подтверждаю, что мне уже больше 18 лет</p>
+            <label class="modal-1__label">
+                <span>Город проживания<span style="color: #ff0000">*</span>:</span>
+                <input name="city" class="modal-1__input" type="text" placeholder="" required>
+            </label>
+            <label class="modal-1__label">
+                <span>E-mail<span style="color: #ff0000">*</span>:</span>
+                <input name="email" class="modal-1__input jsMail" type="text" placeholder="" required>
+            </label>
+            <label class="modal-1__label">
+                <span>Телефон<span style="color: #ff0000">*</span>:</span>
+                <input name="tel" class="modal-1__input jsPhone" type="text" placeholder="" required>
+            </label>
+            <input name="polit" type="checkbox" class="modal-1__checkbox modal-1__checkbox--modal-2" name="modalCheckBox2"
+                   id="modalCheckBox2" value="yes" required>
+            <label for="modalCheckBox2" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" target="_blank" href="https://coopervision.ru/sites/coopervision.ru/files/tekst_soglasiya_na_obrabotku_dannyh.pdf">Согласен</a> на обработку персональных данных<span style="color: #ff0000">*</span>, принимаю <a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/politika_konfidencialnosti_kupervizhn.pdf" target="_blank">Политику конфиденциальности</a></p></label>
+            <input name="conv" type="checkbox" class="modal-1__checkbox modal-1__checkbox--modal-2_2" name="modalCheckBox2_2"
+                   id="modalCheckBox2_2" value="yes">
+            <label for="modalCheckBox2_2" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" target="_blank" href="https://coopervision.ru/sites/coopervision.ru/files/tekst_soglasiya_na_kommunikaciyu.pdf">Согласен</a> на получение рекламно-информационных сообщений на все контакты выше</p></label>
+            <div class="more">
+                <button id="modalButton2" type="submit" class="more__text">Отправить
+                    <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5"
+                         style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
+        </svg>
+                </button>
+            </div>
+        </form>
+        <!-- <p class="modal-1__title modal-1__title--success">Спасибо, за интерес проявленный к программе. Проверьте Вашу почту!</p> -->
+        <div class="modal-1__container--success">
+            <p class="modal-1__title modal-1__title--success">Спасибо, за интерес проявленный к программе. Проверьте Вашу почту!</p>
+        </div>
+    </div>
 
 </div>
 

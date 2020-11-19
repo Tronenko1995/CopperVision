@@ -293,9 +293,15 @@ $(document).ready(function(){
             success: function (result) {
                 console.log('%c CooperVision -> Отправил данные', 'color: green');
                 console.log('%c CooperVision -> final: '+final, 'color: green');
-                if (result.status === 'success') {
+                // if (result.status === 'success') {
+                //     $('#modalReception .modal-1__form').closest('.modal-1').addClass('sms');
+                //     $('.smsVerif').append('<input type="hidden" name="tel" value="' + result.tel + '">')
+                // }
+                if (result.verification === true) {
                     $('#modalReception .modal-1__form').closest('.modal-1').addClass('sms');
                     $('.smsVerif').append('<input type="hidden" name="tel" value="' + result.tel + '">')
+                } else if (result.verification === false) {
+                    $('#modalReception .modal-1__form').closest('.modal-1').addClass('sms-false');
                 }
             },
             error: function (xhr, resp, text) {

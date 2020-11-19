@@ -1,0 +1,412 @@
+h1 {
+    color: #6c207f;
+    font-size: 42px;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+h2 {
+    color: #6c207f;
+    font-size: 38px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    margin-top: 35px;
+}
+.main-content__wrapper {
+    font-size: 16px;
+}
+.axlgclcgreyblocks {
+    background-color: #F9F9F9;
+    padding: 25px 10px;
+    margin-left: 0 !important;
+}
+.selectctc select {
+    width: 100%;
+    font-size: 14px;
+    padding-left: 6px;
+    height: 40px;
+}
+
+
+.axlgclcgreyblocks .eyetext {
+    font-size: 30px;
+    color: #6c207f;
+    margin-top: 0;
+}
+.axlgclcgreyblocks .eyetextctc {
+    padding: 0 10px;
+    margin-bottom: 12px;
+}
+
+  /* The switch - the box around the slider */
+.rightonoffswitch, .leftonoffswitch {
+    position: relative; width: 58px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.rightonoffswitch-checkbox, .leftonoffswitch-checkbox {
+    display: none;
+}
+.rightonoffswitch-label, .leftonoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 1px solid #9B9B9B; border-radius: 20px;
+}
+.rightonoffswitch-inner, .leftonoffswitch-inner  {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.rightonoffswitch-inner:before, .rightonoffswitch-inner:after, .leftonoffswitch-inner:before, .leftonoffswitch-inner:after  {
+    display: block; float: left; width: 50%; height: 22px; padding: 0; line-height: 22px;
+    font-size: 14px; color: #9B9B9B;
+    box-sizing: border-box;
+}
+.rightonoffswitch-inner:before, .leftonoffswitch-inner:before {
+    content: "Yes";
+    padding-left: 10px;
+    background-color: transparent; color: #6c207f;
+}
+.rightonoffswitch-inner:after, .leftonoffswitch-inner:after {
+    content: "No";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #9B9B9B;
+    text-align: right;
+}
+.rightonoffswitch-switch, .leftonoffswitch-switch {
+    display: block; width: 16px; margin: 4px; height: 16px;
+    background: #9B9B9B;
+    position: absolute; top: 0;
+    right: 32px;
+    border: 2px solid #9B9B9B; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.rightonoffswitch-checkbox:checked + .rightonoffswitch-label, .leftonoffswitch-checkbox:checked + .leftonoffswitch-label {
+    border: 1px solid #6c207f;
+}
+.rightonoffswitch-checkbox:checked + .rightonoffswitch-label .rightonoffswitch-inner, .leftonoffswitch-checkbox:checked + .leftonoffswitch-label .leftonoffswitch-inner  {
+    margin-left: 0;
+}
+.rightonoffswitch-checkbox:checked + .rightonoffswitch-label .rightonoffswitch-switch, .leftonoffswitch-checkbox:checked + .leftonoffswitch-label .leftonoffswitch-switch  {
+    right: 0;
+    background: #6c207f;
+    border: 2px solid #6c207f; 
+}
+
+.flxspace {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.axlngthcalccontain .btmspctc {
+    width: 95%;
+}
+
+.axlngthcalccontain .btmspctc select {
+    width: 100%;
+}
+
+#axllgtnclcbtn, #axllgtnclcbtn:visited {
+    padding: 10px 15px;
+    background-color: #005CAB;
+    font-size: 18px;
+    width: 100%;
+    color: #fff;
+    text-decoration: none;
+}
+#axllgtnclcbtn:hover, #axllgtnclcbtn:focus {
+    background-color: #004e92;
+}
+
+.axlngthcalccontain .radiogroup {padding: 20px 30px 20px 10px;}
+.axlngthcalccontain .radiogroup label {padding-left: 10px;font-size: 18px;cursor: pointer; padding-left: 25px;}
+.axlngthcalccontain .radiogroup .rdinput {
+    margin-bottom: 7px;
+    cursor: pointer;
+    float: left;
+margin-top: 2px;
+}
+
+.selectctc .select.form-error, .radiogroup.form-error{
+    border: 1px solid red !important;
+}
+.resultcontain .restext { 
+  font-size: 18px;
+  line-height: 28px;
+}
+.greyline {
+      color: #E6E6E6;
+      width: 100%;
+}
+
+.resultcontain .buttonBlue, .resultcontain .buttonBlue:visited {
+    padding: 6px 20px;
+    background-color: #005CAB;
+    width: 45%;
+    display: block;
+    color: #fff;
+    text-align: center;
+   text-decoration: none;
+}
+
+.resultcontain .buttonBlue:hover, .resultcontain .buttonBlue:focus {
+    background-color: #004e92;
+}
+.resultcontain .axialreslist ol li {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltipmark {
+    background: #fff;
+    border: 1px solid #6c207f;
+    border-radius: 50%;
+    padding: 0 10px;
+    color: #6c207f;
+    font-size: 18px;
+    cursor: pointer;
+}
+.tooltip .ctooltiptext, .tooltip .ftooltiptext {
+  visibility: hidden;
+  width: 225px;
+    background-color: #fff;
+    color: #636466;
+    text-align: left;
+    border-radius: 2px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: -2px;
+    margin-left: -95px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    line-height: 1.5;
+}
+.tooltip .nctooltiptext {
+  visibility: hidden;
+  width: 225px;
+    background-color: #fff;
+    color: #636466;
+    text-align: left;
+    border-radius: 2px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: -2px;
+    margin-left: -95px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    line-height: 1.5;
+}
+.tooltip .ctooltiptext::after, .tooltip .nctooltiptext::after, .tooltip .ftooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #ccc transparent;
+}
+.tooltip:hover .ctooltiptext.cycloreftooltip, .tooltip:hover .ftooltiptext {
+  visibility: visible;
+}
+.tooltip:hover .nctooltiptext.noncycloreftooltip {
+  visibility: visible;
+}
+
+/* mm or D styles */
+.selectunit .selunithead { margin-right: 10px; margin-bottom: 8px; display: block;}
+.selectunit label {padding-left: 4px; padding-right: 10px; font-size: 16px; display: inline-block; cursor: pointer;}
+.selectunit input {margin-bottom: 6px; cursor: pointer;}
+
+.axlngthclcinner .selectReDUnit, .axlngthclcinner .selectLeDUnit {display: none;}
+
+.axlngthclcinner .selectctc {
+  position: relative;
+}
+
+.axlngthclcinner .selectctc:after {
+    content: '\f078';
+    font: normal normal normal 15px/1 FontAwesome;
+    color: #9B9B9B;
+    right: 11px;
+    top: 12px;
+    position: absolute;
+    pointer-events: none;
+}
+
+/* IE11 hide native button (thanks Matt!) */
+.axlngthclcinner select::-ms-expand {
+display: none;
+}
+
+.axlngthclcinner .selectctc select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+  -ms-word-break: normal;
+  word-break: normal;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 546px) {
+.selectctc select {
+    width: 100%;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.selectunit .selunithead {margin-bottom: 0; display: inline-block;}
+}
+
+@media only screen and (min-width: 705px) {
+    .axlgclcgreyblocks {
+        background-color: #F9F9F9;
+        margin: 0 25px 25px 0 !important;
+        padding: 25px 10px;
+    }
+    .axlngthcalccontain .btmspctc select {
+        width: 100%;
+    }
+    .axlngthcalccontain .btmspctc {
+        width: 40%;
+    }
+   .resultcontain .restext {
+        text-align: center; 
+        width: 50%;
+        margin: 10px auto 30px;
+        font-weight: normal;
+    }
+#axllgtnclcbtn, #axllgtnclcbtn:visited {
+    width: 40%;
+}
+.greyline {
+      width: 110%;
+      margin-left: -4%; 
+    }
+  .o-content {
+    margin: 0 auto;
+    width: calc(25% * 2 + 12px); } }
+
+.flex {
+  display: flex;
+  width: 100%; }
+  .flex [class^="grid__item"] {
+    margin: 0.5rem 2%;
+    min-height: 0.125rem; }
+  .flex--column\@s {
+    flex-direction: column; }
+  .flex--row\@s {
+    flex-direction: row; }
+  .flex--rowend\@s {
+    justify-content: flex-end; }
+  .flex--colmid\@s {
+    align-content: center; }
+  .flex--rowmid\@s {
+    align-items: center; }
+  @media only screen and (min-width: 705px) {
+h1 {
+    font-size: 50px;
+}
+    .flex--column {
+      flex-direction: column; }
+    .flex--row {
+      flex-direction: row; }
+    .flex--rowend {
+      justify-content: flex-end; }
+    .flex--colmid {
+      align-content: center; }
+    .flex--rowmid {
+      align-items: center; } }
+
+.grid {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  .grid__row {
+    position: relative;
+    width: 100%; }
+    .grid__row [class^="grid__item"] {
+      float: left;
+      margin: 0.5rem 2%;
+      min-height: 0.125rem; }
+    .grid__row::after {
+      content: "";
+      display: table;
+      clear: both; }
+  .grid__item--1-12, .grid__item--2-12, .grid__item--3-12, .grid__item--4-12, .grid__item--5-12, .grid__item--6-12, .grid__item--7-12, .grid__item--8-12, .grid__item--9-12, .grid__item--10-12, .grid__item--11-12, .grid__item--12-12 {
+    width: 96%; }
+  .grid__item--1-12\@s {
+    width: 4.33333%; }
+  .grid__item--2-12\@s {
+    width: 12.66667%; }
+  .grid__item--3-12\@s {
+    width: 21%; }
+  .grid__item--4-12\@s {
+    width: 29.33333%; }
+  .grid__item--5-12\@s {
+    width: 37.66667%; }
+  .grid__item--6-12\@s {
+    width: 46%; }
+  .grid__item--7-12\@s {
+    width: 54.33333%; }
+  .grid__item--8-12\@s {
+    width: 62.66667%; }
+  .grid__item--9-12\@s {
+    width: 71%; }
+  .grid__item--10-12\@s {
+    width: 79.33333%; }
+  .grid__item--11-12\@s {
+    width: 87.66667%; }
+  .grid__item--12-12\@s {
+    width: 100%; }
+  .grid .u-hidden-s {
+    display: none; }
+  @media only screen and (min-width: 705px) {
+    .grid__item--1-12 {
+      width: 4.33333%; }
+    .grid__item--2-12 {
+      width: 12.66667%; }
+    .grid__item--3-12 {
+      width: 21%; }
+    .grid__item--4-12 {
+      width: 29.33333%; }
+    .grid__item--5-12 {
+      width: 37.66667%; }
+    .grid__item--6-12 {
+      width: 46%; }
+    .grid__item--7-12 {
+      width: 54.33333%; }
+    .grid__item--8-12 {
+      width: 62.66667%; }
+    .grid__item--9-12 {
+      width: 71%; }
+    .grid__item--10-12 {
+      width: 79.33333%; }
+    .grid__item--11-12 {
+      width: 87.66667%; }
+    .grid__item--12-12 {
+      width: 96%; }
+    .grid .u-hidden-s {
+      display: block; }
+    .grid .u-hidden-l {
+      display: none; } }
+
+
+      .u-space--n {
+  margin-bottom: 0 !important; }
+
+.u-space--m {
+  margin-bottom: 1rem !important; }
+
+.u-space--l {
+  margin-bottom: 2rem !important; }
+ @media only screen and (min-width: 992px) {
+h1 {
+    font-size: 60px;
+}
+}
