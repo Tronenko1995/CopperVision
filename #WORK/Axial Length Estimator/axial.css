@@ -42,7 +42,7 @@ margin-bottom: 25px;
 	line-height: 1.4;
     color: #636466;
     font-size: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 .axiallengthlink {
     background-color: #005CAB;
@@ -308,4 +308,7 @@ background-color: #fff;
         flex: 0 0 50%;
         max-width: 50%
     }
+}
+.hide {
+    display: none !important;
 }
