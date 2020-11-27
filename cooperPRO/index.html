@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница опроса</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+</head>
+<body>
+<div class="poll">
+
+<header class="header">
+    <div class="header__wrap">
+        <a href="#" class="header__logo" tabindex="1">
+            <img src="img/logo.png" alt="" class="header__logo-img">
+        </a>
+        <p class="header__link">
+            <a class="header__link-text" href="https://coopervision.ru/" tabindex="2">coopervision.ru</a>
+        </p>
+    </div>
+</header>
+
+<div class="main">
+    <div class="main__wrap">
+        <div class="main__top">
+            <div class="main__top-svg svg-ballot"></div>
+            <p class="main__top-title">Страница опроса</p>
+        </div>
+        <form class="main__form" action="" method="POST">
+            <div class="main__question">
+                <div class="main__question-number">1</div>
+                <p class="main__question-text">Выберите оптику:</p>
+            </div>
+            <div id="msg-erorr-1" class="msg-erorr main__for-select-text hide">Выберите оптику</div>
+            <div class="main__for-select">
+                <p class="main__for-select-text">Вы запрашивали данные по следующим оптикам: <span id="ref-object"></span></p>
+                <input id="refobject-input" type="hidden" name="refobject">
+            </div>
+            <div class="main__for-select main__for-select-2">
+                <p class="main__for-select-text">Если вы не нашли запрашиваемую оптику в списке, выберите подходящую из списка оптик:</p>
+                <div class="main__for-select-select select main__for-select-select--2" tabindex="4">
+                    <input class="select__input" type="hidden" name="region" data-action="getcity"  >
+                    <div class="select__head">Выберите регион из списка</div>
+                    <ul id="region_list" class="select__list">
+                    </ul>
+                </div>
+                <div class="main__for-select-select select main__for-select-select--3" tabindex="5">
+                    <input class="select__input" type="hidden" name="city" data-action="getobject">
+                    <div class="select__head">Выберите город из списка</div>
+                    <ul id="city_list" class="select__list">
+                    </ul>
+                </div>
+                <div class="main__for-select-select select main__for-select-select--4" tabindex="6">
+                    <input class="select__input" type="hidden" name="bject" data-action="object">
+                    <div class="select__head">Выберите оптику из списка</div>
+                    <ul id="object_list" class="select__list">
+                    </ul>
+                </div>
+            </div>
+            <div class="main__question main__question-2">
+                <div class="main__question-number">2</div>
+                <p class="main__question-text">Оцените качество работы работы оптики по программе замедления близорукости «Яркое Будущее™» с линзами MiSight® 1 day по шкале от 1 до 5:</p>
+            </div>
+            <div id="msg-erorr-2" class="msg-erorr main__for-select-text hide">Поставьте оценку</div>
+            <div class="main__radio main__radio-1">
+                <input type="radio" class="radio" name="grade" value="1" id="gr1">
+                <label for="gr1" class="radio__label" tabindex="7">1</label>
+                <input type="radio" class="radio" name="grade" value="2" id="gr2">
+                <label for="gr2" class="radio__label" tabindex="7">2</label>
+                <input type="radio" class="radio" name="grade" value="3" id="gr3">
+                <label for="gr3" class="radio__label" tabindex="7">3</label>
+                <input type="radio" class="radio" name="grade" value="4" id="gr4">
+                <label for="gr4" class="radio__label" tabindex="7">4</label>
+                <input type="radio" class="radio" name="grade" value="5" id="gr5">
+                <label for="gr5" class="radio__label" tabindex="7">5</label>
+            </div>
+            <div class="main__question main__question-3">
+                <div class="main__question-number">3</div>
+                <p class="main__question-text">Что бы вы улучшили в работе оптики:</p>
+            </div>
+            <div id="msg-erorr-3" class="msg-erorr main__for-select-text hide">Заполните поле</div>
+            <div class="main__radio main__radio-2">
+                <input type="radio" class="radio" name="quality" value="1" id="q1">
+                <label for="q1" class="radio__label" tabindex="8">Качество коммуникации</label>
+                <input type="radio" class="radio" name="quality" value="2" id="q2">
+                <label for="q2" class="radio__label" tabindex="8">Скорость обслуживания</label>
+                <input type="radio" class="radio jsRadioTextArea" name="quality" value="3" id="q3">
+                <label for="q3" class="radio__label" tabindex="8">Другое (введите свой вариант)</label>
+            </div>
+            <textarea class="main__textarea jsTextArea" name="quality-text" cols="30" rows="10" placeholder="Введите свой вариант" tabindex="8" maxlength="300"></textarea>
+            <button class="main__button" type="submit" tabindex="9">Отправить</button>
+        </form>
+    </div>
+</div>
+
+<div class="ruoverlay">
+    <div class="ruoverlay__wrap">
+        <p class="ruoverlay__text">Имеются противопоказания. Необходимо проконсультироваться со специалистом</p>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer__wrap">
+        <p class="footer__text">Москва, «Башня «Империя», Пресненская наб., 6, строение 2, помещение 1707/1
+            <a class="footer__tel" href="tel:+78002007744" tabindex="10">+7 (800) 200-77-44</a>
+            <a class="footer__tel" href="tel:+74959958015" tabindex="11">+7 495 995 80 15</a>
+        </p>
+        <p class="footer__text">&copy; 2020 CooperVision | Подразделение компании <a href="https://www.coopercos.com/" class="footer__link" target="_blank" tabindex="11">CooperCompanies</a></p>
+    </div>
+</footer>
+
+<div id="thanks" class="thanks mfp-hide">
+    <div class="thanks__svg svg-smile"></div>
+    <p class="thanks__title">Спасибо, что уделили время.</p> 
+    <p class="thanks__text">Ваш отзыв поможет нам стать лучше.</p> 
+</div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+
+</script>
+</body>
+</html>

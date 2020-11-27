@@ -2,7 +2,7 @@
 
 <div class="axlngthcalccontain">
 <div class="axlngthclcinner">
-<p style="font-size: 24px; color: #636466;">Введите данные измерений: <span class="tooltip"><span class="tooltipmark">?</span> <span class="ftooltiptext"> <span class="ftlptext" style="color: #636466;display:inline-block;margin-bottom:12px;">Введите, пожалуйста, последние данные рефракции с указанием того с циклоплегией или без нее были выполнены измерения. Данные кератометрии можно вводить как в миллиметрах (мм), так в Диоптриях (Д). Все остальные параметры выражены в мм. Учитывается наилучшее вертексное расстояние (BVD), вертексная поправка будет применена автоматически.</span> </span></span></p>
+<p style="font-size: 24px; color: #636466;">Введите данные измерений: <span class="tooltip"><span class="tooltipmark">?</span> <span class="ftooltiptext"> <span class="ftlptext" style="color: #636466;display:inline-block;margin-bottom:12px;">Введите, пожалуйста, последние данные рефракции с указанием того с циклоплегией или без нее были выполнены измерения. Данные кератометрии можно вводить как в миллиметрах (мм), так в Диоптриях (Д). Все остальные параметры выражены в мм. Учитывается вертексное расстояние (BVD), вертексная поправка будет применена автоматически.</span> </span></span></p>
 &nbsp;
 
 <form id="myForm" method="post">
@@ -111,11 +111,11 @@
 <!-- flex -->
 
 <div class="flex flex--row u-space--l">
-<div class="selectctc bvdselect btmspctc"><select class="select axlgthclc-select axbvd" id="axbvd" name="axbvd" required=""><option value="">Наилучшее вертексное расстояние  (BVD)</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option> </select></div>
+<div class="selectctc bvdselect btmspctc"><select class="select axlgthclc-select axbvd" id="axbvd" name="axbvd" required=""><option value="">Вертексное расстояние  (BVD)</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option> </select></div>
 </div>
 
 <div class="flex flex--row">
-<div class="radiogroup u-space--m"><input class="rdinput" id="cycloplegicrefctn" name="cycloplegicrefraction" required="" type="radio" value="Cycloplegic Refraction" /> <label for="cycloplegicrefctn">Рефракцией с циклоплегией</label><br />
+<div class="radiogroup u-space--m"><input class="rdinput" id="cycloplegicrefctn" name="cycloplegicrefraction" required="" type="radio" value="Cycloplegic Refraction" /> <label for="cycloplegicrefctn">Рефракция с циклоплегией</label><br />
 <input class="rdinput" id="noncycloplegicrefctn" name="cycloplegicrefraction" required="" type="radio" value="Non-cycloplegic Refraction" /> <label for="noncycloplegicrefctn">Рефракция без циклоплегии</label></div>
 </div>
 
@@ -132,9 +132,9 @@
 <!-- .axlngthclcinner -->
 
 <div class="axlngthfinal">
-<p class="resultstitle" style="font-size: 24px; color: #636466;">Результат калькулятора: <span class="tooltip"><span class="tooltipmark">?</span> <span class="ctooltiptext"> <span class="cylotlptext" style="color: #6c207f;display:inline-block;margin-bottom:12px;">Рефракцией с циклоплегией:</span><br />
-	95% -ый доверительный интервал значений параметра составляет (индивильная цифра), что составляет (индивидуальное значение процентов) от аксиальной длины в мм.</span> <span class="nctooltiptext"> <span class="nonecylotlptext"><span style="color: #6c207f;display:inline-block;margin-bottom:12px;">Рефракция без циклоплегии:</span><br />
-	95% -ый доверительный интервал значений параметра составляет (индивильная цифра), что составляет (индивидуальное значение процентов) от аксиальной длины в мм.</span> </span> </span></p>
+<p class="resultstitle" style="font-size: 24px; color: #636466;">Результат калькулятора: <span class="tooltip"><span class="tooltipmark">?</span> <span class="ctooltiptext"> <span class="cylotlptext" style="color: #6c207f;display:inline-block;margin-bottom:12px;">Рефракция с циклоплегией:</span><br />
+	95%-ый  доверительный интервал оценки по двум параметрам  составляет ± 0.73 мм (± 3% от среднего значения аксиальной длины глаза)</span> <span class="nctooltiptext"> <span class="nonecylotlptext"><span style="color: #6c207f;display:inline-block;margin-bottom:12px;">Рефракция без циклоплегии:</span><br />
+	95%-ый  доверительный интервал оценки по двум параметрам  составляет ± 0.73 мм (± 3% от среднего значения аксиальной длины глаза)</span> </span> </span></p>
 &nbsp;
 
 <div class="grid__item--12-12@s flex flex--column@s flex--row u-space--l axialresults">

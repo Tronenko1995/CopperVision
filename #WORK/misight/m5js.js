@@ -77,13 +77,17 @@ $(document).ready(function () {
     $(document).on("click touchstart", ".jss61.MuiButton-outlined", function(e) {
         e.preventDefault();
         console.log('клик по получение результатов тестов');
+        ga('send', 'event', 'test_misight', 'click_test_result');
+        ym(66929020, 'reachGoal', 'click_test_result');
         $.magnificPopup.open({
             items: {
                 src: '#modalRecommendation'
             },
             callbacks: {
                 open: function () {
-
+                    console.log('--открытие модалки обртаной связи, тест');
+                    ga('send', 'event', 'test_misight', 'modal_test_open');
+                    ym(66929020, 'reachGoal', 'modal_test_open');
                     if (document.body.clientWidth > 780) {
                         $(this.container).find('.mfp-content').css({
                             'width': '650px',
@@ -114,6 +118,8 @@ $(document).ready(function () {
             success: function (result) {
                 console.log(result);
                 $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
+                ga('send', 'event', 'test_misight', 'modal_success_test');
+                ym(66929020, 'reachGoal', 'modal_success_test');
             },
             error: function (xhr, resp, text) {
                 console.log(xhr, resp, text);
@@ -138,6 +144,20 @@ $(document).ready(function () {
             break;
 
         }
+    });
+
+    /* изменение чекбокса  Политики конфиднециальности */
+    $('#modalCheckBox2').on('change', function() {
+        console.log('изменение чекбокса  Политики конфиднециальности');
+        ga('send', 'event', 'test_misight', 'modal_test_chk_privacy');
+        ym(66929020, 'reachGoal', 'modal_test_chk_privacy');
+    });
+
+    /* изменение чекбокса  Согласен на рекламную рассылку */
+    $('#modalCheckBox2_2').on('change', function() {
+        console.log('изменение чекбокса  Согласен на рекламную рассылку');
+        ga('send', 'event', 'test_misight', 'modal_test_chk_mailing');
+        ym(66929020, 'reachGoal', 'modal_test_chk_mailing');
     });
 
     $(document).on("change", "select[id='childShortSightedAge']", function (e) {

@@ -18,6 +18,8 @@ $=jQuery;
             },
             success: function (result) {
                 console.log(result);
+                ga('send', 'event', 'mail_function', 'mail_verification');
+                ym(66929020, 'reachGoal', 'mail_verification');
             },
             error: function (xhr, resp, text) {
                 console.log(xhr, resp, text);

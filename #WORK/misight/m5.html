@@ -17,12 +17,22 @@
         font-style: italic;
     }
     .modal-1__form .modal-1__checkbox {
-        top: 415px !important;
+        top: 554px !important;
         left: 71px !important;
     }
     .modal-1__form .modal-1__checkbox--modal-2 {
-        top: 483px !important;
+        top: 482px !important;
         left: 71px !important;
+    }
+    @media (max-width: 750px) {
+        .modal-1__form .modal-1__checkbox {
+            top: 502px !important;
+            left: 26px !important;
+        }
+        .modal-1__form .modal-1__checkbox--modal-2 {
+            top: 422px !important;
+            left: 26px !important;
+        }
     }
 
     .modal-1__container--success {display: none;}
@@ -16210,8 +16220,8 @@ $(document).ready(function () {
                    id="modalCheckBox2" value="yes" required>
             <label for="modalCheckBox2" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" target="_blank" href="https://coopervision.ru/sites/coopervision.ru/files/tekst_soglasiya_na_obrabotku_dannyh.pdf">Согласен</a> на обработку персональных данных<span style="color: #ff0000">*</span>, принимаю <a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/politika_konfidencialnosti_kupervizhn.pdf" target="_blank">Политику конфиденциальности</a></p></label>
             <input name="conv" type="checkbox" class="modal-1__checkbox modal-1__checkbox--modal-2_2" name="modalCheckBox2_2"
-                   id="modalCheckBox2_2" value="yes">
-            <label for="modalCheckBox2_2" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" target="_blank" href="https://coopervision.ru/sites/coopervision.ru/files/tekst_soglasiya_na_kommunikaciyu.pdf">Согласен</a> на получение рекламно-информационных сообщений на все контакты выше</p></label>
+                   id="modalCheckBox2_2" value="yes" required>
+            <label for="modalCheckBox2_2" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" target="_blank" href="https://coopervision.ru/sites/coopervision.ru/files/tekst_soglasiya_na_kommunikaciyu.pdf">Согласен</a> на получение рекламно-информационных сообщений на все контакты выше<span style="color: #ff0000">*</span></p></label>
             <div class="more">
                 <button id="modalButton2" type="submit" class="more__text">Отправить
                     <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
