@@ -36,22 +36,22 @@ var tabs6m = $('#tabs6m');
 $(tabs0).on('click', function () {
     console.log('1 вкладка');
     ga('send', 'event', 'vkladki_misight', 'click_main');
-    ym(66929020, 'reachGoal', 'click_main');
+    // ym(66929020, 'reachGoal', 'click_main');
 });
 $(tabs1).on('click', function () {
     console.log('2 вкладка');
     ga('send', 'event', 'vkladki_misight', 'click_myopia');
-    ym(66929020, 'reachGoal', 'click_myopia');
+    // ym(66929020, 'reachGoal', 'click_myopia');
 });
 $(tabs2).on('click', function () {
     console.log('3 вкладка');
     ga('send', 'event', 'vkladki_misight', 'click_methods');
-    ym(66929020, 'reachGoal', 'click_methods');
+    // ym(66929020, 'reachGoal', 'click_methods');
 });
 $(tabs3).on('click', function () {
     console.log('4 вкладка');
     ga('send', 'event', 'vkladki_misight', 'click_program');
-    ym(66929020, 'reachGoal', 'click_program');
+    // ym(66929020, 'reachGoal', 'click_program');
 });
 $(tabs4).on('click', function () {
 
@@ -59,12 +59,12 @@ $(tabs4).on('click', function () {
 $(tabs5).on('click', function (e, x) {
     console.log('6 вкладка');
     ga('send', 'event', 'vkladki_misight', 'click_test');
-    ym(66929020, 'reachGoal', 'click_test');
+    // ym(66929020, 'reachGoal', 'click_test');
 });
 $(tabs6).on('click', function () {
     console.log('вкладка с локатором');
     ga('send', 'event', 'vkladki_misight', 'click_find');
-    ym(66929020, 'reachGoal', 'click_find');
+    // ym(66929020, 'reachGoal', 'click_find');
 });
 
 /* Клик на мобильные табы */
@@ -91,11 +91,11 @@ $(tabs6m).on('click', function (e) {
 });
 $('.jsPdfPutLinzy').on('click', function () {
     console.log('нажал на PDF Put Linzy');
-    ym(66929020, 'reachGoal', 'pdf_rekomendacii_kak_nadevat_i_snimat_linzy_misight_1_day');
+    // ym(66929020, 'reachGoal', 'pdf_rekomendacii_kak_nadevat_i_snimat_linzy_misight_1_day');
 });
 $('.jsPdfBrochureProgram').on('click', function () {
     console.log('нажал на PDF Brochure Program');
-    ym(66929020, 'reachGoal', 'pdf_znakomstvo_s_programmoy_yab_s_linzami_misight_1_day');
+    // ym(66929020, 'reachGoal', 'pdf_znakomstvo_s_programmoy_yab_s_linzami_misight_1_day');
 });
 
 $(document).ready(function(){
@@ -108,7 +108,7 @@ $(document).ready(function(){
         const cityOptika = $(this).siblings('.jsCityOptika').val();
         console.log('клик по получение информации об оптике');
         ga('send', 'event', 'optics_misight', 'click_optics_info');
-        ym(66929020, 'reachGoal', 'click_optics_info');
+        // ym(66929020, 'reachGoal', 'click_optics_info');
         $.magnificPopup.open({
             items: {
                 src: '#modalReception'
@@ -133,7 +133,7 @@ $(document).ready(function(){
                     }
                     $(this.container).find('.mfp-close').addClass('new-close');
                     ga('send', 'event', 'optics_misight', 'modal_optics_open');
-                    ym(66929020, 'reachGoal', 'modal_optics_open');
+                    // ym(66929020, 'reachGoal', 'modal_optics_open');
                 },
                 close: function() {
                     $('#modalReception').removeClass('sms sms-success sms-error sms-false');
@@ -152,14 +152,14 @@ $(document).ready(function(){
     $('#modalCheckBox1').on('change', function() {
         console.log('изменение чекбокса  Политики конфиднециальности');
         ga('send', 'event', 'optics_misight', 'modal_optics_chk_privacy');
-        ym(66929020, 'reachGoal', 'modal_optics_chk_privacy');
+        // ym(66929020, 'reachGoal', 'modal_optics_chk_privacy');
     });
 
     /* изменение чекбокса  Согласен на рекламную рассылку */
     $('#modalCheckBox1_2').on('change', function() {
         console.log('изменение чекбокса Согласен на рекламную рассылку');
         ga('send', 'event', 'optics_misight', 'modal_optics_chk_mailing');
-        ym(66929020, 'reachGoal', 'modal_optics_chk_mailing');
+        // ym(66929020, 'reachGoal', 'modal_optics_chk_mailing');
     });
 
     $(".note").on("click", function (event) {
@@ -323,7 +323,7 @@ $(document).ready(function(){
                 } else if (result.verification === false) {
                     $('#modalReception .modal-1__form').closest('.modal-1').addClass('sms-false');
                     ga('send', 'event', 'optics_misight', 'modal_success_optics');
-                    ym(66929020, 'reachGoal', 'modal_success_optics');
+                    // ym(66929020, 'reachGoal', 'modal_success_optics');
                 }
             },
             error: function (xhr, resp, text) {
@@ -348,7 +348,7 @@ $(document).ready(function(){
                     console.log('%c CooperVision -> Ввел правильный смс', 'color: green');
                     // console.log('%c CooperVision -> final: '+final, 'color: green');
                     ga('send', 'event', 'optics_misight', 'modal_success_optics');
-                    ym(66929020, 'reachGoal', 'modal_success_optics');
+                    // ym(66929020, 'reachGoal', 'modal_success_optics');
                 } else {
                     console.log('%c CooperVision -> Ввел не правильный смс', 'color: green');
                     // console.log('%c CooperVision -> final: '+final, 'color: green');
@@ -1084,7 +1084,7 @@ var clinic_mass = {
         doctor: 'Елена Витальевна Голубенко, Минебаева Юлия Шамильевна'
     },
     '53.482172, 49.480365': {
-        Id_optika: '00fb9307-4115-4b47-9db9-de62a812a65a',
+        Id_optika: 'be873d45-b0eb-4ab0-8652-8b2df13474a9',
         balloonContent: 'Прозрение',
         time: '09:00-20:00',
         time_weekend: '09:00-20:00',
