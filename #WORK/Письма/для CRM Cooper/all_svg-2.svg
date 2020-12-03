@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 26 26">
+    <defs>
+        <style>.cls-1{fill:url(#gr1);}.cls-2{fill:#fff;}</style>
+        <linearGradient id="gr1" y1="15" x2="26" y2="15" gradientTransform="matrix(1, 0, 0, -1, 0, 28)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#6c207f"/>
+            <stop offset="1" stop-color="#a02b91"/>
+        </linearGradient>
+    </defs>
+    <circle class="cls-1" cx="13" cy="13" r="13"/>
+    <path class="cls-2" d="M11.67,9v1.33H8.33v7.34h7.34V14.33H17v4a.68.68,0,0,1-.67.67H7.67A.68.68,0,0,1,7,18.33V9.67A.68.68,0,0,1,7.67,9ZM19,7v5.33H17.67V9.28l-5.2,5.19-.94-.94,5.19-5.2h-3V7Z"/>
+</svg>

@@ -2071,7 +2071,7 @@ $(document).ready(function () {
                                 var t = this.registry, n = e.options.index;
                                 if (-1 === t.indexOf(e)) if (0 === t.length || n >= this.index) t.push(e); else for (var r = 0; r < t.length; r++) if (t[r].options.index > n) return void t.splice(r, 0, e)
                             }, t.reset = function () {
-                                this.registry = [];
+                                this.registry = []
                             }, t.remove = function (e) {
                                 var t = this.registry.indexOf(e);
                                 this.registry.splice(t, 1)
@@ -4561,7 +4561,7 @@ $(document).ready(function () {
                     }
 
                     function m(e) {
-                        this.l[e.type](H.event ? H.event(e) : e);
+                        this.l[e.type](H.event ? H.event(e) : e)
                     }
 
                     function v(e, t, n, A, o, i, a, l, u) {
@@ -5713,7 +5713,6 @@ $(document).ready(function () {
                             case"SET_FIELD_ERROR":
                                 return $({}, e, {errors: re(e.errors, t.payload.field, t.payload.value)});
                             case"RESET_FORM":
-                                location.reload();
                                 return $({}, e, {}, t.payload);
                             case"SET_FORMIK_STATE":
                                 return t.payload(e);

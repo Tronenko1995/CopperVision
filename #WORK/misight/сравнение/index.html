@@ -126,10 +126,6 @@
         .modal-2 {
             padding: 20px !important;
         }
-        .map__control-adress-block-title,
-        .map__control-adress-block-text {
-            text-align: center;
-    }
     }
     @media (max-width: 600px) {
         .nearsightedness__page--5 .test__arrow {
@@ -318,12 +314,6 @@
     .nearsightedness__page--6 .select__list::-webkit-scrollbar {
         width: 3px;
         height: 3px;
-    }
-    .change-location-mobile-click {
-        background: #FF7400 !important;
-    }
-    .jsFindAdressMap {
-        display: none !important;
     }
 }
 
@@ -2055,11 +2045,6 @@
             height: auto;
         }
     }
-    @media (max-width: 500px) {
-        .plug-map {
-            display: none;
-        }
-    }
 </style>
 
     <div class="plug-map">
@@ -2073,8 +2058,9 @@
             <div class="map__wrap">
                 <p class="map__title">Сведите к&nbsp;минимуму риски<br>для здоровья глаз вашего ребенка</p>
                 <p class="map__text">Запишитесь в&nbsp;оптику к&nbsp;квалифицированному специалисту </p>
-                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как <span class="jsMobiCityText"></span> и подобрали оптики в&nbsp;шаговой доступности.</p>
-                <!-- <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте"> -->
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
                 <div class="map__control">
                     <div class="map__control-for-select">
                         <div class="select">
@@ -2118,8 +2104,9 @@
             <div class="map__wrap">
                 <p class="map__title">Найти специалиста рядом</p>
                 <p class="map__text">Выберите квалифицированного специалиста для&nbsp;снижения рисков для&nbsp;здоровья глаз вашего ребенка в&nbsp;будущем в&nbsp;вашем городе</p>
-                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как <span class="jsMobiCityText"></span> и подобрали оптики в&nbsp;шаговой доступности.</p>
-                <!-- <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте"> -->
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
                 <div class="map__control">
                     <div class="map__control-for-select">
                         <div class="select">
@@ -2254,7 +2241,7 @@
 
 <div id="modalReception" class="modal-1 mfp-hide">
     <form class="modal-1__form" action="" method="POST">
-        <p class="modal-1__title">Получите подробную информацию о выбранной оптике.</p>
+        <p class="modal-1__title">Получите подробную информацию о выбранной оптике и код регистрации в программе.</p>
         <label class="modal-1__label">
             <span>Имя<span style="color: #ff0000">*</span>:</span>
             <input name="name" class="modal-1__input" type="text" placeholder="" required>
