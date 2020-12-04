@@ -298,9 +298,6 @@
     .nearsightedness__page--6_2 .semicircle {
         display: none !important;
     }
-    .jsFindAdressMap {
-        display: none !important;
-    }
 }
 /* летающие кнопки */
 @keyframes animateGradi {
@@ -397,13 +394,10 @@
     border-radius: 0px 0px 15px 15px;
     animation: animateGradi 1s infinite 1s ease-in-out reverse;
 }
-.right-buttons-top:hover {
+.right-buttons-top:hover,
+.right-buttons-bottom:hover {
     background: #FF7400 !important;
 }
-.right-buttons-bottom-link {
-    pointer-events: none;
-}
-
 .right-buttons-top-link,
 .right-buttons-bottom-link {
     font-style: normal;
@@ -447,12 +441,6 @@
         top: 364px;
     }
 }
-@media (max-width: 770px) {
-    .map__control-adress-block-title,
-    .map__control-adress-block-text {
-            text-align: center;
-    }
-}
 @media (max-width: 700px) {
 .svg-test {
     width: 20px;
@@ -493,30 +481,6 @@
 .modal-1.sms-success .modal-1__container--sms-error {
         display: none !important;
     }
-    .change-location-mobile-click {
-        background: #FF7400 !important;
-    }
-/*...модалка локатор...*/
-@media (max-width: 770px) {
-    .modal-1 {
-        padding: 35px 20px 15px 20px;
-    }
-    .modal-1 .modal-1__label {
-        margin-bottom: 13px;
-    }
-    .modal-1 .modal-1__checkbox-label {
-        margin-top: 10px;
-    }
-    .modal-1 .more {
-        margin-top: 15px;
-    }
-    .modal-1 .new-close {
-        top: 10px;
-    }
-    .modal-1 .modal-1__input {
-        height: 35px;
-    }
-}
 </style>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 <!-- <script>
@@ -609,8 +573,9 @@
             <div class="map__wrap">
                 <p class="map__title">Сведите к&nbsp;минимуму риски<br>для здоровья глаз вашего ребенка</p>
                 <p class="map__text">Запишитесь в&nbsp;оптику к&nbsp;квалифицированному специалисту </p>
-                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как <span class="jsMobiCityText"></span> и подобрали оптики в&nbsp;шаговой доступности.</p>
-                <!-- <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте"> -->
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
                 <div class="map__control">
                     <div class="map__control-for-select">
                         <div class="select">
@@ -654,8 +619,9 @@
             <div class="map__wrap">
                 <p class="map__title">Найти специалиста рядом</p>
                 <p class="map__text">Выберите квалифицированного специалиста для&nbsp;снижения рисков для&nbsp;здоровья глаз вашего ребенка в&nbsp;будущем в&nbsp;вашем городе</p>
-                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как <span class="jsMobiCityText"></span> и подобрали оптики в&nbsp;шаговой доступности.</p>
-                <!-- <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте"> -->
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
                 <div class="map__control">
                     <div class="map__control-for-select">
                         <div class="select">
@@ -790,7 +756,7 @@
 
 <div id="modalReception" class="modal-1 mfp-hide">
     <form class="modal-1__form" action="" method="POST">
-        <p class="modal-1__title">Получите подробную информацию о выбранной оптике.</p>
+        <p class="modal-1__title">Получите подробную информацию о выбранной оптике и код регистрации в программе.</p>
         <label class="modal-1__label">
             <span>Имя<span style="color: #ff0000">*</span>:</span>
             <input name="name" class="modal-1__input" type="text" placeholder="" required>
