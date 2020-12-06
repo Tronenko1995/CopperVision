@@ -440,161 +440,164 @@ function init() {
                 provider: 'yandex'
             });
 
-            // var browserLocation = ymaps.geolocation.get({
-            //     provider: 'browser'
-            // });
+            var browserLocation = ymaps.geolocation.get({
+                provider: 'browser'
+            });
 
-            // function successGetGeo (result, browserGeoFlag) {
-            //     // Добавление местоположения на&nbsp;карту.
-            //     console.log(result.geoObjects['position'])
+            function successGetGeo (result, browserGeoFlag) {
+                // Добавление местоположения на&nbsp;карту.
+                console.log(result.geoObjects['position'])
 
-            //     get_city_optik(result.geoObjects['position'])
-
-
-            //     //Получаем название города по полученым координатам
-            //     async function get_city_optik(coord) {
-            //         var city_name = [];
-
-            //         let promise = new Promise((resolve, reject) => {
-            //             var myGeocoder = ymaps.geocode(coord[0] + ", " + coord[1], {kind: "locality"});
-            //             res = myGeocoder.then(
-            //                 function (result) {
-            //                     console.log(result.geoObjects.get(0))
-            //                     var name = result.geoObjects.get(0).properties.get('name');
-            //                     try {
-            //                         city_name.push(name)
-            //                         resolve(1);
-            //                     } catch (err) {
-            //                         console.log(err);
-            //                     }
-
-            //                 }
-            //             );
-
-            //         })
-            //         await promise
-            //         try {
-            //             check_city_optik(city_name[0], coord, browserGeoFlag)
-            //         } catch (err) {
-            //             console.log(err)
-            //         }
-            //     }
-
-            //     //проверяем есть ли в&nbsp;этом городк оптики
-            //     function check_city_optik(city_name, coord, browserGeoFlag) {
-            //         var flag = 0;
-            //         for (var i = 0; i < Object.keys(clinic_mass).length; i++) {
-            //             if (city_name == clinic_mass[Object.keys(clinic_mass)[i]]['city']) {
-            //                 jQuery(".select-city").closest(".select").find(".select__head").text(city_name)
-            //                 if (city_name === 'Москва') {
-            //                     jQuery(".select-oblast").closest(".select").find(".select__head").text('Москва')
-            //                 }
-            //                 if(!browserGeoFlag){
-            //                     create_map(coord)
-            //                 }
-            //                 else{
-            //                     myMap.setCenter(
-            //                         coord,
-            //                         10
-            //                     );
-            //                     myMap2.setCenter(
-            //                         coord,
-            //                         10
-            //                     );
-            //                 }
-            //                 add_markers()
-            //                 show_opik_under_map(city_name, clinic_mass, 'city')
-            //                 findmetro(city_name)
-            //                 // jQuery('.mobile-map-text').append('<span>' + city_name + '</span>');
-            //                 jQuery('.jsMobiCityText').text(city_name);
-            //                 resolve(1);
-            //                 flag = 1;
-            //                 break;
-            //             }
-            //         }
-            //         if (!flag) {
-            //             //если нет ставим центр карты в&nbsp;городе Москва
-            //             jQuery(".select-city").closest(".select").find(".select__head").text('Москва')
-            //             jQuery(".select-oblast").closest(".select").find(".select__head").text('Москва')
-            //             if(!browserGeoFlag){
-            //                 create_map([55.76, 37.64])
-            //             }
-            //             else{
-            //                 myMap.setCenter(
-            //                     [55.76, 37.64],
-            //                     10
-            //                 );
-            //                 myMap2.setCenter(
-            //                     [55.76, 37.64],
-            //                     10
-            //                 );
-            //             }
-            //             add_markers()
-            //             show_opik_under_map("Москва", clinic_mass, 'city')
-            //             // jQuery('.mobile-map-text').append('<span>Москва</span>');
-            //             jQuery('.jsMobiCityText').text('Москва');
-            //             findmetro("Москва")
-            //             resolve(1);
-            //         }
-            //     }
+                get_city_optik(result.geoObjects['position'])
 
 
-            // }
+                //Получаем название города по полученым координатам
+                async function get_city_optik(coord) {
+                    var city_name = [];
 
-            // function failGeo (err, browserGeoFlag) {
-            //     console.log('Ошибка: ' + err)
-            //     jQuery(".select-city").closest(".select").find(".select__head").text('Москва')
-            //     jQuery(".select-oblast").closest(".select").find(".select__head").text('Москва')
-            //     if(!browserGeoFlag){
-            //         create_map([55.76, 37.64])
-            //     }
-            //     else{
-            //         myMap.setCenter(
-            //             [55.76, 37.64],
-            //             10
-            //         );
-            //         myMap2.setCenter(
-            //             [55.76, 37.64],
-            //             10
-            //         );
-            //     }
-            //     add_markers()
-            //     show_opik_under_map("Москва", clinic_mass, 'city')
-            //     // jQuery('.mobile-map-text').append('<span>Москва</span>');
-            //     jQuery('.jsMobiCityText').text('Москва');
-            //     findmetro("Москва")
-            //     resolve(1);
-            // }
+                    let promise = new Promise((resolve, reject) => {
+                        var myGeocoder = ymaps.geocode(coord[0] + ", " + coord[1], {kind: "locality"});
+                        res = myGeocoder.then(
+                            function (result) {
+                                console.log(result.geoObjects.get(0))
+                                var name = result.geoObjects.get(0).properties.get('name');
+                                try {
+                                    city_name.push(name)
+                                    resolve(1);
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                            }
+                        );
+
+                    })
+                    await promise
+                    try {
+                        check_city_optik(city_name[0], coord, browserGeoFlag)
+                    } catch (err) {
+                        console.log(err)
+                    }
+                }
+
+                //проверяем есть ли в&nbsp;этом городк оптики
+                function check_city_optik(city_name, coord, browserGeoFlag) {
+                    var flag = 0;
+                    for (var i = 0; i < Object.keys(clinic_mass).length; i++) {
+                        if (city_name == clinic_mass[Object.keys(clinic_mass)[i]]['city']) {
+                            jQuery(".select-city").closest(".select").find(".select__head").text(city_name)
+                            if (city_name === 'Москва') {
+                                jQuery(".select-oblast").closest(".select").find(".select__head").text('Москва')
+                            }
+                            if(!browserGeoFlag){
+                                create_map(coord)
+                            }
+                            else{
+                                myMap.setCenter(
+                                    coord,
+                                    10
+                                );
+                                myMap2.setCenter(
+                                    coord,
+                                    10
+                                );
+                            }
+                            add_markers()
+                            show_opik_under_map(city_name, clinic_mass, 'city')
+                            findmetro(city_name)
+                            // jQuery('.mobile-map-text').append('<span>' + city_name + '</span>');
+                            jQuery('.jsMobiCityText').text(city_name);
+                            resolve(1);
+                            flag = 1;
+                            break;
+                        }
+                    }
+                    if (!flag) {
+                        //если нет ставим центр карты в&nbsp;городе Москва
+                        jQuery(".select-city").closest(".select").find(".select__head").text('Москва')
+                        jQuery(".select-oblast").closest(".select").find(".select__head").text('Москва')
+                        if(!browserGeoFlag){
+                            create_map([55.76, 37.64])
+                        }
+                        else{
+                            myMap.setCenter(
+                                [55.76, 37.64],
+                                10
+                            );
+                            myMap2.setCenter(
+                                [55.76, 37.64],
+                                10
+                            );
+                        }
+                        add_markers()
+                        show_opik_under_map("Москва", clinic_mass, 'city')
+                        // jQuery('.mobile-map-text').append('<span>Москва</span>');
+                        jQuery('.jsMobiCityText').text('Москва');
+                        findmetro("Москва")
+                        resolve(1);
+                    }
+                }
+
+
+            }
+
+            function failGeo (err, browserGeoFlag) {
+                console.log('Ошибка: ' + err)
+                jQuery(".select-city").closest(".select").find(".select__head").text('Москва')
+                jQuery(".select-oblast").closest(".select").find(".select__head").text('Москва')
+                if(!browserGeoFlag){
+                    create_map([55.76, 37.64])
+                }
+                else{
+                    myMap.setCenter(
+                        [55.76, 37.64],
+                        10
+                    );
+                    myMap2.setCenter(
+                        [55.76, 37.64],
+                        10
+                    );
+                }
+                add_markers()
+                show_opik_under_map("Москва", clinic_mass, 'city')
+                // jQuery('.mobile-map-text').append('<span>Москва</span>');
+                jQuery('.jsMobiCityText').text('Москва');
+                findmetro("Москва")
+                resolve(1);
+            }
 
             
-            // location.then(
-            //     function(result){
-            //         successGetGeo(result, false)
-            //     },
-            //     function(err){
-            //         failGeo(err, false)
-            //     }
-            //    )
+            location.then(
+                function(result){
+                    successGetGeo(result, false)
+                },
+                function(err){
+                    failGeo(err, false)
+                }
+               )
 
-            // browserLocation.then(
-            //     function(result){
-            //         successGetGeo(result, true)
-            //     },
-            //     function(err){
-            //         failGeo(err, true)
-            //     }
-            // )
+            browserLocation.then(
+                function(result){
+                    successGetGeo(result, true)
+                },
+                function(err){
+                    failGeo(err, true)
+                }
+            )
 
             //browserLocation.then(result => {successGetGeo(result), failGeo(result)})
             
-            
-            // Асинхронная обработка ответа.
 
+
+
+
+        
+            /*
+            // Асинхронная обработка ответа.
             location.then(
                 function (result) {
                     // Добавление местоположения на&nbsp;карту.
                     console.log(result.geoObjects['position'])
-
 
                     get_city_optik(result.geoObjects['position'])
 
@@ -675,7 +678,7 @@ function init() {
                     findmetro("Москва")
                     resolve(1);
                 }
-            );
+            );*/
 
         })
         await promise
@@ -2179,6 +2182,7 @@ var clinic_mass = {
             'Ярославская область': [57.626559, 39.893804],
                         
         };
+
         //заполняем массив областями в которых есть оптики
         for (var i = 0; i < Object.keys(clinic_mass).length; i++) {
             var temp = check_oblast_array(oblast_array_main, clinic_mass[Object.keys(clinic_mass)[i]]['oblast']) 
@@ -2197,6 +2201,7 @@ var clinic_mass = {
         return null
         }
 
+        jQuery(".select-oblast").html('');
 
         for (var i = 0; i < Object.keys(oblast_array_curent).length; i++) {
             var temp_li = jQuery('<li class = "select__item" value = "' + oblast_array_curent[Object.keys(oblast_array_curent)[i]] + '">' + Object.keys(oblast_array_curent)[i] + '</li>');
@@ -2363,7 +2368,7 @@ var clinic_mass = {
     function show_opik_under_map(geolocation, clinic_mass, region_type) {
         var data = {optiks: []}
         for (var i = 0; i < Object.keys(clinic_mass).length; i++) {
-
+            //console.log('I am in metro: ', geolocation, region_type)
             if (geolocation.toUpperCase().trim() == clinic_mass[Object.keys(clinic_mass)[i]][region_type].toUpperCase().trim()) {
                 if(Object.values(clinic_mass)[i]['oblast'] == 'Москва'  || Object.values(clinic_mass)[i]['oblast'] == 'Санкт-Петербург'){
                     data['optiks'].push({
@@ -2432,7 +2437,7 @@ var clinic_mass = {
                         <input class="jsIdOptika" type="hidden" rv-value="optiks.Id_optika">\
                         <input class="jsCityOptika" type="hidden" rv-value="optiks.city_optika">\
                         <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>\
-                        <a href="#" class="map__control-adress-block-button jsSignUp">Получить информацию</a>\
+                        <a href="#" class="map__control-adress-block-button jsSignUp">Сохранить информацию</a>\
                         </div>');
                 /*click-optik">На карте</p>\
                 <a href="#" class="map__control-adress-block-button jsSignUp">Получить информацию</a>\
@@ -2468,7 +2473,7 @@ var clinic_mass = {
                     <input class="jsIdOptika" type="hidden" rv-value="optiks.Id_optika">\
                     <input class="jsCityOptika" type="hidden" rv-value="optiks.city_optika">\
                     <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>\
-                    <a href="#" class="map__control-adress-block-button jsSignUp">Получить информацию</a>\
+                    <a href="#" class="map__control-adress-block-button jsSignUp">Сохранить информацию</a>\
                     </div>');
             /*
             click-optik">На карте</p>\
@@ -2542,9 +2547,7 @@ var clinic_mass = {
         }
 
         jQuery(".select-metro li").on('click', function () {
-            /**/
             show_opik_under_map($(this).text(), clinic_mass, 'rayon')
-            /**/
             myMap.setCenter(
                 $(this).attr("value").split(','),
                 15
@@ -2625,9 +2628,7 @@ var clinic_mass = {
         }
 
         jQuery(".select-metro li").on('click', function () {
-            /**/
             show_opik_under_map($(this).text(), clinic_mass, 'rayon')
-            /**/
             myMap.setCenter(
                 $(this).attr("value").split(','),
                 15

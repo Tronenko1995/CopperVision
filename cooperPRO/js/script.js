@@ -175,6 +175,12 @@ function getListEntity(action, id = '') {
         sel = $('#region_list');
     } else if (action == 'getcity') {
 
+        sel = $('#object_list');
+        sel.empty();
+        selectobject = sel.closest('.select');
+        selectobject.find('.select__head').text('Выберите город из списка');
+        selectobject.find('.select__input').val('');
+
         sel = $('#city_list');
         sel.empty();
         selectobject = sel.closest('.select');

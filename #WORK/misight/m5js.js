@@ -113,6 +113,7 @@ $(document).ready(function () {
 
     jQuery(".modal-1__form").submit(function (e) {
         e.preventDefault();
+        $('.modal-1 .more__text').attr('disabled','disabled').addClass('loading');
         jQuery.ajax({
             url: 'https://camera.webnauts.pro/testForm.php',
             type: "POST",
@@ -120,15 +121,65 @@ $(document).ready(function () {
             crossDomain: true,
             data: jQuery(this).serialize(),
             success: function (result) {
-                console.log(result);
-                $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
+                if (typeof result.message !== "undefined" && result.message !== null) {
+
+                    if (result.message === 'Запрос успешно выполнен') {
+
+                        $('.modal-1 .more__text').removeAttr('disabled').removeClass('loading');
+                        $('.modal-1 .jsMail').removeClass('errorX');
+                        console.log('все ок')
+                        console.log(result)
+                        ga('send', 'event', 'test_misight', 'modal_success_test');
+                        $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
+
+                    } else {
+                        $('.modal-1 .more__text').removeAttr('disabled').removeClass('loading');
+                        $('.modal-1 .jsMail').removeClass('errorX');
+                        console.log('якась ошибка');
+                        console.log(result)
+                        if (typeof result.message.invalid_email !== "undefined" && result.message.invalid_email !== null) {
+                            // console.log('проблема в мыле');
+                            // console.log(result.message.invalid_email);
+                            $('.modal-1 .jsMail').trigger('focus').addClass('errorX');
+                        }
+                    }
+
+            } else {
+                $('.modal-1 .more__text').removeAttr('disabled').removeClass('loading');
+                $('.modal-1 .jsMail').removeClass('errorX');
+                console.log('все ок')
+                console.log(result)
                 ga('send', 'event', 'test_misight', 'modal_success_test');
-                ym(66929020, 'reachGoal', 'modal_success_test');
-            },
-            error: function (xhr, resp, text) {
-                console.log(xhr, resp, text);
+                $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
             }
-        })
+            // $('.modal-1 .more__text').removeAttr('disabled').removeClass('loading');
+            // console.log(result);
+            // $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
+            // ga('send', 'event', 'test_misight', 'modal_success_test');
+            // ym(66929020, 'reachGoal', 'modal_success_test');
+        },
+        error: function (jqXHR, exception) {
+            $('.modal-1 .more__text').removeAttr('disabled').removeClass('loading');
+            console.log(jqXHR)
+            console.log(exception)
+        }
+    })
+        // jQuery.ajax({
+        //     url: 'https://camera.webnauts.pro/testForm.php',
+        //     type: "POST",
+        //     dataType: 'json',
+        //     crossDomain: true,
+        //     data: jQuery(this).serialize(),
+        //     success: function (result) {
+        //         console.log(result);
+        //         $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
+        //         ga('send', 'event', 'test_misight', 'modal_success_test');
+        //         ym(66929020, 'reachGoal', 'modal_success_test');
+        //     },
+        //     error: function (xhr, resp, text) {
+        //         console.log(xhr, resp, text);
+        //     }
+        // })
     });
 
     $(document).on("change", "select[id='childAge']", function (e) {

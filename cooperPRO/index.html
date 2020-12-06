@@ -25,7 +25,7 @@
     <div class="main__wrap">
         <div class="main__top">
             <div class="main__top-svg svg-ballot"></div>
-            <p class="main__top-title">Страница опроса</p>
+            <p class="main__top-title">Нам важно ваше мнение. Пройдите опрос и помогите нам стать лучше.</p>
         </div>
         <form class="main__form" action="" method="POST">
             <div class="main__question">
@@ -34,11 +34,11 @@
             </div>
             <div id="msg-erorr-1" class="msg-erorr main__for-select-text hide">Выберите оптику</div>
             <div class="main__for-select">
-                <p class="main__for-select-text">Вы запрашивали данные по следующим оптикам: <span id="ref-object"></span></p>
+                <p class="main__for-select-text">Вы запрашивали данные по следующей оптике: <span id="ref-object"></span></p>
                 <input id="refobject-input" type="hidden" name="refobject">
             </div>
             <div class="main__for-select main__for-select-2">
-                <p class="main__for-select-text">Если вы не нашли запрашиваемую оптику в списке, выберите подходящую из списка оптик:</p>
+                <p class="main__for-select-text">Если вы посетили другую оптику, выберите ее из списка оптик:</p>
                 <div class="main__for-select-select select main__for-select-select--2" tabindex="4">
                     <input class="select__input" type="hidden" name="region" data-action="getcity"  >
                     <div class="select__head">Выберите регион из списка</div>
@@ -120,8 +120,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/script.js"></script>
-<script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
+    ym(70071583, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
 </script>
+<noscript><div><img src="https://mc.yandex.ru/watch/70071583" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </body>
 </html>
