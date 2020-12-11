@@ -510,6 +510,15 @@
         display: none !important;
     }
 /*...модалка локатор...*/
+.modal-1 .more__text {
+    display: flex;
+    align-items: center;
+}
+.modal-1 .more__text-svg {
+    /* margin-left: 0px; */
+    min-width: 51px;
+    min-height: 51px;
+}
 @media (max-width: 770px) {
     .modal-1 {
         padding: 35px 20px 15px 20px;
@@ -530,6 +539,10 @@
         height: 32px;
         border-radius: 12px;
     }
+    .modal-1 .more__text-svg {
+    min-width: 25px;
+    min-height: 25px;
+}
 }
 </style>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
@@ -2097,7 +2110,7 @@
                 <p class="map__text">Запишитесь в&nbsp;оптику к&nbsp;квалифицированному специалисту </p>
                 <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как <span class="jsMobiCityText"></span> и подобрали оптики в&nbsp;шаговой доступности.</p>
                 <!-- <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте"> -->
-                <div class="map__control">
+                <div class="map__control" id="mapСontrol">
                     <div class="map__control-for-select">
                         <div class="select">
                             <input class="select__input" type="hidden" name="">
@@ -2297,7 +2310,7 @@
         <input id="idOptika" type="hidden" name="idOptika">
         <input id="cityOptika" type="hidden" name="cityOptika">
         <div class="more">
-            <button id="modalButton1" type="submit" class="more__text">Получить информацию на&nbsp;почту
+            <button id="modalButton1" type="submit" class="more__text">Получить информацию в&nbsp;смс и на&nbsp;почту
                 <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
     <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
     </svg>

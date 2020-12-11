@@ -37,6 +37,24 @@
     font-size: 20px;
     color: #636466;
 }
+.more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+}
+.more__text {
+    display: flex;
+    font-size: 32px;
+    color: rgb(118, 18, 132) !important;
+    align-items: center;
+}
+.more__text-svg {
+    width: 40px;
+    height: 40px;
+    fill: #761284;
+    margin-left: 20px;
+}
 @media (min-width: 1000px) {
     body.sidebar-first .main-content__wrapper-inner {
         width: 100%;
@@ -59,5 +77,17 @@
     }
     .modal__text {
         font-size: 16px;
+    }
+
+    .more {
+        margin-top: 20px;
+    }
+    .more__text {
+        font-size: 25px;
+    }
+    .more__text-svg {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
     }
 }

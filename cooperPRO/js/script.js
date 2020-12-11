@@ -139,7 +139,7 @@ $(document).ready(function(){
     });
 
     let params =  (new URL(document.location)).searchParams;
-    let id = params.get("id")
+    let id = params.get("optics")
     if (id !== null) {
         $.ajax({
             type: "POST",
@@ -164,6 +164,77 @@ $(document).ready(function(){
         let action = $(e.target).data('action');
         let value = $(e.target).val();
         getListEntity(action, value);
+        if (action == 'getcity') {
+
+            // ga('send', 'event', 'pro_optics', 'pick_region');
+            ym(66929020, 'reachGoal', 'pick_region');
+            console.log('выбор региона');
+
+        } else if (action == 'getobject') {
+
+            // ga('send', 'event', 'pro_optics', 'pick_city');
+            ym(66929020, 'reachGoal', 'pick_city');
+            console.log('выбор города');
+
+        } else if (action == 'object') {
+
+            // ga('send', 'event', 'pro_optics', 'pick_optics');
+            ym(66929020, 'reachGoal', 'pick_optics');
+            console.log('выбор оптики');
+
+        }
+    });
+
+    $('.radio[name="grade"]').on('change', function(e) {
+        let val = +$(this).val();
+        switch (val) {
+            case 5:
+                // ga('send', 'event', 'pro_rating', 'pick_rating-5');
+                ym(66929020, 'reachGoal', 'pick_rating-5');
+                console.log('Оценка 5');
+            break;
+            case 4:
+                // ga('send', 'event', 'pro_rating', 'pick_rating-4');
+                ym(66929020, 'reachGoal', 'pick_rating-4');
+                console.log('Оценка 4');
+            break;
+            case 3:
+                // ga('send', 'event', 'pro_rating', 'pick_rating-3');
+                ym(66929020, 'reachGoal', 'pick_rating-3');
+                console.log('Оценка 3');
+            break;
+            case 2:
+                // ga('send', 'event', 'pro_rating', 'pick_rating-2');
+                ym(66929020, 'reachGoal', 'pick_rating-2');
+                console.log('Оценка 2');
+            break;
+            case 1:
+                // ga('send', 'event', 'pro_rating', 'pick_rating-1');
+                ym(66929020, 'reachGoal', 'pick_rating-1');
+                console.log('Оценка 1');
+            break;
+        }
+    });
+
+    $('.radio[name="quality"]').on('change', function(e) {
+        let val = +$(this).val();
+        switch (val) {
+            case 1:
+                // ga('send', 'event', 'pro_better', 'pick_communication);
+                ym(66929020, 'reachGoal', 'pick_communication');
+                console.log('Качество коммуникации');
+            break;
+            case 2:
+                // ga('send', 'event', 'pro_better', 'pick_service-speed');
+                ym(66929020, 'reachGoal', 'pick_service-speed');
+                console.log('Скорость обслуживания');
+            break;
+            case 3:
+                // ga('send', 'event', 'pro_better', 'pick_other');
+                ym(66929020, 'reachGoal', 'pick_other');
+                console.log('Другое (введите свой вариант)');
+            break;
+        }
     });
 
 });
