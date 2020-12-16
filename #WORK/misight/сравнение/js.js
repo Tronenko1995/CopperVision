@@ -2427,7 +2427,9 @@ var clinic_mass = {
                 }
             }
         }
-
+        console.log('print:', data)
+        data['optiks'].sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
+        console.log('after sort:', data)
         if (data['optiks'].length != 0) {
             if (jQuery('.optik-wrapper').text().trim() == '') {
                 jQuery('.map__control-adress').removeClass('hide-class')
