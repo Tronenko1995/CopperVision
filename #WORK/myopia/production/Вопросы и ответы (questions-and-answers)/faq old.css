@@ -1,0 +1,187 @@
+.breadcrumb {
+    float: none !important;
+}
+sup {
+    line-height: 0;
+}
+.orange {
+    color: #F58322;
+}
+.FAQ {
+    display: flex;
+    justify-content: space-around;
+}
+.FAQ__left {
+    width: 50%;
+}
+.FAQ__left-list {
+    margin-top: 40px;
+}
+.FAQ__left-list:first-child {
+    margin-top: 0
+}
+.FAQ__left-list-title {
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 20px;
+    color: #000;
+    margin-bottom: 20px;
+}
+.FAQ__left-list-item {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #636466;
+    cursor: pointer;
+    outline: 0;
+    position: relative;
+    padding-right: 15px;
+}
+.FAQ__left-list-item[open]>.FAQ__left-list-quest::after {
+    content: "–";
+}
+.FAQ__left-list-item::before {
+    content: '';
+    background: #e5e5ec;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 100%;
+}
+.FAQ__left-list-quest {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+    color: #752e87;
+    display: inline-block;
+    cursor: pointer;
+    outline: 0;
+    position: relative;
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.FAQ__left-list-quest::after {
+content: "+";
+width: 10px;
+height: 20px;
+content: '+';
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+right: -15px;
+color: #752e87;
+}
+.FAQ__left-list-quest::marker,
+.FAQ__left-list-quest::-webkit-details-marker {
+    display: none;
+}
+.FAQ__left-list-quest::-moz-list-bullet {
+    list-style-type:none;
+}
+.FAQ__left-list-answ {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #636466;
+    padding-bottom: 10px
+}
+.FAQ__left-list-answ-footnote {
+    border-top: 1px solid #EDEDED;
+    margin-top: 10px;
+    padding-left: 15px;
+}
+.FAQ__left-list-answ-footnote li {
+    margin-top: 5px;
+    font-size: 12px;
+}
+.FAQ__right {
+    width: 40%;
+}
+.FAQ__right-title {
+    margin: 0 0 20px 0;
+    font-size: 30px;
+    font-weight: 800;
+    font-style: normal;
+    line-height: 20px;
+    color: #000;
+    margin-bottom: 100px;
+}
+.FAQ__right-find-text {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    color: #000;
+}
+.FAQ .FAQ__right .FAQ__right-find {
+    width: 100%;
+    outline: none;
+    padding: 0 30px 0 10px;
+}
+.FAQ .FAQ__right .FAQ__right-find-label {
+    position: relative;
+    margin: 30px 0;
+}
+.FAQ .FAQ__right .FAQ__right-find-label::after {
+    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNjY2MiIGlkPSJtYWduaWZ5Ij48cGF0aCBkPSJNOS41IDNBNi41IDYuNSAwIDAxMTYgOS41YzAgMS42MS0uNTkgMy4wOS0xLjU2IDQuMjNsLjI3LjI3aC43OWw1IDUtMS41IDEuNS01LTV2LS43OWwtLjI3LS4yN0E2LjUxNiA2LjUxNiAwIDAxOS41IDE2YTYuNSA2LjUgMCAxMTAtMTNtMCAyQzcgNSA1IDcgNSA5LjVTNyAxNCA5LjUgMTQgMTQgMTIgMTQgOS41IDEyIDUgOS41IDV6Ij48L3BhdGg+PC9zdmc+');
+    background-repeat: no-repeat;
+    content: '';
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    background-size: 20px;
+    position: absolute;
+}
+.FAQ__right-list {
+    margin-top: 20px;
+}
+.FAQ__right-list-item {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.FAQ__right-list-item-left {
+    width: 50px;
+    height: auto;
+    display: flex;
+}
+.FAQ__right-list-item-left-img {
+    width: 100%;
+    height: auto;
+}
+.FAQ__right-list-item-right {
+    margin-left: 8px;
+}
+@media(max-width: 800px) {
+    .FAQ {
+        flex-direction: column;
+        padding: 0 5px;
+    }
+    .FAQ__left {
+        width: 100%;
+        order: 2;
+        margin-top: 50px;
+    }
+    .FAQ__right {
+        width: 100%;
+        order: 1;
+    }
+    .FAQ__right-title {
+        margin: 0 0 30px 0;
+    }
+    .FAQ__right-find-label {
+        margin: 20px 0;
+    }
+}
