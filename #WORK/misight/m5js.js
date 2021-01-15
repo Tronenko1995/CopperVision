@@ -1,3 +1,38 @@
+window.addEventListener("load", () => {
+    let analitic = false,
+        metric = false;
+
+    function test1() {
+        if (typeof ga === 'undefined') {
+            console.log('%c CooperVision: Аналитика не подключена!', 'color: red');
+        } else {
+            console.log('%c CooperVision: Аналитика успешно подключена!', 'color: green');
+            analitic = true;
+        }
+        if (typeof ym === 'undefined') {
+            console.log('%c CooperVision: Метрика не подключена!', 'color: red');
+        } else {
+            console.log('%c CooperVision: Метрика успешно подключена!', 'color: green');
+            metric = true;
+        }
+    }
+    function googleSend(event, type, category, name) {
+        if (analitic === true) {
+            ga(event, type, category, name);
+        } else {
+            console.log('%c CooperVision: Аналитика не подключена!', 'color: red');
+        }
+    }
+    function yandexSend(number, event, name) {
+        if (metric === true) {
+            ym(number, event, name);
+        } else {
+            console.log('%c CooperVision: Метрика не подключена!', 'color: red');
+        }
+    }
+    test1();
+
+
 $=jQuery;
 /*! Magnific Popup - v1.1.0 - 2016-02-20
 * http://dimsemenov.com/plugins/magnific-popup/
@@ -32,33 +67,33 @@ $(document).ready(function () {
         
             case 1:
                 console.log('--нажал на далее шаг-1');
-                ga('send', 'event', 'test_misight', 'dalee_first');
-                ym(66929020, 'reachGoal', 'dalee_first');
+                googleSend('send', 'event', 'test_misight', 'dalee_first');
+                yandexSend(66929020, 'reachGoal', 'dalee_first');
             break;
             case 2:
                 console.log('--нажал на далее шаг-2');
-                ga('send', 'event', 'test_misight', 'dalee_step_2');
-                ym(66929020, 'reachGoal', 'dalee_step_2');
+                googleSend('send', 'event', 'test_misight', 'dalee_step_2');
+                yandexSend(66929020, 'reachGoal', 'dalee_step_2');
             break;
             case 3:
                 console.log('--нажал на далее шаг-3');
-                ga('send', 'event', 'test_misight', 'dalee_step_3');
-                ym(66929020, 'reachGoal', 'dalee_step_3');
+                googleSend('send', 'event', 'test_misight', 'dalee_step_3');
+                yandexSend(66929020, 'reachGoal', 'dalee_step_3');
             break;
             case 4:
                 console.log('--нажал на далее шаг-4');
-                ga('send', 'event', 'test_misight', 'dalee_step_4');
-                ym(66929020, 'reachGoal', 'dalee_step_4');
+                googleSend('send', 'event', 'test_misight', 'dalee_step_4');
+                yandexSend(66929020, 'reachGoal', 'dalee_step_4');
             break;
             case 5:
                 console.log('--нажал на далее шаг-5');
-                ga('send', 'event', 'test_misight', 'dalee_step_5');
-                ym(66929020, 'reachGoal', 'dalee_step_5');
+                googleSend('send', 'event', 'test_misight', 'dalee_step_5');
+                yandexSend(66929020, 'reachGoal', 'dalee_step_5');
             break;
             case 6:
                 console.log('--закончил тест');
-                ga('send', 'event', 'test_misight', 'dalee_last');
-                ym(66929020, 'reachGoal', 'dalee_last');
+                googleSend('send', 'event', 'test_misight', 'dalee_last');
+                yandexSend(66929020, 'reachGoal', 'dalee_last');
             break;
         }
     });
@@ -66,8 +101,8 @@ $(document).ready(function () {
     $(document).on("click touchstart", "button[id='landing-button']", function (e) {
 
         console.log('--старт теста');
-        ga('send', 'event', 'test_misight', 'pass_test');
-        ym(66929020, 'reachGoal', 'pass_test');
+        googleSend('send', 'event', 'test_misight', 'pass_test');
+        yandexSend(66929020, 'reachGoal', 'pass_test');
 
     });
 
@@ -81,8 +116,8 @@ $(document).ready(function () {
     $(document).on("click touchstart", ".jss61.MuiButton-outlined", function(e) {
         e.preventDefault();
         console.log('клик по получение результатов тестов');
-        ga('send', 'event', 'test_misight', 'click_test_result');
-        ym(66929020, 'reachGoal', 'click_test_result');
+        googleSend('send', 'event', 'test_misight', 'click_test_result');
+        yandexSend(66929020, 'reachGoal', 'click_test_result');
         $.magnificPopup.open({
             items: {
                 src: '#modalRecommendation'
@@ -90,8 +125,8 @@ $(document).ready(function () {
             callbacks: {
                 open: function () {
                     console.log('--открытие модалки обртаной связи, тест');
-                    ga('send', 'event', 'test_misight', 'modal_test_open');
-                    ym(66929020, 'reachGoal', 'modal_test_open');
+                    googleSend('send', 'event', 'test_misight', 'modal_test_open');
+                    yandexSend(66929020, 'reachGoal', 'modal_test_open');
                     if (document.body.clientWidth > 780) {
                         $(this.container).find('.mfp-content').css({
                             'width': '650px',
@@ -129,7 +164,7 @@ $(document).ready(function () {
                         $('.modal-1 .jsMail').removeClass('errorX');
                         console.log('все ок')
                         console.log(result)
-                        ga('send', 'event', 'test_misight', 'modal_success_test');
+                        googleSend('send', 'event', 'test_misight', 'modal_success_test');
                         $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
 
                     } else {
@@ -149,14 +184,14 @@ $(document).ready(function () {
                 $('.modal-1 .jsMail').removeClass('errorX');
                 console.log('все ок')
                 console.log(result)
-                ga('send', 'event', 'test_misight', 'modal_success_test');
+                googleSend('send', 'event', 'test_misight', 'modal_success_test');
                 $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
             }
             // $('.modal-1 .more__text').removeAttr('disabled').removeClass('loading');
             // console.log(result);
             // $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
-            // ga('send', 'event', 'test_misight', 'modal_success_test');
-            // ym(66929020, 'reachGoal', 'modal_success_test');
+            // googleSend('send', 'event', 'test_misight', 'modal_success_test');
+            // yandexSend(66929020, 'reachGoal', 'modal_success_test');
         },
         error: function (jqXHR, exception) {
             $('.modal-1 .more__text').removeAttr('disabled').removeClass('loading');
@@ -173,8 +208,8 @@ $(document).ready(function () {
         //     success: function (result) {
         //         console.log(result);
         //         $('#modalRecommendation .modal-1__form').closest('.modal-1').addClass('success');
-        //         ga('send', 'event', 'test_misight', 'modal_success_test');
-        //         ym(66929020, 'reachGoal', 'modal_success_test');
+        //         googleSend('send', 'event', 'test_misight', 'modal_success_test');
+        //         yandexSend(66929020, 'reachGoal', 'modal_success_test');
         //     },
         //     error: function (xhr, resp, text) {
         //         console.log(xhr, resp, text);
@@ -204,15 +239,15 @@ $(document).ready(function () {
     /* изменение чекбокса  Политики конфиднециальности */
     $('#modalCheckBox2').on('change', function() {
         console.log('изменение чекбокса  Политики конфиднециальности');
-        ga('send', 'event', 'test_misight', 'modal_test_chk_privacy');
-        ym(66929020, 'reachGoal', 'modal_test_chk_privacy');
+        googleSend('send', 'event', 'test_misight', 'modal_test_chk_privacy');
+        yandexSend(66929020, 'reachGoal', 'modal_test_chk_privacy');
     });
 
     /* изменение чекбокса  Согласен на рекламную рассылку */
     $('#modalCheckBox2_2').on('change', function() {
         console.log('изменение чекбокса  Согласен на рекламную рассылку');
-        ga('send', 'event', 'test_misight', 'modal_test_chk_mailing');
-        ym(66929020, 'reachGoal', 'modal_test_chk_mailing');
+        googleSend('send', 'event', 'test_misight', 'modal_test_chk_mailing');
+        yandexSend(66929020, 'reachGoal', 'modal_test_chk_mailing');
     });
 
     $(document).on("change", "select[id='childShortSightedAge']", function (e) {
@@ -255,36 +290,36 @@ $(document).ready(function () {
     /* события на клике по табам */
     $(tabs0).on('click', function () {
         console.log('1 вкладка');
-        ga('send', 'event', 'vkladki_misight', 'click_main');
-        ym(66929020, 'reachGoal', 'click_main');
+        googleSend('send', 'event', 'vkladki_misight', 'click_main');
+        yandexSend(66929020, 'reachGoal', 'click_main');
     });
     $(tabs1).on('click', function () {
         console.log('2 вкладка');
-        ga('send', 'event', 'vkladki_misight', 'click_myopia');
-        ym(66929020, 'reachGoal', 'click_myopia');
+        googleSend('send', 'event', 'vkladki_misight', 'click_myopia');
+        yandexSend(66929020, 'reachGoal', 'click_myopia');
     });
     $(tabs2).on('click', function () {
         console.log('3 вкладка');
-        ga('send', 'event', 'vkladki_misight', 'click_methods');
-            ym(66929020, 'reachGoal', 'click_methods');
+        googleSend('send', 'event', 'vkladki_misight', 'click_methods');
+            yandexSend(66929020, 'reachGoal', 'click_methods');
     });
     $(tabs3).on('click', function () {
         console.log('4 вкладка');
-        ga('send', 'event', 'vkladki_misight', 'click_program');
-        ym(66929020, 'reachGoal', 'click_program');
+        googleSend('send', 'event', 'vkladki_misight', 'click_program');
+        yandexSend(66929020, 'reachGoal', 'click_program');
     });
     $(tabs4).on('click', function () {
 
     });
     $(tabs5).on('click', function () {
         console.log('6 вкладка');
-        ga('send', 'event', 'vkladki_misight', 'click_test');
-        ym(66929020, 'reachGoal', 'click_test');
+        googleSend('send', 'event', 'vkladki_misight', 'click_test');
+        yandexSend(66929020, 'reachGoal', 'click_test');
     });
     $(tabs6).on('click', function () {
         console.log('вкладка с локатором');
-        ga('send', 'event', 'vkladki_misight', 'click_find');
-        ym(66929020, 'reachGoal', 'click_find');
+        googleSend('send', 'event', 'vkladki_misight', 'click_find');
+        yandexSend(66929020, 'reachGoal', 'click_find');
     });
 
     /* Клик на мобильные табы */
@@ -347,3 +382,5 @@ $(document).ready(function () {
     //         }
     //     });
     // });
+
+});

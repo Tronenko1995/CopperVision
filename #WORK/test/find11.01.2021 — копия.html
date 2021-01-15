@@ -1,7 +1,7 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
     var jQuery_3_5_1 = $.noConflict(true);
-</script>
+    </script> -->
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=898809da-483b-468a-9808-443e881678b5"></script>
 <style>
 * {
@@ -500,15 +500,6 @@
         background: #FF7400 !important;
     }
 /*...модалка локатор...*/
-.modal-1 .more__text {
-    display: flex;
-    align-items: center;
-}
-.modal-1 .more__text-svg {
-    /* margin-left: 0px; */
-    min-width: 51px;
-    min-height: 51px;
-}
 @media (max-width: 770px) {
     .modal-1 {
         padding: 35px 20px 15px 20px;
@@ -520,18 +511,13 @@
         margin-top: 10px;
     }
     .modal-1 .more {
-        margin-top: 10px;
+        margin-top: 15px;
     }
     .modal-1 .new-close {
         top: 10px;
     }
     .modal-1 .modal-1__input {
-        height: 32px;
-        border-radius: 12px;
-    }
-    .modal-1 .more__text-svg {
-        min-width: 25px;
-        min-height: 25px;
+        height: 35px;
     }
 }
 </style>
@@ -673,7 +659,7 @@
                 <p class="map__text">Выберите квалифицированного специалиста для&nbsp;снижения рисков для&nbsp;здоровья глаз вашего ребенка в&nbsp;будущем в&nbsp;вашем городе</p>
                 <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как <span class="jsMobiCityText"></span> и подобрали оптики в&nbsp;шаговой доступности.</p>
                 <!-- <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте"> -->
-                <div class="map__control" id="mapСontrol">
+                <div class="map__control">
                     <div class="map__control-for-select">
                         <div class="select">
                             <input class="select__input" type="hidden" name="">
@@ -805,119 +791,67 @@
     </div>
 </div>
 
-<style>
-    .shadow {
-        width: 100%;
-        height: 100%;
-        background: rgba(11, 11, 11, 0.8);
-        z-index: 1;
-        position: fixed;
-        top: 0;
-        overflow: auto;
-    }
-    #modalReception {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 650px;
-        border-radius: 20px;
-        z-index: 2;
-        background: #fff;
-    }
-    @media (max-width: 780px) {
-        #modalReception {
-            width: 300px;
-        }
-    }
-    .new-close {
-        overflow: visible;
-        cursor: pointer;
-        background: 0 0;
-        border: 0;
-        -webkit-appearance: none;
-        display: block;
-        outline: 0;
-        padding: 0;
-        z-index: 1046;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        -ms-touch-action: manipulation;
-        touch-action: manipulation;
-        line-height: 44px;
-        position: absolute;
-        text-decoration: none;
-        text-align: center;
-        font-family: Arial,Baskerville,monospace;
-        font-style: normal;
-    }
-    .new-close:hover {
-        background-color: unset !important;
-    }
-    </style>
-<div class="shadow hide">
-    <div id="modalReception" class="modal-1 hide">
-        <form class="modal-1__form" action="" method="POST">
-            <p class="modal-1__title">Получите подробную информацию о выбранной оптике.</p>
-            <label class="modal-1__label">
-                <span>Имя<span style="color: #ff0000">*</span>:</span>
-                <input name="name" class="modal-1__input" type="text" placeholder="" required>
-            </label>
-            <p class="modal-1__text">Я подтверждаю, что мне уже больше 18 лет</p>
-            <label class="modal-1__label">
-                <span>E-mail<span style="color: #ff0000">*</span>:</span>
-                <input name="email" class="modal-1__input jsMail" type="text" placeholder="" required>
-            </label>
-            <label class="modal-1__label">
-                <span>Телефон<span style="color: #ff0000">*</span>:</span>
-                <input name="tel" class="modal-1__input jsPhone" type="text" placeholder="" required>
-            </label>
-            <input type="checkbox" id="modalCheckBox1" class="modal-1__checkbox" name="modalCheckBox1" value="yes" required>
-            <label for="modalCheckBox1" id="modalCheckBox1Label" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/crm_project_consent_on_on_data_processing_for_uploading_01_01_2020.pdf" target="_blank">Согласен</a> на обработку персональных данных<span style="color: #ff0000">*</span>, принимаю <a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/privacy_policy_crm_project_05.11.2020.pdf" target="_blank">Политику конфиденциальности</a></p></label>
-            <input type="checkbox" class="modal-1__checkbox modal-1__checkbox--2" name="modalCheckBox1_2" id="modalCheckBox1_2" value="yes" required>
-            <label for="modalCheckBox1_2" id="modalCheckBox1_2Label" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/crm_project_consent_on_marketing_messaging_for_uploading_01_01_2020.pdf" target="_blank">Согласен</a> на получение рекламно-информационных сообщений на все контакты выше<span style="color: #ff0000">*</span></p></label>
-            <input id="idOptika" type="hidden" name="idOptika">
-            <input id="cityOptika" type="hidden" name="cityOptika">
-            <div class="more">
-                <button id="modalButton1" type="submit" class="more__text">Получить информацию в&nbsp;смс и на&nbsp;почту
+<div id="modalReception" class="modal-1 mfp-hide">
+    <form class="modal-1__form" action="" method="POST">
+        <p class="modal-1__title">Получите подробную информацию о выбранной оптике.</p>
+        <label class="modal-1__label">
+            <span>Имя<span style="color: #ff0000">*</span>:</span>
+            <input name="name" class="modal-1__input" type="text" placeholder="" required>
+        </label>
+        <p class="modal-1__text">Я подтверждаю, что мне уже больше 18 лет</p>
+        <label class="modal-1__label">
+            <span>E-mail<span style="color: #ff0000">*</span>:</span>
+            <input name="email" class="modal-1__input jsMail" type="text" placeholder="" required>
+        </label>
+        <label class="modal-1__label">
+            <span>Телефон<span style="color: #ff0000">*</span>:</span>
+            <input name="tel" class="modal-1__input jsPhone" type="text" placeholder="" required>
+        </label>
+        <input type="checkbox" id="modalCheckBox1" class="modal-1__checkbox" name="modalCheckBox1" value="yes" required>
+        <label for="modalCheckBox1" id="modalCheckBox1Label" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/tekst_soglasiya_na_obrabotku_dannyh.pdf" target="_blank">Согласен</a> на обработку персональных данных<span style="color: #ff0000">*</span>, принимаю <a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/politika_konfidencialnosti_kupervizhn.pdf" target="_blank">Политику конфиденциальности</a></p></label>
+        <input type="checkbox" class="modal-1__checkbox modal-1__checkbox--2" name="modalCheckBox1_2" id="modalCheckBox1_2" value="yes" required>
+        <label for="modalCheckBox1_2" id="modalCheckBox1_2Label" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/tekst_soglasiya_na_kommunikaciyu.pdf" target="_blank">Согласен</a> на получение рекламно-информационных сообщений на все контакты выше<span style="color: #ff0000">*</span></p></label>
+        <input id="idOptika" type="hidden" name="idOptika">
+        <input id="cityOptika" type="hidden" name="cityOptika">
+        <div class="more">
+            <button id="modalButton1" type="submit" class="more__text">Получить информацию на&nbsp;почту
+                <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+    <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
+    </svg>
+            </button>
+        </div>
+    </form>
+    <div class="modal-1__container--sms">
+        <form class="smsVerif" action="">
+            <p class="modal-1__title modal-1__title--sms">Введите код из SMS, который был отправлен на указанный вами номер телефона.</p>
+            <input class="modal-1__input modal-1__input--sms" id="modalsms1" name="modalsms1" type="text" placeholder="Код из SMS" required>
+            <div class="more more--sms">
+                <button id="modalButtonSMS" type="submit" class="more__text">Ок
                     <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
-        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
-        </svg>
+                        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
+                    </svg>
                 </button>
             </div>
         </form>
-        <div class="modal-1__container--sms">
-            <form class="smsVerif" action="">
-                <p class="modal-1__title modal-1__title--sms">Введите код из SMS, который был отправлен на указанный вами номер телефона.</p>
-                <input class="modal-1__input modal-1__input--sms" id="modalsms1" name="modalsms1" type="text" placeholder="Код из SMS" required>
-                <div class="more more--sms">
-                    <button id="modalButtonSMS" type="submit" class="more__text">Ок
-                        <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
-                            <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
-                        </svg>
-                    </button>
-                </div>
-            </form>
-        </div>
-        <div class="modal-1__container--sms-success">
-                <p class="modal-1__title modal-1__title--sms-success">Ваш код из SMS успешно принят!<br>Теперь проверьте почту!</p>
-        </div>
-        <div class="modal-1__container--sms-false">
-            <p class="modal-1__title modal-1__title--sms-false">Информация отправлена на вашу почту</p>
-        </div>
-        <div class="modal-1__container--sms-error">
-                <p class="modal-1__title modal-1__title--sms-error">Ошибка! Вы ввели неверный код!</p>
-                <div class="more more--sms-error">
-                    <button id="modalButtonSMS-retry" type="submit" class="more__text">Ввести еще раз
-                        <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
-                            <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
-                        </svg>
-                    </button>
-                </div>
-        </div>
-        <button title="Close (Esc)" type="button" class="new-close">×</button>
+    </div>
+    <div class="modal-1__container--sms-success">
+            <p class="modal-1__title modal-1__title--sms-success">Ваш код из SMS успешно принят!<br>Теперь проверьте почту!</p>
+    </div>
+    <div class="modal-1__container--sms-false">
+        <p class="modal-1__title modal-1__title--sms-false">Информация отправлена на вашу почту</p>
+    </div>
+    <div class="modal-1__container--sms-error">
+            <p class="modal-1__title modal-1__title--sms-error">Ошибка! Вы ввели неверный код!</p>
+            <div class="more more--sms-error">
+                <button id="modalButtonSMS-retry" type="submit" class="more__text">Ввести еще раз
+                    <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+                        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
+                    </svg>
+                </button>
+            </div>
     </div>
 </div>
+
 
 <!-- <script>
     /* Табы */
