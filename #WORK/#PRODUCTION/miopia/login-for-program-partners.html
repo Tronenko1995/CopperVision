@@ -1,0 +1,235 @@
+<style>
+    /* Заглушка */
+    .hide{display:none!important}.error-plug-text{color:#eb5757!important}.error-plug-input{border:1px solid #eb5757!important}.plug{width:100%;height:100vh;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background:#f2f4f9}.plug__wrap{width:800px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:100px}.plug__title{font-style:normal;font-weight:400;font-size:32px;line-height:45px;text-align:center;color:#504c5d;margin-top:50px}.plug__form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.plug__label{margin-top:74px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.plug__text{font-style:normal;font-weight:400;font-size:14px;line-height:20px;text-align:center;color:#636466}.plug__for-input{margin-top:18px;position:relative}.plug__input{width:515px;height:54px;background:#fff;border:1px solid #dcdae3;border-radius:6px;outline:0;padding:0 40px 0 22px;color:#504c5d;font-size:16px;line-height:22px;letter-spacing:5px}.plug__svg{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);right:22px;cursor:pointer}.plug__svg--eye{opacity:.3;fill:#504c5d}.plug__svg--eye:hover{fill:#005cab;opacity:1}.plug__button{width:143px;height:46px;background:#005cab;border-radius:6px;font-style:normal;font-weight:500;font-size:16px;line-height:22px;text-align:center;color:#fff;margin-top:74px;border:none;outline:0;cursor:pointer}.plug__button:hover{background:#004e92}@media (max-width:550px){.plug{height:auto}.plug__wrap{margin:50px 10px}.plug__title{font-size:20px}.plug__form{width:100%}.plug__label{margin-top:50px;width:100%}.plug__for-input,.plug__input{width:100%}.plug__button{margin-top:50px}}
+    
+    /* страница за залушкой */
+    .ar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .ar__wrap {
+            width: 100%;
+        }
+        .ar__head {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ar__head-title {
+            text-align: center;
+            font-size: 40px;
+        }
+        .ar__list {
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: space-between; */
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .ar__item {
+            margin-top: 30px;
+            width: 32%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+            margin-right: 1%;
+        }
+        .ar__item .ar__item-img {
+            max-height: 200px;
+            min-height: 200px;
+        }
+        .ar__item .ar__item-img img {
+            max-height: 200px;
+            min-height: 200px;
+        }
+        .ar__item .ar__item-text {
+            margin-top: 50px;
+        }
+        .ar__item .ar__item-button {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: none;
+            outline: none;
+            width:90%;
+            height: 40px;
+            color: #fff !important;
+            background-color: #005bab;
+            font-size: 0.9375rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+    
+    @media(max-width: 1000px) {
+        .ar__item {
+            width: 48%;
+        }
+        .ar__item .ar__item-text {
+            margin-top: 30px;
+        }
+        .ar__item .ar__item-button {
+            margin-top: 20px;
+        }
+    }
+    @media(max-width: 700px) {
+        .ar__list {
+            justify-content: center;
+        }
+        .ar__item {
+            width: 75%;
+            min-width: 270px;
+        }
+        .ar__item .ar__item-img img {
+            max-height: auto;
+            min-height: auto;
+        }
+    }
+    @media (max-width: 650px) {
+        .ar__head-title {
+            font-size: 24px;
+        }
+        .ar__head-img {
+            transform: scale(0.8);
+        }
+        .ar__list {
+            margin-top: -30px;
+        }
+    
+    }
+    @media(max-width: 500px) {
+        .ar__item .ar__item-text {
+            margin-top: 20px;
+        }
+        .ar__item .ar__item-button {
+            margin-top: 10px;
+        }
+    }
+    .breadcrumb{
+            display: none;
+        }
+        .breadcrumb2{
+            display: block;
+            background-color:transparent;
+            font-size: 13px;
+            padding: 15px 0 25px;
+            font-family: "Foundry Sterling Book",Arial,Helvetica,"宋体","SimSun","Nimbus Sans L",sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            }
+        @media (max-width: 1000px) {
+            .breadcrumb2 {
+                display: none;
+            }
+        }
+    </style>
+    <div id="plug" class="plug">
+        <div class="plug__wrap">
+            <svg width="82" height="108" viewBox="0 0 82 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M72.6406 41.5563V31.6406C72.6406 14.1938 58.4468 0 41 0C23.5532 0 9.35938 14.1938 9.35938 31.6406V41.5563C4.55066 42.536 0.921875 46.7976 0.921875 51.8906V63.8654C0.921875 65.0305 1.86615 65.9748 3.03125 65.9748C4.19635 65.9748 5.14062 65.0305 5.14062 63.8654V51.8906C5.14062 48.4011 7.97922 45.5625 11.4688 45.5625H70.5312C74.0208 45.5625 76.8594 48.4011 76.8594 51.8906V97.4531C76.8594 100.203 75.0961 102.548 72.6406 103.419V90.7031C72.6406 89.538 71.6964 88.5938 70.5312 88.5938C69.3661 88.5938 68.4219 89.538 68.4219 90.7031V103.781H11.4688C7.97922 103.781 5.14062 100.943 5.14062 97.4531V80.7891C5.14062 79.624 4.19635 78.6797 3.03125 78.6797C1.86615 78.6797 0.921875 79.624 0.921875 80.7891V97.4531C0.921875 103.269 5.65314 108 11.4688 108H70.5312C76.3469 108 81.0781 103.269 81.0781 97.4531V51.8906C81.0781 46.7976 77.4493 42.536 72.6406 41.5563ZM24.9688 41.3438V31.6406C24.9688 22.801 32.1604 15.6094 41 15.6094C49.8396 15.6094 57.0312 22.801 57.0312 31.6406V41.3438H24.9688ZM61.25 41.3438V31.6406C61.25 20.4749 52.1657 11.3906 41 11.3906C29.8343 11.3906 20.75 20.4749 20.75 31.6406V41.3438H13.5781V31.6406C13.5781 16.5199 25.8792 4.21875 41 4.21875C56.1208 4.21875 68.4219 16.5199 68.4219 31.6406V41.3438H61.25Z" fill="#504C5D"/>
+                <path d="M3.03125 74.353C3.58578 74.353 4.13043 74.1281 4.52264 73.735C4.91486 73.3428 5.14062 72.799 5.14062 72.2436C5.14062 71.6891 4.91486 71.1444 4.52264 70.7531C4.13043 70.36 3.58578 70.1342 3.03125 70.1342C2.47672 70.1342 1.93207 70.36 1.53986 70.7531C1.14764 71.1444 0.921875 71.6891 0.921875 72.2436C0.921875 72.799 1.14764 73.3428 1.53986 73.735C1.93207 74.1281 2.47672 74.353 3.03125 74.353Z" fill="#504C5D"/>
+                <path d="M41 96.6094C44.4896 96.6094 47.3282 93.7708 47.3282 90.2812V79.0801C50.4972 76.9823 52.4178 73.4557 52.4178 69.5912C52.4178 63.3109 47.3076 58.2006 41.0272 58.2006C34.7461 58.2006 29.6366 63.3109 29.6366 69.5912C29.6366 73.4277 31.5359 76.9411 34.6719 79.0439V90.2812C34.6719 93.7708 37.5105 96.6094 41 96.6094ZM33.8553 69.5912C33.8553 65.6362 37.0721 62.4194 41.0272 62.4194C44.9815 62.4194 48.1991 65.6362 48.1991 69.5912C48.1991 72.3071 46.6912 74.7584 44.2646 75.9902C43.556 76.3495 43.1094 77.0762 43.1094 77.8714V90.2812C43.1094 91.4447 42.1635 92.3906 41 92.3906C39.8366 92.3906 38.8907 91.4447 38.8907 90.2812V77.8434C38.8907 77.054 38.4498 76.3305 37.7478 75.9688C35.3467 74.7312 33.8553 72.2873 33.8553 69.5912Z" fill="#F2994A"/>
+                <path d="M70.5312 84.1641C71.0883 84.1641 71.6304 83.9383 72.0226 83.5461C72.4149 83.1539 72.6406 82.6117 72.6406 82.0547C72.6406 81.4977 72.4149 80.9555 72.0226 80.5633C71.6304 80.1711 71.0883 79.9453 70.5312 79.9453C69.9767 79.9453 69.4321 80.1711 69.0399 80.5633C68.6476 80.9555 68.4219 81.5002 68.4219 82.0547C68.4219 82.6092 68.6476 83.1539 69.0399 83.5461C69.4321 83.9383 69.9767 84.1641 70.5312 84.1641Z" fill="#504C5D"/>
+            </svg>    
+            <p class="plug__title">Данный раздел доступен только для партнеров программы «Яркое Будущее»</p>
+            <form class="plug__form" action="" method="POST">
+                <label class="plug__label">
+                    <p id="plugText" class="plug__text">Введите пароль, чтобы войти</p>
+                    <div class="plug__for-input">
+                        <input id="plugPassword" class="plug__input" type="password">
+                        <svg id="plugSvgEyeOpen" class="plug__svg plug__svg--eye jsPasswordShow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.00002 2C11.5947 2 14.5854 4.58667 15.2127 8C14.586 11.4133 11.5947 14 8.00002 14C4.40535 14 1.41469 11.4133 0.787354 8C1.41402 4.58667 4.40535 2 8.00002 2ZM8.00002 12.6667C9.35967 12.6664 10.6789 12.2045 11.7419 11.3568C12.8049 10.509 13.5486 9.32552 13.8514 8C13.5475 6.67554 12.8033 5.49334 11.7404 4.64668C10.6776 3.80003 9.35889 3.33902 8.00002 3.33902C6.64115 3.33902 5.32248 3.80003 4.2596 4.64668C3.19673 5.49334 2.45253 6.67554 2.14869 8C2.45142 9.32552 3.19514 10.509 4.25812 11.3568C5.3211 12.2045 6.64037 12.6664 8.00002 12.6667ZM8.00002 11C7.20437 11 6.44131 10.6839 5.8787 10.1213C5.31609 9.55871 5.00002 8.79565 5.00002 8C5.00002 7.20435 5.31609 6.44129 5.8787 5.87868C6.44131 5.31607 7.20437 5 8.00002 5C8.79567 5 9.55873 5.31607 10.1213 5.87868C10.6839 6.44129 11 7.20435 11 8C11 8.79565 10.6839 9.55871 10.1213 10.1213C9.55873 10.6839 8.79567 11 8.00002 11ZM8.00002 9.66667C8.44205 9.66667 8.86597 9.49107 9.17853 9.17851C9.49109 8.86595 9.66669 8.44203 9.66669 8C9.66669 7.55797 9.49109 7.13405 9.17853 6.82149C8.86597 6.50893 8.44205 6.33333 8.00002 6.33333C7.55799 6.33333 7.13407 6.50893 6.82151 6.82149C6.50895 7.13405 6.33335 7.55797 6.33335 8C6.33335 8.44203 6.50895 8.86595 6.82151 9.17851C7.13407 9.49107 7.55799 9.66667 8.00002 9.66667Z"/>
+                        </svg>
+                        <svg id="plugSvgEyeClose" class="plug__svg plug__svg--eye jsPasswordShow hide" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.22794 12.5213L4.9406 12.1759L5.46527 10.2166C4.67991 9.92697 3.95001 9.50486 3.30727 8.96862L1.87194 10.4046L0.928602 9.46128L2.3646 8.02595C1.55399 7.05512 1.00933 5.89046 0.783936 4.64595L2.09594 4.40662C2.60194 7.20795 5.0526 9.33328 7.99994 9.33328C10.9466 9.33328 13.3979 7.20795 13.9039 4.40662L15.2159 4.64528C14.9908 5.88996 14.4464 7.05486 13.6359 8.02595L15.0713 9.46128L14.1279 10.4046L12.6926 8.96862C12.0499 9.50486 11.32 9.92697 10.5346 10.2166L11.0593 12.1766L9.77194 12.5213L9.2466 10.5613C8.4215 10.7027 7.57837 10.7027 6.75327 10.5613L6.22794 12.5213Z"/>
+                        </svg>                        
+                    </div>
+                </label>
+                <button id="plugButton" class="plug__button">Войти</button>
+        </form>
+        </div>
+    </div>
+    
+    <div id="miopiaContent" class="miopia-content hide">
+        <div id="nearsightednessBread" class="breadcrumb breadcrumb2">
+            <span class="breadcrumb__link">
+                <a href="https://coopervision.ru/">Home</a>
+            </span>
+            <span class="breadcrumb__separator"> &gt; </span>
+            <span class="breadcrumb__link">
+                <a href="https://coopervision.ru/practitioner/clinical-resources">Клинические ресурсы</a>
+            </span><span class="breadcrumb__separator"> &gt; </span>
+            <span class="breadcrumb__link">
+                <a href="https://coopervision.ru/practitioner/clinical-resources/myopia#dop_res">Дополнительные ресурсы</a>
+            </span>
+        </span><span class="breadcrumb__separator"> &gt; </span>
+        <span class="breadcrumb__link">Раздел для участников программы</span>
+        </div>
+        <div class="ar">
+            <div class="ar__wrap">
+                <div class="ar__head">
+                    <h1 class="ar__head-title">Раздел для участников программы</h1>
+                    <img class="ar__head-img" src="https://coopervision.ru/sites/coopervision.ru/files/montazhnaya_oblast_4.png?timestamp=1604050427" alt="">
+                </div>
+                <div class="ar__list">
+    
+                    <div class="ar__item">
+                        <div class="ar__item-img">
+                            <img src="https://coopervision.ru/sites/coopervision.ru/files/resultsimg1-min.jpg?timestamp=1606738408" alt="" title="">
+                        </div>
+                        <p class="ar__item-text">Калькулятор аксиальной длины глаза</p>
+                        <a target="_blank" href="https://coopervision.ru/practitioner/clinical-resources/myopia/axial-length-estimator" class="ar__item-button">Посмотреть</a>
+                    </div>
+    
+                    <div class="ar__item">
+                        <div class="ar__item-img">
+                            <img src="https://coopervision.ru/sites/coopervision.ru/files/desktop.png?timestamp=1605798899" alt="" title="">
+                        </div>
+                        <p class="ar__item-text">Материалы по программе</p>
+                        <a href="#" class="ar__item-button">Посмотреть</a>
+                    </div>
+    
+                    <div class="ar__item">
+                        <div class="ar__item-img">
+                            <img src="https://coopervision.ru/sites/coopervision.ru/files/blestyashhij-mikrofon.jpg?timestamp=1611135082" alt="" title="">
+                        </div>
+                        <p class="ar__item-text">Интервью со специалистами</p>
+                        <a href="#" class="ar__item-button">Посмотреть</a>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        plug = document.querySelector('#plug');
+        miopiaContent = document.querySelector('#miopiaContent');
+        function readCookie(name) {
+        
+        var name_cook = name+"=";
+        var spl = document.cookie.split(";");
+        for(var i=0; i<spl.length; i++) {
+            var c = spl[i];
+            while(c.charAt(0) == " ") {
+                c = c.substring(1, c.length);
+            }
+            if(c.indexOf(name_cook) == 0) {
+                return c.substring(name_cook.length, c.length); 
+            }
+        }
+        return null;
+        }
+        
+        if (readCookie("cooperMiopia") === 'Webnauts') {
+            plug.classList.add("hide");
+            miopiaContent.classList.remove("hide");
+        }
+    
+        var s=$("#plugText"),o=$("#plugPassword"),e=$("#plugSvgEyeOpen"),a=$("#plugSvgEyeClose"),l=$("#plugButton"),t=0;$(".jsPasswordShow").on("click",function(){0==t?(t=1,$(o).attr("type","text"),$(a).removeClass("hide"),$(e).addClass("hide")):(t=0,$(o).attr("type","password"),$(a).addClass("hide"),$(e).removeClass("hide"))}),$(l).on("click",function(e){e.preventDefault(),pass=o.val(),"MiSight 1 day"===pass?($(this).closest(".plug").addClass("hide"),console.log("ACCESS GRANTED"),$(".miopia-content").removeClass("hide"),document.cookie="cooperMiopia=Webnauts; max-age=2592000"):(s.text("Неверный пароль, в доступе отказано. Попробуйте еще раз.").addClass("error-plug-text"),$(o).addClass("error-plug-input"),console.log("ACCESS DENIED"))});
+    </script>
+    

@@ -1,0 +1,2396 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=898809da-483b-468a-9808-443e881678b5"></script>
+<style>
+    .modal-1 .modal-1__label {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    .modal-1 .modal-1__form .modal-1__input {
+        width: 77%;
+        margin-top: 0;
+    }
+    .modal-1 .modal-1__form .modal-1__text {
+        margin-top: -10px;
+        margin-bottom: 10px;
+        font-style: italic;
+    }
+    .modal-1__form .modal-1__checkbox {
+        top: 414px !important;
+        left: 70px !important;
+        width: 14px!important;
+        height: 14px!important;
+        min-width: 14px!important;
+        min-height: 14px!important;
+    }
+    .modal-1__form .modal-1__checkbox--2 {
+        top: 486px !important;
+    }
+    @media (max-width: 750px) {
+        .modal-1__form .modal-1__checkbox {
+            top: 385px !important;
+            left: 25px !important;
+        }
+        .modal-1__form .modal-1__checkbox--2 {
+            top: 465px !important;
+        }
+    }
+
+    .modal-1__container--success {display: none;}
+    .modal-1.success .modal-1__form {display:none !important;}
+    .modal-1.success .modal-1__title--success,
+    .modal-1.success .modal-1__input--success,
+    .modal-1.success .more--success{display:block !important;}
+    .modal-1.success .modal-1__container--success {display: flex;flex-direction: column;align-items: center;}
+
+    /* для локатора */
+    .modal-1 .modal-1__container--sms {
+        display: none !important;
+    }
+    .modal-1 .modal-1__container--sms-success {
+        display: none !important;
+    }
+    .modal-1 .modal-1__container--sms-error {
+        display: none !important;
+    }
+    .modal-1 .modal-1__container--sms-false {
+        display: none !important;
+    }
+
+    .modal-1.sms .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms .modal-1__container--sms {
+        display: flex !important;
+    }
+    .smsVerif {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-1.sms-success .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms-success .modal-1__container--sms-success {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-1.sms-success .modal-1__title--sms-success {
+        text-align: center;
+    }
+
+    .modal-1.sms-error .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms-error .modal-1__container--sms-error {
+        display: flex !important;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-1.sms-false .modal-1__form {
+        display: none !important;
+    }
+    .modal-1.sms-false .modal-1__container--sms-false {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-1.sms-false .modal-1__title--sms-false {
+        text-align: center;
+    }
+
+    .sms-error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sms-error .modal-1__title--sms-error {
+        font-size: 30px;
+        margin-bottom: 0px;
+    }
+    .modal-1__checkbox-link{text-decoration: underline;}
+    .modal-1__checkbox-text{margin: 0;line-height: 1.467;}
+
+    .modal-2 {
+            padding: 40px !important;
+        }
+    @media (max-width: 770px) {
+        .modal-2 {
+            padding: 20px !important;
+        }
+    }
+    @media (max-width: 600px) {
+        .nearsightedness__page--5 .test__arrow {
+            width: 100% !important;
+        }
+    }
+    @media (max-width: 500px) {
+        .nearsightedness__page--5 .test__arrow {
+            margin: 50px 0 !important;
+        }
+    }
+
+    /* .map__control-for-select .select:nth-child(3) {
+        display: none !important;
+    } */
+
+    .nearsightedness__page--5 .test__arrow {
+        width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
+    .nearsightedness__page--5 .test__content {
+        display: none;
+    }
+    .nearsightedness__page--5 .test__step {
+        display: none;
+    }
+
+    .note {
+        cursor: pointer;
+    }
+    .hide{display:none !important;}
+
+    .nearsightedness__menu-nav{width:1180px;}
+
+    .page{line-height: 1.43;}
+
+    .breadcrumb{display: none;}
+    .breadcrumb2{display: block;background-color:transparent;font-size: 13px;padding: 15px 0 25px;font-family: "Foundry Sterling Book",Arial,Helvetica,"宋体","SimSun","Nimbus Sans L",sans-serif;font-weight: 400;font-style: normal;}
+    .title--page{display: none;}
+    .nearsightedness__menu-nav-item:focus, .nearsightedness__menu-nav-item:hover {
+        border-color: #e9ecef #e9ecef #dee2e6 !important;
+    }
+    .header__menu {
+        display: none;
+    }
+    .header__menu .header__items {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+    }
+    .header__menu .header__items .header__item {
+        width: 100%;
+        border-bottom: 1px solid #761284;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 0;
+        padding-top: 0;
+    }
+    .header__menu .header__items .header__item .header__link {
+        justify-content: flex-start;
+        font-size: 16px;
+        line-height: 3.14286;
+        font-weight: 400;
+        color: #636466;
+        font-size: 12px;
+        display: flex;
+        text-decoration: none;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        background: transparent !important;
+        border: none !important;
+    }
+    .header__menu .header__items .header__item .header__link sup {
+        line-height: inherit;
+        font-size: inherit;
+    }
+    .header__menu .header__items .header__item .header__link.active {
+        color: #761284;
+        font-weight: 700;
+        background: transparent !important;
+        border: none !important;
+    }
+    .block-warning__text--bold {
+        font-weight: 700;
+    }
+
+
+    @media(max-width:1180px) {
+
+        .block-warning {
+            width: 96% !important;
+            margin: 0 2% !important;
+        }
+        .block-warning .block-warning__wrap {
+            width: 100% !important;
+            margin: 0% !important;
+        }
+    }
+    @media (max-width: 1180px) {
+        .header__menu {
+            display: flex;
+        }
+        .nav2 {
+            display: none !important;
+        }
+        .breadcrumb2 {
+            display: none;
+        }
+    }
+
+    @media(max-width:500px) {
+        .block-warning__text {
+            font-size: 10px !important;
+        }
+        .block-warning {
+            width: 96% !important;
+            margin: 0 2% !important;
+        }
+        .block-warning .block-warning__wrap {
+            width: 100% !important;
+            margin: 0% !important;
+        }
+    }
+.nearsightedness__menu-nav-item-link {
+    color: #636466 !important;
+    text-decoration: none !important;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nearsightedness__menu-nav-item--active {
+    pointer-events: none;
+}
+.nearsightedness__menu-nav-item--active .nearsightedness__menu-nav-item-link {
+    color: #fff !important;
+}
+
+/* select  */
+.nearsightedness__page--6 .select {
+    border-radius: 0;
+}
+.nearsightedness__page--6 .select.open {
+    border-radius: 0;
+}
+.nearsightedness__page--6 .select__list {
+    border-radius: 0;
+    max-height: 300px;
+    scrollbar-color: #761284 #e8a9f1; /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: thin; 
+}
+.nearsightedness__page--6 .select__list::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: #e8a9f1;
+}
+.nearsightedness__page--6 .select__list::-webkit-scrollbar-thumb {
+    background-color: #761284;
+}
+.nearsightedness__page--6 .select__item {
+        width: 100%;
+}
+@media (max-width: 500px) {
+    .nearsightedness__page--6 .select {
+        width: 105px;
+        font-size: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 2px;
+        border-radius: 0;
+    }
+    .nearsightedness__page--6 .select__head {
+        width: 105px;
+    }
+    .nearsightedness__page--6 .select__list {
+        border-radius: 0;
+        max-height: 140px;
+        width: 105px;
+    }
+    .nearsightedness__page--6 .select__list::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+    }
+}
+
+/* летающие кнопки */
+@keyframes animateGradi {
+    5% {
+        background: linear-gradient(270deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    10% {
+        background: linear-gradient(250deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    15% {
+        background: linear-gradient(230deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    20% {
+        background: linear-gradient(210deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    25% {
+        background: linear-gradient(190deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    30% {
+        background: linear-gradient(170deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    35% {
+        background: linear-gradient(150deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    40% {
+        background: linear-gradient(130deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    45% {
+        background: linear-gradient(110deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    50% {
+        background: linear-gradient(90deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    55% {
+        background: linear-gradient(70deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    60% {
+        background: linear-gradient(50deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    65% {
+        background: linear-gradient(30deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    70% {
+        background: linear-gradient(10deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    75% {
+        background: linear-gradient(-10deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    80% {
+        background: linear-gradient(-30deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    85% {
+        background: linear-gradient(-50deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    90% {
+        background: linear-gradient(-70deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    95% {
+        background: linear-gradient(-90deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+    100% {
+        background: linear-gradient(-90deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+    }
+}
+.svg-test {
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExIDRIMjFWNkgxMVY0Wk0xMSA4SDE3VjEwSDExVjhaTTExIDE0SDIxVjE2SDExVjE0Wk0xMSAxOEgxN1YyMEgxMVYxOFpNMyA0SDlWMTBIM1Y0Wk01IDZWOEg3VjZINVpNMyAxNEg5VjIwSDNWMTRaTTUgMTZWMThIN1YxNkg1WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==');
+    background-repeat: no-repeat;
+}
+.svg-find {
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExIDJDMTUuOTY4IDIgMjAgNi4wMzIgMjAgMTFDMjAgMTUuOTY4IDE1Ljk2OCAyMCAxMSAyMEM2LjAzMiAyMCAyIDE1Ljk2OCAyIDExQzIgNi4wMzIgNi4wMzIgMiAxMSAyWk0xMSAxOEMxNC44NjcgMTggMTggMTQuODY3IDE4IDExQzE4IDcuMTMyIDE0Ljg2NyA0IDExIDRDNy4xMzIgNCA0IDcuMTMyIDQgMTFDNCAxNC44NjcgNy4xMzIgMTggMTEgMThaTTE5LjQ4NSAxOC4wNzFMMjIuMzE0IDIwLjg5OUwyMC44OTkgMjIuMzE0TDE4LjA3MSAxOS40ODVMMTkuNDg1IDE4LjA3MVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=');
+    background-repeat: no-repeat;
+}
+.right-buttons {
+    width: 280px;
+    position: fixed;
+    top: 373px;
+    right: 70px;
+    z-index: 100;
+}
+.right-buttons-top,
+.right-buttons-bottom {
+    background: linear-gradient(270deg, #761284 0%, rgba(174, 100, 184, 0.99) 100%);
+}
+.right-buttons-top {
+    border-radius: 15px 15px 0px 0px;
+    animation: animateGradi 1s infinite 1s ease-in-out;
+}
+.right-buttons-bottom {
+    margin-top: 2px;
+    border-radius: 0px 0px 15px 15px;
+    animation: animateGradi 1s infinite 1s ease-in-out reverse;
+}
+.right-buttons-top:hover,
+.right-buttons-bottom:hover {
+    background: #FF7400 !important;
+}
+.right-buttons-top-link,
+.right-buttons-bottom-link {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration: none !important;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+}
+.right-buttons-top-link-text,
+.right-buttons-bottom-link-text {
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none !important;
+    font-style: normal;
+    font-weight: 600;
+}
+.right-buttons-top-link-text {
+    margin-left: 15px;
+}
+.right-buttons-bottom-link-text {
+    margin-left: 12px;
+}
+@media (max-width: 1180px) {
+    .right-buttons {
+        right: 0px;
+        top: 470px;
+    }
+}
+@media (max-width: 1128px) {
+    .right-buttons {
+        top: 515px;
+    }
+}
+@media (max-width: 999px) {
+    .right-buttons {
+        top: 364px;
+    }
+}
+@media (max-width: 700px) {
+.svg-test {
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+}
+.svg-find {
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+}
+.right-buttons {
+    width: 110px;
+    top: 76px;
+    right: 0px;
+}
+.right-buttons-top-link,
+.right-buttons-bottom-link {
+    font-size: 10px;
+    line-height: 13px;
+    padding: 10px 2px;
+}
+.right-buttons-top-link-text {
+    margin-left: 0px;
+}
+.right-buttons-bottom-link-text {
+    margin-left: 2px;
+}
+.right-buttons-bottom {
+    margin-top: 1px;
+}
+}
+@media (max-width: 600px) {
+    .right-buttons {
+        top: 66px;
+    }
+}
+.modal-1.sms-success .modal-1__container--sms-error {
+        display: none !important;
+    }
+</style>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<!-- <script>
+    $=jQuery;
+</script> -->
+<!-- <script>
+    if (window.location.hash == '#test') {
+        window.location.href = 'https://coopervision.ru/misight/assess-risk-of-myopia';
+    };
+</script> -->
+<div class="right-buttons">
+    <div class="right-buttons-top">
+        <a class="right-buttons-top-link" href="https://coopervision.ru/misight/assess-risk-of-myopia">
+            <span class="svg-test"></span><span class="right-buttons-top-link-text">Оцените риск близорукости</span>
+        </a>
+    </div>
+    <div class="right-buttons-bottom">
+        <a class="right-buttons-bottom-link" href="https://coopervision.ru/misight/find-specialist-nearby">
+            <span class="svg-find"></span><span class="right-buttons-bottom-link-text">Найти специалиста</span></a>
+    </div>
+</div>
+<div id="nearsightednessBread" class="breadcrumb breadcrumb2">
+    <span class='breadcrumb__link'>
+        <a href='https://coopervision.ru/'>Home</a>
+    </span>
+    <span class='breadcrumb__separator'> &gt; </span>
+    <span class='breadcrumb__link'>Близорукость у детей</span>
+</div>
+<div class="nearsightedness">
+    <div class="nearsightedness__menu">
+        <!-- <div class="mobile__button js-mobile-button">
+                <div class="mobile__button-item"></div>
+            </div> -->
+        <ul class="nearsightedness__menu-nav nav2 nav-tabs2">
+            <li id="tabs0" class="nearsightedness__menu-nav-item nearsightedness__menu-nav-item--active">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight">Близорукость у детей</a>
+            </li>
+            <li id="tabs1" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/what-is-myopia">Что такое<br> близорукость</a>
+            </li>
+            <li id="tabs2"  class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/methods-of-slowing-progression-of-myopia">Методы замедления прогрессирования близорукости</a>
+            </li>
+            <li id="tabs3" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/brilliant">Программа<br>Яркое&nbsp;Будущее с&nbsp;линзами<br>MiSight&reg;&nbsp;1&nbsp;day</a>
+            </li>
+            <li id="tabs4" class="nearsightedness__menu-nav-item hide">
+                <a class="nearsightedness__menu-nav-item-link" href="">Отзывы</a>
+            </li>
+            <li id="tabs5" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
+            </li>
+            <li id="tabs6" class="nearsightedness__menu-nav-item">
+                <a class="nearsightedness__menu-nav-item-link" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста<br>рядом</a>
+            </li>
+        </ul>
+    </div>
+    <div class="header__menu">
+        <ul class="header__items">
+            <li class="header__item">
+                <a class="header__link active" id="tabs0m" href="https://coopervision.ru/misight">Близорукость у детей</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link" id="tabs1m" href="https://coopervision.ru/misight/what-is-myopia">Что такое близорукость</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link" id="tabs2m" href="https://coopervision.ru/misight/methods-of-slowing-progression-of-myopia">Методы замедления прогрессирования близорукости</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link" id="tabs3m" href="https://coopervision.ru/misight/brilliant">Программа Яркое&nbsp;Будущее с&nbsp;линзами MiSight&reg;&nbsp;1&nbsp;day</a>
+            </li>
+            <li class="header__item hide">
+                <a class="header__link" id="tabs4m" href="">Отзывы</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link" id="tabs5m" href="https://coopervision.ru/misight/assess-risk-of-myopia">Оцените риск близорукости</a>
+            </li>
+            <li class="header__item">
+                <a class="header__link" id="tabs6m" href="https://coopervision.ru/misight/find-specialist-nearby">Найти специалиста рядом</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="page1" class="nearsightedness__page nearsightedness__page--1">
+
+        <div class="info">
+            <div class="info__wrap">
+                <div class="info__config">
+                    <p class="info__title">Что такое близорукость</p>
+                    <p class="info__text">Близорукость или миопия – это растяжение глазного яблока, которое характеризуется снижением зрения вдаль и рисками для&nbsp;здоровья глаза вашего ребенка в&nbsp;будущем<sup class="note">1</sup></p>
+                    <!-- <img class="info__img" src="https://coopervision.ru/sites/coopervision.ru/files/18.png?timestamp=1602498188" alt=""> -->
+                </div>
+            </div>
+        </div>
+        <div class="eye">
+            <div class="eye__wrap">
+                <div class="eye__config">
+                    <div class="eye__left">
+                        <img src="https://coopervision.ru/sites/coopervision.ru/files/clearvision2.png?timestamp=1602768977" alt="" class="eye__left-img">
+                        <p class="eye__left-text">При четком зрении вдаль свет фокусируется на&nbsp;сетчатке (светочувствительной оболочке внутренней поверхности глаза)<sup class="note">1</sup></p>
+                    </div>
+                    <div class="eye__right">
+                        <img src="https://coopervision.ru/sites/coopervision.ru/files/nearsightedeye2.png?timestamp=1602768957" alt="" class="eye__right-img">
+                        <p class="eye__right-text">При близорукости глаз вырастает и свет фокусируется перед&nbsp;сетчаткой, делая зрение вдаль нечетким<sup class="note">1</sup></p>
+                    </div>
+                </div>
+
+            </div>
+            <img class="eye__img" src="https://coopervision.ru/sites/coopervision.ru/files/spiral.png?timestamp=1602499572" alt="">
+            <div class="eye__attention">
+                <svg version="1.1" class="eye__attention-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 220 184.7" style="enable-background:new 0 0 220 184.7;" xml:space="preserve">
+        <path d="M135.3,14c-12-18.6-39-18.6-50.7,0L4.8,138.2c-12.9,20.1,1.5,46.5,25.5,46.5h159.3c24,0,38.4-26.4,25.5-46.5L135.3,14z M120.9,149.9c0,5.1-2.7,7.5-7.5,7.5h-6.6c-5.1,0-7.5-2.7-7.5-7.5v-5.4c0-5.1,2.7-7.5,7.5-7.5h6.6c5.1,0,7.5,2.7,7.5,7.5V149.9z M120.6,113.6c0,4.8-3,7.5-7.8,7.5h-5.4c-4.8,0-7.5-2.7-7.8-7.5l-1.8-53.1c0-5.1,2.4-7.8,7.5-7.8h9.6c5.1,0,7.5,2.7,7.5,7.8 L120.6,113.6z"></path>
+        </svg>
+                <p class="eye__attention-text">Рост глаза при&nbsp;близорукости приводит к&nbsp;его патологическому растяжению и развитию опасных заболеваний. Одно из&nbsp;них - <span class="eye__attention-text--bold">миопическая макулопатия</span>, которая не поддается коррекции и лечению.<sup class="note">2</sup></p>
+            </div>
+        </div>
+        <div class="girl">
+            <div class="girl__wrap">
+                <div class="girl__config">
+                    <p class="girl__title">Зрение при&nbsp;миопической макулопатии:</p>
+                    <div class="girl__info">
+                        <img src="https://coopervision.ru/sites/coopervision.ru/files/bad-girl.jpg?timestamp=1602498772" alt="" class="girl__info-img">
+                        <div class="girl__info-right">
+                            <p class="girl__info-right-statistics">67<span class="girl__info-right-statistics--percent">%</span></p>
+                            <p class="girl__info-right-text">Увеличение <b>риска</b> возникновения <span class="girl__info-right-text--bold">миопической макулопатии</span> при&nbsp;прогрессировании близорукости на&nbsp;1&nbsp;диоптрию.<sup class="note">2</sup></p>
+                            <a target="_blank" href="https://coopervision.ru/sites/coopervision.ru/files/1d-myopia.pdf" class="girl__info-right-link">Посмотреть статью</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="https://coopervision.ru/sites/coopervision.ru/files/semicircle.png?timestamp=1602499453" alt="" class="girl__semicircle">
+        </div>
+        <div class="more">
+            <a href="https://coopervision.ru/misight/what-is-myopia" class="more__text">Подробнее
+                <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"></path>
+        </svg>
+            </a>
+        </div>
+    </div>
+    <div id="page2" class="nearsightedness__page nearsightedness__page--2">
+        <div class="title">
+            <div class="title__wrap">
+                <div class="title__left">
+                    <img src="https://coopervision.ru/sites/coopervision.ru/files/glasses.jpg?timestamp=1602499387" alt="" class="title__left-img">
+                    <img src="https://coopervision.ru/sites/coopervision.ru/files/eyeglass.jpg?timestamp=1602499325" alt="" class="title__left-img-2">
+                </div>
+                <p class="title__text">Методы замедления прогрессирования близорукости</p>
+            </div>
+        </div>
+        <div class="cooper-table">
+            <img src="https://coopervision.ru/sites/coopervision.ru/files/semicircle-2.png?timestamp=1602499468" alt="" class="cooper-table__semicircle">
+            <div class="cooper-table__wrap">
+                <div class="cooper-table__for-table">
+                    <table class="cooper-table__table">
+                        <tbody>
+                        <tr>
+                            <td class="cooper-table__table-td--for-left cooper-table__table-td--no-br-top">&nbsp;</td>
+                            <td class="cooper-table__table-td--no-br-top">Обычные (монофокальные) очки</td>
+                            <td class="cooper-table__table-td--no-br-top">Обычные (монофокальные) линзы</td>
+                            <td class="cooper-table__table-td--no-br-right cooper-table__table-td--no-br-top cooper-table__table-td--okey">Линзы MiSight®&nbsp;1&nbsp;day</td>
+                        </tr>
+                        <tr>
+                            <td class="cooper-table__table-td--for-left">Улучшение зрения</td>
+                            <td>
+                                <svg class="cooper-table__table-td-svg cooper-table__table-td-svg--okey" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 282.7" style="enable-background:new 0 0 300 282.7;" xml:space="preserve">
+        <path d="M116.9,282.6C106.4,242.4,14,137.8,0,118.6c129.1,102.9,116.9,90.7,116.9,90.7C300,0,300,0,300,0 C151.7,219.8,118.6,286,116.9,282.6z"></path>
+        </svg>
+                            </td>
+                            <td>
+                                <svg class="cooper-table__table-td-svg cooper-table__table-td-svg--okey" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 282.7" style="enable-background:new 0 0 300 282.7;" xml:space="preserve">
+        <path d="M116.9,282.6C106.4,242.4,14,137.8,0,118.6c129.1,102.9,116.9,90.7,116.9,90.7C300,0,300,0,300,0 C151.7,219.8,118.6,286,116.9,282.6z"></path>
+        </svg>
+                            </td>
+                            <td class="cooper-table__table-td--no-br-right">
+                                <svg class="cooper-table__table-td-svg cooper-table__table-td-svg--okey" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 282.7" style="enable-background:new 0 0 300 282.7;" xml:space="preserve">
+        <path d="M116.9,282.6C106.4,242.4,14,137.8,0,118.6c129.1,102.9,116.9,90.7,116.9,90.7C300,0,300,0,300,0 C151.7,219.8,118.6,286,116.9,282.6z"></path>
+        </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cooper-table__table-td--for-left cooper-table__table-td--no-br-bottom">Замедление прогрессирования       близорукости </td>
+                            <td class="cooper-table__table-td--no-br-bottom">
+                                <svg class="cooper-table__table-td-svg" version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 237 248.1" style="enable-background:new 0 0 237 248.1;" xml:space="preserve">
+        <path d="M236,212.2c-28-44.1-62.3-83.7-100.1-119.7c28.3-24.1,59.4-44.6,93.9-57.3c4-1.5-3.6-33.8,0-35.1 C187.3,15.7,150,43.3,116.8,74.7c-5.7-5.1-11.4-10.1-17.2-15.1C74.5,38.3,48.3,17.6,20.4,0c1.2,0.8-0.2,16-0.2,17.6 c0,1.8-1.4,16.6,0.2,17.6c27,17.1,52.4,37.2,76.9,57.8c0.2,0.2,0.4,0.3,0.5,0.5c-9,9.2-17.7,18.7-26.1,28.1 C46.2,150.2,21.9,180.7,1,213c-2.1,3.2-0.2,14-0.2,17.6c0,3.3,2,14.7,0.2,17.6c20.4-31.5,44.2-61.2,68.9-89.3 c14.6-16.7,30.2-33.3,46.8-49c45.4,40.5,86.7,86.2,119.3,137.5c-1.9-2.9,0.2-14.2,0.2-17.6C236.2,226.1,238.1,215.4,236,212.2z"></path>
+        </svg>
+                            </td>
+                            <td class="cooper-table__table-td--no-br-bottom">
+                                <svg class="cooper-table__table-td-svg" version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 237 248.1" style="enable-background:new 0 0 237 248.1;" xml:space="preserve">
+        <path d="M236,212.2c-28-44.1-62.3-83.7-100.1-119.7c28.3-24.1,59.4-44.6,93.9-57.3c4-1.5-3.6-33.8,0-35.1 C187.3,15.7,150,43.3,116.8,74.7c-5.7-5.1-11.4-10.1-17.2-15.1C74.5,38.3,48.3,17.6,20.4,0c1.2,0.8-0.2,16-0.2,17.6 c0,1.8-1.4,16.6,0.2,17.6c27,17.1,52.4,37.2,76.9,57.8c0.2,0.2,0.4,0.3,0.5,0.5c-9,9.2-17.7,18.7-26.1,28.1 C46.2,150.2,21.9,180.7,1,213c-2.1,3.2-0.2,14-0.2,17.6c0,3.3,2,14.7,0.2,17.6c20.4-31.5,44.2-61.2,68.9-89.3 c14.6-16.7,30.2-33.3,46.8-49c45.4,40.5,86.7,86.2,119.3,137.5c-1.9-2.9,0.2-14.2,0.2-17.6C236.2,226.1,238.1,215.4,236,212.2z"></path>
+        </svg>
+                            </td>
+                            <td class="cooper-table__table-td--no-br-bottom cooper-table__table-td--no-br-right">
+                                <svg class="cooper-table__table-td-svg cooper-table__table-td-svg--okey" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 282.7" style="enable-background:new 0 0 300 282.7;" xml:space="preserve">
+        <path d="M116.9,282.6C106.4,242.4,14,137.8,0,118.6c129.1,102.9,116.9,90.7,116.9,90.7C300,0,300,0,300,0 C151.7,219.8,118.6,286,116.9,282.6z"></path>
+        </svg>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="cooper-table__for-table-text">Программа <span class="cooper-table__for-table-text--okey">«Яркое Будущее™» с&nbsp;линзами MiSight®&nbsp;1&nbsp;day</span> создана для&nbsp;замедления прогрессирования близорукости у детей.<sup class="note">3</sup></p>
+                </div>
+                <div class="cooper-table__right">
+                    <p class="cooper-table__right-statistics">40<span class="cooper-table__right-statistics--percent">%</span></p>
+                    <p class="cooper-table__right-text">Снижение вероятности развития <span class="cooper-table__right-text--bold">миопической макулопатии</span> при&nbsp;замедлении прогрессирования близорукости на&nbsp;1 диоптрию.<sup class="note">2</sup></p>
+                    <a target="_blank" href="https://coopervision.ru/sites/coopervision.ru/files/1d-myopia.pdf" class="cooper-table__right-link">Посмотреть статью</a>
+                </div>
+            </div>
+        </div>
+        <div class="more">
+            <a href="https://coopervision.ru/misight/methods-of-slowing-progression-of-myopia" class="more__text">Подробнее
+                <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"></path>
+        </svg>
+            </a>
+        </div>
+    </div>
+    <div id="page3" class="nearsightedness__page nearsightedness__page--3">
+        <div class="info">
+            <div class="info__wrap">
+                <div class="info__top">
+                    <p class="info__top-title">Программа<br>«Яркое Будущее™»<br>с линзами<br>MiSight®&nbsp;1&nbsp;day<br>от CooperVision</p>
+                    <p class="info__top-title info__top-title--media-hide">Программа «Яркое Будущее™» с&nbsp;линзами MiSight®&nbsp;1&nbsp;day от CooperVision</p>
+                    <img src="https://coopervision.ru/sites/coopervision.ru/files/product.png?timestamp=1602499435" alt="" class="info__top-img">
+                </div>
+                <div class="info__center">
+                    <p class="info__center-text">Включает:</p>
+                    <div class="info__center-block">
+                        <ul class="info__center-list">
+                            <li class="info__center-list-item">первые мягкие контактные линзы для&nbsp;замедления прогрессирования близорукости у детей
+                                <sup class="note">3</sup></li>
+                            <li class="info__center-list-item">регулярное наблюдение у квалифицированных специалистов</li>
+                            <li class="info__center-list-item">онлайн поддержку</li>
+                            <li class="info__center-list-item">актуальные информационные материалы</li>
+                        </ul>
+                        <svg class="info__center-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+<style type="text/css">
+    .st0{filter:url(#Adobe_OpacityMaskFilter);}
+    .st1{fill:#FFFFFF;}
+    .st2{mask:url(#SVGID_1_);}
+    .st3{fill:#FFFFFF;}
+    .st4{display:none;fill:#003F5B;}
+    .st5{display:none;}
+    .st6{display:inline;}
+    .st7{display:inline;fill:#FFFFFF;}
+</style>
+<defs>
+    <filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"></feColorMatrix>
+    </filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256" id="SVGID_1_">
+    <g class="st0">
+        <g>
+            <g>
+                <rect x="-13.2" y="-5" class="st1" width="289.4" height="268.8"></rect>
+                <path d="M145.1,248c-0.3-0.8-0.6-1.4-0.9-2.2c-0.4,0.5-0.7,0.7-0.9,1c-0.2-0.1-0.4-0.2-0.5-0.3c-0.2-0.3-0.2-0.7-0.4-0.9
+                    c-1.1-1.1-1.2-0.5-1.6,0.4c-0.1,0.2-0.1,0.4-0.1,0.8c-3.9,1.5-3.6,1-4,4c-1.3,0.3-2.7-0.9-3.5,1.1c-0.4-0.5-0.4,0,0-3.1
+                    c0.6,0.4,0.9,0.6,1.3,0.9c0.6-1.1,0.7-0.8-0.6-1.4c0.1-0.9,0.1-1.9,0.2-3c1.7,0.1,3.1,2,5.1,1.1c-0.2-0.5-0.4-0.9-0.6-1.3
+                    c3.4-2.1,3.4-2.1,4.7-1.9c-0.2,0.7-0.1,0.4-0.6,1.1c0.8,0,1.5,0,2.3,0c0.2,0.5,0.5,1,0.9,1.7c0.5-0.1,1,0,1.5-0.2
+                    c1.8-0.9,1.3-0.6,3.2,0.5c1.8-2.4,1.2-2.1,2.6-1.6c-1.4,4.3-4.1,1-5.6,3C146.9,248.3,146,248.5,145.1,248z"></path>
+                <path d="M63.6,239.1c2.4-1,4.1-2.1,5.5-0.5c1.3,1.5,1.1,2.6-0.6,3.8c-0.7-0.2-1.5-0.3-2.5-0.6c0.4,2.9,0.5,2.5,0,3
+                    c-1.4,1.5-1.4,1.5,0.2,3.1c1.2-1.1,1.4-2.7,1.8-2.6c3.8,1.6,3.2,1.5,3.3,1.9c-0.5,1-2.9,0.2-2.2,2.7c-9.2-3-5.4-0.5-4.5-10
+                    C63.4,239.1,63.5,239.2,63.6,239.1z"></path>
+                <path d="M107.2,253.3c0,0.7,0.1,1.3,0.1,2c3.2,0.5,4,0.4,2.1,1.2c0.7,0.7,1.4,1.4,2.2,2.3c-0.4,0.3-0.7,0.5-0.8,0.6
+                    c0.8,4.6,0.8,3.6-0.1,4.3c0,0,0,0.1-0.7-2.7c-0.8,0.2-1,1.4-1.9,0.7c-0.7-0.6-0.7-1.3-0.4-2.1c0.4,0,0.8-0.1,1.6-0.2
+                    c-0.6-0.6-1-1-1.4-1.4c-2.1,1.1-2.4,3.1-3.2,5.1c-0.4-0.5-0.7-0.8-1.1-1.3c0.4-0.5,0.7-0.8,0.9-1c0-3.2-0.3-1.9,1-5.5
+                    c-0.6-0.5-1.6-0.1-1.5-1.2c0.3-0.1,0.6-0.3,0.8-0.2c0.6,0.2,1.1,0.1,1.4-0.5C106.5,252.5,107.4,253.5,107.2,253.3z"></path>
+                <path d="M130.9,260.9c0.1-1.6,0.8-1-3.3-3.6c-0.5,0.7-0.7,2.1-2.4,2.1c0.3-0.8,0.5-1.7,0.8-2.7c0.6-0.1,1.4-0.3,2.3-0.6
+                    c0.2-2.1-0.4-1.6,2.3-0.4c0-0.7-0.1-1.2-0.1-1.7c1.2-0.7,2.8,2.1,2.3,2.6c-0.4,0.4-1.3,0.4-1.2,1.3c0.1,0.9,0.9,0.9,1.6,1.1
+                    c0.5,0.1,0.9,0.4,1.4,0.5C134.7,260.1,135.2,259.5,130.9,260.9z"></path>
+                <path d="M22.8,182.2c0.5-0.4,1-0.7,1.7-1.2c-1.5-0.2-2.4-0.7-2.4-2.2c0.7-0.3,1.4-0.5,2.3-0.9c0.2,1.4,0.2,1.9,0.4,2
+                    c0.7,0.1,1.2,0.4,1.6,1.1c0.3,0.5,1.6,0.5,1.7,0.9c0.4,1.6,0.9,1.4,1.1,1.8c-0.3,2.4-2.4,0.3-3.1,1.9
+                    C26.1,185.5,26.3,185.8,22.8,182.2z M26.9,182.4c-0.7-0.3-0.5-0.3-0.8,0.2C26.8,182.9,26.6,183,26.9,182.4z"></path>
+                <path d="M12.8,124.3c0.5,0.8,1,1.5,1.4,2.2c0.6-0.1,1.1-0.2,1.7-0.3c-0.2,0.7-0.4,1.2-0.6,1.7c0.7,0.8,1.4,1.6,2.1,2.4
+                    c-0.5,0.6-1,0.9-1.8,0.3c-3-2.5-2.6-1.9-5.5-2.3c0.3-0.6,0.6-1,1-1.6C8.6,126.1,8.4,126.3,12.8,124.3z"></path>
+                <path d="M58,198c0.3-0.2,0.8-0.5,1.6-1c-0.1,0.8-0.2,1.3-0.2,1.8c0.9,0.1,1.9,0.3,1.8,1.4c-0.2,1-1.2,1.2-1.9,1.1
+                    c0.9,1.5,1,0.7,0.1,2.9c-0.9,0.1-1.7,0.1-2.6,0.2c0.2-1.1-0.1-2.2,0.9-3.2C58.2,200.7,57.9,199.3,58,198z"></path>
+                <path d="M63.5,239.2c-0.5,0.1-1.2,0.5-1.3-0.4c-0.1-0.7-0.5-0.9-1-0.8c-0.6,0.1-1.1,0.3-1,1.1c0,0.2-0.2,0.4-0.4,0.8
+                    c-1.9-1.7-0.8-1.1-2.1,0.1c-0.3,0.3-0.7,0.4-1.2,0.7c-0.9-2.3,2.5-2.4,3-4.2c0.1-0.3,1-0.4,1.5-0.4c0.4,0,0.9,0.2,1.3,0.2
+                    c1.6,0.1,1.7,0.2,1.4,1.7C63.6,239.3,63.7,239,63.5,239.2z"></path>
+                <path d="M35,184.1c-1.5-0.2-1.5-0.2-1.5-2.2c-0.4,0.1-0.8,0.3-1.2,0.4c0.7,1.7,0.7,1.4,0.4,1.8c-3-1.8-2.2-1.1-2.9-2.7
+                    c0.5-0.7,0.9-1.2,1.3-1.8C34.3,180.3,34.3,180.3,35,184.1z"></path>
+                <path d="M31.2,189.4c1.2-1.1,1.2-1.1,2.3-0.9c0.4-0.7,0.8-1.3,1.3-2.2c0.6,2.4-0.8,4-1.4,5.7c-0.3,1-1.4,0.6-2.4,0.4
+                    c0.7-0.8,1.3-1.4,2-2.2c-1.2-0.9-1.9-0.2-2.5,0.4c-0.8-0.4-1.6-0.7-2.4-1.1C28.8,188.4,28.8,188.4,31.2,189.4z"></path>
+                <path d="M70.3,151c0,2.1-0.1,1.9,0.3,1.4c0.6,0.8,1.2,1.6,1.8,2.4c-1.7,0.7,0.4,1,0.2,1.5c-1.3,0.9-2.7,0.2-3.1-1.7
+                    c-1.4-0.4-0.9-0.2-2.2-0.6C68.5,153.2,68.5,151.6,70.3,151z"></path>
+                <path d="M149.1,243c-1.1,0.1-2,0.3-3-0.8c-1.2-1.4-2.8-2.5-4.4-3.8c0.8-0.3,1.6-0.6,2.3-0.8C146.2,239.1,146.9,241.7,149.1,243z
+                    "></path>
+                <path d="M28.4,198.6c0.2,0.3,0.5,0.5,0.8,0.9c-1.2,0.7-3,0.2-3.2,2c-0.8,0-1.5-0.1-2.1-0.1c-0.3-0.6-0.8-1.5-0.8-1.6
+                    c1-0.7,0.3-2.6,2-3c0,0.6-0.1,1.1-0.1,1.8C25.1,198.7,28.8,198.9,28.4,198.6z"></path>
+                <path d="M85.8,173.4c-1.5-0.2-1.5-0.2-3.5,1.4c-1.1-0.7-0.3-1.7-0.2-2.6c0.5-0.1,1.1-0.2,1.7-0.3c-0.5-0.7,0.1-0.5-2.4-0.8
+                    c0.3-1.9,0.5-2,1.8-1.1C83.7,170.3,85.6,170.3,85.8,173.4z"></path>
+                <path d="M52.2,247.3c-0.4-2.1-0.7-4.2-1.1-6.2c1.4-0.5,1,0.8,1.6,1.3c0.8,0.4,1.8-0.4,2.1,0.6c0.1,0.5-0.3,1.1-0.5,1.7
+                    c-0.3,0.9-1.3,1.4-1.4,2.5C52.8,247.2,52.4,247.3,52.2,247.3z"></path>
+                <path d="M75.9,238.6c-1.1-1.1-0.7-1.9-0.3-2.7c-0.4-0.5-0.7-0.9-1-1.3c0.4-1,1-1.8-0.1-2.8c-0.3-0.3,0.2-1.3,0.4-2.4
+                    c1.6,1.9,1.1,4,1.6,5.8C80.6,237.6,76.2,234.7,75.9,238.6z"></path>
+                <path d="M78.7,166.1c3-1.4,3.3-1.4,2.2-2.9c-0.1-0.2,0-0.6,0-1.1c1.5,1,3.7,1.3,2.8,4c-1.6,0.1-3.2,0.6-4.9,0.7
+                    C78.7,166.5,78.7,166.3,78.7,166.1z"></path>
+                <path d="M100.2,263.8c0.2-0.1,0.4-0.2,0.7-0.4c0.1,0.1,0.1,0.3,0.2,0.4h3.4c-0.1-0.1-0.1-0.1-0.2-0.2c-3-0.9-6-2.2-6.2-0.1
+                    c0.2,0.1,0.3,0.2,0.5,0.3H100.2z"></path>
+                <path d="M-9,149.2c4.4,2.7-0.2-1,1.5-1.8c1-0.4,2.3,0.9,2.7,1.3c-1.2,0.4-1.2,0.4-1.1,2.2c0.1,1.4-1.5,2.1-2.7,0.4
+                    C-8.8,150.9-8.8,150.2-9,149.2z"></path>
+                <path d="M116.3,206.5c1.5,0.2,0.6,2,1.8,2.6c-1.2,0.7-2.4,1.4-1.8,3.1c-1.4-0.1-1.1,0-2.1-3.5
+                    C115.8,207.3,115.3,207.8,116.3,206.5z"></path>
+                <path d="M140,230.6c-1.2,0.2-0.1,0.8-4.3-2.6c0.5-0.7,1.1-1.5,1.5-2.1c-0.5-0.8-0.9-1.4-1.3-2.2c1.5-0.1,1.5-0.1,2.7,2.2
+                    c-0.9,0.7-0.7,0.5-1.1,0.9c-0.5,1.4,1.4,0.6,1.3,1.8C138.8,229.2,139.5,229.8,140,230.6z"></path>
+                <path d="M75.4,185c0.5,0.6,0.9,1,1.5,1.6c0.3-0.7,0.6-1.2,0.9-1.7c0.7,0.4,0.6-0.1,0.4,3.1c-1.4-0.6-2.1,1.7-3.6,0.4
+                    C74.3,187.3,74.6,186.2,75.4,185z"></path>
+                <path d="M27.2,197.6c0.1-0.4,0.3-1,0.6-1.9c0.7-0.6,2.6-0.7,2.5-2.8c1.2,0.3,1.1,1.1,1.3,1.7c-0.4,0.6-0.6,1-1,1.4
+                    c-0.4,0.4-1,0.7-1.3,1.2c-0.3,0.5,0,1.3-1,1.3C28.4,198.6,28.6,198.8,27.2,197.6z"></path>
+                <path d="M126.6,212.6c0.5,0.1,1,0.1,1.4,0.2c0.3,1.6-1.2,1.4-1.7,2.2c-0.9-0.8-1.7-1.6-2.5-2.4c2-1.7,1.1-1.6,4-0.9
+                    C127.9,212.7,127,212.3,126.6,212.6z"></path>
+                <path d="M93.9,226.9c-0.7-0.2-1.3-0.6-2.2-1.1c0.4-0.6,0.8-1.3,1.3-2c1.2,1,2.1,1.9,3.5,1.6C96.3,225.2,97.6,228,93.9,226.9z"></path>
+                <path d="M74.3,141.3c0.2,1.3-0.9,2.4,0.9,3.2c-0.8,0.2-1.2,0.4-1.4,0.3c-1.3-0.4-2.5-0.9-3.8-1.5c1.1-0.1,1.8-0.6,2.6-1.2
+                    C73,141.7,73.7,141.6,74.3,141.3z"></path>
+                <path d="M125.3,174.4c-1.6,0.9-1.8,0.8-2.1-1.1c-0.1-1-1-2.5,0-2.9c0.3-0.1,0.9,0.1,1,0.3C124.6,171.8,125.9,172.7,125.3,174.4z
+                    "></path>
+                <path d="M122.3,251.5c2.3-0.3,2.9,1.4,3.7,2.9c-0.5-0.1-0.9-0.1-1.5-0.2c0.1,0.9,0.3,1.7,0.4,2.4
+                    C123.6,256.2,124,256.4,122.3,251.5z"></path>
+                <path d="M93.3,221.5c-0.8,1.6-0.4,1.1-2.3,1.6c0.8-1.9,1.4-3.3,2-4.9c0.7,0.9,1.8,1.3,1.4,2.5C95.1,221.3,95.3,221.1,93.3,221.5
+                    z"></path>
+                <path d="M118.5,157.9c1,0.2,1.8,0.3,2.8,0.4c-0.7,1.3-1.4,2.4-2.1,3.6c-0.6-0.2-1.1-0.3-1.9-0.5
+                    C119.2,158.8,118.9,159.6,118.5,157.9z"></path>
+                <path d="M0.6,261.9c1.5-3.1,0.6-2,2.9-1.8c0.5,0.1,1.1-0.1,1.8-0.1c-0.8,1.5-1.1,2.4-2.3,1.9C2.4,261.7,1.6,261.9,0.6,261.9z"></path>
+                <path d="M27.2,219.5c-0.1-0.9-0.2-1.5-0.2-2.1c1.6-2.4,4.1,0.5,2.6,1.3C28.9,219,28.1,219.2,27.2,219.5z"></path>
+                <path d="M74.8,159c-0.1-0.6-0.2-1.1-0.4-1.8c0.5,0,0.9,0,1.5-0.1c-0.3,0.8-0.9,1.4,0.2,1.9c0.7,0.3,1.3,1,1.9,1.5
+                    c-1.1,0.4-2.2,0.7-3.2-0.5c-0.2-0.3-0.9-0.3-1.3-0.5C73.6,159,73.4,159.2,74.8,159z"></path>
+                <path d="M-9.3,115.1c-1.8,2.2-1.1-0.2-3.9,1.3v0.1c0.9,0.9-0.4,0.9,6.2,0.1C-7.9,116-8.6,115.6-9.3,115.1z"></path>
+                <path d="M38.9,205.6c-0.9-2.1-0.6-3.6,0.9-5c0.2,0.3,0.6,0.8,0.6,0.8c-1.3,1.1-0.4,2.2,0,3.4C40,205,39.5,205.3,38.9,205.6z"></path>
+                <path d="M-0.1,102c1.2,3.5,0.4,2.7,3.5,4c0,0.2,0,0.3-0.1,0.5c-1.5,0.3-0.5,0.5-3.8-0.6C0.3,104.8-0.9,103.6-0.1,102z"></path>
+                <path d="M0.5,142.6c-0.8,1-1.4,1.8-2,2.6c0.3-1.9-1.5-2.6-2.3-3.8C-3.3,141.2-3.9,141,0.5,142.6z"></path>
+                <path d="M74.1,225.4c-0.6,0.8-1.1,0.7-1.9,0.4c-1-0.4-1.5,0-1.4,1c0,0.8-0.1,1-1,0.9c0-0.9-0.2-0.1,0.7-3.2
+                    C71.8,224.5,73,224.4,74.1,225.4z"></path>
+                <path d="M156.7,208.4c0.3-0.3,0.5-0.5,0.7-0.8c-0.2-0.1-0.5-0.2-0.6-0.4c-0.4-1.3,0.7-1.3,0.8-1.2c0.9,0.7,1.8,1.4,3.1,2.4
+                    C159.2,208.4,158,208.4,156.7,208.4z"></path>
+                <path d="M71.9,240.8c0.2-1.9,2-0.9,2.8-1.7c0.4,0.7,0.9,1.4,1.4,2.3c-0.1,0.1-0.5,0.5-0.5,0.4c-0.9-0.9-2.1-0.5-3.1-0.7
+                    C72.3,241,72.2,240.9,71.9,240.8z"></path>
+                <path d="M72.8,257c1.5-0.8,1.5-0.8,1-2.5c0.7,0.3,1.2,0.6,1.7,0.8c0.1,1.7-0.2,2.3-1.2,2.7C73.7,258.1,73.6,258.1,72.8,257z"></path>
+                <path d="M67.3,192.2c1.2-0.5,2.2-1,3.4-1.5c0.1,1,0.4,1.9-0.6,2.5C69.3,193.7,68.6,193.5,67.3,192.2z"></path>
+                <path d="M35.5,228.8c-0.4-1.3-0.7-2.3-1-3.5c0.3-0.4,0.8-0.8,1.5-0.1C37.1,226.2,37,226.9,35.5,228.8z"></path>
+                <path d="M152.5,261.5c-0.2,0.5-0.4,0.9-0.6,1.3c-1.8-0.1-2.1-2-3.6-2.9C150.3,259.9,151.3,260.9,152.5,261.5z"></path>
+                <path d="M94.3,217.9c-0.4-0.7-0.7-1.3-1.1-2.1c0.8-0.5,1.5-1.1,2.3-1.7c0.7,1.4,0.7,1.4-0.8,2.1
+                    C94.8,216.8,95.6,217.6,94.3,217.9z"></path>
+                <path d="M40.7,198.1c0.6-0.7,1.1-1.3,1.8-2.2c0.3,1,0.7,1.8,0.8,2.6c0.1,0.5-0.8,0.8-1.3,0.5C41.6,198.8,41.2,198.5,40.7,198.1z
+                    "></path>
+                <path d="M52.2,188.3c2.1-1,3.3,0.3,2.9,1.5c-0.1,0.3-0.5,0.7-0.8,0.6C53.9,190.3,53.2,189.5,52.2,188.3z"></path>
+                <path d="M90.6,185.1c1.5-0.8,2.7-1.5,4-2.3c0,0.6,0.2,1.2,0,1.6C93.9,186.1,92.7,185.5,90.6,185.1z"></path>
+                <path d="M78.9,156.1c1.7,0.3,1.7,0.3,2,2.6c-0.9-0.1-1.7-0.3-2.8-0.4C78.4,157.4,78.7,156.7,78.9,156.1z"></path>
+                <path d="M96.5,225.4c1.1-1.4-0.1-2.3-1-3.5c1.6,0.2,2.8,0.3,3.5,1.9C96.2,225.5,96.4,225.3,96.5,225.4z"></path>
+                <path d="M71.9,235.2c0.2-0.8,0.3-1.6,0.5-2.4c1.7,0.5,1.2,2.2,2,3.1C73.2,236.5,72.8,235.4,71.9,235.2z"></path>
+                <path d="M125.5,247.2c-0.2,0.2-0.5,0.5-0.8,0.6c-0.6,0.1-1.8-0.8-1.9-1.3C122.7,244.9,125.4,245.4,125.5,247.2z"></path>
+                <path d="M25.1,240.1c-0.3,0.3-0.7,0.7-1,1c-1.2-0.4-2.4-0.7-3.7-1.1C21,238.5,24.2,239.8,25.1,240.1z"></path>
+                <path d="M86.6,215.2c-0.4,0.5-0.8,1-1.3,1.6c-0.7-1.7-0.2-1.3-2.3-1.2c0.3-0.6,0.4-1.1,0.7-1.2C84.7,214,85.6,214.3,86.6,215.2z
+                    "></path>
+                <path d="M73.5,228.8c0.3-1.1,0.5-1.8,0.7-2.8c0.9,0.7,1.6,1.2,2.7,2C75.6,228.4,74.8,228.5,73.5,228.8z"></path>
+                <path d="M141,249c-0.6,1.3-1,2.3-1.4,3.4C137.1,252.5,138.3,249.6,141,249z"></path>
+                <path d="M51.5,115.3c0.6-0.1,0.7-1.9,2-0.7c-0.5,1.1-1.1,1.9-2.5,1.8c-0.8-0.1-1.5-0.1-1.6-1.1C50,114.5,50.7,115.5,51.5,115.3z
+                    "></path>
+                <path d="M-5.3,121.9c2.9-1.6,3.2-2.1,4.1-0.9C-2.7,121.8-5.7,123.6-5.3,121.9z"></path>
+                <path d="M85.9,145.9c-0.4,0-0.9-0.1-1.4-0.2c-0.2,0-0.4-0.5-0.3-0.6c1.4-2.8,1.4-2.2,2.3-2.4C86.3,143.7,86.1,144.6,85.9,145.9z
+                    "></path>
+                <path d="M102,219.5c1-0.1,1.8-0.1,2.5-1c0.5-0.6,1-0.4,1.8,0.3C103.2,220.8,102.8,220.9,102,219.5z"></path>
+                <path d="M115.2,218.3c-3.3,0.4-4.3-1.6-3.8-2.3C111.9,215.5,112.1,215.9,115.2,218.3z"></path>
+                <path d="M15.8,182c2,0.3,2,0.6,0.8,2.9C15.2,184.1,15.8,183,15.8,182z"></path>
+                <path d="M24.1,191.1c0.6-1.7,1.1-1.7,3.3,0C27.3,192.3,26.8,191.9,24.1,191.1z"></path>
+                <path d="M223.2,257.7c-1.7,0.1-2.2-0.7-2.5-2.2C222.8,254.9,222.2,254.6,223.2,257.7z"></path>
+                <path d="M51.8,208.1c-1.3,0.2-2.5,0.5-3.6,0.7c-0.1-0.1-0.3-0.3-0.2-0.3c0.3-1.4,1.8-0.8,2.6-1.5
+                    C50.8,206.6,51.1,206.8,51.8,208.1z"></path>
+                <path d="M73.8,192.9c0-3.2-0.4-2.5,1.4-3.6c0.8,0.8-0.7,1.3,0,2.1C75.5,191.7,75,192.8,73.8,192.9z"></path>
+                <path d="M105.7,228.5c1.3,0.2,2.5,0.3,3.7,0.4c0,1.2-1,1.3-1.4,1.1C107.3,229.7,106.1,229.7,105.7,228.5z"></path>
+                <path d="M96.3,31.1c-0.8,1.5-1.4,1.7-3.1,1.2C93.8,31,94.5,30.8,96.3,31.1z"></path>
+                <path d="M4.8,124.4c0,0.8,0,1.6,0,2.5C2.5,128.5,3.2,124.3,4.8,124.4z"></path>
+                <path d="M-10.3,240.5c-0.2-1.4,0.1-2,1.4-2.1c0.4,0.8,0.8,1.6,1.2,2.4C-8.9,241.8-9.1,239.4-10.3,240.5z"></path>
+                <path d="M44.4,99.2c2.3,0.6,2.4,0.6,3.8,2.1c-0.2,0.4,0.1,0.2-1.1,0.9c-0.5-1.2-0.3-0.7-0.7-1.7
+                    C44.7,100.3,45.2,100.5,44.4,99.2z"></path>
+                <path d="M10.9,121.2c-1-0.1-1.8-0.2-1.8-1.4c0-0.7,0.7-0.9,2.1-0.8C11,119.7,10.9,120.4,10.9,121.2z"></path>
+                <path d="M91.1,204.6c-0.9,0.1-1.6,0.2-2.6,0.3c0.1-0.7,0.2-1.3,0.2-1.9C90.8,203.3,90.8,203.3,91.1,204.6z"></path>
+                <path d="M117.9,156.6c1.3-1.7,1.1-1,0.5-3.4c2.3,0,1.4,2.8-0.1,3.7C118.2,156.8,118,156.7,117.9,156.6z"></path>
+                <path d="M78,142.2c-1.1-0.3-1.6-1.4-1.3-2.4c0.2-0.6,0.2-0.6,1.3-0.4C78,140.3,78,141.2,78,142.2z"></path>
+                <path d="M7.7,260.3c0.2,0.5,0.5,0.9,0.8,1.5c-0.7,0.3-1.3,0.6-2,0.9C6,261.1,6,261.1,7.7,260.3z"></path>
+                <path d="M156.8,214.5c0.9-0.7,0.9-0.7,2.3-0.5c-0.5,1-0.5,1,0.1,2.1C157.6,216.6,157.7,215,156.8,214.5z"></path>
+                <path d="M11.9,122.8c1.6-0.9,2.7-1.8,3.2-0.1C12.4,124.3,12.2,122.5,11.9,122.8z"></path>
+                <path d="M77,165.6c-0.1-1.1-0.1-2-0.2-2.9c1.8-0.5,1,1.5,2.1,2C78.2,165,77.7,165.2,77,165.6z"></path>
+                <path d="M213.7,254.6c0.6,0.3,1.6-0.3,1.8,0.8c0.3,1.1-1.1,0.7-1.5,1.5C213.2,254.6,213.2,255,213.7,254.6z"></path>
+                <path d="M-1.9,111.6c0.7,0.4,1.1,0.7,1.6,0.9c-0.7,1.4-0.7,1.4-2.3,0.9C-2.5,112.9-2.3,112.4-1.9,111.6z"></path>
+                <path d="M263.4,224.8c-0.8,0.9,0.3,2.3-1.2,2.7c-0.3-0.6-1.2-1.2,0.1-2.6C262.5,224.7,263,224.8,263.4,224.8z"></path>
+                <path d="M-2,135.6c0.9,1,1.3,1.7,0.9,2.9c-0.5-0.1-1.1-0.2-1.8-0.4C-2.6,137.3-2.4,136.6-2,135.6z"></path>
+                <path d="M21.6,188c1-0.4,1.8-1,2.7-0.2C23.2,189.3,22.9,189.3,21.6,188z"></path>
+                <path d="M93.7,253.4c-1.8-0.1-1.2-0.9-0.2-3.6C94.6,251,93.8,252.2,93.7,253.4z"></path>
+                <path d="M28.3,187.7c0,0-0.6,0.2-1,0.3c-0.3-0.5,0.9-1.2-1.2-2.4c0,0-0.2,0,3.4-0.1C30,186.1,28.1,186.4,28.3,187.7z"></path>
+                <path d="M120.2,262.1c-1.1,0.9-1.4,1.7-2.7,0.8c-0.1-0.1-0.7-1.3,1.1-1.2C119.3,261.8,120.3,262.2,120.2,262.1z"></path>
+                <path d="M113.9,152.1c1.7-1.2,1.2-1,2.1-0.7c0.1,0-0.8,2-0.9,1.9C113.9,152.9,114.2,152.9,113.9,152.1z"></path>
+                <path d="M172.3,146.6c1.1-0.8,0.3-0.8,3.1-0.1c-0.1,0.2-0.2,0.6-0.3,0.6C174.1,147.3,173.2,147.6,172.3,146.6z"></path>
+                <path d="M146.9,254.6c0.2-1,0.3-1.5,0.5-2.2C151.1,253.4,150.8,253.1,146.9,254.6z"></path>
+                <path d="M242,208.6c-0.3-1-0.4-1.7-0.6-2.3c0.7-0.3,1.3-0.3,2,0.4C243,207.2,242.6,207.8,242,208.6z"></path>
+                <path d="M23.4,192.4c0.5-0.2,1-0.3,1.7-0.5c0.2,0.7,0.4,1.3,0.6,2.1C22.6,192.9,23,193.3,23.4,192.4z"></path>
+                <path d="M122.2,212.1c-0.4-0.6-0.8-1.3-1.2-1.9c0.8-0.1,1.5-0.2,2.3-0.4C122.6,212.2,122.9,211.9,122.2,212.1z"></path>
+                <path d="M238.9,218.3c1.1-0.6,2.3-1.2,3.4-1.7C242.4,218.1,241.4,218.7,238.9,218.3z"></path>
+                <path d="M101.3,258.9c1.2,0.3,1,1.1,1.2,1.6c-0.8,0.8-1.5,1.1-2.7,0.3C101.6,260.2,101.3,260.6,101.3,258.9z"></path>
+                <path d="M143.4,170.5c1.3-1,1.8-2.1,2.9,0.4C145.5,170.8,144.7,170.7,143.4,170.5z"></path>
+                <path d="M10.2,30.1c-0.4-0.7-0.9-1.1-0.8-1.5c0.1-1.2,1.8-1.6,1.6,0.2C10.9,29.1,10.6,29.4,10.2,30.1z"></path>
+                <path d="M213.5,259c-0.1,0.3-0.2,0.7-0.4,0.9c-0.9,0.7-1.6,0.9-2.3,0.5C213.2,258.3,212.7,258.5,213.5,259z"></path>
+                <path d="M95.9,217c0.9,1.1,0.6,0.8,1.1,1.2c-0.3,0.6-0.6,1.1-0.9,1.6C94.7,219,95.9,218.2,95.9,217z"></path>
+                <path d="M21.4,200.4c-0.9-2.3-1-1.7,0.2-2.7C22.6,198.6,22.6,199.5,21.4,200.4z"></path>
+                <path d="M18.6-1.3c-0.4,0.5-0.9,1.1-1.4,1.7c-0.5-0.5-1-0.9-0.4-1.5C17.2-1.5,17.8-2.2,18.6-1.3z"></path>
+                <path d="M218.5,249.7c-0.6,0.3-1.2,0.7-1.4,0.6c-0.9-0.6-0.4-1.3,0.1-2.1C217.6,248.6,217.9,249,218.5,249.7z"></path>
+                <path d="M13.7,2.8c1.1,0.2,1.9,0.3,2.6,0.4C17,4.9,14.1,4.6,13.7,2.8z"></path>
+                <path d="M74,123.5c-1.9,0.2-1.9,0.2-1.8-1.7C73.7,121.5,73,123,74,123.5z"></path>
+                <path d="M51.2,232.4c1.2,0.5,1.9,0.8,2.7,1.1c-0.4,0.4-0.7,0.9-1.2,1.5C52.2,234.2,51.8,233.5,51.2,232.4z"></path>
+                <path d="M226,4.9c0.4,0.7,0.7,1.1,1.1,1.7c-0.9,0.2-1.5,0.3-2.3,0.4C225.2,6.3,225.5,5.9,226,4.9z"></path>
+                <path d="M48.8,92.5c-0.3,1.6-0.3,1.6-1.7,1.9C47.1,93.3,47.7,92.8,48.8,92.5z"></path>
+                <path d="M25.3,119c-1.1,0.7-0.4,2.2-1.9,2.3C23.3,119.6,23.3,119.5,25.3,119z"></path>
+                <path d="M20.4,197c-0.8-0.3-1.2-0.5-1.8-0.8c0.5-1.1,0.1-0.8,1.4-1.2C20.1,195.6,20.2,196.1,20.4,197z"></path>
+                <path d="M6,252.4c0-0.8,0-1.4,0-2.1c0.9,0,1.3,0.5,1.3,1.3C7.3,252,7.3,252,6,252.4z"></path>
+                <path d="M27.3,178.4c-0.2-1-0.3-1.5-0.4-2.2c1.3,0.6,0.9,0.2,1.9,1.5C28.3,177.9,27.9,178,27.3,178.4z"></path>
+                <path d="M9.2,112.5c-0.7,1.1-0.7,1.1-2.5,0.5C7.3,111.4,8.4,112.5,9.2,112.5L9.2,112.5z"></path>
+                <path d="M-12.6,177.7c0.6-0.5,1-0.8,1.6-1.3c0.2,0.9,0.3,1.5,0.4,2.5C-11.4,178.4-11.8,178.1-12.6,177.7z"></path>
+                <path d="M96.2,240.4c0.8-0.3,1.3-0.6,1.7-0.6c1.1,0,1.2,1.5-0.3,1.4C97.3,241.2,97,240.9,96.2,240.4z"></path>
+                <path d="M263.6,220.7c-0.5,0.1-0.8,0.2-1.2,0.2c-0.8-0.8-0.4-1.6-0.2-2.7C262.7,219.2,263.1,219.9,263.6,220.7z"></path>
+                <path d="M10.5,124c0.1-1.4,0.7-2.2,1.6-2.8C11.9,123.2,12.3,122.5,10.5,124z"></path>
+                <path d="M27.3,187.9c-0.1,0.7-0.2,1.4-1.4,1.5c0.1-0.8,0.2-1.4,0.4-2.3C27.4,187.9,27.1,187.7,27.3,187.9z"></path>
+                <path d="M66.3,217.6c-1.9-0.3-1.9-0.3-1.7-1.8C65.7,215.8,65.9,216.6,66.3,217.6z"></path>
+                <path d="M129.2,213.6c1.3-0.6,1.5-0.4,1.7,1.5C129.7,215.5,129.8,214.2,129.2,213.6z"></path>
+                <path d="M6.7,109.1c-0.4,0.5-0.7,0.9-1.2,1.4C4.7,109.2,4.7,109.2,6.7,109.1z"></path>
+                <path d="M188.7,241c-1.1,1.3-0.5,1.1-2.7,0.3c0-0.3-0.3-0.2,2.5-0.7C188.6,240.8,188.6,240.9,188.7,241z"></path>
+                <path d="M236.6,221.3c1.9-1.5,1.3-1.2,2.3-1C238.6,221.6,239.2,221.3,236.6,221.3z"></path>
+                <path d="M245.6,226.1c0,1.2,0,1.2-1.1,2.6C244.1,227.6,244.7,226.9,245.6,226.1z"></path>
+                <path d="M11.8,169.1c0.9-2.3,0.8-2.4,1.6,0.4C12.7,169.4,12.3,169.3,11.8,169.1z"></path>
+                <path d="M208.1,234.2c-0.2,0.9-0.5,1.5-1.3,1.2c-0.2-0.1-0.6-0.5-0.5-0.6C206.5,233.7,207.3,234.1,208.1,234.2z"></path>
+                <path d="M-0.7,224.3c-1.3-0.3-1.5-0.9-1.1-2C-0.8,222.7-0.4,223.2-0.7,224.3z"></path>
+                <path d="M-8.6,145.5c-0.6,1.2-1.1,1.6-2,1.4C-10.7,145.6-9.7,145.7-8.6,145.5z"></path>
+                <path d="M13.5-2.6c-0.5,0.4-0.8,0.7-1,0.7c-0.3-0.1-0.7-0.4-0.9-0.7c-0.1-0.2,0.4-0.8,0.5-0.8C12.6-3.2,12.9-2.9,13.5-2.6z"></path>
+                <path d="M49.4,105c-0.2,0.5-0.3,0.8-0.4,1.3C46.4,104.8,46.7,105,49.4,105z"></path>
+                <path d="M22.3,125.7c-0.1-1-0.7-0.6-1.6-0.3c1.5-2.5,1.2-2.3,2,0.1C22.6,125.6,22.5,125.6,22.3,125.7z"></path>
+                <path d="M15.6,187.1c0.3,0.3,0.2-0.1,0.5,1.4c-0.3,0.1-0.6,0.3-0.8,0.3C14.2,188.3,14.5,186.9,15.6,187.1z"></path>
+                <path d="M160.5,215c0.6-0.5,1.1-0.9,1.7-1.4C163.2,215.2,161.4,216.1,160.5,215z"></path>
+                <path d="M188.9,242.8c0.9-1,0.9-1,1.9-0.3C189.8,243.5,189.8,243.5,188.9,242.8z"></path>
+                <path d="M83.1,179.1c0.9,0.2,1.6,0.3,2.2,0.5C84.1,180.8,83.9,180.8,83.1,179.1z"></path>
+                <path d="M58.3,163.1c-0.6,0.1-1.1,0.2-1.7,0.3c0.1-0.5,0.1-1,0.3-1.1C57.6,161.7,58,162.1,58.3,163.1z"></path>
+                <path d="M219.7,253.6c0.9-0.7,0.5-0.9,1.6,0.1C220.5,254.7,220.9,254.7,219.7,253.6z"></path>
+                <path d="M248.2,249.6c0.3-0.1,0.3-0.1,0.4-0.1c1.5,0.3,1.2,1.5,0.6,1.5C248.3,251,248.2,250.4,248.2,249.6z"></path>
+                <path d="M13.5,166.4c-0.7-0.9-0.9-1.5-0.1-2.1C14,164.8,13.8,165.4,13.5,166.4z"></path>
+                <path d="M84.6,176.2c0,0.8,0.2,1.1-0.7,1.8c-0.1,0-0.5-0.3-0.5-0.4C83.5,176.6,84.2,176.4,84.6,176.2z"></path>
+                <path d="M56.2,102.6c-0.7-0.2-1.3-0.4-2.1-0.7C55.4,101,55.4,101,56.2,102.6z"></path>
+                <path d="M-8.5,103.8c0.4-0.5,0.6-0.9,1.1-1.4c0.3,0.7,0.5,1.1,0.8,1.6C-7,104.4-6.7,104.4-8.5,103.8z"></path>
+                <path d="M-6.3,110.9c0.5-0.2,1-0.4,1.6-0.7c0.1,0.5,0.2,0.8,0.2,1.1C-5.5,111.4-7.6,112.1-6.3,110.9z"></path>
+                <path d="M143.2,253.2c-1.5,0.4-1.5,0.4-1.6-1C142.3,252,142.8,252.2,143.2,253.2z"></path>
+                <path d="M118.7,245.4c1-0.4,1-0.4,1.4,1.2C119.7,247,120,247.2,118.7,245.4z"></path>
+                <path d="M262.6,247.3c-0.8,1.3-1.7-0.2-2.5,0.2C261.7,246.7,261.8,246.7,262.6,247.3z"></path>
+                <path d="M-3.5,131.4c0.7-0.6,1.4-1.2,2.5-0.5C-1.9,131.5-1.9,131.5-3.5,131.4z"></path>
+                <path d="M88.9-1.9c1-0.4,1.7-0.2,2.3,0.4C90.8-0.8,91.3-0.8,88.9-1.9z"></path>
+                <path d="M140,233.3c1.3-1.4,1.3-1.4,2.2,0C141.5,233.3,140.9,233.3,140,233.3z"></path>
+                <path d="M107.2,253.3c-0.2-1.1,0.9-1.4,2.1,0.4C108,254.1,107,253,107.2,253.3z"></path>
+                <path d="M101.2,242c-0.6,0.3-0.9,0.6-1.2,0.6c-0.1,0-0.5-0.5-0.5-0.5C100.2,240.7,100.4,241.4,101.2,242z"></path>
+                <path d="M127.2,203.7c0.5,0.3,1,0.6,1.7,1C127.4,205.3,127.4,205.3,127.2,203.7z"></path>
+                <path d="M158.3,212.6c-1.6-0.1-1.6-0.2-0.8-1.7C157.8,211.5,158.1,212.1,158.3,212.6z"></path>
+                <path d="M120.2,262.1c-0.2-1.3,1.4-1.1,2.4-0.4C119.9,262.1,120.2,262,120.2,262.1z"></path>
+                <path d="M89.4,212.7c-1.5-0.3-1.6-0.9-1.3-1.8C88.8,210.7,88.5,210.4,89.4,212.7z"></path>
+                <path d="M44.5,106.7c-2.2,1.7-1.8,1.5-2.2,1.2C43.1,106.6,43.4,105.7,44.5,106.7z"></path>
+                <path d="M72.2,246.8c-0.2-1.5-0.2-1.5,1.3-1.9C73,245.6,72.6,246.2,72.2,246.8z"></path>
+                <path d="M16,125.7c-0.9-0.8-0.4-1.4,0.1-2.2C16.7,124.6,16.7,124.6,16,125.7z"></path>
+                <path d="M259.9,208.2c1.9,0.2,1.7,0.1,1.7,0.5C259.4,209.7,258.9,210.2,259.9,208.2z"></path>
+                <path d="M121.9,177.4c-2.6,0.8-2.2,0.8-2.4,0.2c0.6-0.7,1.5-0.3,2.3-0.6C121.8,177.1,121.8,177.2,121.9,177.4z"></path>
+                <path d="M135.5,221c1.5-1,1.8,0.7,1.1,0.9C135.8,222.1,135.5,221.6,135.5,221z"></path>
+                <path d="M154.7,184.1c0.7-0.3,1.3-0.6,1.7,0.6C154.4,184.5,154.7,184.7,154.7,184.1z"></path>
+                <path d="M222.6,260.2c-0.3,1.2-1.1,1.1-2.1,1.3C221.1,260.6,221.6,260.2,222.6,260.2z"></path>
+                <path d="M68.4,228.8c-0.5-0.8-0.5-0.8,0-2C68.8,227.8,68.8,227.8,68.4,228.8z"></path>
+                <path d="M97.3,253.7c-1.3,0.4-1.3,0.4-2.1-0.6C95.6,252.6,95.2,252.6,97.3,253.7z"></path>
+                <path d="M94.4,220.7c1.7-0.5,1.8-0.5,2.6,0.5C94.5,221.2,95.1,221.3,94.4,220.7z"></path>
+                <path d="M258.3,238.8c1,0.2,0.6,0.1,1.2,0.6c-1.3,1.4-1.1,1.2-1.5,1C258.1,239.9,258.2,239.4,258.3,238.8z"></path>
+                <path d="M231.4,251.9c0.6-0.2,1.2-0.4,1.8-0.7C233,252.4,233,252.4,231.4,251.9z"></path>
+                <path d="M27.5,241.4c-1-0.7-0.3-1.3-0.3-2.1C28.2,239.9,28,240.6,27.5,241.4z"></path>
+                <path d="M9.7,85.5c0.6-0.1,1.1-0.2,1.7-0.3C10.6,86.6,10.6,86.6,9.7,85.5z"></path>
+                <path d="M125.2,244.6c-0.8-0.5-1.3-0.7-1.8-1c0.2-0.2,0.3-0.5,0.4-0.6C125,242.6,124.9,243.5,125.2,244.6z"></path>
+                <path d="M18,0.9c2.3-0.1,2.3-0.1,1.8,1.3C19.3,1.9,18.8,1.5,18,0.9z"></path>
+                <path d="M46.1,96.3c-0.6-0.6-0.7-0.3,0.3-1.5C47.2,95.4,47.2,95,46.1,96.3z"></path>
+                <path d="M118.9,191.3c0.9,1.5,1.2,1-0.3,2C118.2,193,118.2,193.3,118.9,191.3z"></path>
+                <path d="M255.3,236.1c0.4,0.6,0.6,1,0.9,1.4C254.9,237.8,254.9,237.8,255.3,236.1z"></path>
+                <path d="M175.2,250.1c-0.6-1.1-0.6-1.1,1.1-1.5C175.9,249.1,175.6,249.5,175.2,250.1z"></path>
+                <path d="M257,210.8c-0.9,0-1.5,0-2.3,0C255.5,210.1,255.5,210.1,257,210.8z"></path>
+                <path d="M120.1,175.2c0.3,0.1,0.4,0.1,0.4,0.2c0.2,0.5,0.4,1.1-0.3,1.4c-0.1,0.1-0.6-0.2-0.6-0.2
+                    C119.7,176,119.9,175.6,120.1,175.2z"></path>
+                <path d="M120.8,215.6c-0.1-1.4,0.5-1.7,1.2-1.9C122.6,214.3,122.8,213.9,120.8,215.6z"></path>
+                <path d="M55.8,94.6c-0.6,0.3-1.1,0.7-1.7,1C54.3,94.6,54.3,94.6,55.8,94.6z"></path>
+                <path d="M139.3,214.5c0.2,1.3,0.2,1.3-1,1.4C138.6,215.4,138.9,215,139.3,214.5z"></path>
+                <path d="M19.5,111.9c-0.5,1.1-1,1.2-1.5,0.8c-0.1-0.1,0-0.6,0-0.6C18.4,111.9,18.9,111.9,19.5,111.9z"></path>
+                <path d="M18,195.8c-0.7-0.6-1-1.2-0.5-2.1C18.4,194.3,18.4,194.9,18,195.8z"></path>
+                <path d="M258.4,229.4c-0.2,0.5-0.5,1-0.7,1.5C257,230.2,257,230.2,258.4,229.4z"></path>
+                <path d="M141.2,221.5c-0.5,0.3-0.8,0.6-1.1,0.7c-0.1,0-0.5-0.5-0.5-0.6c0.2-0.3,0.5-0.6,0.8-0.7
+                    C140.5,220.7,140.8,221.1,141.2,221.5z"></path>
+                <path d="M250.2,243.3c-0.9-0.8-0.5-1.3,0.2-2C250.9,242.2,250.9,242.7,250.2,243.3z"></path>
+                <path d="M143.6,262.3c-1.4,0.1-1.4,0.1-0.8-1.8C143.2,261.3,143.4,261.8,143.6,262.3z"></path>
+                <path d="M19.8,182.7c0.5-0.4,0.9-0.7,1.4-1.1c0,0.7,0,1.2,0,1.9C20.8,183.2,20.4,183,19.8,182.7z"></path>
+                <path d="M104.6,226.9c0.6-0.2,1-0.4,1.7-0.6C105.9,227.8,105.9,227.8,104.6,226.9z"></path>
+                <path d="M62.7,148.1c1,0.6,0.4,1.3,0.5,2C62.2,149.4,62.2,149.4,62.7,148.1z"></path>
+                <path d="M52.7,151.8c-0.5,0.2-1.1,0.9-1.5-0.4c0-0.1,0.4-0.5,0.6-0.5C51.9,150.9,52.1,151.2,52.7,151.8z"></path>
+                <path d="M251.4,229.8c0.9-0.4,1.5-0.7,2.1,0.2C252.8,230.6,252.2,230.8,251.4,229.8z"></path>
+                <path d="M35.4,169.9c-0.9,0.6-0.5,0.7-1.5-0.1C34.4,169.2,34,169.2,35.4,169.9z"></path>
+                <path d="M143.7,231.7c0.9,1.2,1,0.8-0.2,1.7C143,232.9,143,233.3,143.7,231.7z"></path>
+                <path d="M20.3,181c-0.6,0.9-1.4,1-2.5,0.7C19,180.4,20.7,181.4,20.3,181z"></path>
+                <path d="M99.1,157.1c0-0.4,0-0.9,0-1.6c0.3,0.3,0.7,0.4,0.8,0.6C100,156.7,99.9,157.2,99.1,157.1z"></path>
+                <path d="M138.1,251.5c-0.3,0.3,0,0.2-1.1,0.4c0-0.2-0.2-0.5-0.1-0.6c0.6-0.9,1-0.2,1.3,0.1C138.2,251.3,138.1,251.5,138.1,251.5
+                    z"></path>
+                <path d="M125.9,261.6c-0.5,1.1-1.2,1-1.8,1.2C123.8,262.2,123.5,262.5,125.9,261.6z"></path>
+                <path d="M-4.3,255.3c-0.7,0.6-1.1,0.9-1.8,1.4C-6,255.5-5.8,255-4.3,255.3z"></path>
+                <path d="M91.9,158.8c-1.3,0-1.3,0-1.8-1C91.5,157.5,91.8,158.9,91.9,158.8z"></path>
+                <path d="M18.8,110.8c-0.8,0.8-1.3,0.5-1.7-0.4C17.7,110.5,18.3,110.6,18.8,110.8z"></path>
+                <path d="M91.9,158.8c0.6,0.1,1.2,0.2,1.8,0.4C92.5,160.1,92.4,160.1,91.9,158.8C91.9,158.8,91.9,158.8,91.9,158.8z"></path>
+                <path d="M2.9,112.2c-0.7,0.1-1.6,0.9-2.3-0.7C1.6,111.8,2.3,112,2.9,112.2z"></path>
+                <path d="M98.3,259.5c-1.2,1.4-0.9,1.3-1.4,0.8c0-0.7,0-1.4,1-1.3C98,259.2,98.1,259.4,98.3,259.5z"></path>
+                <path d="M-12.4,87.5c0.7-1,1.2-0.7,1.7-0.3C-10.6,87.8-10.3,87.7-12.4,87.5z"></path>
+                <path d="M264.8,227.5c0.3,0.9-0.1,1.5-0.7,1.9C263.6,229,263.5,229.4,264.8,227.5z"></path>
+                <path d="M274.3,229.3c-0.7-0.1-1.1-0.1-1.8-0.2c0.5-0.5,0.8-0.8,1.2-1.3C273.9,228.4,274,228.7,274.3,229.3z"></path>
+                <path d="M15.7,1.1c0.7,0.2,1.1,0.4,1.8,0.7C16.5,2.5,16.2,2.1,15.7,1.1z"></path>
+                <path d="M142.8,145.6c-0.7-0.8-0.6-0.5-0.2-1.2C143.5,145.2,143.5,145,142.8,145.6z"></path>
+                <path d="M86.7,214.1c0.8-0.1,1.2-0.2,2-0.3C88.1,214.9,87.7,215.1,86.7,214.1z"></path>
+                <path d="M97.7,189.4c1.3-1.9,0.9-1.8,1.1-0.5C98.9,189.6,98.5,189.7,97.7,189.4z"></path>
+                <path d="M90.8,144.1c1.1-0.2,1.1-0.2,1.1,1.1C91.5,144.8,91.2,144.5,90.8,144.1z"></path>
+                <path d="M64.8,199.9c0.3-0.3,0.6-0.6,1-1.1c0.1,0.4,0.3,0.6,0.3,0.8C65.9,200.2,65.7,200.7,64.8,199.9z"></path>
+                <path d="M9.3,112.5c-0.1-0.4-0.4-0.9-0.2-1.1c0.4-0.5,0.9-0.3,1.3,0.4C9.1,112.6,9.2,112.5,9.3,112.5z"></path>
+                <path d="M48.7,113c-0.5-0.2-0.9-0.5-1.5-0.7C48.1,111.7,48.1,111.7,48.7,113z"></path>
+                <path d="M71,113.9c0.7,0.8,0.7,0.4,0.1,1.4C70.5,114.7,70.5,115.1,71,113.9z"></path>
+                <path d="M14.9,242.4c-0.1-0.3-0.2-0.7-0.3-1c0,0,0.4-0.2,0.5-0.2c0.2,0.3,0.3,0.6,0.5,0.9C15.4,242.2,15.2,242.3,14.9,242.4z"></path>
+                <path d="M265.9,246.5c0.4-0.8,0-0.7,1.5-0.4C267.2,246.7,267.5,246.6,265.9,246.5z"></path>
+                <path d="M76.5,251.2c-0.5-0.9-0.2-1.3,0.3-1.5c0.1,0,0.4,0.2,0.4,0.2C77.1,250.3,76.8,250.6,76.5,251.2z"></path>
+                <path d="M235.7,222.7c-0.2,0.7,0.1,0.5-0.8,1.1c-0.4-0.3-0.4,0,0.3-1.4C235.4,222.6,235.5,222.6,235.7,222.7z"></path>
+                <path d="M66,195.2c0.3,1.2,0.3,1.2-0.6,1.9C65.6,196.4,65.8,195.8,66,195.2z"></path>
+                <path d="M78.7,184.7c-1.1-1.1,0-1.2,0.2-1.6C79.4,183.3,79.4,183,78.7,184.7z"></path>
+                <path d="M33.8,206.5c-0.7,0.2-1.1,0.3-1.5,0.4C32.4,205.7,32.4,205.7,33.8,206.5z"></path>
+                <path d="M23.4,192.4c-0.4,0.8-0.1,0.7-1.6,0.4C22.4,191.9,22.9,192,23.4,192.4z"></path>
+                <path d="M91.3,214.5c1.1,0.8,0.4,1.4,0.2,1.9C91,216.3,91.1,216.7,91.3,214.5z"></path>
+                <path d="M97.5,159.6c-0.4-0.3-0.6-0.5-1-0.9C97.6,158.4,97.6,158.4,97.5,159.6z"></path>
+                <path d="M69.6,150.5c-1.6,0.1-1.3,0.3-1.4-0.4C69.8,149.8,69.5,149.7,69.6,150.5z"></path>
+                <path d="M66.5,123.1c-0.2-0.3-0.4-0.6-0.7-1C66.5,122.2,66.5,122.2,66.5,123.1z"></path>
+                <path d="M40.4,90.3c-0.7-0.5-0.7-1,0-1.5C41.1,89.3,41,89.8,40.4,90.3z"></path>
+                <path d="M51.7,96.8c1.8-0.1,1.5-0.2,1.6,0.3c-0.8,0.4-0.4,0.4-1.6,0.2C51.7,97.1,51.7,96.9,51.7,96.8z"></path>
+                <path d="M5.5,102.7c-0.3-1.2-0.3-1.8,1-1.7C6.1,101.5,5.9,101.9,5.5,102.7z"></path>
+                <path d="M52.2,117.1c-0.4,0.1-0.7,0.3-1.2,0.4C51.1,116.7,51.1,116.7,52.2,117.1z"></path>
+                <path d="M137.5,200.1c1.6,0.4,1.4,0.2,1.2,0.8C137.1,200.5,137.3,200.7,137.5,200.1z"></path>
+                <path d="M133.4,202.9c-0.2,1-0.7,1.2-1.6,0.8C132.8,202.9,132.4,203.1,133.4,202.9z"></path>
+                <path d="M114.5,213.7c0.2-0.3,0.4-0.6,0.6-0.9c0,0,0.3,0.1,0.3,0.1c-0.1,0.3-0.2,0.7-0.4,1C114.9,213.9,114.7,213.8,114.5,213.7
+                    z"></path>
+                <path d="M157.3,217.4c-1.6-0.3-1.4-0.1-1.3-0.8C157.6,216.8,157.4,216.6,157.3,217.4z"></path>
+                <path d="M207.4,227.3c1.2-0.2,1.5,0.1,1.2,1C208.2,228.1,208,227.8,207.4,227.3z"></path>
+                <path d="M257.9,227.6c1.5,0.4,1.3,0.2,1.1,0.9C257.6,228.3,257.8,228.5,257.9,227.6z"></path>
+                <path d="M188.7,236c0.9,1.7,0.9,1.3,0.2,1.8C188.1,236.7,188.2,237.1,188.7,236z"></path>
+                <path d="M-10.2,180.3c0.4-0.3,0.7-0.6,1.1-0.9c0.1,0.3,0.2,0.4,0.2,0.5C-9.1,180.5-9.5,180.8-10.2,180.3z"></path>
+                <path d="M127.3,247.7c-0.5-0.4-0.8-0.7-1-1c0.2-0.1,0.3-0.4,0.5-0.4C127.5,246.2,127.6,246.6,127.3,247.7z"></path>
+                <path d="M39.9,253.4c-0.9,0.8-0.6,0.7-1.2,0.2C39.4,252.7,39.1,252.7,39.9,253.4z"></path>
+                <path d="M24,175.1c-0.5,0.3-0.9,0.5-1.3,0.8C22.8,174.9,22.8,174.9,24,175.1z"></path>
+                <path d="M132.1,171c1.8,0,1.5-0.1,1.5,0.3C131.9,171.3,132.2,171.4,132.1,171z"></path>
+                <path d="M215.6,262c-0.1,1-0.5,1.1-1.5,0.9C214.7,262.5,215,262.3,215.6,262z"></path>
+                <path d="M17.7,126.1c0.6-0.1,0.9-0.2,1.7-0.4C18.7,126.5,18.4,126.7,17.7,126.1z"></path>
+                <path d="M251,209.6c-1,0.9-0.8,0.8-1.1,0.6c0.3-1,0.1-0.7,0.8-0.9C250.9,209.4,250.9,209.5,251,209.6z"></path>
+                <path d="M-8.1,77.5c-0.7,1.2-1.2,0.8-2.1,0.3C-9.3,77.7-8.9,77.6-8.1,77.5z"></path>
+                <path d="M4.3,104.5c0.2-0.7,0.3-1,0.5-1.5C5.4,103.6,5.6,104.1,4.3,104.5z"></path>
+                <path d="M67.9,242.9c0.7,0.9,0.7,0.9-0.2,1.4C67.8,243.8,67.8,243.5,67.9,242.9z"></path>
+                <path d="M20.4,181c0.3-1.1,0.3-1.1,1.6-0.2C20.1,181,20.3,180.9,20.4,181z"></path>
+                <path d="M20.9,101.4c-0.3,0.9-0.8,0.8-1.6,0.5C20.5,101.2,20,101.3,20.9,101.4z"></path>
+                <path d="M234.5-2.8c-0.5,0.2-0.8,0.4-1.3,0.6C233.4-3.1,233.4-3.1,234.5-2.8z"></path>
+                <path d="M259.5,249.2c-0.3-0.8-0.5-0.5,0.7-1.1C260.4,248.8,260.5,248.6,259.5,249.2z"></path>
+                <path d="M144.3,256.4c0.7,0,1.1,0,1.5,0C146,256.4,145.7,258.1,144.3,256.4z"></path>
+                <path d="M52.2,23.1c0.8-0.1,1.1-0.1,1.7-0.2C53.6,23.7,53.2,23.8,52.2,23.1z"></path>
+                <path d="M87.3,223.8c-0.4,0.2-0.7,0.3-1.1,0.5C86.3,223.4,86.3,223.4,87.3,223.8z"></path>
+                <path d="M241.9,223.8c-1.1,0.2-0.9,0.3-0.9-0.5C242.1,223.5,241.9,223.3,241.9,223.8z"></path>
+                <path d="M51.7,100.6c-0.3-1-0.3-0.8-0.1-1.1C52.5,100.3,52.6,100,51.7,100.6L51.7,100.6z"></path>
+                <path d="M68.8,121c1,1.3,0.9,1,0.6,1.3C68.2,121.3,68.3,121.6,68.8,121z"></path>
+                <path d="M110,218.2c0.4-0.2,0.7-0.3,1.1-0.4C110.9,218.9,110.9,218.9,110,218.2z"></path>
+                <path d="M97.7,217.1c0.6,0.2,1,0.4,1.8,0.7C98.5,218.3,98,218.3,97.7,217.1z"></path>
+                <path d="M23.6,123.3c-1.1-0.9-1-0.7-0.7-1.1C24.1,122.9,24,122.7,23.6,123.3z"></path>
+                <path d="M62.6,146.4c-1.3,0.6-1,0.7-1.3,0.1C62.6,145.9,62.4,145.9,62.6,146.4z"></path>
+                <path d="M204.4,242.4c-0.9,0.7-1,0-1.4-0.7C203.7,242,204,242.2,204.4,242.4z"></path>
+                <path d="M10,262.7c-1.2,0-1,0.1-1-0.2C10.2,262.1,9.9,262,10,262.7z"></path>
+                <path d="M38.2,253.6c-1.3,0.1-1.1,0.2-1.2-0.2c0.8-0.5,0.5-0.4,1.2-0.2C38.2,253.4,38.2,253.5,38.2,253.6z"></path>
+                <path d="M-11.6,124.5c0.3,0.2,0.6,0.4,0.9,0.7C-11.8,125.8-11.4,124.8-11.6,124.5z"></path>
+                <path d="M241.5,249.4c1.4,0.2,1.2,0,1.2,0.4c-1,0.1-0.7,0.1-1.3-0.2C241.4,249.6,241.4,249.5,241.5,249.4z"></path>
+                <path d="M41.3,200.5c-0.6-1-0.5-0.8-0.2-1C41.8,200.4,41.7,200.1,41.3,200.5z"></path>
+                <path d="M102.5,243.1c-1.4,0.4-1,0.5-1.4-0.2C101.9,242.4,101.6,242.5,102.5,243.1z"></path>
+                <path d="M5.7,122.4c0,0,0.3,0.1,0.3,0.1c-0.1,0.4-0.1,0.7-0.2,1.1C5.2,123.4,5.1,123.6,5.7,122.4z"></path>
+                <path d="M244.1,230.6c-0.7,0.1-1-0.1-0.8-0.7c0-0.1,0.2-0.2,0.4-0.4C243.7,229.9,243.9,230.2,244.1,230.6z"></path>
+                <path d="M193.4,226.1c-1,0.5-0.6,0.6-1.3,0C192.8,225.6,192.5,225.6,193.4,226.1z"></path>
+                <path d="M81.6,225.4c-1.5-0.2-1.3,0-1.2-0.5C81.8,225.1,81.6,225,81.6,225.4z"></path>
+                <path d="M124.7,182.8c-1.3,0-1.1,0.1-1.1-0.3C124.9,182.2,124.6,182.1,124.7,182.8z"></path>
+                <path d="M223.1,253.6c0,1.2,0,1.2-0.6,1.7C222.2,255,222.1,255.3,223.1,253.6z"></path>
+                <path d="M141.8,223.4c-1.2,0.5-0.9,0.5-1.3,0C141.2,222.9,140.9,223,141.8,223.4z"></path>
+                <path d="M245.9,253.6c1.2,0.7,1,0.5,0.7,1C245.4,254,245.5,254.2,245.9,253.6z"></path>
+                <path d="M82,221.9c0.5,0.4,0.8,0.7,1.2,1C82.3,223.2,82,223,82,221.9z"></path>
+                <path d="M255.7,220c-0.6,0.6-1,0.4-1.4-0.2C254.9,219.4,255.2,219.5,255.7,220z"></path>
+                <path d="M253.1,220.6c-0.5-0.8-0.4-0.5,0-0.9C253.8,220.3,253.8,220.1,253.1,220.6z"></path>
+                <path d="M-11.4,215.7c-0.8,0.6-0.5,0.7-1.3,0.2C-12.1,215.3-12.4,215.3-11.4,215.7z"></path>
+                <path d="M261.9,230.8c0.4-0.9,0.9-0.6,1.3-0.6C263.2,230.8,263.4,230.6,261.9,230.8z"></path>
+                <path d="M-6.2,190.4c0.7,0.8,0.7,0.5,0.2,1.2C-6.4,191.2-6.4,191.5-6.2,190.4z"></path>
+                <path d="M169.6,203.1c-0.3,0.3-0.4,0.5-0.5,0.6c-0.1-0.2-0.3-0.3-0.4-0.5c0-0.1,0.2-0.3,0.3-0.3
+                    C169.2,202.9,169.4,203,169.6,203.1z"></path>
+                <path d="M117.7,202.1c0.3,0.3,0.5,0.5,0.6,0.8c0,0.1-0.2,0.4-0.3,0.3C117,202.8,117.3,202.7,117.7,202.1z"></path>
+                <path d="M253.5,247.4c-1,0.2-0.7,0.4-1.3-0.4C253,246.7,252.7,246.7,253.5,247.4z"></path>
+                <path d="M95.6,255.8c0.5-0.2,0.3-0.4,0.9,0.7C96,256.7,96.2,256.8,95.6,255.8z"></path>
+                <path d="M-10.3,107c-1.3,0.3-1,0.4-1.2-0.1C-10.2,106.4-10.4,106.3-10.3,107z"></path>
+                <path d="M75,103.4c-0.5-0.6-0.6-0.4,0-1C75.3,102.7,75.3,102.4,75,103.4z"></path>
+                <path d="M102.9,257.9c0.1-0.4,0.3-0.8,0.5-1.4C104.1,257.5,103.5,257.7,102.9,257.9z"></path>
+                <path d="M74.7,101.5c1.3-0.4,1-0.4,1.2,0.1C74.6,101.9,74.9,101.9,74.7,101.5z"></path>
+                <path d="M50,96.1c1.2-0.2,1-0.3,1.1,0.2C49.9,96.3,50.1,96.4,50,96.1z"></path>
+                <path d="M176.1,147.7c0.2,0.1,0.3,0.3,0.4,0.4c-0.2,0.1-0.3,0.3-0.5,0.4c-0.1,0-0.3-0.2-0.3-0.3
+                    C175.7,148,176,147.9,176.1,147.7z"></path>
+                <path d="M62.4,145c-1-0.3-0.8-0.2-0.7-0.6C62.7,144.7,62.6,144.6,62.4,145z"></path>
+                <path d="M66.3,142c0.6-0.3,0.8-0.5,1-0.5c0.1,0,0.3,0.4,0.2,0.4C67.1,142.5,66.8,142.2,66.3,142z"></path>
+                <path d="M83.3,9.3c-0.3,0.1-0.5,0.2-0.7,0.2c-0.1,0-0.2-0.3-0.2-0.4C82.8,8.6,83.1,9.1,83.3,9.3z"></path>
+                <path d="M87.9,2.2c0.3,0,0.7,0,1.2,0.1c-0.4,0.8-0.9,0.5-1.3,0.3C87.6,2.5,87.8,2.3,87.9,2.2z"></path>
+                <path d="M83.1-2.4c-0.1,0.6,0.1,0.9-0.7,0.9C82.9-2.7,82.7-2.5,83.1-2.4z"></path>
+                <path d="M253.7,251.4c-0.2,0.3,0,0.4-1,0C253,250.8,252.8,250.9,253.7,251.4z"></path>
+                <path d="M84.1-4.7C85-4.9,84.8-5,84.9-4.4C84-4.4,84.2-4.3,84.1-4.7z"></path>
+                <path d="M-3.8,135.5c0.2,0.3,0.4,0.5,0.5,0.7c-0.2,0.1-0.4,0.3-0.6,0.3c-0.1,0-0.4-0.2-0.3-0.3C-4.2,136-4,135.8-3.8,135.5z"></path>
+                <path d="M248.3,240.8c0.7-0.8,0.5-0.7,0.8-0.6C248.6,241.2,248.8,241.1,248.3,240.8z"></path>
+                <path d="M48,239.5c0.8,0.5,0.7,0.4,0.6,0.7C47.6,239.8,47.7,240,48,239.5z"></path>
+                <path d="M67.7,262.9c-0.9,0.5-0.6,0.6-1.2-0.1C67,262.4,66.7,262.4,67.7,262.9z"></path>
+                <path d="M121.1,250.6c-0.4-0.5-0.5-0.3,0.1-0.8C121.6,250.3,121.6,250,121.1,250.6z"></path>
+                <path d="M80,181.4c-0.8,0-0.6,0.2-0.8-0.4C79.9,180.9,79.6,180.8,80,181.4z"></path>
+                <path d="M212.9,236.8c-0.3-0.1-0.5-0.1-0.8-0.2c0-0.1,0.1-0.3,0.1-0.3C213.1,236.5,213,236.5,212.9,236.8z"></path>
+                <path d="M189.2,234.4c0.4,0.6,0.5,0.4-0.1,1C188.7,234.9,188.6,235.2,189.2,234.4z"></path>
+                <path d="M95,197c-0.4,0.8-0.2,0.7-0.6,0.5C94.8,196.7,94.6,196.8,95,197z"></path>
+                <path d="M188.9,195.4c0.2,0.5,0.6,0.7-0.2,1.1c-0.1,0-0.4-0.2-0.4-0.3C188.4,196,188.6,195.8,188.9,195.4z"></path>
+                <path d="M6.6,231.8c0.2-1,0.1-0.9,0.5-0.8C6.8,232.1,6.9,231.9,6.6,231.8z"></path>
+                <path d="M252.3,224.4c-0.6,0.8-0.4,0.7-0.9,0.4C252,224,251.8,224.1,252.3,224.4z"></path>
+                <path d="M27.8,174.4c-0.7,0.3-0.5,0.4-1-0.1C27.1,173.9,26.9,173.9,27.8,174.4z"></path>
+                <path d="M85.2,141.2c-0.6,0.4-0.4,0.4-0.8,0.1C85,140.9,84.8,141,85.2,141.2z"></path>
+                <path d="M93.9,156.4c0.2,0.4,0.3,0.2-0.2,0.6C93.4,156.6,93.4,156.7,93.9,156.4z"></path>
+                <path d="M-7.7,109.9c1.2,0,1.3,0.5,1.4,1C-6.6,111.1-6.4,111.3-7.7,109.9z"></path>
+                <path d="M41.6,255.9c0.4,0.6,0.4,0.4,0,0.9C41.1,256.2,41.2,256.4,41.6,255.9z"></path>
+                <path d="M-2.5,148.9c-0.8,0.2-0.6,0.3-1-0.4C-2.9,148.3-3.2,148.1-2.5,148.9z"></path>
+                <path d="M227.8,7.2c0.5,1,0.5,0.8,0.2,1C227.4,7.2,227.4,7.4,227.8,7.2z"></path>
+                <path d="M104.2,159.3c0,0-0.2-0.2-0.2-0.2c0.2-0.3,0.3-0.5,0.5-0.7C104.9,158.7,105,158.6,104.2,159.3z"></path>
+                <path d="M8.4,247.1c-0.6,0.4-0.3,0.5-0.9,0.1C8,246.7,7.8,246.8,8.4,247.1z"></path>
+                <path d="M35,172.1c-1.1-0.1-0.9,0-0.8-0.6C35.2,171.9,35.1,171.7,35,172.1z"></path>
+                <path d="M67.2,260c-0.9,0.3-0.7,0.4-0.8-0.2C67.2,259.7,67.1,259.7,67.2,260z"></path>
+                <path d="M20,137.1c-0.2,0.4-0.1,0.4-0.6,0.1C19.6,136.8,19.4,136.8,20,137.1z"></path>
+                <path d="M129.8,200.5c-0.4-0.3-0.4-0.1-0.1-0.7C130,200,130,199.8,129.8,200.5z"></path>
+                <path d="M137.6,195.1c0.3,1,0.3,0.7,0,1.1C137,195.8,136.7,195.8,137.6,195.1z"></path>
+                <path d="M84.9,255.3c-0.7,0.5-0.5,0.5-1,0C84.5,254.8,84.3,254.8,84.9,255.3z"></path>
+                <path d="M46.4,98.6c0.3,0.1,0.5,0.3,0.8,0.4c0,0-0.1,0.3-0.1,0.3C46,99.1,46.2,99.1,46.4,98.6z"></path>
+                <path d="M243.5,201c0.5-0.3,0.3-0.4,0.9,0.1C243.8,201.7,244,201.7,243.5,201z"></path>
+                <path d="M32.2,72.3c1,0.6,0.9,0.4,0.7,0.8C31.9,72.5,32,72.6,32.2,72.3z"></path>
+                <path d="M84.1,147.4c-0.3-0.2-0.5-0.3-0.5-0.4c0.1-0.2,0.2-0.4,0.4-0.6c0,0,0.4,0.2,0.4,0.2C84.3,146.9,84.2,147.1,84.1,147.4z"></path>
+                <path d="M135,205.6c0.7,0.7,0.6,0.4,0.3,0.9C134.6,205.8,134.7,206,135,205.6z"></path>
+                <path d="M61.4,245.5c0-0.3-0.1-0.6-0.1-0.9c0.1,0,0.3,0,0.3,0C61.8,245.6,61.8,245.4,61.4,245.5z"></path>
+                <path d="M125.2,206.9c-1.1,0.4-0.9,0.5-1,0.1C125.3,206.6,125,206.6,125.2,206.9z"></path>
+                <path d="M138,209.7c0.5,0.6,0.5,0.4,0.1,0.8C137.5,210,137.5,210.2,138,209.7z"></path>
+                <path d="M55.4,90.3c0.2,0.5,0.4,0.4-0.7,0.8C54.5,90.5,54.4,90.7,55.4,90.3z"></path>
+                <path d="M81.6,89.8c0.9,0.5,0.8,0.4,0.6,0.7C81.3,90.1,81.4,90.3,81.6,89.8z"></path>
+                <path d="M257.5,214.9c-0.2-1.1-0.3-0.9,0.2-1C257.9,215.1,258,214.9,257.5,214.9z"></path>
+                <path d="M-6.5,143.8c-0.5,0.6-0.2,0.6-1,0.3C-7.2,143.7-7.4,143.7-6.5,143.8z"></path>
+                <path d="M29.5,185.5c1.7-0.6,1.4-0.7,1.5-0.1C29.4,185.7,29.6,185.7,29.5,185.5z"></path>
+                <path d="M235.4,219.5c-0.3,0.9-0.2,0.8-0.7,0.6C235.2,219.2,235,219.3,235.4,219.5z"></path>
+                <path d="M51.7,100.6c0.2,1.2,0.4,1.1-1,0.3C50.7,100.5,50.6,100.6,51.7,100.6C51.7,100.6,51.7,100.6,51.7,100.6z"></path>
+                <path d="M247.5,261.9c-0.8,0.9-0.5,0.9-1.1,0.3C247.1,261.2,246.9,261.2,247.5,261.9z"></path>
+                <path d="M111.5,223c0.5,0.7,0.6,0.5-0.1,1C110.9,223.2,110.9,223.4,111.5,223z"></path>
+                <path d="M32.5,142.9c-0.6,0.8-0.4,0.7-0.7,0.5C32.2,142.6,32.1,142.7,32.5,142.9z"></path>
+                <path d="M58.5,90c0.5,0.5,0.4,0.3,0.1,0.8C58.1,90.3,58.2,90.5,58.5,90z"></path>
+            </g>
+            <g>
+                <rect x="-13.2" y="-5" class="st1" width="289.4" height="199.4"></rect>
+                <path d="M64.5,189.5c-0.7-0.6-1.2-1.3-0.6-2.4c0.7,0.7,1.3,1.3,1,2.4C64.8,189.5,64.6,189.5,64.5,189.5z"></path>
+                <path d="M212.6,188.5c1.5-0.3,1.5-0.3,1.9,1C213.1,189.5,213.5,189.7,212.6,188.5z"></path>
+                <path d="M227.7,188.3c1,0.1,1,0.6,0.9,1.2C228.2,189.5,228.3,189.7,227.7,188.3z"></path>
+                <path d="M240.4,85c1.4,0.5,0.9,1.6,1.2,2.2c0.5,1,0,1.6-0.3,2.4c0.4,0.4,0.7,0.7,1.1,1c1.4-0.8,2.7-1.9,4.5-1.3
+                    c0.3-0.8,0.5-1.4,0.8-2c0.8-0.1,1.5-0.2,2.5-0.3c-0.7,2.1-1.5,2.1,0.1,3c0.9,0.5,0.7,1.2,0.2,2c-0.9-0.2-1.7-0.5-2.5-0.7
+                    c-1.6,0.5-1.2,2.3-2.2,3.4c-0.7-0.5-1.1-1.3-2.1-1c-0.3,0.1-1-0.2-1.1-0.5c-0.4-2.1-2.3-0.2-3.7-2.2c-0.5-0.7-1.4-1.1-2.3-1.7
+                    c0-0.8,0.7-1.2,1.4-1.4c0.8-0.2,1.1-0.7,1.3-1.4C239.5,85.9,240.1,85.4,240.4,85z M247,91.1c-0.6-0.3-1.1-0.6-1.3-0.5
+                    c-0.9,0.3-0.9,1-0.8,1.9C245.5,92,246,91.7,247,91.1z"></path>
+                <path d="M184.2,61.3c0-0.3,0-0.6,0-0.9c-1.7-0.1-1.7-0.1-2.7,1.6c-0.8,0.1-1.6,0.2-2.6,0.3c0.2-0.5,0.3-1,0.6-1.3
+                    c1.5-1.7,1.5-2.4-0.1-3.7c5.4-1.6,5.9,4.1,5.1,0.4c0.5,0,0.9-0.1,1.5-0.1c0.2,1,0.3,1.9,0.4,2.8c1.9-0.5,2.6-0.1,3.5,1.9
+                    c-1.6,1.3-2.9,3.2-5.4,3c-0.5,0-1.1,0.1-1.2-0.8c0.7,0,1.3-0.9,2.2-0.1c0.1,0.1,0.8-0.1,0.9-0.4c0.1-0.2-0.1-0.8-0.3-0.9
+                    c-0.4-0.2-0.9-0.2-3-0.4C183,61.6,183.6,61.4,184.2,61.3c0.3,0.2,0.5,0.4,0.9,0.8c0.3-0.5,0.4-0.9,0.8-1.5
+                    C185.1,61,184.7,61.2,184.2,61.3z"></path>
+                <path d="M214.9,108.6c0.1-0.4,0.1-0.7,0.2-1.2c0.8,0.3,1.5,0.6,2.3,0.9c-0.7,1.1-1.2,1.9-1.8,2.8c1,1.1,0.5,2.2-0.1,3.6
+                    c-0.7-1.3-0.2-1.1-2.2-0.2c-2.1,0.8-3.3-1.4-2.4-2.2c2.3-2.1,3-1.7,2.6-3C213.1,108.2,214.4,108.7,214.9,108.6z"></path>
+                <path d="M61.1,88.4c-1.8,0.9-3.6,1.6-5.6-0.2c0.2-0.5,0.4-1.1,0.6-1.9c0.9,0.4,1.5,0.9,2.4,0.3c0.4-0.2,1.2,0.1,1.8,0.2
+                    c0.9-0.9-0.4-1.4-0.5-2.1c0.4-1,0.8-2,1.3-3.5c0.6,1.7,0.5,3.2,1.2,4.4c0.7,1.2,1.1,2.5,1.7,3.7C62.6,89.7,62.6,89.7,61.1,88.4z
+                    "></path>
+                <path d="M78.7,81.6c-0.7,0.5-1.9,0.7-1.4,2c-1,0.3-1.9,0.4-2.8-0.1c1.5-1.8,2.1-2.1,0.9-2.7c-0.2,0.9-1.9,1.2-0.9,2.6
+                    c-0.1,1.5-1.4,1-2,1.4c-0.8-0.5-1.5-0.9-2.3-1.3c0.9-0.7,1.8-1.4,2.1-2.7c0.1-0.6,1.1-1.1,1.9-1.7c0.7,1.3,2.6,0.5,3.1,2.3
+                    c0.4-0.3,0.4-0.1-0.1-1.4c-0.3-0.9-0.3-0.9,1-1.3c0.4,0.5-0.2,1.6,0.8,1.9C78.8,80.8,78.6,81.7,78.7,81.6z"></path>
+                <path d="M10.7,56.5c2.2-2.3,1.8,1.8,3.7,0.3c-0.3-0.5-0.6-0.9-0.9-1.5c0.4-0.1,0.8-0.3,1.3-0.4c1.2,1.6,2.7,2.9,3.2,4.8
+                    c0.3,0.9,0.4,0.9-0.4,2.1C14.2,61.4,12.9,58.5,10.7,56.5z"></path>
+                <path d="M239.7,71.4c0.4-0.8,0.6-1.3,0.8-1.8c0.4,0.1,0.7,0.1,1.2,0.2c-0.5,1.3-1.4,1.9-2.6,2.4c1.4,0.3,2.7,0.4,3.8-0.9
+                    c-0.1,1.8-2,1.7-2.9,2.8c0.9,0.7,1.5-0.2,2.2-0.3c0.2,0.9,0.2,0.9-1.3,2c-1.2-0.3-1.9-1-2-2.1c-1.1-0.2-2-0.3-3.2-0.5
+                    c0.2-0.6,0.3-1,0.4-1.4c-0.4-0.7-1.8-0.3-1.9-1.5c0-0.8-0.8-1.7,0.1-2.6c0.7,1,1.2,2.1,2.1,2.8
+                    C237.3,71.1,238.5,71.1,239.7,71.4z"></path>
+                <path d="M263.4,140.1c0.8-0.9,1.7-1.3,2.8-1.5c-0.2-1.5,1.9-0.5,1.7-1.9c0.9,0.7,1.7,1.3,2.5,2c-0.8,1-2.8-0.5-3.3,1.5
+                    c0.4,0.3,0.9,0.6,1.3,0.9c-0.3,1.1-0.5,2.1-0.9,3.4C265.5,143.4,264,142.3,263.4,140.1z"></path>
+                <path d="M266.7,97.7c-0.4-0.4-0.5-0.5-0.8-0.8c0.7-0.4,1.2-1.1,0.8-2.1c2,1,2.1,1.3,1.2,3c1.5-0.3,0.9-0.3,2.4-0.1
+                    c-0.6,0.4-0.8,0.5-1.2,0.7c0.7,2.6-1.8,2.1-2.1,2.8c-0.6,1.2-1.9,0.1-2.7,0.8c-3.5-3.1-1.6-0.8,1.4-2.2c-0.3-0.5-0.7-1-1.1-1.5
+                    C265.4,98.2,265.9,98,266.7,97.7z"></path>
+                <path d="M177.9,50.9c-1.2-1.3,0.1-2.4-0.3-3.4c0.7-0.5,1.3-0.9,1.9-1.3c-0.4-1.8-0.4-1.8,2.4-2.7c0.4,0.6,0.3,2.1-0.3,5
+                    C180.4,49.2,179.1,50.1,177.9,50.9z"></path>
+                <path d="M233,17.4c-0.3-0.5-0.5-1.1-0.9-1.4c-1.1-0.8-1.7-1.8-2-3.1c-0.1-0.5-0.5-0.9-0.7-1.3c-0.1-0.2,0-0.6,0-1
+                    c2.1,0.5,4.6,3.2,4.1,4.9c-0.3,1.1,1.4,3.2-0.2,4.1c-1.1,0.6-2.1,0.4-3.1-0.7C231,18.5,231.8,18.1,233,17.4z"></path>
+                <path d="M244.3,86.2c-0.7-1.1-2.8-1.9,0.4-3c0.7-0.2,1.5-0.7,2.5-0.3c0.6,0.3,1.5-0.1,2.4-0.2c0.4,0.8,0.4,1.5-0.5,2.1
+                    c-0.8,0.5-1.4,1.3-2.3,2.1C244,86.1,244.3,86.1,244.3,86.2z"></path>
+                <path d="M261.1,137.4c2.2-1.3,3.2-3.3,4.3-5.2c1.6,0.6,2,1.8,0.8,2.6c-2.6,1.7-2.5,5.4-4,5c-0.8-0.2-0.9-0.7-0.8-1.5
+                    C261.5,138.1,261.2,137.7,261.1,137.4z"></path>
+                <path d="M63.8,80.3c2.8,0.6,3.1,2.2,0.8,4.9c-0.8-0.4-2-0.4-2.2-1.7C62.1,81.5,63.5,80.7,63.8,80.3z"></path>
+                <path d="M195.7,20.8c-0.9,1.8-2.6,1.4-2.7,1.6c-1.3,1.2-2.4,0.3-3.8-0.2c0.4-0.8,0.7-1.6,1-2.3c0.7,0.4,1.3,1.1,2,1.2
+                    c0.7,0.1,1.4-0.3,2.1-0.5c0.1-0.7,0.2-1.4,0.3-2c0.8,0.2,1.3,0.3,1.9,0.4c0,0,0.1-0.5-0.4,1.7C196,20.6,195.9,20.7,195.7,20.8z"></path>
+                <path d="M276.1,4.8C276.1,4.7,276.1,4.7,276.1,4.8c0.4,0.3-3.4,0.1-3.4,0.1c0.1-0.8,0.1-1.3,0.1-1.8c-1.7,0.4-1,2.2-2,3
+                    c-0.1,0.1,0.5,1,0.8,1.6c0.6,0,1.3,0.1,2.1,0.1c0.1-1.5,1.3-1.5,2.5-1.8V4.8z"></path>
+                <path d="M210.5,29.5c-0.2-3,2.2-0.4,3-2.6c-4.1-1.3-3.3-0.8-3.9-2.4c0.9-0.6,0.8,0.3,1.1,0.7c0.4-0.1,0.8-0.3,1.2-0.4
+                    c0.7,0.7,1.8,1.2,2.1,2c0.2,0.7-0.2,1.9-0.8,2.5C212.2,30.3,214.9,31.5,210.5,29.5z"></path>
+                <path d="M186.2,50.6c0.1-2.3-3.4-1.1-2.7-3.2c0.6-1.6,3.7-0.1,5.3,3.5l0,0C187.8,52,187.1,50.6,186.2,50.6L186.2,50.6z"></path>
+                <path d="M156.4,152.7c-0.9-0.5-1.6-1.5-3-0.2c0.2-0.9,0.2-1.4,0.4-1.6c0.9-0.7,1.7-1.5,2-2.7c1.1,0.7,2,1.4,3.1,2.1
+                    C156.7,151.3,157.4,150.6,156.4,152.7z"></path>
+                <path d="M153.8,137.2c0.2-0.7,0.4-1.4,0.6-2c1.1,0.4,2.1,1,3.1,1.1c1,0.2,2,0.1,2.7,1.2c-0.8,0.2-1.4,0.4-2.1,0.7
+                    c-0.1-1.3,0.2-1-1.5-1.1c-0.3,0.6-0.5,1.1-0.8,1.8C155.1,138.2,154.6,137.8,153.8,137.2z"></path>
+                <path d="M216.1-2.7c1.3-0.5,2.8-0.3,4.1-1.1c0.2,3.1-1.1,2.7-2.6,2.5c-0.3,1.9,0.1,1.4-1.9,1.9C215.9-0.4,216-1.5,216.1-2.7z"></path>
+                <path d="M92.9,19.7c1.4,0.5,3.4-0.7,4.2,1.5c-0.9,0.6-1.4,1.8-2.7,1.5C93.1,22.3,92.9,21.1,92.9,19.7z"></path>
+                <path d="M208.4,103.4c-0.7,0.9-1.5,0.5-2.4,0.3c-0.8-1.1,0-1.9,0.5-2.6c-0.5-1.9-0.6-1.5,0-1.9
+                    C209,101.5,208.6,100.6,208.4,103.4L208.4,103.4z"></path>
+                <path d="M178.7,71.8c-0.4-2.1-0.5-1.4,0.7-3.1c-0.3-0.4,0-0.4-1.7,0.3c-0.9-2.5,1.1-3.7,1.2-2.4c0.1,1.1-1.4,0.7,1.9,0.9
+                    C180.3,69,180.3,70.6,178.7,71.8z"></path>
+                <path d="M212,15.4c0.7-0.1,1.4-0.3,2-0.2c2.6,0.4,1.3,3.1-0.6,2.9C212.4,17.9,212.1,17.2,212,15.4z"></path>
+                <path d="M191.8,55.9c0-0.1-0.6-0.1-1-0.2c0.5-0.7,1-1.3,1.6-2.2c1,1.4,2,2.8,3,4.2c-0.6,1.1-1.1,0-1.7,0
+                    C192.5,56.7,191.7,57,191.8,55.9z"></path>
+                <path d="M225.9,128.4c-0.5,0.6-0.6,1-0.9,1.2c-0.7,0.5-1.7,0.6-1.7,1.8c0,0.1-0.6,0.3-0.8,0.3c-0.2-0.1-0.5-0.5-0.4-0.7
+                    c0.7-2,1.4-0.7-0.3-2.8C222.1,127.6,221.5,127.6,225.9,128.4z"></path>
+                <path d="M241.1,82.8c-4.7,0.3-3.4,0.6-6-1.4c2.2-1.3,0.6-0.7,3.7,0.3C241.4,82.5,241.2,81.5,241.1,82.8z"></path>
+                <path d="M248.3,68c1.5-3.1,0.6-2,2.9-1.8c0.5,0.1,1.1-0.1,1.8-0.1c-0.8,1.5-1.1,2.4-2.3,1.9C250.1,67.8,249.3,68,248.3,68z"></path>
+                <path d="M242.8,70.5c-0.8-1.9-0.9-1.3,0.4-2.2c1-0.7,1-0.6,1.8,0.4c0.4,0.5,1,0.8,1.6,1.2c-1.6,1.3-2.4-0.4-3.5-0.8
+                    C243,70.7,243.1,70.5,242.8,70.5z"></path>
+                <path d="M208.1,66.7c-0.4-0.9-2-0.4-1.7-1.8c0.9,0.2,1.7,0.4,2.6,0.6c2,0.5,1.1,4.6-2,1.6C207.4,66.9,207.7,66.8,208.1,66.7z"></path>
+                <path d="M72.1,77c0.9,0.5,1.6,0.8,1.2,1.7c-0.6,1.3-1.5,1.7-3.6,1.3C70.5,78.9,71.3,78,72.1,77z"></path>
+                <path d="M191.6,30.6c-0.2-2.3-1.2-2.7,1.2-4.6c0.5-0.4,1.1-0.4,1.3,0.2c0.1,0.4-0.1,1.3-0.2,1.3c-1.5,0.2-1.3,1.5-1.6,2.4
+                    C192.2,30.1,192,30.2,191.6,30.6z"></path>
+                <path d="M208.3,103.4c0.5,0,1-0.1,1.7-0.1c1,3,0.8,2.1,0.4,3.2c-1.1-0.8-0.8-0.5-1.1-1c-0.6,0.2-1.1,1.1-1.6,0.4
+                    C208.5,103.1,208.4,103.4,208.3,103.4z"></path>
+                <path d="M-0.5,124c0.1,1.5,0.3,2.9-1.4,3.6C-3.2,125.7-2.8,124.6-0.5,124z"></path>
+                <path d="M42.9,69.5c1.3-2.8,1.3-2.8,0.6-4.8c0.7,0.2,1.1,0.4,1.7,0.6c0.3-0.3,0.6-0.7,1.2-1.4c-0.1,1.2-0.1,2-1,2.6
+                    C44.5,67,44.8,69.5,42.9,69.5z"></path>
+                <path d="M202.6,2.1c-0.6-0.5-1.2-1-1.8-1.5c0.6-1,1.1-1.9,1.7-3c0.3,0.4,0.7,0.8,0.6,0.9C202.6-0.4,203.5,0.8,202.6,2.1z"></path>
+                <path d="M114.1,3c0.9-1.5,1.2-2.4,2.1-2.3c0.3,0,0.8,0.8,0.5,1.6c-0.2,0.7-0.5,1.3-0.8,2.2C115.2,3.2,115.7,3.5,114.1,3z"></path>
+                <path d="M86.5,59.4c0.8,0.9,2.4,1,2.9,2.6c-0.3,0.1-0.6,0.4-0.8,0.4C86.7,61.8,84.8,61,86.5,59.4z"></path>
+                <path d="M248.3,69.1c0.3,0.2,2.7,0.8,1.7,2.7c-0.4,0.7-1.4,0.7-1.6,0.2c-0.3-0.8-0.4-1.6-0.6-2.4
+                    C248,69.4,248.1,69.2,248.3,69.1z"></path>
+                <path d="M128.8,138.4c-0.2-0.6-0.4-1.3-0.6-1.8c1.1-0.9,1.4,0.3,2,0.6c0.4-1.2,1.4-0.9,2.4-0.9
+                    C131.8,137.9,130.2,137.8,128.8,138.4z"></path>
+                <path d="M228.4,8.5c0.2,0.7,0.3,1.4,0.5,2.2c-1.2,0-2.1,0-3,0C226,9.3,226.8,8.7,228.4,8.5z"></path>
+                <path d="M177.6,179.7c0.7-0.6,1.5-1.2,2.2-1.8c0.7,0.8,1.1,1.6,0.6,2.7C179.2,181.5,178.7,179.6,177.6,179.7z"></path>
+                <path d="M209.7,187.4c-0.8,1.2-1.6,1.3-3.4,0.4C207.5,186.1,207.5,185.9,209.7,187.4z"></path>
+                <path d="M139.8,149.4c-0.4,1.1-1.6,0.5-2.1,1.2c-1.1-1.1-0.4-2-0.1-3.1C140.2,149.5,139.9,149.3,139.8,149.4z"></path>
+                <path d="M272.8,46.3c-0.3,0.3-0.7,0.7-1,1c-1.2-0.4-2.4-0.7-3.7-1.1C268.7,44.6,271.9,46,272.8,46.3z"></path>
+                <path d="M160,159.6c0.9,0,1.5,0,2.3,0c0.2,0.8,0.4,1.5,0.7,2.5C161.3,161.7,160.3,161.2,160,159.6z"></path>
+                <path d="M154.2,185.4c1-0.4,1.9-0.8,2.9-1.2c0.1,0.5,0.3,1,0.2,1.4c-0.1,1.5-1.2,0.9-2.8,0.3
+                    C154.6,185.9,154.5,185.8,154.2,185.4z"></path>
+                <path d="M251.3,75.9c-0.1,0.7-0.2,1.2-0.3,1.9c-1.5-0.1-2-1.2-2.9-1.9C248.4,75.3,247.9,75.4,251.3,75.9z"></path>
+                <path d="M152.4,45.8c0.5,0.6,3,2.8,1,3c-0.6,0.1-1.2,0-1.7,0C151.9,47.8,152.1,47,152.4,45.8z"></path>
+                <path d="M176.1,112.3c-1.1-0.4-2.1-0.5-2.2-1.9c1-0.3,1.9-0.6,2.9,0.3C176.7,111.2,176.4,111.7,176.1,112.3z"></path>
+                <path d="M79.2,66.9c-1-2-1.1-2.8-0.4-3.2c0.6-0.4,1.1-0.1,2.1,1.1C80,65.1,79,65.3,79.2,66.9z"></path>
+                <path d="M264,122.1c0.4-1.1,0.9-2.2,1.3-3.3c0.4,0.2,0.7,0.3,0.7,0.4c-0.1,0.8-0.1,1.7-0.3,2.5
+                    C265.4,122.3,264.9,122.8,264,122.1z"></path>
+                <path d="M210.1,72.4c0.6,0,1.3-0.1,2.6-0.2c-1.5,1-0.4,2.1-0.8,3.1C209.8,74.1,210.3,74.8,210.1,72.4z"></path>
+                <path d="M200.4,79.2c-1.7,1.2-2.2-0.5-3.6-0.1C201.1,73,196.7,78.4,200.4,79.2z"></path>
+                <path d="M271.8-2.8c0.6-1.7,1.1-1.7,3.3,0C275-1.5,274.5-1.9,271.8-2.8z"></path>
+                <path d="M261.4,113.8c1.2-0.4,2.2-0.7,3.2-1c0.3,0.8,0,1.5-0.7,1.9C262.9,115.2,262.2,114.6,261.4,113.8z"></path>
+                <path d="M219.8,32.7c-0.9,0.2-1.9,0.4-2.9,0.6c0-0.8-0.1-1.7-0.1-2.8C217.9,31.3,218.9,32,219.8,32.7z"></path>
+                <path d="M36.3,4c1.1,0,2.1-0.3,2.9,1.1c-0.6,0.3-1.1,0.8-1.6,0.8C36.7,5.8,36.7,4.8,36.3,4z"></path>
+                <path d="M148.1,138.7c-1.8-1.5-1.9-3-0.4-4.2C147.9,135.8,148,137.1,148.1,138.7z"></path>
+                <path d="M49,147c2.8,0.7,2.5,2.7,1.8,3C49.9,150.3,49.8,149.2,49,147z"></path>
+                <path d="M136,27.7c0.3-1.3,0.6-2.5,0-3.7c-0.1-0.2,0.4-0.6,0.6-1c0.2,0.3,0.6,0.6,0.6,0.9c0,0.9-0.1,1.7-0.1,2.6
+                    C137.1,27.3,136.8,27.6,136,27.7z"></path>
+                <path d="M143.3,148.1c0,0.8,0.1,1.5,0.1,2.2c-1.1-1.1-2.6-0.2-3.6-1C139.8,149.4,139.4,149.5,143.3,148.1z"></path>
+                <path d="M100.4,78.6C99.7,80,99.2,81,98.7,82C97.5,80.3,97.9,79.3,100.4,78.6z"></path>
+                <path d="M205.3,95.4c0.4-0.1,0.8-0.2,1.2-0.3c0.5,2.1,0.4,2.3-0.9,3.4C205.6,96.4,205.7,97.2,205.3,95.4z"></path>
+                <path d="M253.2,85.4c0.2,0.3,0.5,0.9,0.7,0.9c1.5,0,1.5,1,1.4,2.1C253.5,88.1,253.3,87.8,253.2,85.4z"></path>
+                <path d="M211.3,5.1c0.6-0.9,0.3-2.1,1.5-2.6C213.4,5.2,213.2,5.6,211.3,5.1z"></path>
+                <path d="M237.4,46.7c-0.2-1.4,0.1-2,1.4-2.1c0.4,0.8,0.8,1.6,1.2,2.4C238.8,47.9,238.6,45.5,237.4,46.7z"></path>
+                <path d="M130.2,128.9c1.7,0.2,1,2.1,0.6,4C129.3,132.8,129.7,132.2,130.2,128.9z"></path>
+                <path d="M239,96.2c-1.1,0.5-2.2,0.9-3.6,0c0.8-0.4,1.5-0.8,2.4-1.2C239.1,96.3,238.9,96.2,239,96.2z"></path>
+                <path d="M186,112.5c-0.6,0.9-1.1,1.7-1.6,2.6c-0.8-0.9-0.8-1.4,0-2.5C184.7,112,184.7,112,186,112.5z"></path>
+                <path d="M195.7,20.8c0.6-0.5,1.1-0.8,0.7-1.9c0,0-0.1,0.1,0.8-0.4c0.4,1,0.7,1.8,1.2,3C197.3,21.1,196.4,21.5,195.7,20.8z"></path>
+                <path d="M255.4,66.4c0.2,0.5,0.5,0.9,0.8,1.5c-0.7,0.3-1.3,0.6-2,0.9C253.7,67.3,253.7,67.3,255.4,66.4z"></path>
+                <path d="M268.1,147c0.5,2,0,1.9-2.6,1.5C265.4,147.9,265,148.2,268.1,147z"></path>
+                <path d="M191.7,65.3c0.2,0.7,0.4,1.3,0.6,1.8c-1.3,1.4-1.3,1.4-2.2,0.6C190.5,67,191,66.3,191.7,65.3z"></path>
+                <path d="M185.8,117.9c-0.4-0.7-0.7-1.1-1-1.6c0.8-0.8,1.5-0.9,2.4-0.1C186.8,116.7,186.4,117.2,185.8,117.9z"></path>
+                <path d="M218.5,3.4c-1.3,1.2-2.4,0.8-3.4,0.2C216.1,3.2,217.2,2.5,218.5,3.4z"></path>
+                <path d="M271.1-1.5c0.5-0.2,1-0.3,1.7-0.5c0.2,0.7,0.4,1.3,0.6,2.1C270.3-1,270.7-0.6,271.1-1.5z"></path>
+                <path d="M72.6,164.1c0.3,2.2,0.1,2.4-2.1,2.3c0.4-0.4,1-0.8,1-1.1C71.4,164.5,71.8,164.4,72.6,164.1z"></path>
+                <path d="M56.3,85.2c0.2-1.9,3.1-1.5,2,0.6C57.6,85.6,57,85.4,56.3,85.2z"></path>
+                <path d="M181,65.4c1.5,0.5,1.5,0.5,1.4,2.1C181.1,67.1,181.1,67.1,181,65.4z"></path>
+                <path d="M146.3,140.2c1.2,1,2.9,0,3.4,2.2c-0.9-0.5-1.5-1.1-2.4-0.6C146.9,142,146.4,141.3,146.3,140.2z"></path>
+                <path d="M210.6,100c0.9,0.2,2.1-0.7,3,0.8C212.3,100.8,211.2,101.2,210.6,100z"></path>
+                <path d="M231.6,43c-0.1,0.8-0.2,1.2-0.3,1.7c-1.9-0.8-1.4-0.5-1.6-1.5C230.2,43.1,230.8,43.1,231.6,43z"></path>
+                <path d="M60.7,78.2c-0.2-2.1,0.3-2.5,2.3-2.4C62.9,75.8,63.2,75.6,60.7,78.2z"></path>
+                <path d="M147.4,172.6c1.4-0.5,2,0.2,1.9,2.2C148.8,175,149.1,175.3,147.4,172.6z"></path>
+                <path d="M269.1,6.5c-0.9-2.3-1-1.7,0.2-2.7C270.3,4.8,270.3,5.6,269.1,6.5z"></path>
+                <path d="M249,94.6c0.3-0.8,0.6-1.5,0.9-2.3C251.1,93.7,251,94.1,249,94.6z"></path>
+                <path d="M193.9,64.1c-0.6,0.6,0.1,0.5-2.7,0.3c0-0.1-0.1-0.1-0.1-0.2c0.5-1.2,0.9-1.5,2-1.4c0,0,0.1-0.3-0.4,0.9
+                    C193.5,63.6,193.2,63.5,193.9,64.1z"></path>
+                <path d="M182.8,41.4c-0.5,0.2-1,0.3-1.4,0.4c-0.5-1.1-0.5-1.1,0.1-2.2C182,40.2,182.3,40.7,182.8,41.4z"></path>
+                <path d="M131.4,153.3c-0.3-1.6,1.1-1.3,1.8-1.8C133.1,152.6,132.9,153.4,131.4,153.3z"></path>
+                <path d="M268.1,3.1c-0.8-0.3-1.2-0.5-1.8-0.8c0.5-1.1,0.1-0.8,1.4-1.2C267.8,1.7,267.9,2.3,268.1,3.1z"></path>
+                <path d="M212.6,66.2c0.6,0.2,1.1,0.4,1.7,0.6c-0.4,1-1.2,0.9-2,1.1C212.4,67.3,212.5,66.9,212.6,66.2z"></path>
+                <path d="M-11.1,166.6c0.4-0.5,0.8-0.9,1.2-1.4c0.4,0.3,0.7,0.6,1,0.9C-9.5,167.2-10.2,167.2-11.1,166.6z"></path>
+                <path d="M205,6.2c0.9,0.6,1.4,1.2,1,2.2C204.6,8.2,204.6,8.2,205,6.2z"></path>
+                <path d="M253.7,58.5c0-0.8,0-1.4,0-2.1c0.9,0,1.3,0.5,1.3,1.3C255,58.1,255,58.2,253.7,58.5z"></path>
+                <path d="M243.8,101c-0.5-0.4-1-0.8-1.5-1.2C243.3,98.6,245.4,99.9,243.8,101z"></path>
+                <path d="M135.9,134.2c0.3-0.4,0.6-0.9,0.9-1.3c0.2-0.2,0.8-0.1,0.9,0c0.2,0.2,0.2,0.8,0,0.9c-0.5,0.3-1.1,0.4-1.6,0.6
+                    C136,134.4,136,134.3,135.9,134.2z"></path>
+                <path d="M204.1,79c-1,0-1.6,0-2.4,0c0.4-0.6,0.6-1,1-1.6C203.1,77.9,203.5,78.3,204.1,79z"></path>
+                <path d="M204.3,21.4c-0.1,0.9-0.2,1.5-0.2,2.2c-0.8-0.2-0.4,0.2-1.5-1.5C203,21.9,203.5,21.7,204.3,21.4z"></path>
+                <path d="M202.5,17.2c0.1-0.6,0.2-1,0.3-1.5c1.4-0.2,1.1,1.3,1.7,1.8C203.9,17.4,203.3,17.3,202.5,17.2z"></path>
+                <path d="M251.6,92.2c-0.9-1-0.1-1.4,0.4-2.1c0.4,0.4,0.6,0.7,1,1C252.5,91.5,252.1,91.8,251.6,92.2z"></path>
+                <path d="M261.7,111.5c-0.8,0.5-1.4,0.9-2.2,0.3c0.1-0.8,0.6-1.2,1.3-1.1C261,110.7,261.3,111.2,261.7,111.5z"></path>
+                <path d="M259.6,103c2.2,0.1,2,1.6,1.4,1.8C260.4,105.1,260.2,104.3,259.6,103L259.6,103z"></path>
+                <path d="M187.1,16.3c-0.4-1-2.3-0.5-2-2.2C185.5,15.2,187.4,14.7,187.1,16.3z"></path>
+                <path d="M216.8,36.4c0.6,1,1.5,1.5,0.6,2.6C216.6,38.4,216.6,37.6,216.8,36.4z"></path>
+                <path d="M204.1,60.8c0.3,0.4,0.7,0.9,1.1,1.5c-0.6,0.3-1.1,0.5-1.6,0.8C203.7,60.7,203.6,61.1,204.1,60.8z"></path>
+                <path d="M145.4,48c-0.8,0.4-1.5,0.9-2.4,1.4C143,48.1,143.4,47.9,145.4,48z"></path>
+                <path d="M218.5,95.6c-0.6-0.5-0.9-0.7-1.2-1.1c0.3-0.4,0.5-0.8,0.8-1.2C219,94,218.6,94.6,218.5,95.6z"></path>
+                <path d="M208.8,79.5c-0.4-0.7-0.7-1.3-1.1-2C208.9,77.4,209.2,77.7,208.8,79.5z"></path>
+                <path d="M214.7,31.6c0.2-0.6,0.4-1.1,0.7-1.9c0.5,0.7,0.8,1.2,1.3,1.9C215.9,31.6,215.4,31.6,214.7,31.6z"></path>
+                <path d="M247,30.4c-1.3-0.3-1.5-0.9-1.1-2C246.9,28.8,247.3,29.3,247,30.4z"></path>
+                <path d="M86.8,42.5c-0.1-1.1-0.2-1.8,0.9-2.2C88.1,41.3,87.9,42,86.8,42.5z"></path>
+                <path d="M185.1,44.8c-0.7,0.2-1.2,0.4-1.7,0.6c-0.6-0.5-0.5-1,0-1.3C184,43.6,184.5,43.9,185.1,44.8z"></path>
+                <path d="M250.3,80.5c-0.8,1.1-1.9,0.6-2.9,1C247.8,80.1,247.3,80.3,250.3,80.5z"></path>
+                <path d="M83.6,65.7c-1.1,0.3-1.1,0.3-1.7-1C83,64.5,83,64.5,83.6,65.7z"></path>
+                <path d="M212.7,184.7c-1.5-0.6-1.4,1-2.5,1.8c0.2-1.1,0.3-1.6,0.4-2.3C212.9,184.2,212.6,184.1,212.7,184.7z"></path>
+                <path d="M176.9,68.4c-0.8-0.3-1.4-0.6-2.1-0.9C175.2,66.3,177.1,66.6,176.9,68.4z"></path>
+                <path d="M-12,141.2c0.1-0.2,0.2-0.3,0.3-0.4c0.6-0.2,1.3-0.3,1.6,0.4C-9.8,141.9-11.3,142.9-12,141.2z"></path>
+                <path d="M179.2,174.9c-0.8,1.1-0.2,0.7-2.3,1.7c-0.1-0.2-0.3-0.4-0.6-0.7C179.5,174.9,179.3,175,179.2,174.9z"></path>
+                <path d="M53.8,161.5c0.2,1.8-0.2,2.2-1.7,2.2C53.2,162.3,52.8,162.9,53.8,161.5z"></path>
+                <path d="M207.7,4.4c0.6,0.6,2.1,0,1.7,1.7C208.6,5.7,207.5,5.7,207.7,4.4z"></path>
+                <path d="M184.6,26.2c0.4,0.6,0.7,1.1,1.1,1.6c-0.4,0.6-0.8,0.7-1.2,0.2C184,27.4,184,26.9,184.6,26.2z"></path>
+                <path d="M173.2,180.9c-0.4-1.7-0.3-1.8,1.6-2C174.2,179.6,173.7,180.2,173.2,180.9z"></path>
+                <path d="M75.9,73c1.6-0.6,1.6-0.5,1.5,1C76.8,73.6,76.4,73.3,75.9,73z"></path>
+                <path d="M192,59.4c-1.2,0-1.5-0.8-1.9-1.9C192.5,58,191.7,59.5,192,59.4z"></path>
+                <path d="M206.4,93.5c0.8-0.2,1.5-0.4,2.3-0.6c-0.2,0.4-0.2,0.9-0.4,1C207.7,94.2,207.1,94.3,206.4,93.5z"></path>
+                <path d="M173.8,183.2c-0.7,0-1.3,0-2.1,0c0.5-0.8,1-1.2,1.9-0.9C173.7,182.4,173.7,182.8,173.8,183.2z"></path>
+                <path d="M164.5,157.4c0.8-1.3,0.8-1.3,1.9-0.8C165.8,157,165.6,158,164.5,157.4z"></path>
+                <path d="M165.9,141.4c-0.3-0.2-0.7-0.4-1-0.6c0-0.7,0.4-1.1,1-0.8C166.6,140.3,166.4,140.8,165.9,141.4z"></path>
+                <path d="M189.8,70.1c-0.7-0.6-1.3-0.8-1.5-1.3c-0.2-0.5,0.3-0.9,1-0.7C189.5,68.7,189.6,69.2,189.8,70.1z"></path>
+                <path d="M192.7,61c-0.6-0.1-1.1-0.2-2.1-0.4c0.7-0.6,1.1-0.9,1.4-1.2c0,0,0,0,0,0C192.7,61.1,192.6,61,192.7,61z"></path>
+                <path d="M227.1,87.5c-0.3,0.6-0.4,1-0.6,1.5c-0.5-0.2-0.4,0.2-0.5-1.5C226.3,87.4,226.6,87.4,227.1,87.5z"></path>
+                <path d="M214.1,76.6c0.7,0.6,1.2,1.2,0.5,2.3C213.5,76.5,213.5,76.9,214.1,76.6z"></path>
+                <path d="M38.9,127.2c-1.6-0.9-0.1-2.1,0.3-1.6C40,126.2,39.4,126.6,38.9,127.2z"></path>
+                <path d="M261.3,105.3c-0.9,1.6-0.9,1.6-2.5,1.1C259.7,106,260.3,105.7,261.3,105.3z"></path>
+                <path d="M255.6,85.3c-1.5-0.7-1.5-0.8-0.7-2.2C255.1,83.8,255.3,84.5,255.6,85.3z"></path>
+                <path d="M183.8,67.8c1.5-0.9,1.5-0.9,2.3,0.8C185.3,68.3,184.6,68.1,183.8,67.8z"></path>
+                <path d="M205.6,27.6c1.1-1.1,1.1-1.1,2,0.2C206.8,27.7,206.3,27.7,205.6,27.6z"></path>
+                <path d="M185.7,109.5c1.3,0.3,1.3,0.3,0.4,2C185.9,110.7,185.8,110.2,185.7,109.5z"></path>
+                <path d="M158.9,46.4c-0.7-0.7-0.9-1.2-0.1-1.8C159.4,45.1,159.7,45.6,158.9,46.4z"></path>
+                <path d="M79.2,69.9c0.3-0.4,0.5-0.8,0.9-1.3c0.2,0.3,0.5,0.4,0.5,0.6C80.7,70.2,80,70.1,79.2,69.9z"></path>
+                <path d="M275.2,47.5c-1-0.7-0.3-1.3-0.3-2.1C275.9,46.1,275.7,46.7,275.2,47.5z"></path>
+                <path d="M78.7,68.9c-0.9,1.5-0.5,1.4-1.4,0.8C78.2,68.3,77.9,68.5,78.7,68.9z"></path>
+                <path d="M161.7,112.1c-0.8-1.5-0.1-2,0.6-2.5C162.7,109.9,162.8,109.5,161.7,112.1z"></path>
+                <path d="M177.3,134.7c-0.4,1-0.8,1.5-1.8,1C175.5,134.7,176.1,134.6,177.3,134.7z"></path>
+                <path d="M248.1,97.3c-0.5,0.2-1.1,0.3-1.9,0.6C246.6,96.6,247,96.1,248.1,97.3z"></path>
+                <path d="M140.2,119.9c-0.5-1,0.5-1.3,0.8-2.1C142.3,119.6,140,119.6,140.2,119.9z"></path>
+                <path d="M188.7,10c-0.8-1-1.2-1.7-0.3-2.5C188.4,8.2,188.5,8.9,188.7,10z"></path>
+                <path d="M211.3,89.8c0.3,0.6,0.7,1.3,1.1,2.1C211.2,91.6,211.2,91.6,211.3,89.8z"></path>
+                <path d="M222.1,13.1c-1.1,0.5-1.5-0.2-1.8-1C221.2,11.9,221.7,12.3,222.1,13.1z"></path>
+                <path d="M70.7,12.6c0.8-0.4,1.2-0.1,1.6,1.1C70.2,13,70.5,13.2,70.7,12.6z"></path>
+                <path d="M182.1,178.3c-1.1-1.5-1.1-1.5-0.1-2.1C182.7,176.7,182.3,177.3,182.1,178.3z"></path>
+                <path d="M218,72.7c0.2,1,0.2,1.7-0.9,2.1C217,74,216.9,73.3,218,72.7z"></path>
+                <path d="M114.2-1.8c0-1.2-0.1-2,0.9-2.1C115.5-3.4,115.6-3.7,114.2-1.8z"></path>
+                <path d="M176.3,181.1c-0.3,1.2-0.9,1.1-1.6,0.5C175.2,181.4,175.6,181.3,176.3,181.1z"></path>
+                <path d="M214.5,104.3c0.7-0.3,1.1-0.5,1.5-0.7c0.1,0.1,0.3,0.2,0.3,0.3C216.1,104.8,215.7,105.2,214.5,104.3z"></path>
+                <path d="M83.9,181.4c0.6,0.7,1,1.1,1.5,1.7C83.9,183.1,83.9,183.1,83.9,181.4z"></path>
+                <path d="M265.7,2c-0.7-0.6-1-1.2-0.5-2.1C266.1,0.4,266.1,1.1,265.7,2z"></path>
+                <path d="M154.7,148c-0.5-0.6-0.8-0.9-0.9-1.2c0-0.1,0.5-0.5,0.6-0.5c0.3,0.1,0.6,0.4,0.7,0.7C155.2,147.2,154.9,147.6,154.7,148
+                    z"></path>
+                <path d="M215,94.2c-1.1-1.3-1.1-1.3,0.4-1.9C215.3,93,215.2,93.5,215,94.2z"></path>
+                <path d="M199.3,92.7c0.7,1.2,0.9,0.8-0.1,1.7C198.6,93.6,198.5,94,199.3,92.7z"></path>
+                <path d="M73.2,153.9c0.3,0.4,0.5,0.8,0.7,1.2c-0.4,0.3,0,0.4-1.8-0.5C72.5,154.3,72.8,154.1,73.2,153.9z"></path>
+                <path d="M67.5,78.1c0.1,0.7,0.2,1.2,0.3,2c-0.6-0.5-1-0.7-1.2-1C66.2,78.4,66.9,78.4,67.5,78.1z"></path>
+                <path d="M274.6,88.8c-1.2-0.7-1.5-1.2-1.1-2C274.1,86.7,273.8,86.3,274.6,88.8z"></path>
+                <path d="M76,46.9c-1.6,0.4-1.6,0.4-1.6-1.1C75,46.1,75.4,46.4,76,46.9z"></path>
+                <path d="M63,75.9c0.8-0.6,0.8-0.8,1.8-0.4c0.1,0,0.1,0.5,0,0.5c-0.3,0.1-0.7,0.3-1,0.3C63.5,76.2,62.9,75.7,63,75.9z"></path>
+                <path d="M214.4,56.2c-0.4,1.3-1.1,1-1.8,0.9C212.4,56.6,212.1,56.8,214.4,56.2z"></path>
+                <path d="M79.8-3.8c0.7,0.8,0.7,0.5-0.4,1.4C78.9-3.1,78.8-2.7,79.8-3.8z"></path>
+                <path d="M243.4,61.4c-0.7,0.6-1.1,0.9-1.8,1.4C241.7,61.7,241.9,61.1,243.4,61.4z"></path>
+                <path d="M181.8,180.3c1.4-0.3,1.4,0.4,1.4,1.5C182.7,181.2,182.3,180.8,181.8,180.3z"></path>
+                <path d="M172,176.2c-0.1,0.6-0.2,1.4-1.5,0.8C171.9,175.7,171.5,175.8,172,176.2z"></path>
+                <path d="M244,79.8c0.7,0.8,0.5,0.3,0.9,1.7C243.8,81.4,243.8,80.9,244,79.8z"></path>
+                <path d="M199,65.8c0.2,0.7,0.3,1.1,0.4,1.5C198.3,67.1,198.3,67.1,199,65.8z"></path>
+                <path d="M224.2,8.3c-1.1,0.6-1.5,0.2-1.7-0.7C223,7.7,223.5,7.9,224.2,8.3z"></path>
+                <path d="M212.8,60.1c-0.9,0.7-1.5,0.8-1.9-0.4C211.6,59.8,212.2,60,212.8,60.1z"></path>
+                <path d="M72.3,74.1c0.5,0.4,0.8,0.7,1.2,1.1c-0.6,0.3-1,0.4-1.8,0.8C72,75.2,72.1,74.7,72.3,74.1z"></path>
+                <path d="M45.5,148.6c0.8-1.2,1.3-0.6,1.8,0C46.7,148.6,46.2,148.6,45.5,148.6z"></path>
+                <path d="M186.1,50.6c0,2.1,0.3,2-0.9,0.7C186.3,50.5,186.2,50.6,186.1,50.6z"></path>
+                <path d="M188.8,51c0.9,0.3,0.9,0.9,0.5,1.7C188.4,52.1,189.1,50.7,188.8,51z"></path>
+                <path d="M165.3,59.7c0.5,1.2-0.3,1.4-0.7,1.8C164,61.1,163.9,61.5,165.3,59.7z"></path>
+                <path d="M238.9,96.2c1.8-1,1.5-1,1.7-0.5C240.2,96.1,239.9,97,238.9,96.2C239,96.2,238.9,96.2,238.9,96.2z"></path>
+                <path d="M218.3,166.7c0.4-0.7,0.6-1.1,0.8-1.5C219.6,166.1,219.6,166.1,218.3,166.7z"></path>
+                <path d="M220.6,60.5c-0.5-0.5-0.7-0.9-1-1.2C220.2,59.2,221,59.1,220.6,60.5z"></path>
+                <path d="M157.7,182.6c-0.3-1.2-0.4-1,0.6-1.1C158.2,182.8,158.3,182.6,157.7,182.6z"></path>
+                <path d="M57.7,82.3c-1.4,0.4-1.4-1-1-1.1C57.4,81.2,57.7,81.6,57.7,82.3z"></path>
+                <path d="M208,24.5c0.5,0.7,0.7,1.1,1.1,1.6c-0.6,0-1-0.1-1.5-0.1C207.7,25.6,207.8,25.3,208,24.5z"></path>
+                <path d="M262.6,48.6c-0.1-0.3-0.2-0.7-0.3-1c0,0,0.4-0.2,0.5-0.2c0.2,0.3,0.3,0.6,0.5,0.9C263.1,48.4,262.9,48.5,262.6,48.6z"></path>
+                <path d="M147.2,47.4c-0.2-0.7-0.3-1.1-0.4-1.7c0.6,0.2,0.9,0.3,1.4,0.5C147.9,46.6,147.7,46.9,147.2,47.4z"></path>
+                <path d="M194,70.1c1.1-0.1,1.3,0.3,1.2,1C194.4,71.1,194.8,71.4,194,70.1z"></path>
+                <path d="M255.3,93.1c-0.3-0.3-0.6-0.5-0.6-0.7c0-0.2,0.3-0.6,0.5-0.6c0.2,0,0.5,0.2,0.7,0.4C255.8,92.4,255.6,92.6,255.3,93.1z"></path>
+                <path d="M247.8,78.9c-0.4-0.3-0.7-0.6-1.4-1.2c0.9,0.1,1.3,0.1,2,0.1C247.6,79.1,247.7,78.9,247.8,78.9z"></path>
+                <path d="M211.7-0.7c1.9,0.2,1.6,0.1,1.5,0.6C211.4-0.3,211.7-0.2,211.7-0.7z"></path>
+                <path d="M271.1-1.5c-0.4,0.8-0.1,0.7-1.6,0.4C270.1-1.9,270.6-1.9,271.1-1.5z"></path>
+                <path d="M219.1,13.2c0.7,1,0.5,1.4-0.1,1.6c-0.1,0.1-0.4-0.2-0.6-0.3C218.6,14.2,218.8,13.8,219.1,13.2z"></path>
+                <path d="M80.1,87.3c-0.9,0.6-0.6,0.6-1.2,0C79.7,86.6,79.4,86.7,80.1,87.3z"></path>
+                <path d="M183.9,90.7c-0.3-0.3-0.6-0.5-0.6-0.6c0-0.2,0.2-0.5,0.3-0.6c0.1-0.1,0.6,0.2,0.6,0.2C184.3,90,184.1,90.2,183.9,90.7z"></path>
+                <path d="M258.9,104.4c-0.2-0.1-0.5-0.3-0.5-0.4c-0.1-0.8,0.7-0.6,1-0.8C259.9,102.8,259.3,103.7,258.9,104.4z"></path>
+                <path d="M174.7,2c-1.1,0.6-0.7,0.7-1.5,0.2C173.5,1.7,173.2,1.8,174.7,2z"></path>
+                <path d="M170.7,118c-1.1,0.4-0.7,0.6-1.7-0.3C169.7,117.2,169.2,117.1,170.7,118z"></path>
+                <path d="M128.7,118.7c-0.3-0.2-0.7-0.4-1.1-0.8C128.5,117.4,128.8,117.7,128.7,118.7z"></path>
+                <path d="M58.6,119.3c-0.2,0.6-0.4,1-0.6,1.4c-0.2-0.1-0.4-0.2-0.4-0.3C57.3,119.7,57.6,119.4,58.6,119.3z"></path>
+                <path d="M135.7,122.6c0.8-1.1,0.8-1.1,1.7-0.3C136.6,123.1,135.3,122.3,135.7,122.6z"></path>
+                <path d="M122.4,140.3c-0.4,0.4-0.6,0.9-1.2,0c0-0.1,0.3-0.5,0.4-0.5C121.8,139.9,122.1,140.1,122.4,140.3z"></path>
+                <path d="M165.6,1.7c0.6,0.1,0.5-0.1,0.3,1.1C165.2,2.6,165.3,2.9,165.6,1.7z"></path>
+                <path d="M145.5,148.1c-0.5,1.1-0.9,1-1.5,0.9C143.9,148.3,143.7,148.5,145.5,148.1z"></path>
+                <path d="M76.2,154.4c-1,0.3-0.7,0.5-1.4-0.4C75.6,153.6,75.2,153.5,76.2,154.4z"></path>
+                <path d="M171.5,155.6c0.9-0.5,1.2-0.4,1.4,0.7C172.4,156,172.1,155.9,171.5,155.6z"></path>
+                <path d="M70.1,157.3c-0.6,0-1.1,0-1.8,0C69.1,156.2,69.6,156.7,70.1,157.3z"></path>
+                <path d="M170.8,181.1c0,1.3,0.2,1.1-0.7,1.1C170.2,180.9,170,181.1,170.8,181.1z"></path>
+                <path d="M234.5,181.7c-0.7,0.6-0.4,0.7-1.2,0C233.8,180.9,233.5,181,234.5,181.7z"></path>
+                <path d="M158.8,183.6c0.5,0.4,1,0.7,1.5,1.1C159.1,185,159.1,185,158.8,183.6z"></path>
+                <path d="M23.5,186.2c0.5,0.2,1.2,0,1.7,1.1C23.1,186.5,23.4,186.7,23.5,186.2z"></path>
+                <path d="M230.6,9.8c-1.1-0.2-0.9-0.1-0.8-0.7C230.9,9.3,230.8,9.1,230.6,9.8z"></path>
+                <path d="M208.8,22.3c-1.2-0.3-1.2-0.7-0.6-1.5C208.3,21.3,208.5,21.7,208.8,22.3z"></path>
+                <path d="M184.4,41.1c0.8,0.9,0.3,1.1-0.6,1.4C183.8,41.3,183.7,41.7,184.4,41.1z"></path>
+                <path d="M151.2,42.9c-1.3,0.5-1.4,0-1.5-1.1C150.3,42.2,150.6,42.4,151.2,42.9z"></path>
+                <path d="M184.7,54c-0.4,0.3-0.8,0.5-1.4,0.9C183.5,53.8,184,53.7,184.7,54z"></path>
+                <path d="M152.8,149.9c0.3-0.3,0.6-0.7,1-1.1C153.9,149.8,153.9,149.8,152.8,149.9z"></path>
+                <path d="M86.5,66.9c-0.9,0.1-1.2-0.1-1.3-0.9C86.1,65.8,86.3,66.2,86.5,66.9z"></path>
+                <path d="M192.3,69.4c-0.9,0.4-0.9,0.4-1.2-0.6C191.6,69.1,191.9,69.3,192.3,69.4z"></path>
+                <path d="M153.1,79c-0.3,0.1-0.7,0.1-1,0.1c0,0-0.1-0.4-0.1-0.4c0.3-0.1,0.7-0.2,1-0.3C153,78.6,153,78.8,153.1,79z"></path>
+                <path d="M247.7,78.9c0.2,2.4,0.1,1.9-1.4,0C248,78.9,247.8,79,247.7,78.9z"></path>
+                <path d="M237.3,84c0,0.6,0,1.1,0,1.9C236.3,85.1,237.1,84.6,237.3,84z"></path>
+                <path d="M229,179c-0.5,0-0.9,0-1.8,0C228.1,178.2,228.6,178.7,229,179z"></path>
+                <path d="M167.4,67.3c0.5-0.8,0.1-0.7,1.5-0.4C168.8,67.6,169.1,67.5,167.4,67.3z"></path>
+                <path d="M173.2,50.2c-1.2-0.1-1.1,0.1-0.1-1.1C173.4,49.3,173.4,49.1,173.2,50.2L173.2,50.2z"></path>
+                <path d="M137.4,17.3c-0.3,0.1-0.5,0.3-0.8,0.3c-0.1,0-0.4-0.3-0.4-0.5c0-0.2,0.2-0.4,0.4-0.5c0.2,0,0.4,0.1,0.6,0.2
+                    C137.2,17,137.3,17.1,137.4,17.3z"></path>
+                <path d="M93,51.9c-0.3-1.1-0.3-0.9,0.3-1.1C93.5,52,93.6,51.8,93,51.9z"></path>
+                <path d="M226.2,172.4c-1.1,0.4-0.8,0.5-1.5-0.2C225.3,171.6,224.9,171.6,226.2,172.4z"></path>
+                <path d="M93,15c0.3,0,0.7,0.1,1,0.1c0,0.1,0,0.3,0,0.3C92.7,15.5,92.9,15.5,93,15z"></path>
+                <path d="M190.4,9.8c-0.1,0.6,0.2,0.5-1.1,0.5C189.4,9.5,189.2,9.6,190.4,9.8z"></path>
+                <path d="M193.9,64.1c-0.6-0.6-0.4-0.4-0.8-1.3c0,0-0.2,0,1.2,0.2C194.1,63.4,194,63.8,193.9,64.1z"></path>
+                <path d="M177.8,53.7c1.4-0.2,1.2-0.3,1.2,0.2C177.7,54.3,177.9,54.4,177.8,53.7z"></path>
+                <path d="M194.8,68.5c1,1.1,0.9,0.8,0.7,1.2C194.1,69.5,194.2,69.8,194.8,68.5z"></path>
+                <path d="M190,44.7c0.5-1.1,0.3-1,1-0.6C190.3,45.2,190.5,45.1,190,44.7z"></path>
+                <path d="M24.7,102.7c0.2,0.3,0.4,0.6,0.4,0.6c-0.7,0.8-0.8,0.4-1.1,0C24.2,103.2,24.4,103,24.7,102.7z"></path>
+                <path d="M61.4,165.8c-0.3,0.2-0.6,0.4-0.7,0.4c-0.2-0.1-0.4-0.4-0.5-0.6c0-0.1,0.3-0.3,0.5-0.5
+                    C60.9,165.3,61.1,165.5,61.4,165.8z"></path>
+                <path d="M186.3,70.7c-0.2,1.3,0,0.9-0.8,1.4C185.1,71.2,185.4,71,186.3,70.7z"></path>
+                <path d="M169.8,150.5c0.7,0.7,0.7,0.4,0,1.1C169.3,151,169.3,151.3,169.8,150.5z"></path>
+                <path d="M147.4,149c1.3-0.6,1.1-0.6,1.3,0C147.4,149.6,147.7,149.6,147.4,149z"></path>
+                <path d="M171.6,113.6c-0.3-0.2-0.7-0.2-0.9-0.5c-0.2-0.3,0.3-0.6,0.8-0.3C172,113.1,172,113,171.6,113.6z"></path>
+                <path d="M206.1,31.8c-0.8,1-0.8,1-1.7,0.2C206.3,31.9,206.1,31.9,206.1,31.8z"></path>
+                <path d="M185.1,31.5c-0.5,0.5-0.9,0.9-1.6,1.5C183.6,31.8,183.9,31.4,185.1,31.5z"></path>
+                <path d="M207.1,31.9c-0.3,0.3-0.1,0.3-1,0C206.5,31,205.8,30.5,207.1,31.9z"></path>
+                <path d="M192,31.2c0.3,0.5,0.5,0.3-0.6,1C191.1,31.7,191,31.9,192,31.2z"></path>
+                <path d="M275.3,145.7c-0.6,0.3-0.7,0.7-1.2-0.3c0,0,0.4-0.4,0.5-0.3C274.8,145.1,275,145.4,275.3,145.7z"></path>
+                <path d="M185.4,30.8c0.3-1,0.1-0.8,0.9-0.5C185.6,31.2,185.8,31.1,185.4,30.8z"></path>
+                <path d="M198.1,47.1c0.4,1.2,0.3,0.7,0.2,1.9C197.3,47.4,197.2,47.8,198.1,47.1z"></path>
+                <path d="M31.2,123.7c-0.8,0.6-0.5,0.7-1.3,0C30.7,123.2,30.4,123.3,31.2,123.7z"></path>
+                <path d="M58.3,79.6c0,0.6,0.2,0.5-0.9,0.5C57.4,79.5,57.2,79.6,58.3,79.6z"></path>
+                <path d="M50.2,143.9c-1.1,0.9-0.8,0.8-1.4,0.2C49.5,143.4,49.2,143.5,50.2,143.9z"></path>
+                <path d="M194.4,67.1c0.3,0.2,0.5,0.4,0.6,0.5c0,0.1-0.2,0.4-0.4,0.5c-0.2,0-0.5-0.2-0.5-0.3C194.1,67.6,194.3,67.4,194.4,67.1z"></path>
+                <path d="M140.7,56.6c-0.9,0.4-0.6,0.5-1.2-0.2C140.2,56,139.9,55.9,140.7,56.6z"></path>
+                <path d="M147.9,126.7c0.9-1.4,0.6-1.3,1.1-0.9C148,127,148.2,126.9,147.9,126.7z"></path>
+                <path d="M129.9,184.4c-0.6-0.8-0.7-1.3-0.2-1.6C130.3,183,130.3,182.7,129.9,184.4z"></path>
+                <path d="M84.4,82.2c-0.3,0.4-0.6,0.6-0.9,0.9c-0.1-0.2-0.3-0.3-0.3-0.3C83.2,82.1,83.5,81.8,84.4,82.2z"></path>
+                <path d="M214.3,2.8c-0.7-0.9-0.7-0.7-0.5-1c0.6,0.2,0.4,0,0.8,0.8C214.5,2.7,214.4,2.8,214.3,2.8z"></path>
+                <path d="M56.9,161.8c0.3,0,0.7-0.1,1-0.1c0,0,0.1,0.3,0.1,0.3c-0.3,0.2-0.6,0.3-0.9,0.4C57,162.2,56.9,162,56.9,161.8z"></path>
+                <path d="M135.3,149.5c0.8,1,0.7,0.8,0.3,1.1C134.9,149.5,135,149.7,135.3,149.5z"></path>
+                <path d="M257.7,68.8c-1.2,0-1,0.1-1-0.2C257.9,68.2,257.6,68.2,257.7,68.8z"></path>
+                <path d="M81.2,173.4c0.3-0.2,0.6-0.3,0.9-0.5c0,0,0.2,0.2,0.2,0.2C81.4,174.1,81.5,174,81.2,173.4z"></path>
+                <path d="M156.8,182.7c0.7,0.6,0.8,0.3,0.1,1.1C156.2,183.2,156.4,183.5,156.8,182.7z"></path>
+                <path d="M152.8,183.7c0.2-0.2,0.4-0.5,0.6-0.7c0,0,0.3,0.2,0.3,0.2C153.2,184.3,153.3,184.1,152.8,183.7z"></path>
+                <path d="M90.4,47.8c0.1-0.1,0.3-0.3,0.4-0.3c0.4,0,0.7,0.1,1.1,0.4C90.2,48.1,90.5,48.2,90.4,47.8z"></path>
+                <path d="M157,35.3c-0.2-0.2-0.4-0.4-0.6-0.7c0,0,0.2-0.3,0.2-0.2C157.5,35.1,157.4,35,157,35.3z"></path>
+                <path d="M186.6,33.8c0.6-0.2,0.4-0.4,0.8,0.6C186.9,34.7,187.1,34.8,186.6,33.8z"></path>
+                <path d="M177,185.3c-1.1,0.4-0.9,0.4-1,0C177.1,184.9,176.9,184.9,177,185.3z"></path>
+                <path d="M181.1,32.2c0.1-0.3,0.2-0.6,0.3-1C181.8,31.8,181.8,31.8,181.1,32.2z"></path>
+                <path d="M150.4,28.6c-0.8,0.5-0.5,0.6-1.2,0C149.8,28.1,149.5,28,150.4,28.6z"></path>
+                <path d="M153.3,60.3c0.3,0.5,0.3,0.2,0,1.1C152.5,60.7,152.8,60.6,153.3,60.3z"></path>
+                <path d="M185.1,81.7c0,0.3,0.1,0.6,0.1,1c-0.1,0-0.3,0.1-0.3,0C184.5,81.6,184.6,81.8,185.1,81.7z"></path>
+                <path d="M236.3,21.8c-0.8,0.6-0.5,0.7-1.3,0.2C235.6,21.4,235.3,21.4,236.3,21.8z"></path>
+                <path d="M81.8,83.6c-0.9,0.3-0.6,0.3-1-0.1C81.6,83,81.4,83,81.8,83.6z"></path>
+                <path d="M192.6,61c0.6-0.1,1.1-0.1,2.1-0.2C193.3,62.1,192.8,60.8,192.6,61z"></path>
+                <path d="M241.5-3.5c0.7,0.8,0.7,0.5,0.2,1.2C241.3-2.7,241.3-2.4,241.5-3.5z"></path>
+                <path d="M244.3,86.2c0.2,0.5,0.9,1-0.1,1.5C243.4,86.8,244.4,86.3,244.3,86.2z"></path>
+                <path d="M132.8,12.4c-0.9,0.3-0.6,0.4-1.1-0.3C132.4,11.7,132.1,11.6,132.8,12.4z"></path>
+                <path d="M183.5,10.4c-0.3-0.1-0.5-0.1-0.8-0.2c0-0.1,0.1-0.3,0.1-0.3C183.7,10,183.6,10,183.5,10.4z"></path>
+                <path d="M143.9,10.2c-0.5,0.5-0.3,0.5-0.9-0.1C143.5,9.8,143.3,9.7,143.9,10.2z"></path>
+                <path d="M119.7,8.5c-0.9,0.5-0.5,0.6-1.3-0.1C119.1,8,118.8,7.9,119.7,8.5z"></path>
+                <path d="M96.9,7.6c0.4,1,0.5,0.7-0.1,1.2C96.2,8,96.3,8.3,96.9,7.6z"></path>
+                <path d="M224,93.2c-0.8-1.1-0.8-0.7-0.3-1.5C224.1,91.9,224,91.6,224,93.2z"></path>
+                <path d="M220.7,93.2c-0.2-0.3-0.5-0.4-0.5-0.6c0-0.2,0.2-0.5,0.4-0.5c0.2,0,0.5,0.2,0.5,0.3C221.2,92.7,220.9,92.9,220.7,93.2z"></path>
+                <path d="M-2.2,92.8c-0.1,0.7-0.2,1.2-0.3,1.9C-3.1,93.8-3.1,93.4-2.2,92.8z"></path>
+                <path d="M214.6,98c1,0,0.9-0.1,0.9,0.3C214.4,98.4,214.6,98.4,214.6,98z"></path>
+                <path d="M141.5,99.6c-0.1-0.2-0.3-0.3-0.3-0.4c0-0.1,0.2-0.3,0.3-0.4c0.1,0,0.3,0.2,0.4,0.3C141.9,99.3,141.7,99.4,141.5,99.6z"></path>
+                <path d="M197.6,99.3c-0.4,0.2-0.6,0.3-0.8,0.4c-0.1,0-0.3-0.3-0.3-0.4C197.2,98.6,197.1,98.9,197.6,99.3z"></path>
+                <path d="M229.6,100c-0.2,1.3-0.1,1.1-0.6,1C229.1,99.7,228.9,99.9,229.6,100z"></path>
+                <path d="M188.3,101.1c-0.2-0.2-0.3-0.3-0.5-0.4c0.2-0.2,0.3-0.3,0.5-0.4c0,0,0.3,0.1,0.3,0.2
+                    C188.6,100.6,188.5,100.8,188.3,101.1z"></path>
+                <path d="M117.9,4.9c-1-0.4-1-0.9-0.7-1.4C117.8,3.4,117.6,3.2,117.9,4.9z"></path>
+                <path d="M263.7,111.4c-0.9-1.1-0.8-0.8-0.5-1.1c0.9,0.6,0.6,0.3,0.8,1C263.9,111.3,263.8,111.4,263.7,111.4z"></path>
+                <path d="M144.3,53.4c-0.2,0.2-0.4,0.3-0.6,0.4c0,0-0.7-0.3,0.1-0.8C143.9,53,144.1,53.2,144.3,53.4z"></path>
+                <path d="M190.2,65.1c0-0.6,0-0.9,0.1-1.5C191.5,64.5,191.4,64.3,190.2,65.1z"></path>
+                <path d="M193.6,57.6c0,0.7-0.4,0.8-1.2,0.6C193.5,57.2,193.2,57.3,193.6,57.6z"></path>
+                <path d="M124.9,118.4c-1,0.6-0.8,0.6-1.1,0.2C124.8,117.9,124.6,117.9,124.9,118.4z"></path>
+                <path d="M40.1,120.4c-0.7-0.8-0.7-0.5-0.2-1.2C40.6,119.7,40.5,119.5,40.1,120.4z"></path>
+                <path d="M175.7,65.3c-0.8,0.6-0.6,0.7-1.2,0C175,64.9,174.7,64.9,175.7,65.3z"></path>
+                <path d="M173.2,50.2c1,0.8,0.2,1.3-0.2,1C172.3,50.6,173.5,50.1,173.2,50.2z"></path>
+                <path d="M71.3,51.5c0.2-1.4,0.1-1.2,0.6-1.1C71.8,51.8,72,51.6,71.3,51.5z"></path>
+                <path d="M150.7,143.5c1.3-0.1,1-0.2,1.1,0.3C150.5,144,150.7,144.1,150.7,143.5z"></path>
+                <path d="M12.7,50.6c0.4-0.2,0.9-0.7,1,0.2c0,0.1-0.3,0.3-0.4,0.3C13.2,51.1,13.1,50.9,12.7,50.6z"></path>
+                <path d="M21,2.6c-1,0.4-1.2,0.2-1.2-0.9C20.2,2.1,20.5,2.3,21,2.6z"></path>
+                <path d="M130,156.3c-1.5,0.8-1.2,0.7-1.5,0.4C129.1,155.9,128.8,156.1,130,156.3z"></path>
+                <path d="M254.3,37.9c0.2-1,0.1-0.9,0.5-0.8C254.5,38.2,254.6,38,254.3,37.9z"></path>
+                <path d="M191.7,37.7c-0.2,0.2-0.4,0.3-0.6,0.4c-0.3-0.4-0.6-0.5,0.3-0.9C191.4,37.2,191.5,37.4,191.7,37.7z"></path>
+                <path d="M199,73.5c0.6-0.1,1-0.2,1.4-0.3C200.1,73.9,200.1,73.9,199,73.5z"></path>
+                <path d="M214.3,34.3c0,0.3,0,0.5-0.1,0.8c0,0-0.3,0-0.3,0C213.9,34.2,213.9,34.4,214.3,34.3z"></path>
+                <path d="M153.1,32.9c0.2,0.2,0.3,0.4,0.4,0.5c-0.2,0.1-0.3,0.3-0.5,0.4c-0.1,0-0.4-0.3-0.3-0.3
+                    C152.7,33.3,152.9,33.1,153.1,32.9z"></path>
+                <path d="M161.1,75.1c-0.8,0.4-0.6,0.4-0.8,0C161.1,74.8,161,74.7,161.1,75.1z"></path>
+                <path d="M69.2,78.2c-0.6,0.3-0.4,0.4-0.9-0.3C69,77.7,68.8,77.6,69.2,78.2z"></path>
+                <path d="M45.1,137.7c0.2,0.2,0.3,0.4,0.4,0.6c0,0.1-0.3,0.3-0.3,0.3c-0.2-0.1-0.3-0.3-0.5-0.4C44.8,138,44.9,137.9,45.1,137.7z"></path>
+                <path d="M140.2,119.8c0.1,0.5,0.3,1-0.6,1.1C139.4,120.1,140.4,119.9,140.2,119.8z"></path>
+                <path d="M129.9,139.5c-0.9,0.4-0.6,0.4-1.1-0.2C129.6,139,129.4,139,129.9,139.5z"></path>
+                <path d="M120.2,140.5c-0.2,0.2-0.3,0.4-0.5,0.3c-0.1,0-0.3-0.2-0.3-0.3c0-0.1,0.2-0.3,0.3-0.3
+                    C119.9,140.2,120,140.4,120.2,140.5z"></path>
+                <path d="M233.2,95.5c0.4,0.9,0.4,0.6,0.1,1.2C232.7,96.2,232.8,96.5,233.2,95.5z"></path>
+                <path d="M255.2,96.4c-0.3-0.2-0.4,0,0-0.9C255.5,95.6,255.5,95.4,255.2,96.4z"></path>
+                <path d="M76.8,146.8c0.2,0.2,0.3,0.3,0.4,0.4c-0.1,0.1-0.2,0.3-0.3,0.3c-0.1,0-0.3-0.2-0.3-0.3C76.5,147.1,76.7,147,76.8,146.8z
+                    "></path>
+                <path d="M256.1,53.2c-0.6,0.5-0.3,0.5-0.9,0.1C255.7,52.8,255.5,52.9,256.1,53.2z"></path>
+                <path d="M237,94c0.3-0.8,0.1-0.6,0.8-1c-0.2,1,0,0.7-0.5,1.1C237.2,94.1,237.1,94.1,237,94z"></path>
+                <path d="M269.5,151.7c-0.5-0.4-0.5-0.2-0.2-0.8C269.9,151.2,269.8,151,269.5,151.7z"></path>
+                <path d="M95.1,5.1c0.2,0.1,0.3,0.2,0.5,0.3c-0.1,0.1-0.3,0.3-0.4,0.4c-0.1,0-0.3-0.2-0.3-0.3C94.8,5.4,95,5.2,95.1,5.1z"></path>
+                <path d="M150.9,151.4c-0.2,0.9-0.1,0.8-0.6,0.6C150.7,151.2,150.5,151.3,150.9,151.4z"></path>
+                <path d="M53,121.7c1.2,0.1,1,0,1,0.4C52.8,122.1,53,122.2,53,121.7z"></path>
+                <path d="M135.6,122.5c0.2,0.3,0.3,0.7-0.2,0.8c-0.1,0-0.3-0.2-0.5-0.2C135.8,122.5,135.7,122.6,135.6,122.5z"></path>
+                <path d="M142.1,115.1c-0.4,0.5-0.2,0.6-0.8,0.1C141.6,114.8,141.4,114.8,142.1,115.1z"></path>
+                <path d="M56.8,92.4c-0.6-0.4-0.6-0.2,0-0.8C57.3,92.1,57.2,91.9,56.8,92.4z"></path>
+                <path d="M81.4,161.4c-0.6-0.7-0.6-0.5-0.1-1C81.9,161,81.9,160.7,81.4,161.4z"></path>
+                <path d="M158.6,160.5c0.2-0.1,0.3-0.3,0.5-0.4c0,0,0.2,0.2,0.2,0.2C159,161,159,160.8,158.6,160.5z"></path>
+                <path d="M219.8,163.1c-0.5,0.9-0.4,0.8-0.7,0.6C219.5,162.8,219.3,162.9,219.8,163.1z"></path>
+                <path d="M170.7,66.9c-0.8,0.4-0.6,0.4-0.8-0.1C170.6,66.4,170.4,66.4,170.7,66.9z"></path>
+                <path d="M161.4,165.9c-0.6-0.8-0.5-0.5-0.3-0.9C161.7,165.9,161.7,165.7,161.4,165.9z"></path>
+                <path d="M210.2,168.8c0.1,0.3,0.2,0.5,0.3,0.7C209.8,169.2,210,169.4,210.2,168.8z"></path>
+                <path d="M77.2,13c-0.4-0.6-0.5-0.4,0.1-1C77.7,12.4,77.7,12.2,77.2,13z"></path>
+                <path d="M112.2-1.7c0.1,0.2,0.2,0.4,0.3,0.5c-0.2,0.1-0.3,0.1-0.5,0.1c-0.1,0-0.2-0.2-0.2-0.2C111.9-1.4,112-1.5,112.2-1.7z"></path>
+                <path d="M218.7,66.8c0.2-0.1,0.5-0.2,0.7-0.2c0,0,0.1,0.3,0.1,0.3C218.8,67.3,218.9,67.2,218.7,66.8z"></path>
+                <path d="M223.1,171.2c0,0-0.1,0.3-0.2,0.3c-0.3-0.1-0.6-0.2-0.8-0.3C222.5,170.6,222.3,170.5,223.1,171.2z"></path>
+                <path d="M216.4,171.5c0.6,0.7,0.6,0.5,0,0.9C215.9,171.7,215.9,171.9,216.4,171.5z"></path>
+                <path d="M165.7,15.2c0.4,0.6,0.4,0.4,0,0.8C165.2,15.6,165.3,15.8,165.7,15.2z"></path>
+                <path d="M31.8,129.9c-0.4-0.5-0.5-0.3-0.1-0.8C32.2,129.5,32.2,129.3,31.8,129.9z"></path>
+                <path d="M210.5,63.9c0.1,0.9,0.1,0.8-0.2,0.8C210.2,63.8,210.1,63.9,210.5,63.9z"></path>
+                <path d="M87.7,173.4c1.1-0.1,0.9-0.2,1,0.3C87.6,173.9,87.8,174,87.7,173.4z"></path>
+                <path d="M167.1,85.5c-0.1-0.2-0.2-0.3-0.3-0.5c0.2-0.1,0.4-0.2,0.6-0.3c0,0,0.2,0.3,0.2,0.4C167.5,85.3,167.3,85.3,167.1,85.5z"></path>
+                <path d="M179.3,174.9c1-0.4,0.8-0.5,0.9,0C179.1,174.9,179.2,174.9,179.3,174.9z"></path>
+                <path d="M232.2-3.3c0.3,0.1,0.6,0.2,0.9,0.3c0,0.1-0.1,0.3-0.1,0.3C231.9-2.9,232.1-2.9,232.2-3.3z"></path>
+                <path d="M104.4,65.4c-0.1-0.6-0.3-0.5,0.8-0.7C105.4,65.3,105.5,65.2,104.4,65.4z"></path>
+                <path d="M14.9,84c-1.3,0.4-1,0.4-1.2-0.1C15,83.5,14.7,83.5,14.9,84z"></path>
+                <path d="M90.7,19.8c0.2,0.3,0.4,0.5,0.5,0.7c0,0-0.3,0.3-0.3,0.3C90.1,20.3,90.4,20.3,90.7,19.8z"></path>
+                <path d="M157.1,179.6c-0.2,0.2-0.3,0.4-0.5,0.4c-0.1,0-0.3-0.2-0.3-0.3c0-0.2,0.2-0.4,0.3-0.4
+                    C156.7,179.3,156.9,179.5,157.1,179.6z"></path>
+                <path d="M69.7,180.4c0.3,0.1,0.5,0.2,0.8,0.2c0,0.1-0.1,0.3-0.1,0.3C69.4,180.7,69.6,180.7,69.7,180.4z"></path>
+                <path d="M102.4,82.3c0.5,0.5,0.6,0.2,0.1,1C102.1,82.7,102.1,82.9,102.4,82.3z"></path>
+                <path d="M69,81.8c0.1,0.3,0.3,0.6,0.3,0.6c-0.1,0.2-0.4,0.3-0.6,0.3c-0.1,0-0.4-0.3-0.3-0.5C68.4,82.1,68.7,82.1,69,81.8z"></path>
+                <path d="M231.3,22.5c-0.6,0.3-0.5,0.3-0.7-0.2C231.3,22.1,231.1,22.1,231.3,22.5z"></path>
+                <path d="M73.7,181.8c0.3,0.5,0.5,0.6,0.6,0.8c0,0.1-0.3,0.3-0.4,0.3C73.1,182.5,73.5,182.2,73.7,181.8z"></path>
+                <path d="M78.6,81.6c0.3,0,0.6,0.1,1,0.1c-0.1,0.4-0.2,0.6-0.4,1.2C78.6,81.4,78.7,81.6,78.6,81.6z"></path>
+                <path d="M170.4,183.2c-0.3,0.5-0.1,0.5-0.8,0.1C169.8,182.9,169.6,182.9,170.4,183.2z"></path>
+                <path d="M147.1,24.5c0.4,0.5,0.5,0.3,0,0.8C146.6,24.7,146.6,24.9,147.1,24.5z"></path>
+                <path d="M269.7,134.9c-0.9,0.5-0.6,0.5-1.2,0.1C269.2,134.5,268.9,134.6,269.7,134.9z"></path>
+                <path d="M64.5,79.3c-0.6,0.5-0.3,0.5-1.1,0.1C63.8,78.9,63.5,78.9,64.5,79.3z"></path>
+                <path d="M71.2,101.7c0.3,1.1,0.3,0.8-0.2,1.3C70.4,102.3,70.4,102.7,71.2,101.7z"></path>
+                <path d="M89.4,136.8c-0.6,0.3-0.4,0.3-0.7,0C89.3,136.4,89.1,136.4,89.4,136.8z"></path>
+            </g>
+        </g>
+    </g>
+</mask>
+<g class="st2">
+    <g>
+        <g>
+            <path class="st3" d="M128,256C57.4,256,0,198.6,0,128S57.4,0,128,0c70.6,0,128,57.4,128,128S198.6,256,128,256z M128,6.5
+                C61,6.5,6.5,61,6.5,128S61,249.6,128,249.6c67,0,121.6-54.5,121.6-121.6S195.1,6.5,128,6.5z"></path>
+        </g>
+        <g>
+            <path class="st3" d="M128,230.7c-56.6,0-102.6-46-102.6-102.6S71.4,25.4,128,25.4c56.6,0,102.6,46,102.6,102.6
+                S184.6,230.7,128,230.7z M128,28.6c-54.8,0-99.4,44.6-99.4,99.4s44.6,99.4,99.4,99.4c54.8,0,99.4-44.6,99.4-99.4
+                S182.8,28.6,128,28.6z"></path>
+        </g>
+        <g>
+            <g>
+                <path class="st3" d="M244.5,142l-3.5,1.2c-0.3,1.2-0.6,2.4-1,3.5c-0.7-1-1.3-2-2.1-3l-3.6,0.1l2.1-2.8c-0.4-1.1-0.9-2.2-1.4-3.2
+                    l3.5,1l2.7-2.4c0.1,1.2,0.1,2.4,0.2,3.7L244.5,142z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M240.6,161l-3.6,0.6c-0.5,1.1-1.1,2.2-1.6,3.3l-1.5-3.3l-3.6-0.5c0.9-0.8,1.7-1.6,2.6-2.4l-0.8-3.4l3.3,1.5
+                    c1.1-0.6,2.1-1.3,3.1-1.9c-0.1,1.2-0.3,2.4-0.5,3.6L240.6,161z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M233.7,179.1l-3.7,0l-2.1,3l-1-3.5l-3.5-1.1l3-2c-0.1-1.2-0.2-2.4-0.3-3.5l3,2.1l3.4-1.4l-1.1,3.5
+                    C232.1,177.1,232.9,178.1,233.7,179.1z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M223.8,195.7l-3.6-0.6c-0.8,0.9-1.7,1.8-2.6,2.6c-0.1-1.2-0.2-2.4-0.4-3.6l-3.2-1.6c1.1-0.5,2.1-1,3.2-1.5
+                    c0.1-1.2,0.3-2.3,0.3-3.5l2.6,2.5l3.5-0.8c-0.5,1.1-1,2.2-1.6,3.3L223.8,195.7z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M211.3,210.6c-1.1-0.4-2.3-0.8-3.5-1.2l-3,2.2l0.2-3.6l-2.9-2.1c1.1-0.3,2.3-0.6,3.4-0.9l0.9-3.4l2.2,2.9
+                    c1.2-0.1,2.4-0.1,3.6-0.2c-0.7,1-1.4,2-2.2,3L211.3,210.6z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M196.6,223.2l-3.2-1.7c-1.1,0.6-2.2,1.1-3.3,1.7c0.3-1.2,0.6-2.3,0.8-3.5l-2.5-2.6l3.5-0.4
+                    c0.5-1.1,1-2.1,1.4-3.2l1.7,3.2l3.6,0.4c-0.9,0.9-1.7,1.8-2.6,2.6L196.6,223.2z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M180,233.2c-1-0.7-1.9-1.5-2.9-2.2l-3.5,1.1l1.4-3.4l-2.1-3c1.2,0.1,2.4,0.2,3.5,0.2l1.9-2.9l1.1,3.5
+                    c1.2,0.3,2.3,0.7,3.5,1c-1,0.8-2,1.4-3,2.1L180,233.2z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M162,240.3l-2.5-2.7c-1.2,0.2-2.4,0.4-3.6,0.5c0.7-1,1.3-2.1,1.9-3.1l-1.6-3.3l3.4,0.8
+                    c0.8-0.8,1.6-1.7,2.4-2.6l0.5,3.6l3.3,1.5l-3.3,1.6C162.4,237.9,162.2,239.1,162,240.3z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M143.1,244.3l-2-3.1c-1.2,0-2.5-0.1-3.7-0.1c0.8-0.9,1.6-1.8,2.4-2.7l-1-3.5c1.1,0.5,2.1,0.9,3.2,1.3
+                    c0.9-0.7,1.9-1.4,2.8-2.1l-0.1,3.6c1,0.7,2,1.3,3,2c-1.2,0.4-2.3,0.8-3.5,1.1L143.1,244.3z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M123.7,245.2l-1.5-3.3l-3.6-0.7l2.8-2.3l-0.4-3.6c1,0.7,2,1.3,3,1.9l3.1-1.7l-0.7,3.6
+                    c0.9,0.9,1.7,1.7,2.6,2.5c-1.2,0.2-2.4,0.3-3.6,0.4L123.7,245.2z"></path>
+            </g>
+            <g>
+                <polygon class="st3" points="104.5,243 103.6,239.4 100.1,238.1 103.3,236.3 103.5,232.6 106.1,235 109.4,233.9 108.2,237.3 
+                    110.4,240.2 106.7,240 				"></polygon>
+            </g>
+            <g>
+                <path class="st3" d="M85.9,237.5l-0.3-3.6c-1.1-0.6-2.1-1.2-3.2-1.8c1.1-0.4,2.3-0.8,3.4-1.3l0.8-3.5l2.2,2.7
+                    c1.2-0.2,2.3-0.3,3.5-0.6l-1.8,3.2l1.7,3.2c-1.2-0.2-2.4-0.5-3.6-0.7L85.9,237.5z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M68.4,229.1c0.1-1.2,0.2-2.4,0.3-3.6l-2.8-2.4l3.6-0.7l1.4-3.4c0.5,1,1.1,2.1,1.7,3.1l3.5,0l-2.3,2.8
+                    c0.3,1.2,0.7,2.3,1.1,3.5c-1.2-0.4-2.3-0.9-3.4-1.4L68.4,229.1z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M52.6,217.9l0.9-3.5c-0.8-0.9-1.7-1.8-2.4-2.8c1.2,0,2.4-0.1,3.6-0.1l1.9-3.1l1.2,3.3
+                    c1.1,0.3,2.3,0.4,3.5,0.6l-2.7,2.4l0.5,3.6l-3.2-1.9C54.9,216.9,53.8,217.4,52.6,217.9z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M38.9,204.2l1.5-3.3c-0.7-1-1.3-2.1-1.9-3.1l3.6,0.5l2.4-2.8c0.2,1.2,0.4,2.3,0.6,3.5l3.3,1.2l-3.1,1.9
+                    c-0.1,1.2-0.1,2.4-0.1,3.6c-1-0.8-1.9-1.5-2.8-2.4L38.9,204.2z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M27.5,188.5l2-3.1l-1.4-3.4l3.5,1.1l2.8-2.3l0,3.5c1,0.6,2.1,1.1,3.1,1.7l-3.4,1.4l-0.7,3.6l-2.4-2.8
+                    C30,188.3,28.7,188.4,27.5,188.5z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M19,171.2l2.5-2.7c-0.3-1.2-0.5-2.4-0.8-3.6c1.1,0.6,2.1,1.1,3.2,1.6l3.1-1.8c-0.2,1.2-0.3,2.3-0.5,3.5
+                    c0.9,0.7,1.8,1.5,2.8,2.2l-3.5,0.8l-1.2,3.4c-0.6-1-1.3-2.1-1.9-3.2L19,171.2z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M13.3,152.6c0.9-0.8,1.9-1.5,2.9-2.2l-0.2-3.7l2.9,2.2l3.4-1.3c-0.4,1.1-0.8,2.2-1.1,3.4l2.4,2.6l-3.6,0.2
+                    c-0.6,1-1.3,2.1-1.8,3.2c-0.5-1.1-0.9-2.3-1.3-3.4L13.3,152.6z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M10.9,133.4l3.2-1.7l0.4-3.6l2.6,2.6l3.6-0.7L19,133c0.6,1,1.3,2,1.9,3l-3.6-0.4l-2.3,2.8l-0.7-3.6
+                    C13.1,134.4,12,133.9,10.9,133.4z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M11.6,114.1l3.5-1.2c0.3-1.2,0.6-2.4,1-3.5c0.7,1,1.3,2,2.1,3l3.6-0.1l-2.1,2.8c0.4,1.1,0.9,2.2,1.4,3.2
+                    l-3.5-1l-2.7,2.4c-0.1-1.2-0.1-2.4-0.2-3.7L11.6,114.1z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M15.5,95.1l3.6-0.6c0.5-1.1,1.1-2.2,1.6-3.3l1.5,3.3l3.6,0.5c-0.9,0.8-1.7,1.6-2.6,2.4l0.8,3.4l-3.3-1.5
+                    c-1.1,0.6-2.1,1.3-3.1,1.9c0.1-1.2,0.3-2.4,0.5-3.6L15.5,95.1z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M22.4,77l3.7,0l2.1-3l1,3.5l3.5,1.1l-3,2c0.1,1.2,0.2,2.4,0.3,3.5L27,82l-3.4,1.4l1.1-3.5
+                    C23.9,78.9,23.1,77.9,22.4,77z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M32.3,60.3l3.6,0.6c0.8-0.9,1.7-1.8,2.6-2.6c0.1,1.2,0.2,2.4,0.4,3.6l3.2,1.6C41,64,40,64.5,38.9,65
+                    c-0.1,1.2-0.3,2.3-0.3,3.5L35.9,66l-3.5,0.8c0.5-1.1,1-2.2,1.6-3.3L32.3,60.3z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M44.7,45.5c1.1,0.4,2.3,0.8,3.5,1.2l3-2.2l-0.2,3.6l2.9,2.1c-1.1,0.3-2.3,0.6-3.4,0.9l-0.9,3.4l-2.2-2.9
+                    c-1.2,0.1-2.4,0.1-3.6,0.2c0.7-1,1.4-2,2.2-3L44.7,45.5z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M59.4,32.9l3.2,1.7c1.1-0.6,2.2-1.1,3.3-1.7c-0.3,1.2-0.6,2.3-0.8,3.5l2.5,2.6l-3.5,0.4
+                    c-0.5,1.1-1,2.1-1.4,3.2l-1.7-3.2l-3.6-0.4c0.9-0.9,1.7-1.8,2.6-2.6L59.4,32.9z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M76,22.9c1,0.7,1.9,1.5,2.9,2.2l3.5-1.1l-1.4,3.4l2.1,3c-1.2-0.1-2.4-0.2-3.5-0.2l-1.9,2.9l-1.1-3.5
+                    c-1.2-0.3-2.3-0.7-3.5-1c1-0.8,2-1.4,3-2.1L76,22.9z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M94,15.8l2.5,2.7c1.2-0.2,2.4-0.4,3.6-0.5c-0.7,1-1.3,2.1-1.9,3.1l1.6,3.3l-3.4-0.8
+                    c-0.8,0.8-1.6,1.7-2.4,2.6l-0.5-3.6L90.2,21l3.3-1.6C93.6,18.1,93.8,16.9,94,15.8z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M113,11.7l2,3.1c1.2,0,2.5,0.1,3.7,0.1c-0.8,0.9-1.6,1.8-2.4,2.7l1,3.5c-1.1-0.5-2.1-0.9-3.2-1.3
+                    c-0.9,0.7-1.9,1.4-2.8,2.1l0.1-3.6c-1-0.7-2-1.3-3-2c1.2-0.4,2.3-0.8,3.5-1.1L113,11.7z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M132.3,10.8l1.5,3.3l3.6,0.7l-2.8,2.3l0.4,3.6c-1-0.7-2-1.3-3-1.9l-3.1,1.7l0.7-3.6
+                    c-0.9-0.9-1.7-1.7-2.6-2.5c1.2-0.2,2.4-0.3,3.6-0.4L132.3,10.8z"></path>
+            </g>
+            <g>
+                <polygon class="st3" points="151.6,13.1 152.5,16.7 155.9,17.9 152.8,19.8 152.6,23.4 150,21 146.6,22.2 147.9,18.8 145.7,15.9 
+                    149.4,16 				"></polygon>
+            </g>
+            <g>
+                <path class="st3" d="M170.2,18.6l0.3,3.6c1.1,0.6,2.1,1.2,3.2,1.8c-1.1,0.4-2.3,0.8-3.4,1.3l-0.8,3.5l-2.2-2.7
+                    c-1.2,0.2-2.3,0.3-3.5,0.6l1.8-3.2l-1.7-3.2c1.2,0.2,2.4,0.5,3.6,0.7L170.2,18.6z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M187.6,27c-0.1,1.2-0.2,2.4-0.3,3.6l2.8,2.4l-3.6,0.7l-1.4,3.4c-0.5-1-1.1-2.1-1.7-3.1l-3.5,0l2.3-2.8
+                    c-0.3-1.2-0.7-2.3-1.1-3.5c1.2,0.4,2.3,0.9,3.4,1.4L187.6,27z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M203.4,38.2l-0.9,3.5c0.8,0.9,1.7,1.8,2.4,2.8c-1.2,0-2.4,0.1-3.6,0.1l-1.9,3.1l-1.2-3.3
+                    c-1.1-0.3-2.3-0.4-3.5-0.6l2.7-2.4l-0.5-3.6l3.2,1.9C201.2,39.2,202.3,38.7,203.4,38.2z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M217.2,51.8l-1.5,3.3c0.7,1,1.3,2.1,1.9,3.1l-3.6-0.5l-2.4,2.8c-0.2-1.2-0.4-2.3-0.6-3.5l-3.3-1.2l3.1-1.9
+                    c0.1-1.2,0.1-2.4,0.1-3.6c1,0.8,1.9,1.5,2.8,2.4L217.2,51.8z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M228.5,67.5l-2,3.1l1.4,3.4l-3.5-1.1l-2.8,2.3l0-3.5c-1-0.6-2.1-1.1-3.1-1.7l3.4-1.4l0.7-3.6l2.4,2.8
+                    C226.1,67.7,227.3,67.6,228.5,67.5z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M237.1,84.9l-2.5,2.7c0.3,1.2,0.5,2.4,0.8,3.6c-1.1-0.6-2.1-1.1-3.2-1.6l-3.1,1.8c0.2-1.2,0.3-2.3,0.5-3.5
+                    c-0.9-0.7-1.8-1.5-2.8-2.2l3.5-0.8l1.2-3.4c0.6,1,1.3,2.1,1.9,3.2L237.1,84.9z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M242.7,103.4c-0.9,0.8-1.9,1.5-2.9,2.2l0.2,3.7l-2.9-2.2l-3.4,1.3c0.4-1.1,0.8-2.2,1.1-3.4l-2.4-2.6
+                    l3.6-0.2c0.6-1,1.3-2.1,1.8-3.2c0.5,1.1,0.9,2.3,1.3,3.4L242.7,103.4z"></path>
+            </g>
+            <g>
+                <path class="st3" d="M245.2,122.6l-3.2,1.7l-0.4,3.6l-2.6-2.6l-3.6,0.7l1.7-3.1c-0.6-1-1.3-2-1.9-3l3.6,0.4l2.3-2.8l0.7,3.6
+                    C243,121.7,244.1,122.1,245.2,122.6z"></path>
+            </g>
+        </g>
+    </g>
+    <g>
+        <path class="st4" d="M34.4,135.6v-20.8c0-3.6,1-6.5,2.9-8.5c2-2,4.9-3,8.9-3.1c4.1,0.1,7.1,1.1,9,3.1c2,2,2.9,4.8,2.9,8.5v20.8
+            c0,1.8-0.2,3.4-0.7,4.8c-0.4,1.5-1.1,2.7-2,3.9c-0.9,1.1-2.2,2-3.7,2.6c-1.6,0.6-3.4,0.9-5.4,0.9c-2.1,0.1-4-0.2-5.6-0.9
+            c-1.6-0.6-2.8-1.5-3.7-2.6c-0.9-1.1-1.6-2.4-2-3.9C34.6,139,34.4,137.4,34.4,135.6z M46.3,139.3c0.3,0,0.7-0.1,0.9-0.2
+            c0.3-0.1,0.5-0.3,0.6-0.6c0.2-0.3,0.3-0.6,0.4-0.8c0.1-0.3,0.2-0.6,0.2-1c0-0.4,0.1-0.8,0.1-1c0-0.2,0-0.5,0-0.9
+            c0-0.1,0-0.2,0-0.2v-17.6c0-0.1,0-0.3,0-0.7c0-0.3,0-0.6,0-0.7c0-0.2,0-0.4,0-0.7c0-0.3,0-0.6-0.1-0.7c0-0.2-0.1-0.4-0.2-0.7
+            c-0.1-0.3-0.2-0.5-0.3-0.6c-0.1-0.1-0.2-0.3-0.4-0.4c-0.1-0.2-0.3-0.3-0.5-0.3c-0.2-0.1-0.5-0.1-0.7-0.1c-0.4,0-0.7,0.1-1,0.2
+            c-0.3,0.1-0.5,0.3-0.7,0.6c-0.2,0.3-0.3,0.5-0.4,0.8c-0.1,0.2-0.2,0.6-0.2,1c0,0.4-0.1,0.8-0.1,1c0,0.2,0,0.5,0,1
+            c0,0.1,0,0.1,0,0.2s0,0.1,0,0.2v17.6c0,0.4,0,0.7,0,1c0,0.2,0,0.6,0.1,1c0,0.5,0.1,0.8,0.2,1.1c0.1,0.3,0.2,0.6,0.4,0.9
+            c0.2,0.3,0.4,0.5,0.7,0.7C45.6,139.2,45.9,139.3,46.3,139.3z"></path>
+        <path class="st4" d="M72.7,127.5v19.9h-9.8v-43.7h14.8c1.5,0,2.8,0.2,3.9,0.6c1.1,0.4,1.9,1,2.6,1.6c0.6,0.7,1.1,1.6,1.5,2.7
+            c0.4,1.1,0.6,2.2,0.7,3.3c0.1,1.1,0.2,2.4,0.2,4c0,0.8,0,1.5,0,2c0,0.5-0.1,1.2-0.3,2c-0.2,0.8-0.4,1.5-0.7,2
+            c-0.3,0.5-0.8,1.1-1.4,1.6c-0.6,0.5-1.4,0.9-2.3,1.2c0.9,0.2,1.6,0.5,2.2,0.9c0.6,0.4,1,1,1.3,1.7c0.3,0.7,0.4,1.3,0.5,1.8
+            c0.1,0.6,0.1,1.2,0.1,1.9c0,7.2,0,12.7-0.1,16.5h-9.4v-17c0-0.7-0.1-1.2-0.2-1.6c-0.1-0.4-0.4-0.7-0.8-0.9s-0.7-0.3-1.1-0.3
+            C73.9,127.5,73.4,127.5,72.7,127.5z M72.8,111.8v8.1h2.4c1.3,0,1.9-1.3,1.9-4c0-1.8-0.3-2.9-0.8-3.4c-0.5-0.5-1.5-0.7-3.1-0.7
+            H72.8z"></path>
+        <path class="st4" d="M90.8,147.4v-43.7h9.3v43.7H90.8z"></path>
+        <path class="st4" d="M125,147.4l-1.6-3.7c-1.7,2.8-4.4,4.2-8,4.2c-7,0-10.5-4.5-10.5-13.5v-18.9c0-2.1,0.3-3.9,0.8-5.4
+            c0.5-1.5,1.2-2.7,2-3.6c0.8-0.8,1.8-1.5,2.9-2c1.2-0.5,2.2-0.8,3.1-0.9c0.9-0.1,2-0.2,3.1-0.2c1.4,0,2.6,0.1,3.7,0.3
+            c1.1,0.2,2,0.5,2.8,0.9c0.8,0.4,1.5,0.9,2.1,1.4c0.6,0.5,1.1,1.1,1.5,1.9c0.4,0.7,0.7,1.5,1,2.2c0.2,0.7,0.4,1.6,0.6,2.6
+            c0.1,1,0.2,2,0.3,2.8c0,0.9,0.1,1.9,0.1,3.1h-9.2V115c0-0.7-0.1-1.3-0.2-1.7c-0.1-0.5-0.4-0.8-0.6-1c-0.3-0.2-0.5-0.3-0.7-0.4
+            c-0.2-0.1-0.5-0.1-0.7-0.1c-0.5,0-1,0.1-1.3,0.2c-0.3,0.1-0.6,0.3-0.8,0.5c-0.2,0.2-0.3,0.6-0.4,1.2c-0.1,0.6-0.1,1.1-0.2,1.6
+            c0,0.5,0,1.3,0,2.4v16.9c0,0.6,0,1.2,0.1,1.6c0,0.4,0.2,0.9,0.3,1.4c0.2,0.5,0.4,0.9,0.8,1.2c0.4,0.3,0.9,0.4,1.4,0.4
+            c1,0,1.6-0.4,1.9-1.1c0.3-0.8,0.5-2,0.5-3.7v-5H117V122h11.7v25.5H125z"></path>
+        <path class="st4" d="M133.6,147.4v-43.7h9.3v43.7H133.6z"></path>
+        <path class="st4" d="M171.9,103.7v43.7h-9.4l-4.8-21.9v21.9h-9.4v-43.7h9.9l4.4,20.9v-20.9H171.9z"></path>
+        <path class="st4" d="M195.5,103.7l4.8,43.7H191l-0.7-6.6h-4.9l-0.6,6.6h-9.4l4.9-43.7H195.5z M188.2,111.9h-0.9l-1.3,21h3.5
+            L188.2,111.9z"></path>
+        <path class="st4" d="M203.8,147.4v-43.7h9.7v35.2h9.9v8.5H203.8z"></path>
+    </g>
+    <g class="st5">
+        <g class="st6">
+            <path class="st3" d="M67.2,75.8l3.9-4.1l1.6,1.5l-3.9,4.1L67.2,75.8z"></path>
+            <path class="st3" d="M85.2,69.4c-1.3-0.4-2.4-1.5-3.5-3.1l-3.6-5.5c-1.1-1.7-1.6-3.2-1.5-4.5c0.1-1.3,1-2.5,2.6-3.6
+                c1.6-1,2.9-1.4,4.1-1c1.1,0.3,2.2,1.2,3.1,2.7l0.8,1.3l-3,2l-0.9-1.4c-0.3-0.5-0.6-0.8-0.8-1.1c-0.2-0.2-0.5-0.4-0.8-0.5
+                c-0.3-0.1-0.6,0-1,0.3c-0.6,0.4-0.8,0.8-0.7,1.3c0.1,0.5,0.3,1.1,0.8,1.8l4.5,7c0.5,0.7,0.9,1.2,1.3,1.4c0.4,0.2,0.9,0.2,1.4-0.2
+                c0.5-0.3,0.8-0.7,0.7-1.2c-0.1-0.5-0.4-1-0.8-1.7l-1-1.5l3-2l0.8,1.3c1,1.5,1.4,2.8,1.2,4c-0.1,1.2-1,2.3-2.6,3.4
+                C87.9,69.5,86.4,69.8,85.2,69.4z"></path>
+            <path class="st3" d="M89.1,47.4l7.3-3.2l1,2.4l-3.9,1.7l1.9,4.4l3-1.3l1,2.4l-3,1.3l2.3,5.3l4-1.7l1,2.3l-7.3,3.2L89.1,47.4z"></path>
+            <path class="st3" d="M101.8,42.3l4.6-1.1c1.9-0.5,3.4-0.5,4.6,0c1.1,0.5,1.9,1.6,2.3,3.3c0.3,1.2,0.4,2.1,0.2,2.9
+                c-0.1,0.8-0.6,1.5-1.3,2l4.6,8.1l-3.7,0.9l-4-7.5l-1.3,0.3l2,8l-3.6,0.9L101.8,42.3z M108.3,48.7c0.8-0.2,1.4-0.6,1.6-1.1
+                c0.2-0.5,0.3-1.2,0-2.1c-0.2-0.9-0.5-1.5-0.9-1.8c-0.4-0.3-1-0.4-1.8-0.2l-1.2,0.3l1.3,5.1L108.3,48.7z"></path>
+            <path class="st3" d="M120.1,41.5l-2.8,0.2l-0.2-2.7l9.3-0.7l0.2,2.7l-2.8,0.2l1.2,15.5l-3.7,0.3L120.1,41.5z"></path>
+            <path class="st3" d="M131.2,38.4l3.7,0.2l-0.9,18.3l-3.7-0.2L131.2,38.4z"></path>
+            <path class="st3" d="M140.8,39.1l7.6,1.3l-0.4,2.5l-4-0.7l-0.8,4.9l3.4,0.6l-0.4,2.6l-3.4-0.6l-1.4,8.1l-3.7-0.6L140.8,39.1z"></path>
+            <path class="st3" d="M153.2,41.7l3.5,1.1l-5.3,17.5l-3.5-1.1L153.2,41.7z"></path>
+            <path class="st3" d="M162.4,44.8l7.3,3.2l-1,2.4l-3.9-1.7l-2,4.4l3,1.3l-1.1,2.4l-3-1.3l-2.3,5.2l3.9,1.8l-1,2.3l-7.3-3.3
+                L162.4,44.8z"></path>
+            <path class="st3" d="M174.7,50.7l3.7,2.5c1.3,0.8,2.2,1.7,2.7,2.5c0.5,0.8,0.7,1.7,0.5,2.6c-0.2,0.9-0.6,1.9-1.4,3.1l-3.7,5.6
+                c-0.8,1.2-1.5,2-2.3,2.5c-0.8,0.5-1.6,0.7-2.6,0.6c-0.9-0.1-2-0.6-3.3-1.4l-3.8-2.5L174.7,50.7z M169.8,66.3
+                c0.5,0.4,1,0.5,1.4,0.5c0.4,0,0.7-0.1,1-0.4c0.3-0.3,0.6-0.7,1-1.3l4.2-6.3c0.4-0.6,0.6-1,0.7-1.4c0.1-0.3,0.1-0.7-0.1-1
+                c-0.2-0.3-0.5-0.6-1-1l-0.7-0.4l-7.2,10.9L169.8,66.3z"></path>
+            <path class="st3" d="M187.1,72.4l3.8,4.2l-1.7,1.5l-3.8-4.2L187.1,72.4z"></path>
+        </g>
+        <g class="st6">
+            <path class="st3" d="M69.1,181.7l3.8,4.2l-1.7,1.5l-3.8-4.2L69.1,181.7z"></path>
+            <path class="st3" d="M78,200.3c-0.1-1.3,0.4-2.8,1.5-4.4l3.6-5.4c1.1-1.7,2.3-2.7,3.5-3.1c1.2-0.4,2.7-0.1,4.3,1
+                c1.6,1,2.4,2.2,2.5,3.3c0.1,1.2-0.3,2.5-1.2,3.9l-0.9,1.3l-3-2l0.9-1.4c0.3-0.5,0.5-0.8,0.7-1.1c0.1-0.3,0.2-0.6,0.1-0.9
+                c-0.1-0.3-0.3-0.6-0.7-0.8c-0.6-0.4-1-0.4-1.5-0.2c-0.4,0.3-0.8,0.7-1.3,1.4l-4.6,6.9c-0.5,0.7-0.7,1.3-0.8,1.8
+                c0,0.5,0.2,0.9,0.7,1.2c0.5,0.4,1,0.4,1.4,0.1c0.4-0.3,0.8-0.7,1.3-1.4l1-1.5l3,2l-0.8,1.3c-1,1.5-2,2.4-3.2,2.7
+                c-1.2,0.4-2.5,0-4.1-1C79,202.8,78.1,201.6,78,200.3z"></path>
+            <path class="st3" d="M97.3,192.3l7.3,3.3l-1.1,2.3l-3.9-1.8l-2,4.4l3,1.4l-1.1,2.4l-3-1.4l-2.4,5.2l3.9,1.8l-1,2.3l-7.3-3.3
+                L97.3,192.3z"></path>
+            <path class="st3" d="M106.3,196.4l4.6,1.2c1.9,0.5,3.3,1.2,4,2.2c0.8,0.9,0.9,2.3,0.5,4c-0.3,1.2-0.7,2-1.2,2.7
+                c-0.5,0.6-1.2,1-2.1,1.2l0.2,9.3l-3.7-1l0.1-8.5l-1.3-0.3l-2.1,8l-3.6-0.9L106.3,196.4z M109,205.1c0.8,0.2,1.5,0.2,1.9-0.2
+                c0.5-0.3,0.8-0.9,1-1.8c0.2-0.9,0.2-1.6,0-2c-0.2-0.5-0.7-0.8-1.5-1l-1.2-0.3l-1.3,5.1L109,205.1z"></path>
+            <path class="st3" d="M120.5,202.2l-2.8-0.2l0.2-2.7l9.3,0.8l-0.2,2.7l-2.8-0.2l-1.4,15.5l-3.7-0.3L120.5,202.2z"></path>
+            <path class="st3" d="M129.3,199.9l3.7-0.1l0.6,18.3l-3.7,0.1L129.3,199.9z"></path>
+            <path class="st3" d="M136.1,199.6l7.6-1.2l0.4,2.5l-4,0.6l0.8,4.9l3.4-0.5l0.4,2.6l-3.4,0.5l1.3,8.1l-3.7,0.6L136.1,199.6z"></path>
+            <path class="st3" d="M146,197.7l3.6-1l5.1,17.6l-3.6,1L146,197.7z"></path>
+            <path class="st3" d="M152.5,195.7l7.3-3.2l1,2.4l-3.9,1.7l1.9,4.5l3-1.3l1,2.4l-3,1.3l2.3,5.3l4-1.7l1,2.3l-7.4,3.2L152.5,195.7z
+                "></path>
+            <path class="st3" d="M161.6,191.7l3.8-2.4c1.3-0.8,2.4-1.3,3.3-1.5c0.9-0.1,1.8,0,2.6,0.5c0.8,0.5,1.5,1.3,2.3,2.5l3.6,5.6
+                c0.8,1.2,1.2,2.2,1.4,3.1c0.2,0.9,0,1.8-0.5,2.6c-0.5,0.8-1.4,1.6-2.6,2.4l-3.8,2.5L161.6,191.7z M173.9,202.4
+                c0.5-0.4,0.9-0.7,1-1c0.1-0.3,0.2-0.7,0-1.1c-0.1-0.4-0.4-0.9-0.8-1.5l-4.1-6.3c-0.4-0.6-0.7-1-1-1.2c-0.3-0.2-0.6-0.4-0.9-0.3
+                c-0.3,0-0.8,0.2-1.3,0.6l-0.7,0.4l7.1,11L173.9,202.4z"></path>
+            <path class="st3" d="M183.9,186.6l3.9-4.2l1.6,1.5l-3.9,4.2L183.9,186.6z"></path>
+        </g>
+    </g>
+    <rect x="62.3" y="89.6" class="st3" width="131.4" height="2.4"></rect>
+    <rect x="62.3" y="160.9" class="st3" width="131.4" height="2.4"></rect>
+    <g>
+        <polygon class="st3" points="127.9,55.4 130.7,61.3 137.2,62.1 132.5,66.6 133.7,73 127.9,69.9 122.2,73 123.4,66.6 118.6,62.1 
+            125.1,61.3 		"></polygon>
+        <polygon class="st3" points="147,59.6 149,63.8 153.6,64.4 150.3,67.6 151.1,72.2 147,70 142.9,72.2 143.8,67.6 140.4,64.4 
+            145,63.8 		"></polygon>
+        <polygon class="st3" points="108.8,59.6 110.8,63.8 115.4,64.4 112,67.6 112.9,72.2 108.8,70 104.7,72.2 105.6,67.6 102.2,64.4 
+            106.8,63.8 		"></polygon>
+    </g>
+    <g class="st5">
+        <polygon class="st7" points="127.9,187.4 125.1,181.5 118.6,180.6 123.4,176.1 122.2,169.7 127.9,172.8 133.7,169.7 132.5,176.1 
+            137.2,180.6 130.7,181.5 		"></polygon>
+        <polygon class="st7" points="108.8,183.1 106.8,178.9 102.2,178.3 105.6,175.1 104.7,170.6 108.8,172.8 112.9,170.6 112,175.1 
+            115.4,178.3 110.8,178.9 		"></polygon>
+        <polygon class="st7" points="147,183.1 145,178.9 140.4,178.3 143.8,175.1 142.9,170.6 147,172.8 151.1,170.6 150.3,175.1 
+            153.6,178.3 149,178.9 		"></polygon>
+    </g>
+    <g>
+        <path class="st3" d="M63.7,102.2h33.5v9.4H77.3v7.7h17v8.9h-17v17.9H63.7V102.2z"></path>
+        <path class="st3" d="M104.7,102.2h20.1c4,0,7.2,0.5,9.6,1.6c2.4,1.1,4.5,2.6,6.1,4.6c1.6,2,2.8,4.4,3.5,7c0.7,2.7,1.1,5.5,1.1,8.5
+            c0,4.7-0.5,8.3-1.6,10.9c-1.1,2.6-2.5,4.7-4.4,6.5c-1.9,1.7-3.9,2.9-6.1,3.5c-3,0.8-5.7,1.2-8.1,1.2h-20.1V102.2z M118.2,112.2v24
+            h3.3c2.8,0,4.8-0.3,6-0.9c1.2-0.6,2.1-1.7,2.8-3.3c0.7-1.6,1-4.1,1-7.6c0-4.6-0.8-7.8-2.3-9.5c-1.5-1.7-4-2.6-7.5-2.6H118.2z"></path>
+        <path class="st3" d="M176.5,138.9h-15.4l-2.1,7.2h-13.8l16.5-43.9h14.8l16.5,43.9h-14.2L176.5,138.9z M173.7,129.4l-4.8-15.8
+            l-4.8,15.8H173.7z"></path>
+    </g>
+    <g>
+        <g>
+            <path class="st3" d="M71.7,183h-3v-7.4h-3.3v7.4h-3v-9.8h9.4V183z"></path>
+            <path class="st3" d="M73.3,178.1c0-1.6,0.4-2.8,1.3-3.7c0.9-0.9,2.1-1.3,3.7-1.3c1.6,0,2.9,0.4,3.8,1.3c0.9,0.9,1.3,2.1,1.3,3.7
+                c0,1.1-0.2,2.1-0.6,2.8s-0.9,1.3-1.7,1.7c-0.7,0.4-1.6,0.6-2.7,0.6c-1.1,0-2-0.2-2.7-0.5s-1.3-0.9-1.8-1.7S73.3,179.3,73.3,178.1
+                z M76.4,178.1c0,1,0.2,1.7,0.6,2.1c0.4,0.4,0.9,0.6,1.5,0.6c0.6,0,1.2-0.2,1.5-0.6c0.4-0.4,0.5-1.2,0.5-2.3c0-0.9-0.2-1.6-0.6-2
+                c-0.4-0.4-0.9-0.6-1.5-0.6c-0.6,0-1.1,0.2-1.5,0.6S76.4,177.1,76.4,178.1z"></path>
+            <path class="st3" d="M95.4,185.1h-2.4V183h-6.2v2.1h-2.4v-4.4h1c0.6-1.6,0.8-3.4,0.8-5.3v-2.2h8.2v7.5h1.1V185.1z M91.3,180.7
+                v-5.1h-2.4v0.1c0,1.4-0.2,3-0.7,5H91.3z"></path>
+            <path class="st3" d="M95.9,173.2h9.2v2.4H102v7.4h-3v-7.4h-3.1V173.2z"></path>
+            <path class="st3" d="M106.4,173.2h5.7c0.9,0,1.7,0.2,2.2,0.7s0.8,1,0.8,1.7c0,0.6-0.2,1.1-0.5,1.5c-0.2,0.3-0.6,0.5-1.1,0.7
+                c0.7,0.2,1.2,0.5,1.6,0.9c0.3,0.4,0.5,0.9,0.5,1.6c0,0.5-0.1,1-0.4,1.4c-0.2,0.4-0.6,0.7-1,1c-0.3,0.1-0.6,0.3-1.1,0.3
+                c-0.7,0.1-1.1,0.1-1.4,0.1h-5.2V173.2z M109.5,177.1h1.3c0.5,0,0.8-0.1,1-0.2c0.2-0.2,0.3-0.4,0.3-0.7c0-0.3-0.1-0.5-0.3-0.7
+                s-0.5-0.2-1-0.2h-1.3V177.1z M109.5,180.9h1.5c0.5,0,0.9-0.1,1.1-0.3s0.3-0.4,0.3-0.7c0-0.3-0.1-0.5-0.3-0.7
+                c-0.2-0.2-0.6-0.3-1.1-0.3h-1.5V180.9z"></path>
+            <path class="st3" d="M117,173.2h8.1v2.1h-5.1v1.6h4.7v2h-4.7v1.9h5.2v2.2H117V173.2z"></path>
+            <path class="st3" d="M126.9,173.2h5c1.1,0,1.9,0.3,2.5,0.8c0.5,0.5,0.8,1.3,0.8,2.2c0,1-0.3,1.8-0.9,2.3
+                c-0.6,0.6-1.5,0.8-2.7,0.8h-1.7v3.6h-3V173.2z M129.9,177.4h0.7c0.6,0,1-0.1,1.2-0.3c0.2-0.2,0.4-0.5,0.4-0.8
+                c0-0.3-0.1-0.6-0.3-0.8c-0.2-0.2-0.6-0.3-1.2-0.3h-0.9V177.4z"></path>
+            <path class="st3" d="M150.5,183h-3.4l-1.2-2.5c-0.3-0.6-0.5-1-0.7-1.1c-0.2-0.1-0.4-0.2-0.6-0.2v3.9h-3v-3.9
+                c-0.3,0-0.5,0.1-0.7,0.2c-0.2,0.1-0.4,0.5-0.6,1.1l-1.2,2.5h-3.4l1.3-2.7c0.4-0.7,0.7-1.3,1-1.6c0.3-0.3,0.7-0.6,1.1-0.7
+                c-0.3-0.1-0.6-0.3-0.8-0.5c-0.2-0.2-0.4-0.5-0.5-1c-0.2-0.4-0.4-0.8-0.6-1c-0.2-0.2-0.6-0.3-1.1-0.3h-0.2v-2.1
+                c1.1,0,1.9,0.1,2.4,0.2c0.5,0.1,0.9,0.3,1.1,0.6c0.2,0.3,0.5,0.7,0.7,1.3c0.3,0.8,0.5,1.3,0.7,1.5c0.1,0.2,0.4,0.3,0.6,0.3v-3.8
+                h3v3.8c0.3,0,0.5-0.1,0.6-0.3c0.1-0.2,0.4-0.7,0.7-1.5c0.2-0.6,0.5-1,0.7-1.3c0.2-0.3,0.6-0.5,1.1-0.6c0.5-0.1,1.3-0.2,2.4-0.2
+                v2.1H150c-0.5,0-0.9,0.1-1.1,0.3c-0.2,0.2-0.5,0.5-0.6,1c-0.2,0.4-0.3,0.8-0.5,1s-0.4,0.4-0.8,0.5c0.4,0.1,0.8,0.4,1.1,0.7
+                c0.3,0.3,0.7,0.9,1,1.6L150.5,183z"></path>
+            <path class="st3" d="M161.9,185.1h-2.4V183h-6.2v2.1h-2.4v-4.4h1c0.6-1.6,0.8-3.4,0.8-5.3v-2.2h8.2v7.5h1.1V185.1z M157.8,180.7
+                v-5.1h-2.4v0.1c0,1.4-0.2,3-0.7,5H157.8z"></path>
+            <path class="st3" d="M163.1,173.2h8.1v2.1h-5.1v1.6h4.7v2h-4.7v1.9h5.2v2.2h-8.2V173.2z"></path>
+            <path class="st3" d="M172.9,173.2h3v3.4h3.3v-3.4h3v9.8h-3v-4H176v4h-3V173.2z"></path>
+            <path class="st3" d="M183.9,178.1c0-1.6,0.4-2.8,1.3-3.7c0.9-0.9,2.1-1.3,3.7-1.3c1.6,0,2.9,0.4,3.8,1.3c0.9,0.9,1.3,2.1,1.3,3.7
+                c0,1.1-0.2,2.1-0.6,2.8c-0.4,0.7-0.9,1.3-1.7,1.7c-0.7,0.4-1.6,0.6-2.7,0.6c-1.1,0-2-0.2-2.7-0.5c-0.7-0.4-1.3-0.9-1.8-1.7
+                C184.2,180.2,183.9,179.3,183.9,178.1z M186.9,178.1c0,1,0.2,1.7,0.6,2.1c0.4,0.4,0.9,0.6,1.5,0.6c0.6,0,1.2-0.2,1.5-0.6
+                c0.4-0.4,0.5-1.2,0.5-2.3c0-0.9-0.2-1.6-0.6-2c-0.4-0.4-0.9-0.6-1.5-0.6c-0.6,0-1.1,0.2-1.5,0.6S186.9,177.1,186.9,178.1z"></path>
+        </g>
+    </g>
+</g>
+<g>
+    <path class="st3" d="M195.6,101.7h2.7l-0.2,1.8c0,0.4-0.1,0.9-0.3,1.5c0.3-0.2,0.5-0.3,0.6-0.3c0.3-0.2,0.6-0.3,0.8-0.4l1.7-0.8
+        l0.8,2.5l-1.9,0.4c-0.3,0.1-0.8,0.1-1.5,0.1c0.4,0.4,0.8,0.7,1.1,1l1.3,1.4l-2.2,1.6l-0.9-1.6c-0.1-0.2-0.3-0.7-0.6-1.4
+        c-0.3,0.7-0.5,1.2-0.6,1.4l-0.9,1.6l-2.2-1.6l1.3-1.4c0.4-0.4,0.7-0.7,1.1-1c-0.4,0-0.9-0.1-1.5-0.2l-1.9-0.3l0.9-2.5l1.7,0.8
+        c0.2,0.1,0.6,0.3,1.3,0.7c-0.2-0.7-0.2-1.2-0.3-1.5L195.6,101.7z"></path>
+</g>
+</svg>
+                    </div>
+                    <div class="info__center-statistics">
+                        <p class="info__center-statistics-title">Контактные линзы MiSight®&nbsp;1&nbsp;day с&nbsp;технологией ActivControl®</p>
+                        <ul class="info__center-statistics-list">
+                            <li class="info__center-statistics-list-item">корректируют зрение,</li>
+                            <li class="info__center-statistics-list-item">замедляя прогрессирование<br>близорукости у детей в&nbsp;среднем на<span class="info__center-statistics-list-item--number">59<span class="info__center-statistics-list-item--percent">%</span><sup class="info__center-statistics-list-item--sup note">3</sup></span></li>
+                            <li class="info__center-statistics-list-item">и одновременно сдерживают<br>удлинение глаза на<span class="info__center-statistics-list-item--number">52<span class="info__center-statistics-list-item--percent">%</span><sup class="info__center-statistics-list-item--sup note">3</sup></span></li>
+                        </ul>
+                        <p class="info__center-statistics-text">MiSight®&nbsp;1&nbsp;day замедляет прогрессирование близорукости...</p>
+                    </div>
+                </div>
+                <div class="info__bottom">
+                    <div class="info__bottom-for-photo">
+                        <div class="info__bottom-for-photo-block">
+                            <img src="https://coopervision.ru/sites/coopervision.ru/files/boy-1.jpg?timestamp=1602499182" width="276" height="275" alt="" class="info__bottom-photo">
+                            <img src="https://coopervision.ru/sites/coopervision.ru/files/boy-2.jpg?timestamp=1602499196" width="276" height="275" alt="" class="info__bottom-photo">
+                            <img src="https://coopervision.ru/sites/coopervision.ru/files/good-girl.jpg?timestamp=1602499401" width="276" height="275" alt="" class="info__bottom-photo">
+                        </div>
+                        <p class="info__bottom-for-photo-text">.. и дает возможность видеть четко, активно участвовать<br>в спортивных и подвижных играх.<sup class="note">3</sup></p>
+                    </div>
+                    <div class="info__bottom-for-link">
+                        <a target="_blank" href="https://coopervision.ru/sites/coopervision.ru/files/znakomstvo_s_programmoy_yab_s_linzami_misight_1_day.pdf" class="info__bottom-link jsPdfBrochureProgram">Скачать брошюру по программе «Яркое Будущее™» с&nbsp;линзами MiSight®&nbsp;1&nbsp;day</a>
+                        <a target="_blank" href="https://coopervision.ru/sites/coopervision.ru/files/rekomendacii_kak_nadevat_i_snimat_linzy_misight_1_day.pdf" class="info__bottom-link jsPdfPutLinzy">Как надевать и снимать линзы</a>
+                    </div>
+                </div>
+                <div class="more">
+                    <a href="https://coopervision.ru/misight/brilliant" class="more__text">Подробнее
+                        <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"></path>
+        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page5" class="nearsightedness__page nearsightedness__page--5">
+
+        <div class="test">
+            <div class="test__wrap">
+                <p class="test__title">Оцените риск близорукости</p>
+                <p class="test__text">Пройдите тест для оценки риска развития прогрессирования близорукости вашего ребенка в будущем, и получите ценные индивидуальные рекомендации</p>
+                <ul class="test__step">
+                    <li class="test__step-item test__step-item--active"></li>
+                    <li class="test__step-item"></li>
+                    <li class="test__step-item"></li>
+                    <li class="test__step-item"></li>
+                    <li class="test__step-item"></li>
+                    <li class="test__step-item"></li>
+                </ul>
+                <div class="test__content">
+                    <div class="test__content-left">
+                        <label class="test__content-label">Сколько лет вашему ребенку?
+                            <div class="test__content-for-select">
+                                <select class="test__content-select" name="" id="" disabled="">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                                <p class="test__content-select-text">Год</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="test__content-right">
+                        <div class="test__content-block">
+                            <div class="test__content-block-img"></div>
+                            <div class="test__content-block-for-text">
+                                <p class="test__content-block-text test__content-block-text--title">Почему это важно?</p>
+                                <p class="test__content-block-text">Возраст, в котором у вашего ребенка появилась близорукость, является важным фактором. Он влияет на то, насколько быстро будет меняться (ухудшаться) его зрение. Чем раньше начинается близорукость, тем чаще, вероятно, придется меняет его средства коррекции (очки, контактные линзы).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test__for-arrow">
+                    <a class="test__arrow" href="https://coopervision.ru/misight/assess-risk-of-myopia">Пройти тест</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+<style>
+    .plug-map {
+        width: 100%;
+        background: linear-gradient(180deg, #6C207F 0%, #A42380 100%);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .plug-map .plug-map__title {
+        padding: 130px 15px;
+        font-size: 50px;
+        font-weight: 400;
+        text-align: center;
+        color: #fff;
+        width: 1035px;
+    }
+    .plug-map .plug-map__img {
+        position: absolute;
+    }
+    .plug-map .plug-map__img-1 {
+        left: 0;
+        bottom: 0;
+        width: 244px;
+        height: 291px;
+    }
+    .plug-map .plug-map__img-2 {
+        right: 0;
+        top: 0;
+        width: 410px;
+        height: 357px;
+    }
+    @media (max-width: 1400px) {
+        .plug-map .plug-map__img-1 {
+            width: 195px;
+            height: auto;
+        }
+        .plug-map .plug-map__img-2 {
+            width: 325px;
+            height: auto;
+        }
+    }
+    @media (max-width: 1180px) {
+        .plug-map {
+            margin-bottom: 50px;
+        }
+    }
+    @media (max-width: 1200px) {
+        .plug-map .plug-map__title {
+            font-size: 25px;
+        }
+        .plug-map .plug-map__img-1 {
+            width: 156px;
+            height: auto;
+        }
+        .plug-map .plug-map__img-2 {
+            width: 260px;
+            height: auto;
+        }
+    }
+    @media (max-width: 1100px) {
+        .plug-map .plug-map__img-1 {
+            width: 125px;
+            height: auto;
+        }
+        .plug-map .plug-map__img-2 {
+            width: 208px;
+            height: auto;
+        }
+    }
+</style>
+
+    <div class="plug-map">
+        <p class="plug-map__title"> Скоро на карте появится больше оптик, где будет доступна программа «Яркое Будущее™»</p>
+        <img class="plug-map__img plug-map__img-1" src="https://coopervision.ru/sites/coopervision.ru/files/asset-1_1.png?timestamp=1604393728" alt="">
+        <img class="plug-map__img plug-map__img-2" src="https://coopervision.ru/sites/coopervision.ru/files/asset-1_2.png?timestamp=1604393742" alt="">
+    </div>
+
+    <div id="page6" class="nearsightedness__page nearsightedness__page--6">
+        <div class="map">
+            <div class="map__wrap">
+                <p class="map__title">Сведите к&nbsp;минимуму риски<br>для здоровья глаз вашего ребенка</p>
+                <p class="map__text">Запишитесь в&nbsp;оптику к&nbsp;квалифицированному специалисту </p>
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
+                <div class="map__control">
+                    <div class="map__control-for-select">
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Регион</div>
+                            <ul class="select__list select-oblast">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Город</div>
+                            <ul class="select__list select-city">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Район/Метро</div>
+                            <ul class="select__list select-metro">
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="map" class="map__control-iframe"></div>
+                    <div id="optik-list" class="map__control-adress optik-wrapper hide-class">
+                        <div class="map__control-adress-block" rv-each-optiks="data.optiks">
+                            <p class="map__control-adress-block-title" rv-text="optiks.title"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.adress"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.time"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>
+
+                            <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>
+                            <!-- <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page6_2" class="nearsightedness__page nearsightedness__page--6_2 hide">
+        <div class="map">
+            <div class="map__wrap">
+                <p class="map__title">Найти специалиста рядом</p>
+                <p class="map__text">Выберите квалифицированного специалиста для&nbsp;снижения рисков для&nbsp;здоровья глаз вашего ребенка в&nbsp;будущем в&nbsp;вашем городе</p>
+                <p class="map__text mobile__map mobile-map-text">Мы определили ваше местоположение как </p>
+                <p class="map__text mobile__map">и подобрали оптики в&nbsp;шаговой доступности.</p>
+                <input type="button" class="map__control-adress-block-button change-location-mobile-click" value = "Найти в другом месте">
+                <div class="map__control">
+                    <div class="map__control-for-select">
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Регион</div>
+                            <ul class="select__list select-oblast">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Город</div>
+                            <ul class="select__list select-city">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head">Район/Метро</div>
+                            <ul class="select__list select-metro">
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="map_2" class="map__control-iframe"></div>
+                    <!--
+                    <div class="map__control-adress"> -->
+
+                    <div id="optik-list_2" class="map__control-adress optik-wrapper hide-class">
+                        <div class="map__control-adress-block" rv-each-optiks="data.optiks">
+                            <p class="map__control-adress-block-title" rv-text="optiks.title"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.adress"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.time"></p>
+                            <p class="map__control-adress-block-text" rv-text="optiks.phone"></p>
+
+                            <p rv-id = "optiks.coord" class="map__control-adress-block-link jsFindAdressMap click-optik">На карте</p>
+                            <!-- <a href="" class="map__control-adress-block-button jsSignUp">Записаться</a> -->
+                        </div>
+                        <!-- </div> -->
+
+                        <!-- <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsRecommendation">2й попап</a>
+</div>
+
+<div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 1</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 2</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div>
+
+    <div class="map__control-adress-block">
+    <p class="map__control-adress-block-title">Оптика № 3</p>
+<p class="map__control-adress-block-text">Москва, ул. Ильинка, 4</p>
+<p class="map__control-adress-block-text">+7 (495) 564-89-65</p>
+<a href="#" class="map__control-adress-block-link jsFindAdressMap">На карте</a>
+<a href="#" class="map__control-adress-block-button jsSignUp">Записаться</a>
+    </div> -->
+                    </div>
+
+                </div>
+                <div class="links">
+                    <a class="links__link jsOpenPage5" href="">Оцените риск близорукости</a>
+                </div>
+            </div>
+            <img src="https://prf.coopervision.ru/sites/coopervision.ru/files/semicircle-4.png?timestamp=1602499507" alt="" class="semicircle">
+        </div>
+
+
+    <div id="warningBlock" class="block-warning">
+        <div class="block-warning-for block-warning-for--0">
+            <ol class="block-warning__wrap">
+                <li class="block-warning__text">Офтальмология: национальное руководство / под ред. С.Э.Аветисова, Е.А.Егорова, Л.К.Мошетовой и др. М., 2008. С. 276-279. По всем возникающим вопросам обращайтесь за консультацией к&nbsp;специалисту в&nbsp;салон оптики.</li>
+                <li class="block-warning__text">Буллимор М.А., Бреннан Н.А. Контроль близорукости: почему важна каждая диоптрия. Оптометрия и Наука о Зрении: Июнь 2019, Выпуск 96(6), 463-465 с.</li>
+                <li class="block-warning__text">Данные компании CooperVision, 2018 г. на&nbsp;основании результата трехлетнего рандомизированного исследования 144 носителей в&nbsp;возрасте от 8 до 12 лет (на начало исследования), MIST-401. 30.04.2018 г. Чемберлен П. и соавторы Трехлетнее рандомизированное клиническое исследование влияния линз MiSight на&nbsp;замедление прогрессирования близорукости. Оптометрия и Наука о Зрении: 2019;96:556-567.</li>
+            </ol>
+            <p class="block-warning__text block-warning__text--bold">Данная информация на сайте предназначена для родителей/ опекунов/законных представителей несовершеннолетних. Информация не предназначена для несовершеннолетних, не достигших возраста 18 лет.</p>
+            <p class="block-warning__text">Регистрационное удостоверение: № РЗН 2020/12048 от 28.09.2020 г.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modalReception" class="modal-1 mfp-hide">
+    <form class="modal-1__form" action="" method="POST">
+        <p class="modal-1__title">Получите подробную информацию о выбранной оптике и код регистрации в программе.</p>
+        <label class="modal-1__label">
+            <span>Имя<span style="color: #ff0000">*</span>:</span>
+            <input name="name" class="modal-1__input" type="text" placeholder="" required>
+        </label>
+        <p class="modal-1__text">Я подтверждаю, что мне уже больше 18 лет</p>
+        <label class="modal-1__label">
+            <span>E-mail<span style="color: #ff0000">*</span>:</span>
+            <input name="email" class="modal-1__input jsMail" type="text" placeholder="" required>
+        </label>
+        <label class="modal-1__label">
+            <span>Телефон<span style="color: #ff0000">*</span>:</span>
+            <input name="tel" class="modal-1__input jsPhone" type="text" placeholder="" required>
+        </label>
+        <input type="checkbox" id="modalCheckBox1" class="modal-1__checkbox" name="modalCheckBox1" value="yes" required>
+        <label for="modalCheckBox1" id="modalCheckBox1Label" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/tekst_soglasiya_na_obrabotku_dannyh.pdf" target="_blank">Согласен</a> на обработку персональных данных<span style="color: #ff0000">*</span>, принимаю <a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/politika_konfidencialnosti_kupervizhn.pdf" target="_blank">Политику конфиденциальности</a></p></label>
+        <input type="checkbox" class="modal-1__checkbox modal-1__checkbox--2" name="modalCheckBox1_2" id="modalCheckBox1_2" value="yes" required>
+        <label for="modalCheckBox1_2" id="modalCheckBox1_2Label" class="modal-1__checkbox-label"><p class="modal-1__checkbox-text"><a class="modal-1__checkbox-link" href="https://coopervision.ru/sites/coopervision.ru/files/tekst_soglasiya_na_kommunikaciyu.pdf" target="_blank">Согласен</a> на получение рекламно-информационных сообщений на все контакты выше<span style="color: #ff0000">*</span></p></label>
+        <input id="idOptika" type="hidden" name="idOptika">
+        <input id="cityOptika" type="hidden" name="cityOptika">
+        <div class="more">
+            <button id="modalButton1" type="submit" class="more__text">Получить информацию на&nbsp;почту
+                <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+    <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
+    </svg>
+            </button>
+        </div>
+    </form>
+    <div class="modal-1__container--sms">
+        <form class="smsVerif" action="">
+            <p class="modal-1__title modal-1__title--sms">Введите код из SMS, который был отправлен на указанный вами номер телефона.</p>
+            <input class="modal-1__input modal-1__input--sms" id="modalsms1" name="modalsms1" type="text" placeholder="Код из SMS" required>
+            <div class="more more--sms">
+                <button id="modalButtonSMS" type="submit" class="more__text">Ок
+                    <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+                        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-1__container--sms-success">
+            <p class="modal-1__title modal-1__title--sms-success">Ваш код из SMS успешно принят!<br>Теперь проверьте почту!</p>
+    </div>
+    <div class="modal-1__container--sms-false">
+        <p class="modal-1__title modal-1__title--sms-false">Информация отправлена на вашу почту</p>
+    </div>
+    <div class="modal-1__container--sms-error">
+            <p class="modal-1__title modal-1__title--sms-error">Ошибка! Вы ввели неверный код!</p>
+            <div class="more more--sms-error">
+                <button id="modalButtonSMS-retry" type="submit" class="more__text">Ввести еще раз
+                    <svg class="more__text-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.5 235.5" style="enable-background:new 0 0 235.5 235.5;" xml:space="preserve">
+                        <path d="M117.8,0C52.7,0,0,52.7,0,117.8s52.7,117.7,117.8,117.7s117.8-52.7,117.8-117.7S182.8,0,117.8,0z M126.7,175.3l-7.3-22.1 l27.1-26.6H51.8v-20.4h94.5l-27.9-27.4l7.2-21.4l59.5,59L126.7,175.3z"/>
+                    </svg>
+                </button>
+            </div>
+    </div>
+</div>
+
+<!-- <script>
+    /* Табы */
+    var tabs0 = $('#tabs0');
+    var tabs1 = $('#tabs1');
+    var tabs2 = $('#tabs2');
+    var tabs3 = $('#tabs3');
+    var tabs4 = $('#tabs4');
+    var tabs5 = $('#tabs5');
+    var tabs6 = $('#tabs6');
+
+    /* Мобильные Табы */
+    var tabs0m = $('#tabs0m');
+    var tabs1m = $('#tabs1m');
+    var tabs2m = $('#tabs2m');
+    var tabs3m = $('#tabs3m');
+    var tabs4m = $('#tabs4m');
+    var tabs5m = $('#tabs5m');
+    var tabs6m = $('#tabs6m');
+
+    /* события на клике по табам */
+    $(tabs0).on('click', function () {
+        console.log('1 вкладка');
+        ga('send', 'event', 'vkladki_misight', 'click_main');
+        ym(66929020, 'reachGoal', 'click_main');
+    });
+    $(tabs1).on('click', function () {
+        console.log('2 вкладка');
+        ga('send', 'event', 'vkladki_misight', 'click_myopia');
+        ym(66929020, 'reachGoal', 'click_myopia');
+    });
+    $(tabs2).on('click', function () {
+        console.log('3 вкладка');
+        ga('send', 'event', 'vkladki_misight', 'click_methods');
+            ym(66929020, 'reachGoal', 'click_methods');
+    });
+    $(tabs3).on('click', function () {
+        console.log('4 вкладка');
+        ga('send', 'event', 'vkladki_misight', 'click_program');
+        ym(66929020, 'reachGoal', 'click_program');
+    });
+    $(tabs4).on('click', function () {
+
+    });
+    $(tabs5).on('click', function (e, x) {
+            console.log('6 вкладка');
+            ga('send', 'event', 'vkladki_misight', 'click_test');
+            ym(66929020, 'reachGoal', 'click_test');
+    });
+    $(tabs6).on('click', function () {
+
+    });
+
+    /* Клик на мобильные табы */
+    $(tabs0m).on('click', function (e) {
+        $(tabs0).trigger('click');
+    });
+    $(tabs1m).on('click', function (e) {
+        $(tabs1).trigger('click');
+    });
+    $(tabs2m).on('click', function (e) {
+        $(tabs2).trigger('click');
+    });
+    $(tabs3m).on('click', function (e) {
+        $(tabs3).trigger('click');
+    });
+    $(tabs4m).on('click', function (e) {
+        $(tabs4).trigger('click');
+    });
+    $(tabs5m).on('click', function (e) {
+        $(tabs5).trigger('click');
+    });
+    $(tabs6m).on('click', function (e) {
+        $(tabs6).trigger('click');
+    });
+    $('.jsPdfPutLinzy').on('click', function () {
+        console.log('нажал на PDF Put Linzy');
+        ym(66929020, 'reachGoal', 'pdf_rekomendacii_kak_nadevat_i_snimat_linzy_misight_1_day');
+    });
+    $('.jsPdfBrochureProgram').on('click', function () {
+        console.log('нажал на PDF Brochure Program');
+        ym(66929020, 'reachGoal', 'pdf_znakomstvo_s_programmoy_yab_s_linzami_misight_1_day');
+    });
+</script>
+
+<script>
+$(document).ready(function(){
+
+    $(".note").on("click", function (event) {
+        event.preventDefault(); //опустошим стандартную обработку
+        let block = $('#warningBlock').offset().top; //определим высоту от начала страницы до якоря
+    $('body,html').animate({scrollTop: block}, 2000); //сделаем прокрутку за 2 с
+    });
+});
+</script> -->
