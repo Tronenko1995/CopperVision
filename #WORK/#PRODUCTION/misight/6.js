@@ -805,7 +805,7 @@ var clinic_mass = {
     doctor: 'Макаровская Оксана Владимировна, Калинина Лидия Павловна, Титова Ольга Владимировна, Гриценко Екатерина Юрьевна'
     },
     '54.730235, 55.969911': {
-    Id_optika: '',
+    Id_optika: 'c632105c-addc-4b2e-974f-5aa36d93d9b1',
     balloonContent: 'Арника',
     time: '10:00-19:00',
     time_weekend: '10:00-19:00',
@@ -819,7 +819,7 @@ var clinic_mass = {
     doctor: 'Муслимова Земфира Рафаиловна'
     },
     '54.743468, 56.025732': {
-    Id_optika: '',
+    Id_optika: 'cec3dfa9-8106-48f0-8e38-2743ce004c65',
     balloonContent: 'Арника',
     time: '09:00-20:00',
     time_weekend: '11:00-18:00',
@@ -833,7 +833,7 @@ var clinic_mass = {
     doctor: 'Ягафарова Ирина Камилевна'
     },
     '54.711915, 55.992917': {
-    Id_optika: '',
+    Id_optika: '681bf5a1-ee3e-47db-8ea2-7d0f29a14b01',
     balloonContent: 'Арника',
     time: '10:00-20:00',
     time_weekend: '11:00-18:00',
@@ -847,7 +847,7 @@ var clinic_mass = {
     doctor: 'Галиуллина Альфия Ринатовна'
     },
     '54.780667, 56.118879': {
-    Id_optika: '',
+    Id_optika: 'c8534321-4184-430a-98b7-734fba1b7135',
     balloonContent: 'Арника',
     time: '10:00-20:00',
     time_weekend: '11:00-19:00',
@@ -861,7 +861,7 @@ var clinic_mass = {
     doctor: 'Ихсанова Алсу Насибулловна, Шарифгалеева Гульназ Радиковна'
     },
     '54.725805, 55.947696': {
-    Id_optika: '',
+    Id_optika: '5142f24a-19de-4286-b66d-948cee989c4a',
     balloonContent: 'Оправа',
     time: '10:00-20:00',
     time_weekend: '10:00-20:00',
@@ -1129,7 +1129,7 @@ var clinic_mass = {
     '54.516474, 36.286988': {
     Id_optika: '130cafdf-97c8-498e-b828-28c29472e201',
     balloonContent: 'Доктор Линз',
-    time: '11:00-19:00 ПН - выходной',
+    time: '11:00-19:00 ПН-выходной',
     time_weekend: '11:00-19:00',
     time_weekend_sun: 'выходной',
     phone: '+7 (4842) 40 46 20',
@@ -1155,7 +1155,7 @@ var clinic_mass = {
     doctor: 'Максимова Наталья Васильевна, Тушина Светлана Юрьевна'
     },
     '55.345985, 86.166213': {
-    Id_optika: '',
+    Id_optika: 'f2d56071-714c-4c89-b988-8e0fcdea39d0',
     balloonContent: 'Визус-2',
     time: '10:00-19:00',
     time_weekend: '10:00-17:00',
@@ -1491,7 +1491,7 @@ var clinic_mass = {
     doctor: 'Сафонкина Елена Юрьевна'
     },
     '56.000457, 37.205749': {
-    Id_optika: '',
+    Id_optika: 'a905866c-62ea-45f1-a2b8-45e9b8cdbee0',
     balloonContent: 'Оптика Плюс Минус',
     time: '09:00-19:00',
     time_weekend: '09:00-19:00',
@@ -1981,7 +1981,7 @@ var clinic_mass = {
     doctor: 'Оксана Петрова'
     },
     '55.096523, 38.760149': {
-    Id_optika: '',
+    Id_optika: 'ce2c7c8c-695a-4e6b-82c9-33adcd93a600',
     balloonContent: 'Тет-а-Тет',
     time: '10:00-18:30',
     time_weekend: '10:00-17:00',
@@ -3225,7 +3225,7 @@ var clinic_mass = {
     rayon: '',
     street: 'пр-т Тракторостроителей, 63/21',
     doctor: 'Наталья Генриховна Нигмедзянова'
-    }
+    },
 
 
 
