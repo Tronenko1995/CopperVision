@@ -774,7 +774,7 @@ function init() {
 
 
 //массив с данными об оптиках
-var clinic_mass = {’
+var clinic_mass = {
 
     '53.356293, 83.699637': {
     Id_optika: '965a7b61-d962-42e5-b884-0844986e208c',
